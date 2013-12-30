@@ -5,30 +5,32 @@ public class ArmoGUI : MonoBehaviour
   [SerializeField] private Character character = null;
   [SerializeField] private GameObject[] activeObjs = null;
   [SerializeField] private GameObject[] deactiveObjs = null;
-  [SerializeField] private ThingTrigger thingTrigger = null;
+  [SerializeField] private ThingTrigger[] thingTrigger = null;
   [SerializeField] private UISprite empty = null;
   [SerializeField] private UISprite passiv = null;
   [SerializeField] private UISprite activ = null;
+  [SerializeField] private UILabel counter = null;
+  [SerializeField] private int patrons = 10;
   [SerializeField] private int id = 0;
   [SerializeField] private int state = 0;
-  [SerializeField] private bool presence = false;
+  //[SerializeField] private bool presence = false;
 
-  public bool Presence
-  {
-    get { return presence;}
-    set 
-    { 
-      presence = value;
-      if (presence && state == 0)
-      {
-        State = 1; 
-      }
-      if (!presence)
-      {
-        State = 0;
-      }
-    }
-  }
+  //public bool Presence
+  //{
+  //  get { return presence;}
+  //  set 
+  //  { 
+  //    presence = value;
+  //    if (presence && state == 0)
+  //    {
+  //      State = 1; 
+  //    }
+  //    if (!presence)
+  //    {
+  //      State = 0;
+  //    }
+  //  }
+  //}
 
   public int State
   {
@@ -50,28 +52,39 @@ public class ArmoGUI : MonoBehaviour
     get { return deactiveObjs; }
   }
 
+  public UILabel Counter
+  {
+    get { return counter;}
+  }
+
 	private void Start ()
 	{
 	  SetSprite();
-    if (thingTrigger!=null)
-	    thingTrigger.GetThing += GetThing;
+    //if (thingTrigger!=null)
+    foreach (var tht in thingTrigger)
+	  {
+      tht.GetThing += GetThing;
+	  }
+	    
 	}
 
   private void Destroy()
   {
-    if (thingTrigger != null) 
-      thingTrigger.GetThing -= GetThing;
+    foreach (var tht in thingTrigger)
+    {
+      tht.GetThing -= GetThing;
+    }
   }
 
   protected virtual void OnPress(bool isPressed)
   {
-    if (!isPressed)
+    if (!isPressed && Time.timeScale > 0.1f)
     {
-      if (presence)
-      {
+      //if (presence)
+      //{
         if (state == 1)
         {
-          character.ResetArmo();
+          character.ResetArmo(false);//не все сбрасывать
           Debug.LogWarning("ResetArmo");
           State = 2;
           character.CurrentArmo = id;
@@ -93,7 +106,7 @@ public class ArmoGUI : MonoBehaviour
         //    thing.SetActive(false);
         //  //снять
         //}
-      }
+      //}
     }
   }
 	
@@ -123,7 +136,10 @@ public class ArmoGUI : MonoBehaviour
 
   private void GetThing()
   {
-    //State = 1;
-    Presence = true;
+    if (State == 0)
+      State = 1;
+    character.Patrons[id] += patrons;
+    counter.text = character.Patrons[id].ToString("f0");
+    //Presence = true;
   }
 }

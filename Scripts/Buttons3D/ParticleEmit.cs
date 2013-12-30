@@ -6,6 +6,7 @@ public class ParticleEmit : Button3DBase
 
   protected override void MakeAction()
   {
-    emitter.emit = true; 
+    emitter.emit = true;
+    Debug.Log("Press 3D Button Gen");
   }
 }

@@ -15,6 +15,6 @@ public class JoystickCenter : MonoBehaviour
 	
 	void Update () 
   {
-    t.localPosition = new Vector3(progressbar.joysticValue.x+64, progressbar.joysticValue.y-64, t.localPosition.z);
+    t.localPosition = new Vector3(progressbar.joysticValue.x*0.5f+64, progressbar.joysticValue.y*0.5f-64, t.localPosition.z);
 	}
 }

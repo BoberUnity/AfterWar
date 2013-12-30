@@ -22,5 +22,7 @@ public class Button3DBase : MonoBehaviour
     MakeAction();
   }
 
-  protected virtual void MakeAction(){}
+  protected virtual void MakeAction()
+  {
+  }
 }

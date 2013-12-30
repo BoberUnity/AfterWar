@@ -7,17 +7,20 @@ public class ButtonPublicFunction : MonoBehaviour
 
   protected virtual void OnPress(bool isPressed)
   {
-    if (isPressed)
+    if (Time.timeScale >0.1f)
     {
-      if (id == 0)
-        character.Jump();
-      if (id == 1)
-        character.Attack();
-    }
-    else
-    {
-      if (id == 1)
-        character.EndAttack();
+      if (isPressed)
+      {
+        if (id == 0)
+          character.Jump();
+        if (id == 1)
+          character.Attack();
+      }
+      else
+      {
+        if (id == 1)
+          character.EndAttack();
+      }
     }
   }
 }

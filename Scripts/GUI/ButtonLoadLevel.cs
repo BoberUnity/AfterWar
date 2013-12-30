@@ -10,7 +10,8 @@ public class ButtonLoadLevel : MonoBehaviour
   {
     if (!isPressed)
     {
-      loadingText.gameObject.SetActive(true);
+      if (loadingText != null)
+        loadingText.gameObject.SetActive(true);
       StartCoroutine(Load(0.001f));
     }
   }

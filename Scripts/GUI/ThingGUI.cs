@@ -9,10 +9,13 @@ public class ThingGUI : MonoBehaviour
   [SerializeField] private UISprite empty = null;
   [SerializeField] private UISprite passiv = null;
   [SerializeField] private UISprite activ = null;
+  [SerializeField] private Indicator indicator = null;
   [SerializeField] private int id = 0;//0-apt 1-gazMask 2-bron
   [SerializeField] private int state = 0;
   [SerializeField] private bool presence = false;
+  [SerializeField] private float activeTime = 5;
   private int nums = 0;
+  private float tUsed = 0;
 
   public bool Presence
   {
@@ -40,7 +43,7 @@ public class ThingGUI : MonoBehaviour
       SetSprite();
     }
   }
-
+  //=============================================================================================================
 	private void Start ()
 	{
 	  SetSprite();
@@ -51,7 +54,17 @@ public class ThingGUI : MonoBehaviour
     //if (thingTrigger!=null)
     //  thingTrigger.GetThing += GetThing;
 	}
-
+  //=============================================================================================================
+  private void Update()
+  {
+    if (state == 2)
+    {
+      tUsed += Time.deltaTime;
+      if (indicator != null)
+        indicator.Val = (activeTime - tUsed) * 100 / activeTime;
+    }
+  }
+  //=============================================================================================================
   private void Destroy()
   {
     foreach (var tTrig in thingTriggers)
@@ -61,10 +74,10 @@ public class ThingGUI : MonoBehaviour
     //if (thingTrigger != null) 
     //  thingTrigger.GetThing -= GetThing;
   }
-
+  //=============================================================================================================
   protected virtual void OnPress(bool isPressed)
   {
-    if (!isPressed)
+    if (!isPressed && Time.timeScale >0.1f)
     {
       if (presence)
       {
@@ -75,13 +88,14 @@ public class ThingGUI : MonoBehaviour
           if (counter.text == "0")
             counter.text = "";
           State = 2;
+          tUsed = 0;
           if (thing != null)
             thing.SetActive(true);
           //одеть
           if (id == 0)
-            StartCoroutine(OffButton(1.5f));
+            StartCoroutine(OffButton(activeTime));
           if (id == 1)
-            StartCoroutine(OffButton(6));//Время противогаза
+            StartCoroutine(OffButton(activeTime));//Время противогаза
         }
       }
     }

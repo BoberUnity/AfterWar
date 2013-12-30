@@ -7,6 +7,7 @@ public class LiftStarter : Button3DBase
   [SerializeField] private Animation anim = null;
   [SerializeField] private AnimationClip up = null;
   [SerializeField] private AnimationClip down = null;
+  [SerializeField] private Lamp lamp = null;
   private BoxCollider coll = null;
   private bool isUp = false;
   private bool move = false;
@@ -14,11 +15,18 @@ public class LiftStarter : Button3DBase
   private void Awake()
   {
     coll = GetComponent<BoxCollider>();
+    character.TriggerEnter += DownStarter;
+  }
+
+  private void OnDestroy()
+  {
+    character.TriggerEnter -= DownStarter;
   }
 
   protected override void  MakeAction()
   {
- 	   if (!move)
+    Debug.LogWarning("MakeAction" + Time.time);
+    if (!move && lamp.State == 2)
      {
         if (isUp)
           anim.clip = down;
@@ -37,5 +45,13 @@ public class LiftStarter : Button3DBase
     coll.enabled = true;
     move = false;
     isUp = !isUp;
+  }
+  //Активация лифта снизу
+  private void DownStarter(string oName)
+  {
+    if (oName == "DownStarter")
+    {
+      MakeAction();
+    }
   }
 }
