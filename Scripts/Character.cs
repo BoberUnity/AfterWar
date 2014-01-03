@@ -453,6 +453,12 @@ public class Character : MonoBehaviour
       stairZone = false;
       inStair = false;
     }
+    if (other.gameObject.name == "WaterDead")
+    {
+      Helth -= 101;
+      Debug.LogWarning("WaterDead");
+    }
+    Debug.LogWarning("name-" + other.gameObject.name);
   }
   //==================================================================================================================
   public void Jump()
