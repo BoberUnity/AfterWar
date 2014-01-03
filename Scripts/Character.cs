@@ -70,6 +70,8 @@ public class Character : MonoBehaviour
   [SerializeField] private AudioClip failSound = null;
   [SerializeField] private Transform hand = null;
   [SerializeField] private GameObject BlastPrefab = null;
+  [SerializeField] private Transform endPistol = null;
+  [SerializeField] private GameObject PistolPartPrefab = null;
   [SerializeField] private float curSpeed = 1;
   [SerializeField] private float rotSpeed = 580;
   [SerializeField] private float stairSpeed = 1;
@@ -493,7 +495,6 @@ public class Character : MonoBehaviour
     {
       kulak = true;
       Shoot();
-
     }
   }
   //=================================================================================================================
@@ -630,7 +631,10 @@ public class Character : MonoBehaviour
   private IEnumerator ShootParticleOn(float time)
   {
     yield return new WaitForSeconds(time);
-    armo[currentArmo].ShootParticle.emit = true;
+    if (currentArmo == 1)//Pistol
+      Instantiate(PistolPartPrefab, endPistol.position, endPistol.rotation);
+    else
+      armo[currentArmo].ShootParticle.emit = true;
     if (!kulak)
       StartCoroutine(ShootParticleOff(0.01f));
 
