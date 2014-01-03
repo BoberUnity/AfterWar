@@ -25,7 +25,7 @@ public class LiftStarter : Button3DBase
 
   protected override void  MakeAction()
   {
-    Debug.LogWarning("MakeAction" + Time.time);
+    //Debug.LogWarning("MakeAction" + Time.time);
     if (!move && lamp.State == 2)
      {
         if (isUp)

@@ -4,17 +4,17 @@
 public class StairStarter : MonoBehaviour 
 {
   [SerializeField] private Character character = null;
-  [SerializeField] private float distX = 0.1f;
+  [SerializeField] private float distX = 0.4f;
 
   protected virtual void OnPress(bool isPressed)
   {
     if (isPressed)
     {
+      //if (Mathf.Abs(transform.position.x - character.transform.position.x) < distX)
+      //{
+      //  character.Jump();
+      //}
       if (Mathf.Abs(transform.position.x - character.transform.position.x) < distX)
-      {
-        character.Jump();
-      }
-      if (Mathf.Abs(transform.position.x - character.transform.position.x) < distX * 4)
       {
         character.JumpToStair(transform.position.x - character.transform.position.x > 0);   //true - right; false - left
       }

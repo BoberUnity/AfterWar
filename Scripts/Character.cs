@@ -9,16 +9,27 @@ public class Character : MonoBehaviour
   [Serializable] private class Armo
   {
     [SerializeField] private AnimationClip armoAnim = null;
+    [SerializeField] private AnimationClip armoDownAnim = null;
+    [SerializeField] private AnimationClip attackRun = null;
     [SerializeField] private AnimationClip armoRun = null;
     [SerializeField] private AnimationClip armoIdle = null;
     [SerializeField] private ParticleEmitter shootParticle = null;
-    [SerializeField] private ArmoGUI armoGUI = null;
     [SerializeField] private AudioClip armoClip = null;
-    //[SerializeField] private int patrons = 0;
+    [SerializeField] private float animSpeed = 1;
 
     public AnimationClip ArmoAnim
     {
       get { return armoAnim; }
+    }
+
+    public AnimationClip ArmoDownAnim
+    {
+      get { return armoDownAnim; }
+    }
+
+    public AnimationClip AttackRun
+    {
+      get { return attackRun; }
     }
 
     public AnimationClip ArmoRun
@@ -36,60 +47,74 @@ public class Character : MonoBehaviour
       get { return shootParticle; }
     }
 
-    public ArmoGUI ArmoGUI
-    {
-      get { return armoGUI; }
-    }
-
     public AudioClip ArmoClip
     {
       get { return armoClip; }
     }
 
-    //public int Patrons
-    //{
-    //  get { return patrons } ;
-    //}
+    public float AnimSpeed
+    {
+      get { return animSpeed;}
+    }
   }
 
   [SerializeField] private Armo[] armo = null;
-  [SerializeField] private UIProgressBar progressBar = null;
+  /*[SerializeField]*/ private UIProgressBar progressBar = null;
   [SerializeField] private AnimationClip jumpClip = null;
   [SerializeField] private AnimationClip deadClip = null;
   [SerializeField] private AnimationClip stairClip = null;
   [SerializeField] private AnimationClip stairIdleClip = null;
   [SerializeField] private AnimationClip actionClip = null;
-  [SerializeField] private UISprite deadSprite = null;
-  [SerializeField] private Indicator helthIndicator = null;
+  /*[SerializeField]*/ private UISprite deadSprite = null;
+  /*[SerializeField]*/ private Indicator helthIndicator = null;
+  [SerializeField] private AudioClip failSound = null;
+  [SerializeField] private Transform hand = null;
+  [SerializeField] private GameObject BlastPrefab = null;
   [SerializeField] private float curSpeed = 1;
   [SerializeField] private float rotSpeed = 580;
   [SerializeField] private float stairSpeed = 1;
   [SerializeField] private float gravSpeed = 2;
   [SerializeField] private float jumpHeight = 1;
-  [SerializeField] private float helth = 80;
-  [SerializeField] private int[] patrons = null;
+  [SerializeField] private float failHeight = 1.8f;
+  private float helth = 100;
+  [SerializeField] private int[] patrons = new int[5];
+  [SerializeField] private ArmoGUI[] armosGUI = new ArmoGUI[5];
+  [SerializeField] private GameObject[] armoObjs = new GameObject[4];
+  [SerializeField] private int[] things = new int[3];//Aptek, GazMask, Bron
+  [SerializeField]
   private float visotaDown = 1;
   private float visotaUp = 1;
   private bool liftZone;
+  [SerializeField]
   private float velocity = 0;
   private CharacterController characterController = null;
   private Transform t = null;
   [SerializeField]
   private bool jump = false;
-  [SerializeField]
   private int jumpToStair = 0;//1 - right. 2 - left
   private bool kulak = false;
   private bool dead = false;
   private bool act = false;
-
   public event Action<string> TriggerEnter;
   public event Action<int> CharacterAttack;
-
-  [SerializeField] private bool inStair = false;
-  [SerializeField] private bool stairZone = false;
-  [SerializeField] private bool enableSoskok = false;
-
+  private bool inStair = false;
+  private bool stairZone = false;
+  private bool enableSoskok = false;
   private int currentArmo = 0;
+  [SerializeField]
+  private int nearMonstr = 0;
+  private bool fail = false;//падение
+  private bool enableDead = false;
+  private bool shooting = false;
+  [SerializeField]
+  private bool isG;
+  private float visotaShoot = 1;
+
+  public int NearMonstr//Количество монстров близко
+  {
+    get { return nearMonstr; }
+    set { nearMonstr = value; }
+  }
 
   public float Helth
   {
@@ -98,22 +123,64 @@ public class Character : MonoBehaviour
     { 
       if (helth > 0)
       {
+        if (value < helth && enableDead)
+          deadSprite.animation.Play();
+
         helth = Mathf.Clamp(value, 0, 100);
         SetHelth();
       }
     }
   }
 
+  public UIProgressBar Joystik
+  {
+    set { progressBar = value; }
+    get { return progressBar; }
+  }
+
+  public UISprite DeadSprite
+  {
+    set { deadSprite = value; }
+  }
+
+  public Indicator HelthIndicator
+  {
+    set { helthIndicator = value; }
+  }
+
   public int CurrentArmo
   {
     get { return currentArmo; }
-    set { currentArmo = value; }
+    set 
+    { 
+      currentArmo = value; 
+    }
   }
 
   public int[] Patrons
   {
     get { return patrons; }
     set { patrons = value; }
+  }
+
+  public ArmoGUI[] ArmosGUI
+  {
+    get { return armosGUI; }
+    set { armosGUI = value;}
+  }
+
+  public GameObject[] ArmoObjs
+  {
+    get { return armoObjs;}
+  }
+
+  public int[] Things
+  {
+    get { return things; }
+    set
+    {
+      things = value;
+    }
   }
   //==================================================================================================================
 	void Start ()
@@ -122,11 +189,15 @@ public class Character : MonoBehaviour
 	  characterController = GetComponent<CharacterController>();
 	  t = transform;
 	  patrons[0] = 10000000;
+    if (currentArmo > 0)
+      armoObjs[currentArmo - 1].gameObject.SetActiveRecursively(true);
+	  StartCoroutine(DeadSpriteOn(0.1f));
 	}
 
   //==================================================================================================================
   void Update ()
   {
+    isG = characterController.isGrounded;
     // ЛУЧИ -------------------------------
     RaycastHit[] hits;
     hits = Physics.RaycastAll(t.position + Vector3.up * 0.3f, -Vector2.up, 100);
@@ -154,26 +225,52 @@ public class Character : MonoBehaviour
       Debug.LogWarning("Pridavilo visotaUp = " + visotaUp);
       //Time.timeScale = 0;
     }
-
+    //Контроллер падения
+    if (visotaDown > failHeight && !fail)
+      fail = true;
+    
     //ГРАВИТАЦИЯ -----------------------------------
     if (!inStair)
     {
-      if (characterController.isGrounded && !jump)
+      if (characterController.isGrounded)
       {
-        if (velocity > 2)
-          Helth -= 10;
-        velocity = 0;
-      }
-      else
-      {
-        characterController.Move(-Vector3.up * Time.deltaTime * velocity);
-        velocity += Time.deltaTime * gravSpeed;
-        if (jump && stairZone && !inStair)
+        if (fail)//Падение
         {
-          inStair = true;
-          jump = false;//?
+          if (velocity > 2.4f)
+          {
+            Helth -= 10;
+            audio.clip = failSound;
+            audio.Play();
+            velocity = 0.0f;
+          }
+          fail = false;
         }
+        if (jump)
+        {
+          jump = false; 
+          Jump();
+        }
+        else
+          velocity = 0;
       }
+      characterController.Move(-Vector3.up * Time.deltaTime * velocity);
+      velocity = Mathf.Min(2.5f, velocity + Time.deltaTime * gravSpeed);
+      //else
+      //{
+      //  //Во время прыжка
+      //  characterController.Move(-Vector3.up * Time.deltaTime * velocity);
+      //  velocity = Mathf.Min(2.5f, velocity + Time.deltaTime*gravSpeed);
+      //  //Заскок на лестницу
+      //  //if (jump && stairZone && !inStair)
+      //  //{
+      //  //  inStair = true;
+      //  //  jump = false;//?
+      //  //}
+      //}
+    }
+    else
+    {
+      velocity = 0;
     }
     //ДВИЖЕНИЕ--------------------------
     if (Mathf.Abs(t.localPosition.z) > 0.02)
@@ -208,7 +305,7 @@ public class Character : MonoBehaviour
       }
       else
       {
-        if (!kulak)
+        if (!kulak && !jump && !shooting)
           SetAnimCross(armo[currentArmo].ArmoIdle, 1);
       }
     }
@@ -284,11 +381,7 @@ public class Character : MonoBehaviour
     {
       if (visotaDown < 0.31f)
         t.position += Vector3.up * (0.31f - visotaDown);
-      //if (visotaDown < 0.25f)
-      //{
-      //  t.localPosition += Vector3.up * (0.32f - visotaDown);
-      //  Debug.LogWarning("Big correct height" + visotaDown);
-      //}
+      
       if (visotaDown > 0.32f && visotaDown < 0.35f)
         t.localPosition += Vector3.up * (0.32f - visotaDown);
     }
@@ -340,16 +433,6 @@ public class Character : MonoBehaviour
       if (handler != null)
         handler(other.gameObject.name);
     }
-
-    //if (other.gameObject.name == "Rat")
-    //{
-    //  Helth -= 10;
-    //  Monstr m = other.GetComponent<Monstr>();
-    //  if (m != null)
-    //    m.Attack();
-    //  else
-    //    Debug.LogWarning("Monstr has no component");
-    //}
   }
   //==================================================================================================================
   public void Action()
@@ -372,20 +455,23 @@ public class Character : MonoBehaviour
   //==================================================================================================================
   public void Jump()
   {
-    if (characterController.isGrounded && !jump && !dead)
+    if ((characterController.isGrounded || visotaDown < 0.31f) && !jump && !dead)
     {
       velocity = -jumpHeight;
       jump = true;
-      SetAnimOnce(jumpClip, 0.4f);
-      StartCoroutine(EndJump(jumpClip.length));
+      animation[jumpClip.name].time = 0;
+      SetAnimOnce(jumpClip, 0.3f);
+      //StartCoroutine(EndJump(jumpClip.length));
     }
-    if (stairZone)
-      inStair = !inStair;
+    //Заскок на лестницу (раб)
+    //if (stairZone)
+    //  inStair = !inStair;
   }
-
+  //
+  //==================================================================================================================
   public void JumpToStair(bool right)
   {
-    if (characterController.isGrounded && !jump)
+    if (characterController.isGrounded && !jump && !dead)
     {
       if (right)
         jumpToStair = 1;
@@ -394,48 +480,20 @@ public class Character : MonoBehaviour
     }
   }
   //==================================================================================================================
-  private IEnumerator EndJump(float time)
+  public void EndJump()
   {
-    yield return new WaitForSeconds(time);
+    //yield return new WaitForSeconds(time);
     jump = false;
     progressBar.joysticValue.y = 0;
   }
   //==================================================================================================================
   public void Attack()
   {
-    if (!kulak && Patrons[currentArmo] > 0 && !dead)
+    if (!kulak && Patrons[currentArmo] > 0 && !dead && !shooting)
     {
-      Patrons[currentArmo] -= 1;
-      if (Patrons[currentArmo] < 1 || currentArmo == 0)
-        armo[currentArmo].ArmoGUI.Counter.text = "";
-      else
-        armo[currentArmo].ArmoGUI.Counter.text = Patrons[currentArmo].ToString("f0");
       kulak = true;
-      SetAnimOnce(armo[currentArmo].ArmoAnim, 0.7f);
-      armo[currentArmo].ShootParticle.emit = true;
-      audio.clip = armo[currentArmo].ArmoClip;
-      audio.Play();
-      StartCoroutine(RestartArmo(armo[currentArmo].ArmoAnim.length));
+      Shoot();
 
-      var handler = CharacterAttack;
-      if (handler != null)
-        handler(currentArmo);
-
-      while (Patrons[currentArmo] < 1)
-      {
-        armo[currentArmo].ArmoGUI.State = 0;
-        ResetArmo(true);
-        CurrentArmo -= 1;
-        if (armo[currentArmo].ArmoGUI.State == 1)
-        {
-          armo[currentArmo].ArmoGUI.State = 2;
-
-          foreach (var a in armo[currentArmo].ArmoGUI.ActiveObjs)
-          {
-            a.SetActiveRecursively(true);
-          }
-        }
-      }
     }
   }
   //=================================================================================================================
@@ -444,65 +502,38 @@ public class Character : MonoBehaviour
     yield return new WaitForSeconds(time);
     if (kulak)
     {
-      Patrons[currentArmo] -= 1;
-      if (Patrons[currentArmo] < 1 || currentArmo == 0)
-        armo[currentArmo].ArmoGUI.Counter.text = "";
-      else
-        armo[currentArmo].ArmoGUI.Counter.text = Patrons[currentArmo].ToString("f0");
-
-      SetAnimOnce(armo[currentArmo].ArmoAnim, 0.7f);
-      
-      audio.clip = armo[currentArmo].ArmoClip;
-      audio.Play();
-      StartCoroutine(RestartArmo(armo[currentArmo].ArmoAnim.length));
-
-      var handler = CharacterAttack;
-      if (handler != null)
-        handler(currentArmo);
-
-      while (Patrons[currentArmo] < 1)
-      {
-        armo[currentArmo].ArmoGUI.State = 0;
-        ResetArmo(true);
-        armo[currentArmo].ShootParticle.emit = false;
-        CurrentArmo -= 1;
-        armo[currentArmo].ShootParticle.emit = true;
-        if (armo[currentArmo].ArmoGUI.State == 1)
-        {
-          armo[currentArmo].ArmoGUI.State = 2;
-
-          foreach (var a in armo[currentArmo].ArmoGUI.ActiveObjs)
-          {
-            a.SetActiveRecursively(true);
-          }
-        }
-      }
+      Shoot();
+    }
+    else
+    {
+      shooting = false;
     }
   }
   //==================================================================================================================
   public void EndAttack()
   {
     kulak = false;
+    Debug.LogWarning("EndAttack");
     armo[currentArmo].ShootParticle.emit = false;
   }
   //==================================================================================================================
   public void ResetArmo(bool all)//true - deactive all
   {
-    foreach (var a in armo)
+    foreach (var a in armosGUI)
     {
       if (!all)
-        foreach (var aObjs in a.ArmoGUI.ActiveObjs)
+        foreach (var aObjs in a.ActiveObjs)
         {
           aObjs.SetActiveRecursively(true);
         }
 
-      foreach (var daObjs in a.ArmoGUI.DeactiveObjs)
+      foreach (var daObjs in a.DeactiveObjs)
       {
         daObjs.SetActiveRecursively(false);
       }
 
-      if (a.ArmoGUI.State == 2)
-        a.ArmoGUI.State = 1;
+      if (a.State == 2)
+        a.State = 1;
     }
   }
   ////==================================================================================================================
@@ -521,7 +552,7 @@ public class Character : MonoBehaviour
       StopAllCoroutines();
       SetAnimOnce(deadClip, 0.5f);
       dead = true;
-      deadSprite.enabled = true;
+      //deadSprite.enabled = true;
     }
   }
   //==================================================================================================================
@@ -531,6 +562,107 @@ public class Character : MonoBehaviour
     Gizmos.DrawRay(transform.position + Vector3.up * 0.3f, -Vector3.up * visotaDown);
     Gizmos.color = Color.green;
     Gizmos.DrawRay(transform.position + Vector3.up*0.3f, Vector3.up*visotaUp);
+    Gizmos.color = Color.white;
+    Gizmos.DrawRay(hand.position, -hand.forward*visotaShoot);
   }
   //==================================================================================================================
+  private void Shoot()
+  {
+    Patrons[currentArmo] -= 1;
+    if (Patrons[currentArmo] < 1 || currentArmo == 0)
+      armosGUI[currentArmo].Counter.text = "";
+    else
+      armosGUI[currentArmo].Counter.text = Patrons[currentArmo].ToString("f0");
+
+
+    //Анимация атаки на бегу
+    if (Mathf.Abs(progressBar.joysticValue.x) > 30)
+    {
+      SetAnimOnce(armo[currentArmo].AttackRun, 1);
+      StartCoroutine(RestartArmo(armo[currentArmo].ArmoAnim.length / armo[currentArmo].AnimSpeed));
+      shooting = true;
+    }
+    else
+    {
+      //Обычная атака
+      if (nearMonstr == 0)
+      {
+        SetAnimOnce(armo[currentArmo].ArmoAnim, armo[currentArmo].AnimSpeed);
+        StartCoroutine(RestartArmo(armo[currentArmo].ArmoAnim.length / armo[currentArmo].AnimSpeed));
+        shooting = true;
+      }
+      else //стреляем вниз
+      {
+        SetAnimOnce(armo[currentArmo].ArmoDownAnim, armo[currentArmo].AnimSpeed);
+        StartCoroutine(RestartArmo(armo[currentArmo].ArmoDownAnim.length / armo[currentArmo].AnimSpeed));
+        shooting = true;
+      }
+    }
+
+    StartCoroutine(ShootParticleOn(0.01f));
+    audio.clip = armo[currentArmo].ArmoClip;
+    audio.Play();
+
+    var handler = CharacterAttack;
+    if (handler != null)
+      handler(currentArmo);
+
+    while (Patrons[currentArmo] < 1)
+    {
+      armosGUI[currentArmo].State = 0;
+      ResetArmo(true);
+      armo[currentArmo].ShootParticle.emit = false;
+      CurrentArmo -= 1;
+      armo[currentArmo].ShootParticle.emit = true;
+      if (armosGUI[currentArmo].State == 1)
+      {
+        armosGUI[currentArmo].State = 2;
+
+        foreach (var a in armosGUI[currentArmo].ActiveObjs)
+        {
+          a.SetActiveRecursively(true);
+        }
+      }
+    }
+  }
+
+  //------------------------------------------------------------------------
+  private IEnumerator ShootParticleOn(float time)
+  {
+    yield return new WaitForSeconds(time);
+    armo[currentArmo].ShootParticle.emit = true;
+    if (!kulak)
+      StartCoroutine(ShootParticleOff(0.01f));
+
+    //ЛУЧ ВЫСТРЕЛА
+    if (currentArmo == 4)
+    {
+      RaycastHit[] hits;
+      hits = Physics.RaycastAll(hand.position, -hand.forward, 3);
+      int i = 0;
+      visotaShoot = 100;
+      while (i < hits.Length)
+      {
+        RaycastHit hit = hits[i];
+        int collLayer = hit.collider.gameObject.layer;
+        if (collLayer == 0)//Не лифт lesn
+          visotaShoot = Mathf.Min(hit.distance, visotaShoot);
+        i++;
+      }
+      Instantiate(BlastPrefab, hand.position - hand.forward * (visotaShoot-0.05f), Quaternion.identity);
+    }
+  }
+  //выключение частиц после EndAttack
+  private IEnumerator ShootParticleOff(float time)
+  {
+    yield return new WaitForSeconds(time);
+    armo[currentArmo].ShootParticle.emit = false;
+    Debug.LogWarning("Kulak = " + kulak);
+  }
+
+  private IEnumerator DeadSpriteOn(float time)
+  {
+    yield return new WaitForSeconds(time);
+    enableDead = true;
+  }
 }

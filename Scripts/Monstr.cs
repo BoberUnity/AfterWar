@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class Monstr : MonoBehaviour
 {
+  [SerializeField] private Color editorColor = Color.red;
   [SerializeField] private Character character = null;
   [SerializeField] private BecameInvisible becameInVisible = null;
   [SerializeField] private Animation anim = null;
@@ -12,6 +13,7 @@ public class Monstr : MonoBehaviour
   [SerializeField] private AnimationClip attackClip = null;
   [SerializeField] private AnimationClip deadClip = null;
   [SerializeField] private AudioClip attackSound = null;
+  [SerializeField] private AudioClip charAttackSound = null;
   [SerializeField] private AudioClip deadSound = null;
   [SerializeField] private float uron = 5;
   [SerializeField] private float[] uronDist = new float[5];
@@ -23,6 +25,8 @@ public class Monstr : MonoBehaviour
   [SerializeField] private float minX = 0;
   [SerializeField] private float maxX = 0;
   [SerializeField] private float rotSpeed = 300;
+  [SerializeField] private float nearDist = 0.6f;//attack down
+  [SerializeField] private bool isNear = false;
   private Transform t = null;
   private Transform characterT = null;
   private bool run = false;
@@ -40,6 +44,7 @@ public class Monstr : MonoBehaviour
       audio.clip = attackSound;
 	    audio.Play();
 	    character.Helth -= uron;
+      Debug.Log("Uron" + gameObject.name);
       SetAnim(attackClip, 1);
 	    att = true;
       StartCoroutine(EndAttack(attackClip.length));
@@ -117,6 +122,20 @@ public class Monstr : MonoBehaviour
         }
       }
 
+      if (distToChar < nearDist && !isNear && !dead)
+      {
+        isNear = true;
+        if (height < 0.1f)
+          character.NearMonstr += 1;
+      }
+
+      if (distToChar > nearDist && isNear)
+      {
+        isNear = false;
+        if (height < 0.1f)
+          character.NearMonstr -= 1;
+      }
+
       if (distToChar < attackDist && !att)
       {
         run = false;
@@ -140,7 +159,10 @@ public class Monstr : MonoBehaviour
   //--------------------------------------------------------------------------------------------------
   private void CharacterAttack(int armo)
   {
-    if (distToChar < uronDist[armo] && !dead && Mathf.Abs(character.transform.eulerAngles.y - t.eulerAngles.y)>170)
+    float heigToChar = Mathf.Abs(t.position.y - characterT.position.y - height);//разница по высоте с персонажем
+    distToChar = Vector3.Distance(t.position, characterT.position);
+    bool notAttacked = !isNear && character.NearMonstr > 0;//Есть кто-то другой рядом
+    if (distToChar < uronDist[armo] && !dead && Mathf.Abs(character.transform.eulerAngles.y - t.eulerAngles.y) > 100 && heigToChar < 0.2f && !notAttacked)
     {
       helth -= uronMonstr[armo];
       SetAnim(deadClip, 0.5f);
@@ -149,12 +171,22 @@ public class Monstr : MonoBehaviour
         dead = true;
         audio.clip = deadSound;
         audio.Play();
+        if (isNear && height < 0.1f)
+        { 
+          character.NearMonstr -= 1;
+          isNear = false;
+        }
         StopAllCoroutines();
         if (height > 0)//Падение после смерти
         {
           StartCoroutine(EndDown(1));
           moveDown = true;
         }
+      }
+      else
+      {
+        audio.clip = charAttackSound;
+        audio.Play();
       }
     }
   }
@@ -181,15 +213,16 @@ public class Monstr : MonoBehaviour
 
   private void ExtiRender()
   {
-    Debug.Log(" OnBecameInvisible");
     if (dead)
       Destroy(gameObject);
   }
 
   void OnDrawGizmos()
   {
-    Gizmos.color = Color.red;
+    Gizmos.color = editorColor;
     Gizmos.DrawRay(new Vector3(minX, transform.position.y, 0), Vector3.right*(maxX - minX));
-    Gizmos.DrawRay(new Vector3(minX, transform.position.y+0.01f, 0), Vector3.right * (maxX - minX));
+    Gizmos.DrawRay(new Vector3(minX, transform.position.y+0.1f, 0), Vector3.right * (maxX - minX));
+    Gizmos.DrawRay(new Vector3(minX, transform.position.y, 0), Vector3.up * 0.1f);
+    Gizmos.DrawRay(new Vector3(maxX, transform.position.y, 0), Vector3.up * 0.1f);
   }
 }
