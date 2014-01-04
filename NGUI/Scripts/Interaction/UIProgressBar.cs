@@ -350,19 +350,21 @@ public class UIProgressBar : UIWidgetContainer
 		if (!Application.isPlaying) return;
 #endif
 		if (mIsDirty) ForceUpdate();
-
-    if (Input.GetKey("right"))
-      joysticValue.x = 100;
-    if (Input.GetKey("left"))
-      joysticValue.x = -100;
-    if (!Input.GetKey("right") && !Input.GetKey("left"))
-      joysticValue.x = 0;
-    if (Input.GetKey("up"))
-      joysticValue.y = 100;
-    if (Input.GetKey("down"))
-      joysticValue.y = -100;
-    if (!Input.GetKey("up") && !Input.GetKey("down"))
-      joysticValue.y = 0;
+    if (!Input.GetMouseButton(0))
+    {
+      if (Input.GetKey("right"))
+        joysticValue.x = 100;
+      if (Input.GetKey("left"))
+        joysticValue.x = -100;
+      if (!Input.GetKey("right") && !Input.GetKey("left"))
+        joysticValue.x = 0;
+      if (Input.GetKey("up"))
+        joysticValue.y = 100;
+      if (Input.GetKey("down"))
+        joysticValue.y = -100;
+      if (!Input.GetKey("up") && !Input.GetKey("down"))
+        joysticValue.y = 0;
+    }
 	}
 
 	/// <summary>
