@@ -11,13 +11,13 @@ public class CameraController : MonoBehaviour
   [SerializeField] private float camSpeed = 0;
   [SerializeField] private float fonarHeight = 0.5f;
   [SerializeField] private float fonarDist = 0.5f;
-  private float camDist = 2;
+  [SerializeField] private float camDist = 2;
   private Touch myTouch; // прикосновение 1
   private Touch myTouch2; // прикосновение 1
   private float distance = 24;
   private float distanceStart = 0;
   private Vector3 plrPos;
-  private float camHeight = 0;
+  /*[SerializeField]*/ private float camHeight = 0.2f;
 
 	void Start () 
   {
@@ -27,10 +27,10 @@ public class CameraController : MonoBehaviour
 
 	void Update () 
   {
-    if (transform.position.y > 1f) 
-      camHeight = 0.25f; 
-    else 
-      camHeight = 0.75f;
+    if (transform.position.y > 1f)
+      camHeight = 0.05f;
+    else
+      camHeight = 0.55f;
 
 	  if (Input.touchCount == 2 && Mathf.Abs(character.Joystik.joysticValue.x) < 2)
 	  {
