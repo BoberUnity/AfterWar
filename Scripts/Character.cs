@@ -317,7 +317,7 @@ public class Character : MonoBehaviour
       if (visotaDown < 0.31f && !jump && enableSoskok)//соскок с лестницы возле пола
       {
         inStair = false;
-        Debug.Log("visotaDown < 0.31f"+Time.deltaTime);
+        //Debug.Log("visotaDown < 0.31f"+Time.deltaTime);
         enableSoskok = false;
       }
       if (visotaDown > 0.31f)
@@ -458,7 +458,7 @@ public class Character : MonoBehaviour
       Helth -= 101;
       Debug.LogWarning("WaterDead");
     }
-    Debug.LogWarning("name-" + other.gameObject.name);
+    //Debug.LogWarning("name-" + other.gameObject.name);
   }
   //==================================================================================================================
   public void Jump()
@@ -661,10 +661,6 @@ public class Character : MonoBehaviour
       }
       if (GameObject.Find("BlastRPG(Clone)") == null)
         Instantiate(BlastPrefab, hand.position - hand.forward * (visotaShoot-0.05f), Quaternion.identity);
-      else
-      {
-        Debug.LogWarning("BlockBlast");
-      }
     }
   }
   //выключение частиц после EndAttack
