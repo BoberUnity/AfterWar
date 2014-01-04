@@ -15,6 +15,7 @@ public class Monstr : MonoBehaviour
   [SerializeField] private AudioClip attackSound = null;
   [SerializeField] private AudioClip charAttackSound = null;
   [SerializeField] private AudioClip deadSound = null;
+  [SerializeField] private GameObject blastPrefab = null;
   [SerializeField] private float uron = 5;
   [SerializeField] private float[] uronDist = new float[5];
   [SerializeField] private float[] uronMonstr = new float[5];
@@ -44,7 +45,7 @@ public class Monstr : MonoBehaviour
       audio.clip = attackSound;
 	    audio.Play();
 	    character.Helth -= uron;
-      Debug.Log("Uron" + gameObject.name);
+      //Debug.Log("Uron" + gameObject.name);
       SetAnim(attackClip, 1);
 	    att = true;
       StartCoroutine(EndAttack(attackClip.length));
@@ -180,23 +181,14 @@ public class Monstr : MonoBehaviour
       i++;
     }
     bool notWall = distToChar < distToWall;
-
-    Debug.Log("distToChar < uronDist[armo]" + (distToChar < uronDist[armo]));
-    Debug.Log("dead " + dead);
-    Debug.Log("Mathf.Abs(character.transform.eulerAngles.y - t.eulerAngles.y) > 100 " + (Mathf.Abs(character.transform.eulerAngles.y - t.eulerAngles.y) > 100));
-    Debug.Log("notWall " + notWall);
-    Debug.Log("character.transform.eulerAngles.y" + character.transform.eulerAngles.y);
-    Debug.Log("t.eulerAngles.y" + t.eulerAngles.y);
-    bool charPovernut = false;
+    var charPovernut = false;
     if (characterT.eulerAngles.y > 50 && characterT.eulerAngles.y < 120 && characterT.position.x - t.position.x < 0)//ГГ повернут вправо и монстр справа
-    {
       charPovernut = true;
-    }
+    
     if (characterT.eulerAngles.y > 230 && characterT.eulerAngles.y < 310 && characterT.position.x - t.position.x > 0)//ГГ повернут влево и монстр слева
-    {
       charPovernut = true;
-    }
-    if (distToChar < uronDist[armo] && !dead && /*Mathf.Abs(character.transform.eulerAngles.y - t.eulerAngles.y) > 100*/charPovernut && heigToChar < 0.2f /*&& !notAttacked*/ && notWall)
+    
+    if (distToChar < uronDist[armo] && !dead && charPovernut && heigToChar < 0.2f && notWall)
     {
       helth -= uronMonstr[armo];
       SetAnim(deadClip, 0.5f);
@@ -217,6 +209,8 @@ public class Monstr : MonoBehaviour
           moveDown = true;
         }
         Destroy(GetComponent<BoxCollider>(), 0.2f);
+        if (armo == 4)
+          Instantiate(blastPrefab, t.position, t.rotation);
       }
       else
       {

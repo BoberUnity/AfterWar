@@ -28,7 +28,6 @@ GameObject:
   - 15: {fileID: 1500002}
   - 12: {fileID: 1200002}
   - 26: {fileID: 2600002}
-  - 114: {fileID: 11400000}
   - 76: {fileID: 7600002}
   m_Layer: 0
   m_Name: OuterCore
@@ -48,7 +47,6 @@ GameObject:
   - 15: {fileID: 1500004}
   - 12: {fileID: 1200004}
   - 26: {fileID: 2600004}
-  - 114: {fileID: 11400004}
   - 76: {fileID: 7600000}
   m_Layer: 0
   m_Name: InnerCore
@@ -68,6 +66,7 @@ GameObject:
   - 15: {fileID: 1500000}
   - 12: {fileID: 1200000}
   - 26: {fileID: 2600000}
+  - 76: {fileID: 7600004}
   m_Layer: 0
   m_Name: Smoke
   m_TagString: Untagged
@@ -85,7 +84,7 @@ GameObject:
   - 4: {fileID: 400008}
   - 114: {fileID: 11400006}
   m_Layer: 0
-  m_Name: FlameRPG
+  m_Name: BlastRPG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -251,8 +250,8 @@ EllipsoidParticleEmitter:
   m_Emit: 1
   minSize: .400000006
   maxSize: .400000006
-  minEnergy: 4
-  maxEnergy: 4
+  minEnergy: 1
+  maxEnergy: 1
   minEmission: 20
   maxEmission: 20
   worldVelocity: {x: 0, y: 0, z: 0}
@@ -440,6 +439,19 @@ WorldParticleCollider:
     m_Bits: 1
   m_SendCollisionMessage: 0
   m_MinKillVelocity: 0
+--- !u!76 &7600004
+WorldParticleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100006}
+  m_BounceFactor: .5
+  m_CollisionEnergyLoss: 0
+  m_CollidesWith:
+    serializedVersion: 2
+    m_Bits: 1
+  m_SendCollisionMessage: 0
+  m_MinKillVelocity: 0
 --- !u!108 &10800000
 Light:
   m_ObjectHideFlags: 1
@@ -475,18 +487,6 @@ Light:
   m_ShadowAngle: 0
   m_IndirectIntensity: 1
   m_AreaSize: {x: 1, y: 1}
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c13b0bcc59822c499ccbf91d0267196, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  liveTime: .949999988
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -499,18 +499,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   liveTime: .699999988
---- !u!114 &11400004
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c13b0bcc59822c499ccbf91d0267196, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  liveTime: .949999988
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -522,7 +510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c13b0bcc59822c499ccbf91d0267196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  liveTime: 4
+  liveTime: .949999988
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

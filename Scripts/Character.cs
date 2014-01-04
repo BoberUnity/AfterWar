@@ -659,7 +659,12 @@ public class Character : MonoBehaviour
           visotaShoot = Mathf.Min(hit.distance, visotaShoot);
         i++;
       }
-      Instantiate(BlastPrefab, hand.position - hand.forward * (visotaShoot-0.05f), Quaternion.identity);
+      if (GameObject.Find("BlastRPG(Clone)") == null)
+        Instantiate(BlastPrefab, hand.position - hand.forward * (visotaShoot-0.05f), Quaternion.identity);
+      else
+      {
+        Debug.LogWarning("BlockBlast");
+      }
     }
   }
   //выключение частиц после EndAttack
