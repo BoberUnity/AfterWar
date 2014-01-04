@@ -917,6 +917,7 @@ MonoBehaviour:
   character: {fileID: 1666401515}
   dist: .400000006
   id: 3
+  waitTime: 0
 --- !u!65 &82863539
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3165,6 +3166,7 @@ MonoBehaviour:
   character: {fileID: 1666401515}
   dist: .800000012
   id: 4
+  waitTime: 0
 --- !u!65 &276920390
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9186,6 +9188,7 @@ MonoBehaviour:
   character: {fileID: 1666401515}
   dist: .800000012
   id: 5
+  waitTime: 0
 --- !u!65 &764301309
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11381,6 +11384,7 @@ MonoBehaviour:
   character: {fileID: 1666401515}
   dist: .800000012
   id: 6
+  waitTime: 0
 --- !u!65 &934378338
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12044,6 +12048,8 @@ GameObject:
   - 65: {fileID: 987530166}
   - 114: {fileID: 987530165}
   - 114: {fileID: 987530164}
+  - 82: {fileID: 987530168}
+  - 114: {fileID: 987530167}
   m_Layer: 8
   m_Name: GeneratorB3D
   m_TagString: Untagged
@@ -12104,6 +12110,79 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .699999988, y: .600000024, z: .0500000007}
   m_Center: {x: -.330000013, y: .270000011, z: -1.29999995}
+--- !u!114 &987530167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 987530162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed57f567aa25f424295650d49150c3d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1666401515}
+  dist: .550000012
+  sound: {fileID: 8300000, guid: fe1826f40a842ba48adddec5f264a9f3, type: 3}
+  loop: 1
+--- !u!82 &987530168
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 987530162}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &989685120
 GameObject:
   m_ObjectHideFlags: 0

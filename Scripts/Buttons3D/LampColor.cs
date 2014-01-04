@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
 
-public class LampColor : Button3DBase
+namespace Assets.Scripts.Buttons3D
 {
-  [SerializeField] private Lamp lamp = null;
-  [SerializeField] private int state = 1;
-
-  protected override void MakeAction()
+  public class LampColor : Button3DBase
   {
-    lamp.State = state;
-    Debug.Log("Press 3D Button");
+    [SerializeField] private Lamp lamp = null;
+    [SerializeField] private int state = 1;
+
+    protected override void MakeAction()
+    {
+      lamp.State = state;
+      Debug.Log("Press 3D Button");
+    }
   }
 }

@@ -1,20 +1,23 @@
 ﻿using UnityEngine;
 
-public class PlayAnim : Button3DBase
+namespace Assets.Scripts.Buttons3D
 {
-  [SerializeField] private Animation anim = null;
-  [SerializeField] private bool always = false;
-  private bool isPlayed = false;
-
-  protected override void MakeAction()
+  public class PlayAnim : Button3DBase
   {
-    if (!always && !isPlayed)
-    {
-      anim.Play();
-      isPlayed = true;
-    }
+    [SerializeField] private Animation anim = null;
+    [SerializeField] private bool always = false;
+    private bool isPlayed = false;
 
-    if (always)
-      anim.Play();
+    protected override void MakeAction()
+    {
+      if (!always && !isPlayed)
+      {
+        anim.Play();
+        isPlayed = true;
+      }
+
+      if (always)
+        anim.Play();
+    }
   }
 }
