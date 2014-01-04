@@ -35,7 +35,7 @@ public class Monstr : MonoBehaviour
   private float helth = 100;
   private float distToChar = 10;
   private bool moveDown = false;
-
+  [SerializeField] private float distToWall;
 	
 	private void Attack()
 	{
@@ -155,14 +155,48 @@ public class Monstr : MonoBehaviour
 
     if (moveDown)
       t.position -= Vector3.up * height * Time.deltaTime;
+
+    
+
+    
   }
   //--------------------------------------------------------------------------------------------------
   private void CharacterAttack(int armo)
   {
     float heigToChar = Mathf.Abs(t.position.y - characterT.position.y - height);//разница по высоте с персонажем
     distToChar = Vector3.Distance(t.position, characterT.position);
-    bool notAttacked = !isNear && character.NearMonstr > 0;//Есть кто-то другой рядом
-    if (distToChar < uronDist[armo] && !dead && Mathf.Abs(character.transform.eulerAngles.y - t.eulerAngles.y) > 100 && heigToChar < 0.2f && !notAttacked)
+    //bool notAttacked = !isNear && character.NearMonstr > 0;//Есть кто-то другой рядом
+    //Между монстром и ГГ нет стены или другого монстра
+    RaycastHit[] hits;
+    hits = Physics.RaycastAll(t.position + Vector3.up * (0.2f - height), Vector3.right * Mathf.Sign(characterT.position.x - t.position.x), 5);
+    int i = 0;
+    distToWall = 100;
+    while (i < hits.Length)
+    {
+      RaycastHit hit = hits[i];
+      int collLayer = hit.collider.gameObject.layer;
+      if (collLayer == 0)//Default layer
+        distToWall = Mathf.Min(hit.distance, distToWall);
+      i++;
+    }
+    bool notWall = distToChar < distToWall;
+
+    Debug.Log("distToChar < uronDist[armo]" + (distToChar < uronDist[armo]));
+    Debug.Log("dead " + dead);
+    Debug.Log("Mathf.Abs(character.transform.eulerAngles.y - t.eulerAngles.y) > 100 " + (Mathf.Abs(character.transform.eulerAngles.y - t.eulerAngles.y) > 100));
+    Debug.Log("notWall " + notWall);
+    Debug.Log("character.transform.eulerAngles.y" + character.transform.eulerAngles.y);
+    Debug.Log("t.eulerAngles.y" + t.eulerAngles.y);
+    bool charPovernut = false;
+    if (characterT.eulerAngles.y > 50 && characterT.eulerAngles.y < 120 && characterT.position.x - t.position.x < 0)//ГГ повернут вправо и монстр справа
+    {
+      charPovernut = true;
+    }
+    if (characterT.eulerAngles.y > 230 && characterT.eulerAngles.y < 310 && characterT.position.x - t.position.x > 0)//ГГ повернут влево и монстр слева
+    {
+      charPovernut = true;
+    }
+    if (distToChar < uronDist[armo] && !dead && /*Mathf.Abs(character.transform.eulerAngles.y - t.eulerAngles.y) > 100*/charPovernut && heigToChar < 0.2f /*&& !notAttacked*/ && notWall)
     {
       helth -= uronMonstr[armo];
       SetAnim(deadClip, 0.5f);
@@ -182,6 +216,7 @@ public class Monstr : MonoBehaviour
           StartCoroutine(EndDown(1));
           moveDown = true;
         }
+        Destroy(GetComponent<BoxCollider>(), 0.2f);
       }
       else
       {
@@ -224,5 +259,7 @@ public class Monstr : MonoBehaviour
     Gizmos.DrawRay(new Vector3(minX, transform.position.y+0.1f, 0), Vector3.right * (maxX - minX));
     Gizmos.DrawRay(new Vector3(minX, transform.position.y, 0), Vector3.up * 0.1f);
     Gizmos.DrawRay(new Vector3(maxX, transform.position.y, 0), Vector3.up * 0.1f);
+    Gizmos.color = Color.yellow;
+    Gizmos.DrawRay(transform.position + Vector3.up * 0.2f, Vector3.right * Mathf.Sign(character.transform.position.x - transform.position.x) * distToWall);
   }
 }

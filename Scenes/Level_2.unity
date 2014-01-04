@@ -924,6 +924,7 @@ MonoBehaviour:
   rotSpeed: 500
   nearDist: .600000024
   isNear: 0
+  distToWall: 0
 --- !u!82 &129643353
 AudioSource:
   m_ObjectHideFlags: 0
@@ -992,7 +993,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .100000001, y: .100000001, z: .100000001}
+  m_Size: {x: .5, y: .5, z: .5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &132839067
 GameObject:
@@ -4383,6 +4384,7 @@ MonoBehaviour:
   rotSpeed: 500
   nearDist: .600000024
   isNear: 0
+  distToWall: 0
 --- !u!82 &404082689
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4451,7 +4453,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .100000001, y: .100000001, z: .100000001}
+  m_Size: {x: .5, y: .5, z: .5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &407839844
 GameObject:
@@ -6456,6 +6458,7 @@ GameObject:
   - 82: {fileID: 618166938}
   - 114: {fileID: 618166937}
   - 136: {fileID: 618166936}
+  - 65: {fileID: 618166939}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Untagged
@@ -6532,6 +6535,7 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: .600000024
   isNear: 0
+  distToWall: 0
 --- !u!82 &618166938
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6590,6 +6594,18 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!65 &618166939
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 618166934}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.5, z: 1}
+  m_Center: {x: 0, y: .800000012, z: .400000006}
 --- !u!1 &628650277
 GameObject:
   m_ObjectHideFlags: 0
@@ -7408,6 +7424,7 @@ GameObject:
   - 82: {fileID: 712767953}
   - 114: {fileID: 712767952}
   - 136: {fileID: 712767951}
+  - 65: {fileID: 712767954}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Untagged
@@ -7484,6 +7501,7 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: .600000024
   isNear: 0
+  distToWall: 0
 --- !u!82 &712767953
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7542,6 +7560,18 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!65 &712767954
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 712767949}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.5, z: 1}
+  m_Center: {x: 0, y: .800000012, z: .400000006}
 --- !u!1 &713590946
 GameObject:
   m_ObjectHideFlags: 0
@@ -7951,6 +7981,7 @@ GameObject:
   - 82: {fileID: 742268710}
   - 114: {fileID: 742268709}
   - 136: {fileID: 742268708}
+  - 65: {fileID: 742268711}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Untagged
@@ -8027,6 +8058,7 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: .600000024
   isNear: 0
+  distToWall: 0
 --- !u!82 &742268710
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8085,6 +8117,18 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!65 &742268711
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 742268706}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.5, z: 1}
+  m_Center: {x: 0, y: .800000012, z: .400000006}
 --- !u!1 &746721533
 GameObject:
   m_ObjectHideFlags: 0
@@ -13908,11 +13952,12 @@ MonoBehaviour:
   attackDist: .400000006
   speed: .600000024
   height: 0
-  minX: .209999993
-  maxX: 3.98000002
+  minX: -.100000001
+  maxX: 2.05999994
   rotSpeed: 300
   nearDist: .600000024
   isNear: 0
+  distToWall: 0
 --- !u!82 &1273560535
 AudioSource:
   m_ObjectHideFlags: 0
@@ -22097,6 +22142,7 @@ GameObject:
   - 82: {fileID: 2091940372}
   - 114: {fileID: 2091940371}
   - 136: {fileID: 2091940370}
+  - 65: {fileID: 2091940373}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Untagged
@@ -22173,6 +22219,7 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: .600000024
   isNear: 0
+  distToWall: 0
 --- !u!82 &2091940372
 AudioSource:
   m_ObjectHideFlags: 0
@@ -22231,6 +22278,18 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!65 &2091940373
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2091940368}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.5, z: 1}
+  m_Center: {x: 0, y: .800000012, z: .400000006}
 --- !u!1 &2092346751
 GameObject:
   m_ObjectHideFlags: 0

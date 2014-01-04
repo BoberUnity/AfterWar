@@ -1215,6 +1215,7 @@ GameObject:
   - 82: {fileID: 99724628}
   - 114: {fileID: 99724627}
   - 136: {fileID: 99724629}
+  - 65: {fileID: 99724630}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Untagged
@@ -1278,6 +1279,7 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: .600000024
   isNear: 0
+  distToWall: 0
 --- !u!82 &99724628
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1349,6 +1351,18 @@ CapsuleCollider:
   m_Height: 1.35000002
   m_Direction: 2
   m_Center: {x: 0, y: .25, z: .400000006}
+--- !u!65 &99724630
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 99724625}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.5, z: 1}
+  m_Center: {x: 0, y: .5, z: .400000006}
 --- !u!1 &103021708
 GameObject:
   m_ObjectHideFlags: 0
@@ -1664,6 +1678,7 @@ GameObject:
   - 4: {fileID: 129643351}
   - 82: {fileID: 129643353}
   - 114: {fileID: 129643352}
+  - 65: {fileID: 129643354}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Untagged
@@ -1727,6 +1742,7 @@ MonoBehaviour:
   rotSpeed: 500
   nearDist: .600000024
   isNear: 0
+  distToWall: 0
 --- !u!82 &129643353
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1785,6 +1801,18 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!65 &129643354
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 129643350}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .400000006, y: .400000006, z: .400000006}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &139170784
 GameObject:
   m_ObjectHideFlags: 0
@@ -2012,6 +2040,7 @@ GameObject:
   - 82: {fileID: 165364579}
   - 114: {fileID: 165364578}
   - 136: {fileID: 165364577}
+  - 65: {fileID: 165364580}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Untagged
@@ -2088,6 +2117,7 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: .600000024
   isNear: 0
+  distToWall: 0
 --- !u!82 &165364579
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2146,6 +2176,18 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!65 &165364580
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 165364575}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: .5, z: 1}
+  m_Center: {x: 0, y: .5, z: .400000006}
 --- !u!1 &170683167
 GameObject:
   m_ObjectHideFlags: 0
@@ -4573,6 +4615,7 @@ GameObject:
   - 4: {fileID: 404082687}
   - 82: {fileID: 404082689}
   - 114: {fileID: 404082688}
+  - 65: {fileID: 404082690}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Untagged
@@ -4636,6 +4679,7 @@ MonoBehaviour:
   rotSpeed: 500
   nearDist: .600000024
   isNear: 0
+  distToWall: 0
 --- !u!82 &404082689
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4694,6 +4738,18 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!65 &404082690
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 404082686}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .400000006, y: .400000006, z: .400000006}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &404586671
 GameObject:
   m_ObjectHideFlags: 0
@@ -6961,6 +7017,7 @@ GameObject:
   - 82: {fileID: 618166938}
   - 114: {fileID: 618166937}
   - 136: {fileID: 618166936}
+  - 65: {fileID: 618166939}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Untagged
@@ -7037,6 +7094,7 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: .600000024
   isNear: 0
+  distToWall: 0
 --- !u!82 &618166938
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7095,6 +7153,18 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!65 &618166939
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 618166934}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.5, z: 1}
+  m_Center: {x: 0, y: .5, z: .400000006}
 --- !u!1 &619725855
 GameObject:
   m_ObjectHideFlags: 0
@@ -8064,6 +8134,7 @@ GameObject:
   - 82: {fileID: 712767953}
   - 114: {fileID: 712767952}
   - 136: {fileID: 712767951}
+  - 65: {fileID: 712767954}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Untagged
@@ -8140,6 +8211,7 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: .600000024
   isNear: 0
+  distToWall: 0
 --- !u!82 &712767953
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8198,6 +8270,18 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!65 &712767954
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 712767949}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.5, z: 1}
+  m_Center: {x: 0, y: .5, z: .400000006}
 --- !u!1 &717379660
 GameObject:
   m_ObjectHideFlags: 0
@@ -11270,6 +11354,7 @@ GameObject:
   - 4: {fileID: 934442218}
   - 82: {fileID: 934442220}
   - 114: {fileID: 934442219}
+  - 65: {fileID: 934442221}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Untagged
@@ -11333,6 +11418,7 @@ MonoBehaviour:
   rotSpeed: 500
   nearDist: .600000024
   isNear: 0
+  distToWall: 0
 --- !u!82 &934442220
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11391,6 +11477,18 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!65 &934442221
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 934442217}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .400000006, y: .400000006, z: .400000006}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &934918548
 GameObject:
   m_ObjectHideFlags: 0
@@ -18725,6 +18823,7 @@ GameObject:
   - 82: {fileID: 1587611364}
   - 114: {fileID: 1587611363}
   - 136: {fileID: 1587611362}
+  - 65: {fileID: 1587611365}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Untagged
@@ -18801,6 +18900,7 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: .600000024
   isNear: 0
+  distToWall: 0
 --- !u!82 &1587611364
 AudioSource:
   m_ObjectHideFlags: 0
@@ -18859,6 +18959,18 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!65 &1587611365
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1587611360}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.5, z: 1}
+  m_Center: {x: 0, y: .5, z: .400000006}
 --- !u!1 &1597678935
 GameObject:
   m_ObjectHideFlags: 0
@@ -24349,6 +24461,7 @@ GameObject:
   - 82: {fileID: 2068325309}
   - 114: {fileID: 2068325308}
   - 136: {fileID: 2068325307}
+  - 65: {fileID: 2068325310}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Untagged
@@ -24425,6 +24538,7 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: .600000024
   isNear: 0
+  distToWall: 0
 --- !u!82 &2068325309
 AudioSource:
   m_ObjectHideFlags: 0
@@ -24483,6 +24597,18 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!65 &2068325310
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2068325305}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.5, z: 1}
+  m_Center: {x: 0, y: .5, z: .400000006}
 --- !u!1 &2077561467
 GameObject:
   m_ObjectHideFlags: 0
