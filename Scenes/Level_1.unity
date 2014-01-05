@@ -20332,11 +20332,11 @@ MonoBehaviour:
   fonarHeight: .5
   fonarDist: .5
   camDist: 2
-  camHeight: .200000003
+  camHeight: .300000012
   minX: -100
   maxX: 100
-  minY: -100
-  maxY: 100
+  minY: .649999976
+  maxY: 1.75
   follow: 1
 --- !u!143 &1666401514
 CharacterController:
@@ -24556,6 +24556,14 @@ Prefab:
       propertyPath: fonar
       value: 
       objectReference: {fileID: 718023789}
+    - target: {fileID: 11400000, guid: 9397f4a1aca4742438b2e4f0eaaec618, type: 2}
+      propertyPath: minY
+      value: .649999976
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9397f4a1aca4742438b2e4f0eaaec618, type: 2}
+      propertyPath: maxY
+      value: 1.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9397f4a1aca4742438b2e4f0eaaec618, type: 2}
   m_RootGameObject: {fileID: 1666401510}
