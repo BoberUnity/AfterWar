@@ -21,6 +21,7 @@ namespace Assets.Scripts.Buttons3D
     private IEnumerator LoadLevel(float time)
     {
       yield return new WaitForSeconds(time);
+
       GameObject obj = GameObject.Find("Controller(Clone)");
       if (obj != null)
       {
