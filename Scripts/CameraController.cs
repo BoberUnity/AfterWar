@@ -17,7 +17,12 @@ public class CameraController : MonoBehaviour
   private float distance = 24;
   private float distanceStart = 0;
   private Vector3 plrPos;
-  /*[SerializeField]*/ private float camHeight = 0.2f;
+  [SerializeField] private float camHeight = 0.3f;
+  [SerializeField] private float minX = -100;
+  [SerializeField] private float maxX = 100;
+  [SerializeField] private float minY = -100;
+  [SerializeField] private float maxY = 100;
+  [SerializeField] private bool follow = true;
 
 	void Start () 
   {
@@ -27,10 +32,10 @@ public class CameraController : MonoBehaviour
 
 	void Update () 
   {
-    if (transform.position.y > 1f)
-      camHeight = 0.05f;
-    else
-      camHeight = 0.55f;
+    //if (transform.position.y > 1f)
+    //  camHeight = 0.05f;
+    //else
+    //  camHeight = 0.55f;
 
 	  if (Input.touchCount == 2 && Mathf.Abs(character.Joystik.joysticValue.x) < 2)
 	  {
@@ -48,8 +53,10 @@ public class CameraController : MonoBehaviour
 	  }
 
     plrPos = new Vector3(transform.position.x, transform.position.y + camHeight, -camDist);
-    cam.forward = Vector3.Lerp(cam.forward, transform.position - cam.position, Time.deltaTime * camSpeed);
+    if (follow)
+      cam.forward = Vector3.Lerp(cam.forward, transform.position - cam.position, Time.deltaTime * camSpeed);
     cam.position = Vector3.Lerp(cam.position, plrPos, Time.deltaTime * camSpeed);
+    cam.position = new Vector3(Mathf.Clamp(cam.position.x, minX, maxX), Mathf.Clamp(cam.position.y, minY, maxY), cam.position.z);
     fonar.position = new Vector3(transform.position.x, transform.position.y + fonarHeight, -fonarDist);
 	}
 }

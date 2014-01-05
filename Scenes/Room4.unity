@@ -2134,7 +2134,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 311619482}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .390000224, y: -1.22000003, z: -2}
+  m_LocalPosition: {x: 0, y: -1.29999995, z: -1.20000005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3654,7 +3654,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 541636029}
   m_LocalRotation: {x: 0, y: .998086572, z: 0, w: .0618323721}
-  m_LocalPosition: {x: 0, y: .540176451, z: 0}
+  m_LocalPosition: {x: 0, y: -1.30999994, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4597,7 +4597,7 @@ Light:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 666272593}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Type: 1
   m_Color: {r: .784313738, g: .784313738, b: .882352948, a: 1}
@@ -6281,6 +6281,26 @@ Prefab:
     - target: {fileID: 11400000, guid: 9397f4a1aca4742438b2e4f0eaaec618, type: 2}
       propertyPath: camDist
       value: 1.20000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9397f4a1aca4742438b2e4f0eaaec618, type: 2}
+      propertyPath: camHeight
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9397f4a1aca4742438b2e4f0eaaec618, type: 2}
+      propertyPath: minX
+      value: -.680000007
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9397f4a1aca4742438b2e4f0eaaec618, type: 2}
+      propertyPath: maxX
+      value: .699999988
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9397f4a1aca4742438b2e4f0eaaec618, type: 2}
+      propertyPath: follow
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9397f4a1aca4742438b2e4f0eaaec618, type: 2}
+      propertyPath: maxY
+      value: 1.34000003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9397f4a1aca4742438b2e4f0eaaec618, type: 2}
@@ -9880,6 +9900,12 @@ MonoBehaviour:
   fonarHeight: .5
   fonarDist: .5
   camDist: 1.20000005
+  camHeight: .5
+  minX: -.680000007
+  maxX: .699999988
+  minY: -100
+  maxY: 1.34000003
+  follow: 0
 --- !u!143 &1404807475
 CharacterController:
   m_ObjectHideFlags: 0
