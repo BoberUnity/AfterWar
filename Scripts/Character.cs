@@ -369,10 +369,10 @@ public class Character : MonoBehaviour
     //lift Zona
     if (liftZone && !jump)
     {
-      if (visotaDown < 0.3f)
-        t.position += Vector3.up * (0.3f - visotaDown);
+      if (visotaDown < 0.31f)
+        t.position += Vector3.up * (0.31f - visotaDown);
       
-      if (visotaDown > 0.31f && visotaDown < 0.35f)
+      if (visotaDown > 0.32f && visotaDown < 0.35f)
         t.localPosition += Vector3.up * (0.31f - visotaDown);
     }
 
