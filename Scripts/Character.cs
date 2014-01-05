@@ -257,18 +257,6 @@ public class Character : MonoBehaviour
       }
       characterController.Move(-Vector3.up * Time.deltaTime * velocity);
       velocity = Mathf.Min(2.5f, velocity + Time.deltaTime * gravSpeed);
-      //else
-      //{
-      //  //Во время прыжка
-      //  characterController.Move(-Vector3.up * Time.deltaTime * velocity);
-      //  velocity = Mathf.Min(2.5f, velocity + Time.deltaTime*gravSpeed);
-      //  //Заскок на лестницу
-      //  //if (jump && stairZone && !inStair)
-      //  //{
-      //  //  inStair = true;
-      //  //  jump = false;//?
-      //  //}
-      //}
     }
     else
     {
@@ -381,11 +369,11 @@ public class Character : MonoBehaviour
     //lift Zona
     if (liftZone && !jump)
     {
-      if (visotaDown < 0.31f)
-        t.position += Vector3.up * (0.31f - visotaDown);
+      if (visotaDown < 0.3f)
+        t.position += Vector3.up * (0.3f - visotaDown);
       
-      if (visotaDown > 0.32f && visotaDown < 0.35f)
-        t.localPosition += Vector3.up * (0.32f - visotaDown);
+      if (visotaDown > 0.31f && visotaDown < 0.35f)
+        t.localPosition += Vector3.up * (0.31f - visotaDown);
     }
 
     //Поворот к стене во время действия
