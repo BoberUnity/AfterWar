@@ -68,6 +68,7 @@ public class Character : MonoBehaviour
   /*[SerializeField]*/ private UISprite deadSprite = null;
   /*[SerializeField]*/ private Indicator helthIndicator = null;
   [SerializeField] private AudioClip failSound = null;
+  [SerializeField] private Controller controller = null;
   [SerializeField] private Transform hand = null;
   [SerializeField] private GameObject BlastPrefab = null;
   [SerializeField] private Transform endPistol = null;
@@ -184,6 +185,12 @@ public class Character : MonoBehaviour
       things = value;
     }
   }
+
+  public Controller Controller
+  {
+    get { return controller; }
+    set { controller = value; }
+  }
   //==================================================================================================================
 	void Start ()
 	{
@@ -241,6 +248,7 @@ public class Character : MonoBehaviour
           if (velocity > 2.4f)
           {
             Helth -= 10;
+            audio.volume = controller.EffectsVolume;
             audio.clip = failSound;
             audio.Play();
             velocity = 0.0f;
@@ -596,6 +604,7 @@ public class Character : MonoBehaviour
 
     StartCoroutine(ShootParticleOn(0.01f));
     audio.clip = armo[currentArmo].ArmoClip;
+    audio.volume = controller.EffectsVolume;
     audio.Play();
 
     var handler = CharacterAttack;
