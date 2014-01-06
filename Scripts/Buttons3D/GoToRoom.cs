@@ -17,6 +17,8 @@ namespace Assets.Scripts.Buttons3D
     [SerializeField] private float camHeight = 0.5f;
     [SerializeField] private bool follow = false;
     [SerializeField] private float charRotY = 270;
+    [SerializeField] private GameObject[] activeObjs = null;
+    [SerializeField] private GameObject[] deactiveObjs = null;
     private bool isLoaded = false;
 
     protected override void MakeAction()
@@ -43,6 +45,15 @@ namespace Assets.Scripts.Buttons3D
       cameraController.CamTrans.position = new Vector3(Mathf.Clamp(cameraController.CamTrans.position.x, minX, maxX), Mathf.Clamp(y + camHeight, minY, maxY), -camDist);
       character.transform.position = new Vector3(transform.position.x, y, 0);
       character.transform.eulerAngles = new Vector3(character.transform.eulerAngles.x, charRotY, character.transform.eulerAngles.z);
+      
+      foreach (var aObjs in activeObjs)
+      {
+        aObjs.SetActiveRecursively(true);
+      }
+      foreach (var aObjs in deactiveObjs)
+      {
+        aObjs.SetActiveRecursively(false);
+      }
     }
   }
 }

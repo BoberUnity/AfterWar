@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace Assets.Scripts.Buttons3D
 {
@@ -8,15 +9,14 @@ namespace Assets.Scripts.Buttons3D
     [SerializeField] private AudioClip sound = null;
     [SerializeField] private float distanse = 1.5f;
     [SerializeField] private float addVolume = 0.1f;//Компенсация, т.к. дистанция не м.б. 0
+    [SerializeField] private float waitTime = 0;
     [SerializeField] private bool loop = false;
     private Transform t = null;
     private Transform ct = null;
 
     protected override void MakeAction()
     {
-      audio.clip = sound;
-      audio.loop = loop;
-      audio.Play();
+      StartCoroutine(SoundPlay(waitTime));
     }
 
     private void Start()
@@ -32,6 +32,14 @@ namespace Assets.Scripts.Buttons3D
         audio.volume*=character.Controller.EffectsVolume;
       else
         Debug.LogWarning("character.Controller == null");
+    }
+
+    private IEnumerator SoundPlay(float time)
+    {
+      yield return new WaitForSeconds(time);
+      audio.clip = sound;
+      audio.loop = loop;
+      audio.Play();
     }
   }
 }

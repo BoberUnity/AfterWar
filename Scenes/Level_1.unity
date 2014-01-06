@@ -14164,6 +14164,7 @@ GameObject:
   - 114: {fileID: 987530164}
   - 82: {fileID: 987530168}
   - 114: {fileID: 987530167}
+  - 114: {fileID: 987530169}
   m_Layer: 8
   m_Name: GeneratorB3D
   m_TagString: Untagged
@@ -14239,8 +14240,9 @@ MonoBehaviour:
   dist: .550000012
   sound: {fileID: 8300000, guid: fe1826f40a842ba48adddec5f264a9f3, type: 3}
   distanse: 1.5
-  addVolume: .200000003
-  loop: 1
+  addVolume: .400000006
+  waitTime: 0
+  loop: 0
 --- !u!82 &987530168
 AudioSource:
   m_ObjectHideFlags: 0
@@ -14299,6 +14301,24 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &987530169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 987530162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed57f567aa25f424295650d49150c3d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1666401515}
+  dist: .550000012
+  sound: {fileID: 8300000, guid: 003ca132de8a58846820bb47a01a4b43, type: 3}
+  distanse: 1.5
+  addVolume: .200000003
+  waitTime: 1
+  loop: 1
 --- !u!1 &989685120
 GameObject:
   m_ObjectHideFlags: 0
