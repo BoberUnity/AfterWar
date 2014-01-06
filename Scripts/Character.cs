@@ -376,14 +376,14 @@ public class Character : MonoBehaviour
     }
 
     //lift Zona
-    if (liftZone && !jump)
-    {
-      if (visotaDown < 0.31f)
-        t.position += Vector3.up * (0.31f - visotaDown);
+    //if (liftZone && !jump)
+    //{
+    //  if (visotaDown < 0.31f)
+    //    t.position += Vector3.up * (0.31f - visotaDown);
       
-      if (visotaDown > 0.32f && visotaDown < 0.35f)
-        t.localPosition += Vector3.up * (0.31f - visotaDown);
-    }
+    //  if (visotaDown > 0.32f && visotaDown < 0.35f)
+    //    t.localPosition += Vector3.up * (0.31f - visotaDown);
+    //}
 
     //Поворот к стене во время действия
     if (act && t.eulerAngles.y < 125 && t.eulerAngles.y > 30)
@@ -413,7 +413,8 @@ public class Character : MonoBehaviour
   private void OnTriggerEnter(Collider other)
   {
     if (other.gameObject.layer == 10)
-      liftZone = true;
+      t.parent = other.transform;
+    
     if (other.gameObject.layer == 11)
     {
       stairZone = true;
@@ -444,7 +445,7 @@ public class Character : MonoBehaviour
   private void OnTriggerExit(Collider other)
   {
     if (other.gameObject.layer == 10)
-      liftZone = false;
+      t.parent = null;
     if (other.gameObject.layer == 11)
     {
       stairZone = false;
