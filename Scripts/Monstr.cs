@@ -111,7 +111,7 @@ public class Monstr : MonoBehaviour
       {
         run = true;
 
-        if (t.position.x <= maxX && t.position.x >= minX)
+        if (t.position.x <= maxX && t.position.x >= minX && distToChar > attackDist)
           t.Translate(Vector3.forward * Time.deltaTime * speed);
 
         if (t.position.x > maxX)
@@ -159,9 +159,6 @@ public class Monstr : MonoBehaviour
 
     if (moveDown)
       t.position -= Vector3.up * height * Time.deltaTime;
-
-    
-
     
   }
   //--------------------------------------------------------------------------------------------------

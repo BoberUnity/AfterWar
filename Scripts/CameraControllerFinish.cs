@@ -5,8 +5,6 @@ public class CameraControllerFinish: MonoBehaviour
   [SerializeField] private CharacterFinish character = null;
   [SerializeField] private Transform cam = null;
   [SerializeField] private Transform fonar = null;
-  [SerializeField] private float minDist = 0.6f;
-  [SerializeField] private float maxDist = 3.5f;
   [SerializeField] private float sensity = 0.002f;//чувств
   [SerializeField] private float camSpeed = 0;
   [SerializeField] private float fonarHeight = 0.5f;
@@ -49,16 +47,6 @@ public class CameraControllerFinish: MonoBehaviour
     set { camDist = value; }
   }
 
-  public float MinDist
-  {
-    set { minDist = value; }
-  }
-
-  public float MaxDist
-  {
-    set { maxDist = value; }
-  }
-
   public float MaxY
   {
     set { maxY = value; }
@@ -82,27 +70,6 @@ public class CameraControllerFinish: MonoBehaviour
 
 	void Update () 
   {
-    //if (follow)
-    //{if (transform.position.y > 1f)
-    //  camHeight = 0.25f;
-    //else
-    //  camHeight = 0.55f;}
-
-    //if (Input.touchCount == 2 && Mathf.Abs(character.Joystik.joysticValue.x) < 2)
-    //{
-    //  myTouch = Input.GetTouch(0);
-    //  myTouch2 = Input.GetTouch(1);
-    //  distance = Vector2.Distance(myTouch.position, myTouch2.position);
-    //  if (distanceStart < 1)
-    //    distanceStart = distance;
-    //  camDist += (distanceStart - distance) * sensity;
-    //  camDist = Mathf.Clamp(camDist, minDist, maxDist);
-    //}
-    //else
-    //{
-    //  distanceStart = 0;
-    //}
-
     plrPos = new Vector3(transform.position.x, transform.position.y + camHeight, transform.position.z- camDist);
     if (follow)
       cam.forward = Vector3.Lerp(cam.forward, transform.position - cam.position, Time.deltaTime * camSpeed);
