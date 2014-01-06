@@ -27720,6 +27720,8 @@ GameObject:
   - 4: {fileID: 1993084631}
   - 65: {fileID: 1993084633}
   - 114: {fileID: 1993084632}
+  - 82: {fileID: 1993084635}
+  - 114: {fileID: 1993084634}
   m_Layer: 8
   m_Name: StarterB3D
   m_TagString: Untagged
@@ -27767,6 +27769,82 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .810000002, y: .860000014, z: .100000001}
   m_Center: {x: 0, y: .5, z: -.930000007}
+--- !u!114 &1993084634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1993084630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed57f567aa25f424295650d49150c3d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1666401515}
+  dist: .25
+  sound: {fileID: 8300000, guid: e4098213e5855da46862457e118b4907, type: 3}
+  distanse: 1
+  addVolume: .200000003
+  waitTime: 0
+  loop: 0
+--- !u!82 &1993084635
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1993084630}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1997780953
 GameObject:
   m_ObjectHideFlags: 0
