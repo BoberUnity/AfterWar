@@ -16,6 +16,7 @@ public class Monstr : MonoBehaviour
   [SerializeField] private AudioClip charAttackSound = null;
   [SerializeField] private AudioClip deadSound = null;
   [SerializeField] private GameObject blastPrefab = null;
+  [SerializeField] private ParticleEmitter fire = null;
   [SerializeField] private float uron = 5;
   [SerializeField] private float[] uronDist = new float[5];
   [SerializeField] private float[] uronMonstr = new float[5];
@@ -27,7 +28,8 @@ public class Monstr : MonoBehaviour
   [SerializeField] private float maxX = 0;
   [SerializeField] private float rotSpeed = 300;
   [SerializeField] private float nearDist = 0.6f;//attack down
-  [SerializeField] private bool isNear = false;
+  [SerializeField] private bool winEnabled = false;
+  private bool isNear = false;
   private Transform t = null;
   private Transform characterT = null;
   private bool run = false;
@@ -36,7 +38,8 @@ public class Monstr : MonoBehaviour
   private float helth = 100;
   private float distToChar = 10;
   private bool moveDown = false;
-  [SerializeField] private float distToWall;
+  private bool win = false;
+  private float distToWall;
 	
 	private void Attack()
 	{
@@ -52,6 +55,8 @@ public class Monstr : MonoBehaviour
       SetAnim(attackClip, 1);
 	    att = true;
       StartCoroutine(EndAttack(attackClip.length));
+      if (fire)
+        fire.emit = true;
     }
 	}
 
@@ -73,22 +78,43 @@ public class Monstr : MonoBehaviour
   private void Update()
   {
     float heigToChar = Mathf.Abs(t.position.y - characterT.position.y - height);//разница по высоте с персонажем
+
     if (heigToChar < 0.2f && characterT.position.x > minX && characterT.position.x < maxX && !dead)
     {
       //ПОВОРОТЫ
-      if (characterT.position.x > t.position.x)
+      if (!win && winEnabled)
       {
-        if (t.eulerAngles.y > 90)
-          t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Max(90, t.eulerAngles.y - rotSpeed*Time.deltaTime), t.eulerAngles.z);
+        if (characterT.position.x > t.position.x)
+        {
+          if (t.eulerAngles.y > 90)
+            t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Max(90, t.eulerAngles.y - rotSpeed*Time.deltaTime), t.eulerAngles.z);
+          else
+            t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Min(90, t.eulerAngles.y + rotSpeed*Time.deltaTime), t.eulerAngles.z);
+        }
         else
-          t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Min(90, t.eulerAngles.y + rotSpeed*Time.deltaTime), t.eulerAngles.z);
+        {
+          if (t.eulerAngles.y < 270 && t.eulerAngles.y > 70)
+            t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Min(270, t.eulerAngles.y + rotSpeed*Time.deltaTime), t.eulerAngles.z);
+          else
+            t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Max(270, t.eulerAngles.y - rotSpeed*Time.deltaTime), t.eulerAngles.z);
+        }
       }
-      else
+      else//Уходит после победы
       {
-        if (t.eulerAngles.y < 270 && t.eulerAngles.y > 70)
-          t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Min(270, t.eulerAngles.y + rotSpeed*Time.deltaTime), t.eulerAngles.z);
+        if (characterT.position.x < t.position.x)
+        {
+          if (t.eulerAngles.y > 90)
+            t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Max(90, t.eulerAngles.y - rotSpeed * Time.deltaTime), t.eulerAngles.z);
+          else
+            t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Min(90, t.eulerAngles.y + rotSpeed * Time.deltaTime), t.eulerAngles.z);
+        }
         else
-          t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Max(270, t.eulerAngles.y - rotSpeed*Time.deltaTime), t.eulerAngles.z);
+        {
+          if (t.eulerAngles.y < 270 && t.eulerAngles.y > 70)
+            t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Min(270, t.eulerAngles.y + rotSpeed * Time.deltaTime), t.eulerAngles.z);
+          else
+            t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Max(270, t.eulerAngles.y - rotSpeed * Time.deltaTime), t.eulerAngles.z);
+        }
       }
 
       if (!att && !run)
@@ -107,12 +133,15 @@ public class Monstr : MonoBehaviour
         run = false;
       }
 
-      if (distToChar < runDist && distToChar > attackDist)
+      if ((distToChar < runDist && distToChar > attackDist) || win)
       {
         run = true;
 
-        if (t.position.x <= maxX && t.position.x >= minX && distToChar > attackDist)
-          t.Translate(Vector3.forward * Time.deltaTime * speed);
+        if (!win)
+        {
+          if (t.position.x <= maxX && t.position.x >= minX && distToChar > attackDist)
+            t.Translate(Vector3.forward*Time.deltaTime*speed);
+        }
 
         if (t.position.x > maxX)
         {
@@ -125,6 +154,9 @@ public class Monstr : MonoBehaviour
           run = false;
         }
       }
+      if (win && winEnabled)//Уходит назад после победы
+        t.Translate(Vector3.forward * Time.deltaTime * speed);
+      
 
       if (distToChar < nearDist && !isNear && !dead)
       {
@@ -159,7 +191,6 @@ public class Monstr : MonoBehaviour
 
     if (moveDown)
       t.position -= Vector3.up * height * Time.deltaTime;
-    
   }
   //--------------------------------------------------------------------------------------------------
   private void CharacterAttack(int armo)
@@ -213,6 +244,8 @@ public class Monstr : MonoBehaviour
         Destroy(GetComponent<BoxCollider>(), 0.2f);
         if (armo == 4)
           Instantiate(blastPrefab, t.position, t.rotation);
+        if (fire)
+          fire.emit = false;
       }
       else
       {
@@ -236,6 +269,11 @@ public class Monstr : MonoBehaviour
   {
     yield return new WaitForSeconds(time);
     att = false;
+    if (fire)
+      fire.emit = false;
+    win = character.Helth < 1;
+    //if (win)
+    //  animation[winClip.name].time = 0.5f;
   }
 
   private void SetAnim(AnimationClip cl, float sp)

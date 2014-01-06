@@ -1624,6 +1624,7 @@ MonoBehaviour:
   charAttackSound: {fileID: 8300000, guid: 4f1139101e35e974cae8a27ee71790df, type: 3}
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
   blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
+  fire: {fileID: 0}
   uron: 5
   uronDist:
   - .400000006
@@ -1645,8 +1646,7 @@ MonoBehaviour:
   maxX: 9.57999992
   rotSpeed: 500
   nearDist: .600000024
-  isNear: 0
-  distToWall: 0
+  winEnabled: 0
 --- !u!82 &129643353
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3827,68 +3827,6 @@ Transform:
   m_Children:
   - {fileID: 803566035}
   m_Father: {fileID: 278218287}
---- !u!1 &254386201
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 254386203}
-  - 108: {fileID: 254386202}
-  m_Layer: 0
-  m_Name: Directional lightBlue
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!108 &254386202
-Light:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 254386201}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Type: 1
-  m_Color: {r: .536764741, g: .769979596, b: 1, a: 1}
-  m_Intensity: .5
-  m_Range: 10
-  m_SpotAngle: 30
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_Strength: 1
-    m_Bias: .0500000007
-    m_Softness: 4
-    m_SoftnessFade: 1
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_ActuallyLightmapped: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 1
-  m_ShadowSamples: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
-  m_IndirectIntensity: 1
-  m_AreaSize: {x: 1, y: 1}
---- !u!4 &254386203
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 254386201}
-  m_LocalRotation: {x: -9.46087653e-09, y: .976296008, z: -.21643962, w: -4.26752536e-08}
-  m_LocalPosition: {x: -.189999998, y: .289999962, z: .329999924}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
 --- !u!1 &263931804
 GameObject:
   m_ObjectHideFlags: 0
@@ -6043,6 +5981,7 @@ MonoBehaviour:
   charAttackSound: {fileID: 8300000, guid: 4f1139101e35e974cae8a27ee71790df, type: 3}
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
   blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
+  fire: {fileID: 0}
   uron: 5
   uronDist:
   - .400000006
@@ -6064,8 +6003,7 @@ MonoBehaviour:
   maxX: 10.6599998
   rotSpeed: 500
   nearDist: .600000024
-  isNear: 0
-  distToWall: 0
+  winEnabled: 0
 --- !u!82 &404082689
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9325,6 +9263,7 @@ MonoBehaviour:
   charAttackSound: {fileID: 8300000, guid: 4f1139101e35e974cae8a27ee71790df, type: 3}
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
   blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
+  fire: {fileID: 0}
   uron: 5
   uronDist:
   - .400000006
@@ -9346,8 +9285,7 @@ MonoBehaviour:
   maxX: 10.6000004
   rotSpeed: 300
   nearDist: .600000024
-  isNear: 0
-  distToWall: 0
+  winEnabled: 0
 --- !u!82 &618166938
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10129,7 +10067,7 @@ Light:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 666272593}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10810,6 +10748,7 @@ MonoBehaviour:
   charAttackSound: {fileID: 8300000, guid: 4f1139101e35e974cae8a27ee71790df, type: 3}
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
   blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
+  fire: {fileID: 0}
   uron: 5
   uronDist:
   - .400000006
@@ -10831,8 +10770,7 @@ MonoBehaviour:
   maxX: 17.0799999
   rotSpeed: 300
   nearDist: .600000024
-  isNear: 0
-  distToWall: 0
+  winEnabled: 0
 --- !u!82 &712767953
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11480,6 +11418,7 @@ MonoBehaviour:
   charAttackSound: {fileID: 8300000, guid: 4f1139101e35e974cae8a27ee71790df, type: 3}
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
   blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
+  fire: {fileID: 0}
   uron: 5
   uronDist:
   - .400000006
@@ -11501,8 +11440,7 @@ MonoBehaviour:
   maxX: 18.5
   rotSpeed: 300
   nearDist: .600000024
-  isNear: 0
-  distToWall: 0
+  winEnabled: 0
 --- !u!82 &742268710
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13294,7 +13232,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 848982026}
   m_LocalRotation: {x: .0185106471, y: .706864476, z: .0185100958, w: .706864476}
-  m_LocalPosition: {x: .0218993835, y: .0777552351, z: -.657904685}
+  m_LocalPosition: {x: .0239162501, y: .0657753944, z: -.541189969}
   m_LocalScale: {x: 4.34782648, y: 4.34782219, z: 4.34783173}
   m_Children: []
   m_Father: {fileID: 1422141751}
@@ -20440,7 +20378,7 @@ Transform:
   m_PrefabInternal: {fileID: 2059109804}
   m_GameObject: {fileID: 1273560531}
   m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: 1.83000004, y: .0299999993, z: 0}
+  m_LocalPosition: {x: 5.69309235, y: .0299999993, z: 0}
   m_LocalScale: {x: .230000004, y: .230000004, z: .230000004}
   m_Children:
   - {fileID: 1944157220}
@@ -20488,18 +20426,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e522a945d15c3c1468f4e0c8703ace80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  editorColor: {r: 1, g: 0, b: 0, a: 1}
+  editorColor: {r: 1, g: 0, b: .682758331, a: 1}
   character: {fileID: 1404807472}
   becameInVisible: {fileID: 1807363737}
   anim: {fileID: 1273560533}
   idleClip: {fileID: 7400000, guid: 3f625611b6c98524896294db1f090c2c, type: 3}
   runClip: {fileID: 7400000, guid: 628c2eb2e340cfd4f8c4aea8d9969170, type: 3}
   attackClip: {fileID: 7400000, guid: acf27d831a879614e9ec89d925e86f34, type: 3}
-  deadClip: {fileID: 7400000, guid: c66dd26fe94719e4b9e86b9d32ad2977, type: 3}
+  deadClip: {fileID: 7400000, guid: a5d9bb6195ad40c4796f073b316067ae, type: 3}
   attackSound: {fileID: 8300000, guid: 577d6a80811f56946ad39accab092241, type: 3}
   charAttackSound: {fileID: 8300000, guid: b507ac2f7143ebc4f8c1bd4068fc735c, type: 3}
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
   blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
+  fire: {fileID: 848982032}
   uron: 5
   uronDist:
   - .300000012
@@ -20514,15 +20453,14 @@ MonoBehaviour:
   - 34
   - 101
   runDist: 2
-  attackDist: .400000006
+  attackDist: .5
   speed: .600000024
   height: 0
-  minX: -.100000001
-  maxX: 2.05999994
+  minX: 3.3900001
+  maxX: 9.73999977
   rotSpeed: 300
   nearDist: .600000024
-  isNear: 0
-  distToWall: 0
+  winEnabled: 1
 --- !u!82 &1273560535
 AudioSource:
   m_ObjectHideFlags: 0
@@ -22631,6 +22569,7 @@ GameObject:
   - 4: {fileID: 1422141751}
   - 33: {fileID: 1422141753}
   - 23: {fileID: 1422141752}
+  - 65: {fileID: 1422141754}
   m_Layer: 8
   m_Name: Akm
   m_TagString: Untagged
@@ -22680,6 +22619,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1422141750}
   m_Mesh: {fileID: 4300006, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
+--- !u!65 &1422141754
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1422141750}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .0379521735, y: .25779134, z: .881726742}
+  m_Center: {x: .0243675895, y: -.0117133697, z: -.224782392}
 --- !u!1 &1422359350
 GameObject:
   m_ObjectHideFlags: 0
@@ -33386,7 +33337,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400030, guid: e6992dd8408afe1439b3b19b4eff76b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.83000004
+      value: 5.69309235
       objectReference: {fileID: 0}
     - target: {fileID: 400030, guid: e6992dd8408afe1439b3b19b4eff76b1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -34120,6 +34071,7 @@ MonoBehaviour:
   charAttackSound: {fileID: 8300000, guid: 4f1139101e35e974cae8a27ee71790df, type: 3}
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
   blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
+  fire: {fileID: 0}
   uron: 5
   uronDist:
   - .400000006
@@ -34141,8 +34093,7 @@ MonoBehaviour:
   maxX: 17.7000008
   rotSpeed: 300
   nearDist: .600000024
-  isNear: 0
-  distToWall: 0
+  winEnabled: 0
 --- !u!82 &2091940372
 AudioSource:
   m_ObjectHideFlags: 0
