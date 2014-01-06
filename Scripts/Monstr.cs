@@ -43,7 +43,9 @@ public class Monstr : MonoBehaviour
     if (!dead && character.Helth>1)
     {
       audio.clip = attackSound;
-      audio.volume = character.Controller.EffectsVolume;
+      if (character.Controller != null)
+        audio.volume = character.Controller.EffectsVolume;
+      else Debug.LogWarning("character.Controller != null");
 	    audio.Play();
 	    character.Helth -= uron;
       //Debug.Log("Uron" + gameObject.name);
@@ -196,7 +198,8 @@ public class Monstr : MonoBehaviour
       if (helth < 0)
       {
         dead = true;
-        audio.volume = character.Controller.EffectsVolume;
+        if (character.Controller != null)
+          audio.volume = character.Controller.EffectsVolume;
         audio.clip = deadSound;
         audio.Play();
         if (isNear && height < 0.1f)
@@ -216,7 +219,9 @@ public class Monstr : MonoBehaviour
       }
       else
       {
-        audio.volume = character.Controller.EffectsVolume;
+        if (character.Controller != null)
+          audio.volume = character.Controller.EffectsVolume;
+        else Debug.LogWarning("character.Controller != null");
         audio.clip = charAttackSound;
         audio.Play();
       }

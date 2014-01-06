@@ -24,6 +24,56 @@ public class CameraController : MonoBehaviour
   [SerializeField] private float maxY = 100;
   [SerializeField] private bool follow = true;
 
+  public Transform CamTrans
+  {
+    get { return cam; }
+  }
+
+  public float MinX
+  {
+    set { minX = value;}
+  }
+
+  public float MaxX
+  {
+    set { maxX = value; }
+  }
+
+  public float MinY
+  {
+    set { minY = value; }
+  }
+
+  public float CamDist
+  {
+    set { camDist = value; }
+  }
+
+  public float MinDist
+  {
+    set { minDist = value; }
+  }
+
+  public float MaxDist
+  {
+    set { maxDist = value; }
+  }
+
+  public float MaxY
+  {
+    set { maxY = value; }
+  }
+
+  public float CamHeight
+  {
+    set { camHeight = value; }
+  }
+
+  public bool Follow
+  {
+    set { follow = value; }
+  }
+
 	void Start () 
   {
     cam.parent = null; 

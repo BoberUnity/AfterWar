@@ -248,7 +248,8 @@ public class Character : MonoBehaviour
           if (velocity > 2.4f)
           {
             Helth -= 10;
-            audio.volume = controller.EffectsVolume;
+            if (controller != null)
+              audio.volume = controller.EffectsVolume;
             audio.clip = failSound;
             audio.Play();
             velocity = 0.0f;
@@ -604,7 +605,8 @@ public class Character : MonoBehaviour
 
     StartCoroutine(ShootParticleOn(0.01f));
     audio.clip = armo[currentArmo].ArmoClip;
-    audio.volume = controller.EffectsVolume;
+    if (controller != null)
+      audio.volume = controller.EffectsVolume;
     audio.Play();
 
     var handler = CharacterAttack;
