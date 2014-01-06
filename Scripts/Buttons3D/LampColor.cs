@@ -10,7 +10,6 @@ namespace Assets.Scripts.Buttons3D
     protected override void MakeAction()
     {
       lamp.State = state;
-      Debug.Log("Press 3D Button");
     }
   }
 }

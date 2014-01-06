@@ -84,15 +84,12 @@ public class Character : MonoBehaviour
   [SerializeField] private ArmoGUI[] armosGUI = new ArmoGUI[5];
   [SerializeField] private GameObject[] armoObjs = new GameObject[4];
   [SerializeField] private int[] things = new int[3];//Aptek, GazMask, Bron
-  [SerializeField]
-  private float visotaDown = 1;
+  [SerializeField] private float visotaDown = 1;
   private float visotaUp = 1;
-  private bool liftZone;
-  [SerializeField]
-  private float velocity = 0;
+  //private bool liftZone;
+  [SerializeField] private float velocity = 0;
   private CharacterController characterController = null;
   private Transform t = null;
-  [SerializeField]
   private bool jump = false;
   private int jumpToStair = 0;//1 - right. 2 - left
   private bool kulak = false;
@@ -104,13 +101,11 @@ public class Character : MonoBehaviour
   private bool stairZone = false;
   private bool enableSoskok = false;
   private int currentArmo = 0;
-  [SerializeField]
   private int nearMonstr = 0;
   private bool fail = false;//падение
   private bool enableDead = false;
   private bool shooting = false;
-  [SerializeField]
-  private bool isG;
+  //[SerializeField] private bool isG;
   private float visotaShoot = 1;
 
   public int NearMonstr//Количество монстров близко
@@ -206,7 +201,7 @@ public class Character : MonoBehaviour
   //==================================================================================================================
   void Update ()
   {
-    isG = characterController.isGrounded;
+    //isG = characterController.isGrounded;
     // ЛУЧИ -------------------------------
     RaycastHit[] hits;
     hits = Physics.RaycastAll(t.position + Vector3.up * 0.3f, -Vector2.up, 100);
@@ -518,7 +513,6 @@ public class Character : MonoBehaviour
   public void EndAttack()
   {
     kulak = false;
-    Debug.LogWarning("EndAttack");
     armo[currentArmo].ShootParticle.emit = false;
   }
   //==================================================================================================================
