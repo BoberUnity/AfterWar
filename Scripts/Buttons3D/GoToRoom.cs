@@ -40,7 +40,7 @@ namespace Assets.Scripts.Buttons3D
       cameraController.MaxDist = maxDist;
       cameraController.CamHeight = camHeight;
       cameraController.Follow = follow;
-      cameraController.CamTrans.position = new Vector3(cameraController.CamTrans.position.x, Mathf.Clamp(y + camHeight, minY, maxY), -camDist);
+      cameraController.CamTrans.position = new Vector3(Mathf.Clamp(cameraController.CamTrans.position.x, minX, maxX), Mathf.Clamp(y + camHeight, minY, maxY), -camDist);
       character.transform.position = new Vector3(transform.position.x, y, 0);
       character.transform.eulerAngles = new Vector3(character.transform.eulerAngles.x, charRotY, character.transform.eulerAngles.z);
     }

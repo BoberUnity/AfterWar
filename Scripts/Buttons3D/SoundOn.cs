@@ -27,8 +27,9 @@ namespace Assets.Scripts.Buttons3D
 
     private void Update()
     {
+      audio.volume = (1 - Vector3.Distance(t.position, ct.position)/distanse + addVolume);
       if (character.Controller != null)
-        audio.volume = (1 - Vector3.Distance(t.position, ct.position) / distanse + addVolume)*character.Controller.EffectsVolume;
+        audio.volume*=character.Controller.EffectsVolume;
       else
         Debug.LogWarning("character.Controller == null");
     }
