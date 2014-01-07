@@ -923,6 +923,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 293899309}
   - 111: {fileID: 293899310}
+  - 114: {fileID: 293899311}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -957,6 +958,18 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &293899311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 293899308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 917c94617dca12a449fb1b5734f5e723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animSpeed: .600000024
 --- !u!1 &306955235
 GameObject:
   m_ObjectHideFlags: 0
@@ -3459,7 +3472,7 @@ MonoBehaviour:
   controller: {fileID: 0}
   endPistol: {fileID: 2021140022}
   PistolPartPrefab: {fileID: 100000, guid: 84d4ab06027e42c4daaf5d7c70d1fc16, type: 2}
-  curSpeed: 1
+  curSpeed: .75
   rotSpeed: 580
   gravSpeed: 4
   patrons: 0000000000000000000000000000000000000000
@@ -3507,10 +3520,8 @@ MonoBehaviour:
   character: {fileID: 1404807472}
   cam: {fileID: 311619483}
   fonar: {fileID: 541636030}
-  minDist: .699999988
-  maxDist: 3
   sensity: .000500000024
-  camSpeed: .200000003
+  camSpeed: .150000006
   fonarHeight: .5
   fonarDist: .600000024
   camDist: 1

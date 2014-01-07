@@ -2,11 +2,13 @@
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(AudioSource))]
 public class LiftStarter : Button3DBase
 {
   [SerializeField] private Animation anim = null;
   [SerializeField] private AnimationClip up = null;
   [SerializeField] private AnimationClip down = null;
+  [SerializeField] private AudioClip sound = null;
   [SerializeField] private Lamp lamp = null;
   private BoxCollider coll = null;
   private bool isUp = false;
@@ -35,6 +37,11 @@ public class LiftStarter : Button3DBase
         anim.Play();
         move = true;
         coll.enabled = false;
+        audio.clip = sound;
+        audio.loop = true;
+        if (character.Controller != null)
+          audio.volume = character.Controller.EffectsVolume;
+        audio.Play();
         StartCoroutine(StopLift(anim.clip.length));
      }
   }
@@ -44,6 +51,7 @@ public class LiftStarter : Button3DBase
     yield return new WaitForSeconds(time);
     coll.enabled = true;
     move = false;
+    audio.Stop();
     isUp = !isUp;
   }
   //Активация лифта снизу

@@ -1628,15 +1628,15 @@ MonoBehaviour:
   uron: 5
   uronDist:
   - .400000006
-  - .800000012
-  - 1
+  - 1.5
+  - 1.5
   - 2
-  - 3
+  - 2
   uronMonstr:
-  - 26
   - 34
-  - 51
+  - 21
   - 101
+  - 34
   - 101
   runDist: 2.5
   attackDist: .300000012
@@ -1732,7 +1732,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &132663043
 Transform:
   m_ObjectHideFlags: 0
@@ -4552,7 +4552,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 311619482}
   m_LocalRotation: {x: .1305262, y: 0, z: 0, w: .991444886}
-  m_LocalPosition: {x: .610000014, y: .5, z: -.970000029}
+  m_LocalPosition: {x: .610000014, y: .5, z: -1.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5985,15 +5985,15 @@ MonoBehaviour:
   uron: 5
   uronDist:
   - .400000006
-  - .800000012
-  - 1
+  - 1.5
+  - 1.5
   - 2
-  - 3
+  - 2
   uronMonstr:
-  - 26
   - 34
-  - 51
+  - 21
   - 101
+  - 34
   - 101
   runDist: 2
   attackDist: .300000012
@@ -9267,15 +9267,15 @@ MonoBehaviour:
   uron: 5
   uronDist:
   - .400000006
-  - .800000012
+  - 1.5
+  - 1.5
   - 2
-  - 3
-  - 4
+  - 2
   uronMonstr:
-  - 26
   - 34
-  - 51
+  - 21
   - 101
+  - 34
   - 101
   runDist: 1.79999995
   attackDist: .300000012
@@ -10752,15 +10752,15 @@ MonoBehaviour:
   uron: 5
   uronDist:
   - .400000006
-  - .800000012
+  - 1.5
+  - 1.5
   - 2
-  - 3
-  - 4
+  - 2
   uronMonstr:
-  - 26
   - 34
-  - 51
+  - 26
   - 101
+  - 34
   - 101
   runDist: 1.79999995
   attackDist: .300000012
@@ -11422,15 +11422,15 @@ MonoBehaviour:
   uron: 5
   uronDist:
   - .400000006
-  - .800000012
+  - 1.5
+  - 1.5
   - 2
-  - 3
-  - 4
+  - 2
   uronMonstr:
-  - 26
   - 34
-  - 51
+  - 26
   - 101
+  - 34
   - 101
   runDist: 1.79999995
   attackDist: .300000012
@@ -19939,7 +19939,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1243041773
 Transform:
   m_ObjectHideFlags: 0
@@ -20030,6 +20030,10 @@ Prefab:
     - target: {fileID: 400000, guid: 33bd1597ada70a44fbe9bccac2c437d0, type: 2}
       propertyPath: m_LocalScale.z
       value: .231000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 33bd1597ada70a44fbe9bccac2c437d0, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33bd1597ada70a44fbe9bccac2c437d0, type: 2}
@@ -27163,7 +27167,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1741027137
 Transform:
   m_ObjectHideFlags: 0
@@ -28333,6 +28337,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: .230000004
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 92c587492fb457c4088d4ce9a9a05a15, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 92c587492fb457c4088d4ce9a9a05a15, type: 2}
   m_RootGameObject: {fileID: 132663042}
@@ -28376,7 +28384,6 @@ GameObject:
   - 65: {fileID: 1805912899}
   - 114: {fileID: 1805912898}
   - 82: {fileID: 1805912901}
-  - 114: {fileID: 1805912900}
   m_Layer: 8
   m_Name: LiftStarterB3D
   m_TagString: Untagged
@@ -28412,6 +28419,7 @@ MonoBehaviour:
   anim: {fileID: 888705312}
   up: {fileID: 7400000, guid: 9418ff79e90cd0e4cb4ab0127ee71d4c, type: 2}
   down: {fileID: 7400000, guid: 63628d91a31054e4b8b9ae60a2059d5d, type: 2}
+  sound: {fileID: 8300000, guid: e4098213e5855da46862457e118b4907, type: 3}
   lamp: {fileID: 204536880}
 --- !u!65 &1805912899
 BoxCollider:
@@ -28426,24 +28434,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .5, y: .5, z: .0500000007}
   m_Center: {x: 0, y: .389999986, z: 0}
---- !u!114 &1805912900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1805912896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed57f567aa25f424295650d49150c3d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 1404807472}
-  dist: .5
-  sound: {fileID: 8300000, guid: e4098213e5855da46862457e118b4907, type: 3}
-  distanse: 1.5
-  addVolume: .300000012
-  waitTime: 0
-  loop: 0
 --- !u!82 &1805912901
 AudioSource:
   m_ObjectHideFlags: 0
@@ -31419,6 +31409,10 @@ Prefab:
       propertyPath: m_Animation
       value: 
       objectReference: {fileID: 7400000, guid: c40e7b489cd27364ca2839fd4214bd8d, type: 3}
+    - target: {fileID: 100004, guid: 1db9ee6fae96ca94bbcb270ce2d44e91, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1db9ee6fae96ca94bbcb270ce2d44e91, type: 3}
   m_RootGameObject: {fileID: 1243041772}
@@ -34075,15 +34069,15 @@ MonoBehaviour:
   uron: 5
   uronDist:
   - .400000006
-  - .800000012
+  - 1.5
+  - 1.5
   - 2
-  - 3
-  - 4
+  - 2
   uronMonstr:
-  - 26
   - 34
-  - 51
+  - 26
   - 101
+  - 34
   - 101
   runDist: 1.20000005
   attackDist: .300000012

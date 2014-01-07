@@ -82,7 +82,7 @@ public class Monstr : MonoBehaviour
     if (heigToChar < 0.2f && characterT.position.x > minX && characterT.position.x < maxX && !dead)
     {
       //ПОВОРОТЫ
-      if (!win && winEnabled)
+      if (!win)
       {
         if (characterT.position.x > t.position.x)
         {
@@ -101,19 +101,22 @@ public class Monstr : MonoBehaviour
       }
       else//Уходит после победы
       {
-        if (characterT.position.x < t.position.x)
+        if (winEnabled)
         {
-          if (t.eulerAngles.y > 90)
-            t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Max(90, t.eulerAngles.y - rotSpeed * Time.deltaTime), t.eulerAngles.z);
+          if (characterT.position.x < t.position.x)
+          {
+            if (t.eulerAngles.y > 90)
+              t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Max(90, t.eulerAngles.y - rotSpeed * Time.deltaTime), t.eulerAngles.z);
+            else
+              t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Min(90, t.eulerAngles.y + rotSpeed * Time.deltaTime), t.eulerAngles.z);
+          }
           else
-            t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Min(90, t.eulerAngles.y + rotSpeed * Time.deltaTime), t.eulerAngles.z);
-        }
-        else
-        {
-          if (t.eulerAngles.y < 270 && t.eulerAngles.y > 70)
-            t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Min(270, t.eulerAngles.y + rotSpeed * Time.deltaTime), t.eulerAngles.z);
-          else
-            t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Max(270, t.eulerAngles.y - rotSpeed * Time.deltaTime), t.eulerAngles.z);
+          {
+            if (t.eulerAngles.y < 270 && t.eulerAngles.y > 70)
+              t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Min(270, t.eulerAngles.y + rotSpeed * Time.deltaTime), t.eulerAngles.z);
+            else
+              t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Max(270, t.eulerAngles.y - rotSpeed * Time.deltaTime), t.eulerAngles.z);
+          }
         }
       }
 

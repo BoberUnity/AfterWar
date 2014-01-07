@@ -1697,13 +1697,14 @@ MonoBehaviour:
   charAttackSound: {fileID: 8300000, guid: 4f1139101e35e974cae8a27ee71790df, type: 3}
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
   blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
+  fire: {fileID: 0}
   uron: 5
   uronDist:
   - .400000006
-  - .800000012
+  - 1.5
+  - 1.5
   - 2
-  - 3
-  - 4
+  - 2
   uronMonstr:
   - 26
   - 34
@@ -1718,8 +1719,7 @@ MonoBehaviour:
   maxX: 1.64999998
   rotSpeed: 300
   nearDist: .600000024
-  isNear: 0
-  distToWall: 0
+  winEnabled: 0
 --- !u!82 &99724628
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2188,29 +2188,29 @@ MonoBehaviour:
   charAttackSound: {fileID: 8300000, guid: 4f1139101e35e974cae8a27ee71790df, type: 3}
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
   blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
+  fire: {fileID: 0}
   uron: 5
   uronDist:
   - .400000006
-  - .800000012
-  - 1
+  - 1.5
+  - 1.5
   - 2
-  - 3
+  - 2
   uronMonstr:
   - 26
   - 34
   - 51
   - 101
   - 101
-  runDist: 2.5
-  attackDist: .349999994
+  runDist: 2
+  attackDist: .400000006
   speed: .400000006
   height: .300000012
   minX: 6.19999981
   maxX: 9.57999992
   rotSpeed: 500
   nearDist: .600000024
-  isNear: 0
-  distToWall: 0
+  winEnabled: 0
 --- !u!82 &129643353
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2736,13 +2736,14 @@ MonoBehaviour:
   charAttackSound: {fileID: 8300000, guid: 4f1139101e35e974cae8a27ee71790df, type: 3}
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
   blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
+  fire: {fileID: 0}
   uron: 5
   uronDist:
   - .400000006
-  - .800000012
+  - 1.5
+  - 1.5
   - 2
-  - 3
-  - 4
+  - 2
   uronMonstr:
   - 26
   - 34
@@ -2757,8 +2758,7 @@ MonoBehaviour:
   maxX: 1.45000005
   rotSpeed: 300
   nearDist: .600000024
-  isNear: 0
-  distToWall: 0
+  winEnabled: 0
 --- !u!82 &165364579
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5710,13 +5710,14 @@ MonoBehaviour:
   charAttackSound: {fileID: 8300000, guid: 4f1139101e35e974cae8a27ee71790df, type: 3}
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
   blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
+  fire: {fileID: 0}
   uron: 5
   uronDist:
   - .400000006
-  - .800000012
-  - 1
+  - 1.5
+  - 1.5
   - 2
-  - 3
+  - 2
   uronMonstr:
   - 26
   - 34
@@ -5724,15 +5725,14 @@ MonoBehaviour:
   - 101
   - 101
   runDist: 2
-  attackDist: .349999994
-  speed: .300000012
+  attackDist: .400000006
+  speed: .400000006
   height: .300000012
   minX: 8.63000011
   maxX: 10.6599998
   rotSpeed: 500
   nearDist: .600000024
-  isNear: 0
-  distToWall: 0
+  winEnabled: 0
 --- !u!82 &404082689
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8426,13 +8426,14 @@ MonoBehaviour:
   charAttackSound: {fileID: 8300000, guid: 4f1139101e35e974cae8a27ee71790df, type: 3}
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
   blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
+  fire: {fileID: 0}
   uron: 5
   uronDist:
   - .400000006
-  - .800000012
+  - 1.5
+  - 1.5
   - 2
-  - 3
-  - 4
+  - 2
   uronMonstr:
   - 26
   - 34
@@ -8447,8 +8448,7 @@ MonoBehaviour:
   maxX: .409999996
   rotSpeed: 300
   nearDist: .600000024
-  isNear: 0
-  distToWall: 0
+  winEnabled: 0
 --- !u!82 &618166938
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9794,29 +9794,29 @@ MonoBehaviour:
   charAttackSound: {fileID: 8300000, guid: 4f1139101e35e974cae8a27ee71790df, type: 3}
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
   blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
+  fire: {fileID: 0}
   uron: 5
   uronDist:
   - .400000006
-  - .800000012
+  - 1.5
+  - 1.5
   - 2
-  - 3
-  - 4
+  - 2
   uronMonstr:
   - 26
   - 34
   - 51
   - 101
   - 101
-  runDist: 1.20000005
-  attackDist: .300000012
+  runDist: 1.60000002
+  attackDist: .400000006
   speed: .600000024
   height: 0
   minX: 5.48000002
   maxX: 10.6199999
   rotSpeed: 300
   nearDist: .600000024
-  isNear: 0
-  distToWall: 0
+  winEnabled: 0
 --- !u!82 &712767953
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13020,6 +13020,7 @@ MonoBehaviour:
   charAttackSound: {fileID: 8300000, guid: 4f1139101e35e974cae8a27ee71790df, type: 3}
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
   blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
+  fire: {fileID: 0}
   uron: 5
   uronDist:
   - .400000006
@@ -13041,8 +13042,7 @@ MonoBehaviour:
   maxX: -1.21000004
   rotSpeed: 300
   nearDist: .600000024
-  isNear: 0
-  distToWall: 0
+  winEnabled: 0
 --- !u!82 &914194760
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13482,29 +13482,29 @@ MonoBehaviour:
   charAttackSound: {fileID: 8300000, guid: 4f1139101e35e974cae8a27ee71790df, type: 3}
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
   blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
+  fire: {fileID: 0}
   uron: 5
   uronDist:
   - .400000006
-  - .800000012
-  - 1
+  - 1.5
+  - 1.5
   - 2
-  - 3
+  - 2
   uronMonstr:
   - 26
   - 34
   - 51
   - 101
   - 101
-  runDist: 1
-  attackDist: .349999994
-  speed: .5
+  runDist: 2
+  attackDist: .400000006
+  speed: .400000006
   height: .300000012
   minX: -.889999986
   maxX: 1.5
   rotSpeed: 500
   nearDist: .600000024
-  isNear: 0
-  distToWall: 0
+  winEnabled: 0
 --- !u!82 &934442220
 AudioSource:
   m_ObjectHideFlags: 0
@@ -22202,29 +22202,29 @@ MonoBehaviour:
   charAttackSound: {fileID: 8300000, guid: 4f1139101e35e974cae8a27ee71790df, type: 3}
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
   blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
+  fire: {fileID: 0}
   uron: 5
   uronDist:
   - .400000006
-  - .800000012
+  - 1.5
+  - 1.5
   - 2
-  - 3
-  - 4
+  - 2
   uronMonstr:
   - 26
   - 34
   - 51
   - 101
   - 101
-  runDist: 1.20000005
-  attackDist: .300000012
+  runDist: 1.60000002
+  attackDist: .400000006
   speed: .600000024
   height: 0
   minX: .0700000003
   maxX: 2.0999999
   rotSpeed: 300
   nearDist: .600000024
-  isNear: 0
-  distToWall: 0
+  winEnabled: 0
 --- !u!82 &1587611364
 AudioSource:
   m_ObjectHideFlags: 0
@@ -27718,7 +27718,6 @@ GameObject:
   - 65: {fileID: 1993084633}
   - 114: {fileID: 1993084632}
   - 82: {fileID: 1993084635}
-  - 114: {fileID: 1993084634}
   m_Layer: 8
   m_Name: StarterB3D
   m_TagString: Untagged
@@ -27753,6 +27752,7 @@ MonoBehaviour:
   anim: {fileID: 1065313486}
   up: {fileID: 7400000, guid: 468c646f180f33744ab473eeffb89d43, type: 2}
   down: {fileID: 7400000, guid: d188021aa8fbbf24a8ee2094bd4a773d, type: 2}
+  sound: {fileID: 8300000, guid: e4098213e5855da46862457e118b4907, type: 3}
   lamp: {fileID: 83150098}
 --- !u!65 &1993084633
 BoxCollider:
@@ -27766,24 +27766,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .810000002, y: .860000014, z: .100000001}
   m_Center: {x: 0, y: .5, z: -.930000007}
---- !u!114 &1993084634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1993084630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed57f567aa25f424295650d49150c3d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 1666401515}
-  dist: .25
-  sound: {fileID: 8300000, guid: e4098213e5855da46862457e118b4907, type: 3}
-  distanse: 1
-  addVolume: .200000003
-  waitTime: 0
-  loop: 0
 --- !u!82 &1993084635
 AudioSource:
   m_ObjectHideFlags: 0
@@ -28636,29 +28618,29 @@ MonoBehaviour:
   charAttackSound: {fileID: 8300000, guid: 4f1139101e35e974cae8a27ee71790df, type: 3}
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
   blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
+  fire: {fileID: 0}
   uron: 5
   uronDist:
   - .400000006
-  - .800000012
+  - 1.5
+  - 1.5
   - 2
-  - 3
-  - 4
+  - 2
   uronMonstr:
   - 26
   - 34
   - 51
   - 101
   - 101
-  runDist: 1.20000005
-  attackDist: .300000012
+  runDist: 1.29999995
+  attackDist: .400000006
   speed: .600000024
   height: 0
   minX: 3.28999996
   maxX: 5.13000011
   rotSpeed: 300
   nearDist: .600000024
-  isNear: 0
-  distToWall: 0
+  winEnabled: 0
 --- !u!82 &2068325309
 AudioSource:
   m_ObjectHideFlags: 0
