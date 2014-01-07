@@ -15,8 +15,7 @@ public class OptionsSetter : MonoBehaviour
     else Debug.LogWarning("Controller(Clone) was not found!");
 	}
 	
-
-	private void Update ()
+  private void Update ()
 	{
 	  controller.EffectsVolume = slider.value;
 	}
