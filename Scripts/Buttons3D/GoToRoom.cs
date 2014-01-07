@@ -48,11 +48,11 @@ namespace Assets.Scripts.Buttons3D
       
       foreach (var aObjs in activeObjs)
       {
-        aObjs.SetActiveRecursively(true);
+        aObjs.SetActive/*Recursively*/(true);
       }
       foreach (var aObjs in deactiveObjs)
       {
-        aObjs.SetActiveRecursively(false);
+        aObjs.SetActive/*Recursively*/(false);
       }
     }
   }

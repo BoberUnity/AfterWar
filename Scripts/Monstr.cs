@@ -183,17 +183,16 @@ public class Monstr : MonoBehaviour
       }
 
       t.position = new Vector3(t.position.x, t.position.y, 0);
-
-
-      if (!att && !dead)
-        SetAnim(run ? runClip : idleClip, 1);
     }
     else
     {
       run = false;
       distToChar = 10000;
     }
-    
+
+    if (!att && !dead)
+      SetAnim(run ? runClip : idleClip, 1);
+
     if (moveDown)
       t.position -= Vector3.up * height * Time.deltaTime;
   }

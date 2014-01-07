@@ -8,6 +8,12 @@ public class Lamp : MonoBehaviour
   [SerializeField] private GameObject greenFlare;
   private int state = 0; //1 red; 2 green
 	
+  //private void OnEnable()
+  //{
+  //  greenFlare.SetActive(state > 1);
+  //  redFlare.SetActive(state > 0);
+  //}
+  
   public int State
   {
     get { return state; }
