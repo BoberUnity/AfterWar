@@ -3,10 +3,14 @@
 public class ButtonSettings : MonoBehaviour
 {
   public int id = 0;
+
+  private void Start()
+  {
+    
+  }
   
   protected virtual void OnPress(bool isPressed)
   {
-    
     if (!isPressed)
     {
       if (id == 0)

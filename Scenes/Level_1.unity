@@ -1224,6 +1224,8 @@ MonoBehaviour:
   dist: .400000006
   anim: {fileID: 1817122776}
   always: 1
+  sound: {fileID: 0}
+  loop: 0
 --- !u!1 &83150093
 GameObject:
   m_ObjectHideFlags: 0
@@ -3909,6 +3911,8 @@ MonoBehaviour:
   dist: .800000012
   anim: {fileID: 287740011}
   always: 1
+  sound: {fileID: 0}
+  loop: 0
 --- !u!1 &277704466
 GameObject:
   m_ObjectHideFlags: 0
@@ -6956,6 +6960,14 @@ Prefab:
       propertyPath: anim
       value: 
       objectReference: {fileID: 94300670}
+    - target: {fileID: 11400000, guid: ece7f5085dd2a6e4385a25fe303254b2, type: 2}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 071d7970fac19c04f8b7b9b01abb0901, type: 3}
+    - target: {fileID: 11400000, guid: ece7f5085dd2a6e4385a25fe303254b2, type: 2}
+      propertyPath: loop
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ece7f5085dd2a6e4385a25fe303254b2, type: 2}
   m_RootGameObject: {fileID: 1599380331}
@@ -14685,7 +14697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mColor: {r: 1, g: 0, b: 0, a: 0}
   mPivot: 4
-  mWidth: 1260
+  mWidth: 1360
   mHeight: 768
   mDepth: -1
   autoResizeBoxCollider: 0
@@ -16163,6 +16175,14 @@ Prefab:
     - target: {fileID: 11400068, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: id
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400132, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
+      propertyPath: mColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400132, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
+      propertyPath: mWidth
+      value: 1360
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
@@ -22360,6 +22380,7 @@ GameObject:
   - 4: {fileID: 1599380332}
   - 65: {fileID: 1599380334}
   - 114: {fileID: 1599380333}
+  - 82: {fileID: 1599380335}
   m_Layer: 8
   m_Name: WaterDownB3D
   m_TagString: Untagged
@@ -22394,6 +22415,8 @@ MonoBehaviour:
   dist: .5
   anim: {fileID: 94300670}
   always: 0
+  sound: {fileID: 8300000, guid: 071d7970fac19c04f8b7b9b01abb0901, type: 3}
+  loop: 1
 --- !u!65 &1599380334
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22407,6 +22430,64 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .300000012, y: .340000004, z: .0500000007}
   m_Center: {x: 0, y: .389999986, z: 0}
+--- !u!82 &1599380335
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1599380331}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1601970107
 GameObject:
   m_ObjectHideFlags: 0

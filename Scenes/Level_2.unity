@@ -7835,7 +7835,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: db05783a8d0a87246b9cbdec922a3051, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: .999048233
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: db05783a8d0a87246b9cbdec922a3051, type: 3}
       propertyPath: m_LocalRotation.z
@@ -7843,7 +7843,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: db05783a8d0a87246b9cbdec922a3051, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -4.37113883e-08
+      value: .0436194539
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: db05783a8d0a87246b9cbdec922a3051, type: 3}
       propertyPath: m_LocalScale.x
@@ -7857,6 +7857,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2300008, guid: db05783a8d0a87246b9cbdec922a3051, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 687d30769ecfd8b4ab46810d22fd1f15, type: 2}
     m_RemovedComponents:
     - {fileID: 9500000, guid: db05783a8d0a87246b9cbdec922a3051, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: db05783a8d0a87246b9cbdec922a3051, type: 3}
@@ -9180,6 +9184,8 @@ MonoBehaviour:
   dist: .400000006
   anim: {fileID: 1259598612}
   always: 1
+  sound: {fileID: 0}
+  loop: 0
 --- !u!1 &613972571
 GameObject:
   m_ObjectHideFlags: 0
@@ -10362,7 +10368,7 @@ Light:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 666272593}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -13265,7 +13271,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 43386c1515d6fb243b9e0c0f8d6e642d, type: 2}
+  - {fileID: 2100000, guid: 687d30769ecfd8b4ab46810d22fd1f15, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -16832,7 +16838,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400012, guid: db05783a8d0a87246b9cbdec922a3051, type: 3}
   m_PrefabInternal: {fileID: 517352753}
   m_GameObject: {fileID: 1014697471}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: -4.37113883e-08}
+  m_LocalRotation: {x: 0, y: .999048233, z: 0, w: .0436194539}
   m_LocalPosition: {x: 3.36999989, y: -5.92000008, z: -1.04999995}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
@@ -18920,6 +18926,10 @@ Prefab:
       propertyPath: fonar
       value: 
       objectReference: {fileID: 541636030}
+    - target: {fileID: 11400004, guid: 9397f4a1aca4742438b2e4f0eaaec618, type: 2}
+      propertyPath: armo.Array.data[4].armoClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c80b078010c94b145b88371250c678fe, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9397f4a1aca4742438b2e4f0eaaec618, type: 2}
   m_RootGameObject: {fileID: 1404807471}
@@ -19201,6 +19211,8 @@ MonoBehaviour:
   dist: .699999988
   anim: {fileID: 462784928}
   always: 1
+  sound: {fileID: 0}
+  loop: 0
 --- !u!1 &1122807950
 GameObject:
   m_ObjectHideFlags: 0
@@ -23237,7 +23249,7 @@ MonoBehaviour:
     armoRun: {fileID: 7400008, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
     armoIdle: {fileID: 7400018, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
     shootParticle: {fileID: 154162648}
-    armoClip: {fileID: 8300000, guid: fdf7f2f21d998f648841d6cafb045db4, type: 3}
+    armoClip: {fileID: 8300000, guid: c80b078010c94b145b88371250c678fe, type: 3}
     animSpeed: .5
   jumpClip: {fileID: 7400010, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
   deadClip: {fileID: 7400032, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
@@ -33281,7 +33293,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2013344532
 Transform:
   m_ObjectHideFlags: 0
