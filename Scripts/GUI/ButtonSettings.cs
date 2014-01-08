@@ -4,7 +4,7 @@ public class ButtonSettings : MonoBehaviour
 {
   [SerializeField] private int id = 0;
   [SerializeField] private UILabel fpsLabel = null;
-
+  
   private void Start()
   {
     //------------------------------------------------------------------------------------------

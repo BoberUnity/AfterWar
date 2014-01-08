@@ -6,12 +6,12 @@ public class SenderToStalker : MonoBehaviour
   [SerializeField] private UISprite deadSprite = null;
   [SerializeField] private Indicator helthIndicator = null;
   [SerializeField] private ArmoGUI[] armosGUI = new ArmoGUI[5];
-  [SerializeField] private UILabel fpsLabel = null;
-  private Character character = null;
+  //[SerializeField] private UILabel fpsLabel = null;
+  //private Character character = null;
 
   void Awake () 
   {
-    character = GameObject.Find("Stalker").GetComponent<Character>();
+    Character character = GameObject.Find("Stalker").GetComponent<Character>();
     if (character != null)
     {
       character.Joystik = progressBar;

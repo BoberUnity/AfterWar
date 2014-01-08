@@ -11,7 +11,10 @@ public class OptionsSetter : MonoBehaviour
 	  slider = GetComponent<UISlider>();
 	  GameObject obj = GameObject.Find("Controller(Clone)");
     if (obj != null)
+    {
       controller = obj.GetComponent<Controller>();
+      slider.value = controller.EffectsVolume;
+    }
     else Debug.LogWarning("Controller(Clone) was not found!");
 	}
 	
