@@ -1,21 +1,24 @@
 using UnityEngine;
 
+[RequireComponent(typeof(UILabel))]
 public class ShowFps : MonoBehaviour
 {
   [SerializeField] private UILabel uILabel = null; 
 
-public float updateInterval = 0.5F;
-public bool Tormoz;
-public float LowFPS;
-public int Step = 30;
-private float accum   = 0; // FPS accumulated over the interval
-private int   frames  = 0; // Frames drawn over the interval
-private float timeleft; // Left time for current interval
-private float fps;
+  public float updateInterval = 0.5F;
+  public bool Tormoz;
+  public float LowFPS;
+  public int Step = 30;
+  private float accum   = 0; // FPS accumulated over the interval
+  private int   frames  = 0; // Frames drawn over the interval
+  private float timeleft; // Left time for current interval
+  private float fps;
 
   private void Start()
   {
-    
+    GameObject obj = GameObject.Find("Controller(Clone)");
+    if (obj != null)
+      GetComponent<UILabel>().enabled = obj.GetComponent<Controller>().ShowFps;
   }
 
   private void Update()

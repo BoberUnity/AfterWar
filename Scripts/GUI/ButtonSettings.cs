@@ -2,7 +2,8 @@
 
 public class ButtonSettings : MonoBehaviour
 {
-  public int id = 0;
+  [SerializeField] private int id = 0;
+  [SerializeField] private UILabel fpsLabel = null;
 
   private void Start()
   {
@@ -50,6 +51,13 @@ public class ButtonSettings : MonoBehaviour
 
     if (QualitySettings.masterTextureLimit == 0 && id == 13)
       GetComponent<UIToggle>().value = true;
+
+    if (id == 14)
+    {
+      GetComponent<UIToggle>().value = GameObject.Find("Controller(Clone)").GetComponent<Controller>().ShowFps;
+      if (fpsLabel != null)
+        fpsLabel.enabled = GetComponent<UIToggle>().value;
+    }
   }
   
   protected virtual void OnPress(bool isPressed)
@@ -87,6 +95,13 @@ public class ButtonSettings : MonoBehaviour
         QualitySettings.masterTextureLimit = 1;
       if (id == 13)
         QualitySettings.masterTextureLimit = 0;
+
+      if (id == 14)
+      {
+        GameObject.Find("Controller(Clone)").GetComponent<Controller>().ShowFps = !GetComponent<UIToggle>().value;
+        if (fpsLabel != null)
+          fpsLabel.enabled = !GetComponent<UIToggle>().value;
+      }
     }
   }
 }
