@@ -59,7 +59,7 @@ public class CharacterFinish : MonoBehaviour
   }
 
   [SerializeField] private Armo[] armo = null;
-  /*[SerializeField]*/ private UIProgressBar progressBar = null;
+  /*[SerializeField]*/ //private UIProgressBar progressBar = null;
   //[SerializeField] private AnimationClip jumpClip = null;
   //[SerializeField] private AnimationClip deadClip = null;
   //[SerializeField] private AnimationClip stairClip = null;
@@ -68,27 +68,27 @@ public class CharacterFinish : MonoBehaviour
   ///*[SerializeField]*/ private UISprite deadSprite = null;
   /*[SerializeField]*/ //private Indicator helthIndicator = null;
   //[SerializeField] private AudioClip failSound = null;
-  [SerializeField] private Controller controller = null;
+  //[SerializeField] private Controller controller = null;
   //[SerializeField] private Transform hand = null;
   //[SerializeField] private GameObject BlastPrefab = null;
-  [SerializeField] private Transform endPistol = null;
-  [SerializeField] private GameObject PistolPartPrefab = null;
+  //[SerializeField] private Transform endPistol = null;
+  //[SerializeField] private GameObject PistolPartPrefab = null;
   [SerializeField] private float curSpeed = 1;
-  [SerializeField] private float rotSpeed = 580;
+  //[SerializeField] private float rotSpeed = 580;
   //[SerializeField] private float stairSpeed = 1;
-  [SerializeField] private float gravSpeed = 2;
+  //[SerializeField] private float gravSpeed = 2;
   //[SerializeField] private float jumpHeight = 1;
   //[SerializeField] private float failHeight = 1.8f;
   //private float helth = 100;
-  [SerializeField] private int[] patrons = new int[5];
-  [SerializeField] private ArmoGUI[] armosGUI = new ArmoGUI[5];
+  //[SerializeField] private int[] patrons = new int[5];
+  //[SerializeField] private ArmoGUI[] armosGUI = new ArmoGUI[5];
   [SerializeField] private GameObject[] armoObjs = new GameObject[4];
-  [SerializeField] private int[] things = new int[3];//Aptek, GazMask, Bron
-  [SerializeField] private float visotaDown = 1;
-  private float visotaUp = 1;
+  //[SerializeField] private int[] things = new int[3];//Aptek, GazMask, Bron
+  //[SerializeField] private float visotaDown = 1;
+  //private float visotaUp = 1;
   //private bool liftZone;
-  [SerializeField] private float velocity = 0;
-  private CharacterController characterController = null;
+  //[SerializeField] private float velocity = 0;
+  //private CharacterController characterController = null;
   private Transform t = null;
   private bool endFilm = false;
   //private bool jump = false;
@@ -185,12 +185,12 @@ public class CharacterFinish : MonoBehaviour
   //==================================================================================================================
 	void Start ()
 	{
-	  Application.targetFrameRate = 300;
-	  characterController = GetComponent<CharacterController>();
+	  //Application.targetFrameRate = 300;
+	  //characterController = GetComponent<CharacterController>();
 	  t = transform;
     //patrons[0] = 10000000;
     if (currentArmo > 0)
-      armoObjs[currentArmo - 1].gameObject.SetActiveRecursively(true);
+      armoObjs[currentArmo - 1].gameObject.SetActive/*Recursively*/(true);
     //StartCoroutine(DeadSpriteOn(0.1f));
 	}
 

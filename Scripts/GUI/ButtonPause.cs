@@ -13,7 +13,7 @@ public class ButtonPause : MonoBehaviour
       else 
         Time.timeScale = 0;
 
-      pauseMenu.gameObject.SetActiveRecursively(Time.timeScale < .1f);
+      pauseMenu.gameObject.SetActive/*Recursively*/(Time.timeScale < .1f);
     }
   }
 }

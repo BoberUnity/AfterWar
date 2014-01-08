@@ -6,7 +6,50 @@ public class ButtonSettings : MonoBehaviour
 
   private void Start()
   {
-    
+    //------------------------------------------------------------------------------------------
+    if (QualitySettings.anisotropicFiltering == AnisotropicFiltering.Disable && id == 0)
+      GetComponent<UIToggle>().value = true;
+
+    if (QualitySettings.anisotropicFiltering == AnisotropicFiltering.Enable && id == 1)
+      GetComponent<UIToggle>().value = true;
+
+    if (QualitySettings.anisotropicFiltering == AnisotropicFiltering.ForceEnable && id == 2)
+      GetComponent<UIToggle>().value = true;
+
+    //------------------------------------------------------------------------------------------
+    if (QualitySettings.antiAliasing == 0 && id == 3)
+      GetComponent<UIToggle>().value = true;
+
+    if (QualitySettings.antiAliasing == 2 && id == 4)
+      GetComponent<UIToggle>().value = true;
+
+    if (QualitySettings.antiAliasing == 4 && id == 5)
+      GetComponent<UIToggle>().value = true;
+
+    if (QualitySettings.antiAliasing == 8 && id == 6)
+      GetComponent<UIToggle>().value = true;
+
+    //------------------------------------------------------------------------------------------
+    if (QualitySettings.vSyncCount == 0 && id == 7)
+      GetComponent<UIToggle>().value = true;
+
+    if (QualitySettings.vSyncCount == 1 && id == 8)
+      GetComponent<UIToggle>().value = true;
+
+    if (QualitySettings.vSyncCount == 2 && id == 9)
+      GetComponent<UIToggle>().value = true;
+    //------------------------------------------------------------------------------------------
+    if (QualitySettings.masterTextureLimit == 3 && id == 10)
+      GetComponent<UIToggle>().value = true;
+
+    if (QualitySettings.masterTextureLimit == 2 && id == 11)
+      GetComponent<UIToggle>().value = true;
+
+    if (QualitySettings.masterTextureLimit == 1 && id == 12)
+      GetComponent<UIToggle>().value = true;
+
+    if (QualitySettings.masterTextureLimit == 0 && id == 13)
+      GetComponent<UIToggle>().value = true;
   }
   
   protected virtual void OnPress(bool isPressed)
@@ -16,9 +59,9 @@ public class ButtonSettings : MonoBehaviour
       if (id == 0)
         QualitySettings.anisotropicFiltering = AnisotropicFiltering.Disable;
       if (id == 1)
-        QualitySettings.anisotropicFiltering = AnisotropicFiltering.Disable;
+        QualitySettings.anisotropicFiltering = AnisotropicFiltering.Enable;
       if (id == 2)
-        QualitySettings.anisotropicFiltering = AnisotropicFiltering.Disable;
+        QualitySettings.anisotropicFiltering = AnisotropicFiltering.ForceEnable;
 
       if (id == 3)
         QualitySettings.antiAliasing = 0;

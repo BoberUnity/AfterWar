@@ -82,13 +82,7 @@ public class CameraController : MonoBehaviour
 
 	void Update () 
   {
-    //if (follow)
-    //{if (transform.position.y > 1f)
-    //  camHeight = 0.25f;
-    //else
-    //  camHeight = 0.55f;}
-
-	  if (Input.touchCount == 2 && Mathf.Abs(character.Joystik.joysticValue.x) < 2)
+    if (Input.touchCount == 2 && Mathf.Abs(character.Joystik.joysticValue.x) < 2)
 	  {
       myTouch = Input.GetTouch(0);
       myTouch2 = Input.GetTouch(1);

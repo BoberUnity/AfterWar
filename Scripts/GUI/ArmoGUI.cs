@@ -66,6 +66,7 @@ public class ArmoGUI : MonoBehaviour
 	  if (id == 0)
       deactiveObjs = character.ArmoObjs;
 	  i = 0;
+	  
     foreach (var daObj in deactiveObjs)
     {
       if (i != id-1)
@@ -100,11 +101,11 @@ public class ArmoGUI : MonoBehaviour
         character.CurrentArmo = id;
         foreach (var aObjs in activeObjs)
         {
-          aObjs.SetActiveRecursively(true);
+          aObjs.SetActive/*Recursively*/(true);
         }
         foreach (var aObjs in deactiveObjs)
         {
-          aObjs.SetActiveRecursively(false);
+          aObjs.SetActive/*Recursively*/(false);
         }
           //выбрать оружие
       }

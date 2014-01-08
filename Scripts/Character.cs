@@ -189,12 +189,12 @@ public class Character : MonoBehaviour
   //==================================================================================================================
 	void Start ()
 	{
-	  Application.targetFrameRate = 300;
+	  Application.targetFrameRate = 30000;
 	  characterController = GetComponent<CharacterController>();
 	  t = transform;
 	  patrons[0] = 10000000;
     if (currentArmo > 0)
-      armoObjs[currentArmo - 1].gameObject.SetActiveRecursively(true);
+      armoObjs[currentArmo - 1].gameObject.SetActive/*Recursively*/(true);
 	  StartCoroutine(DeadSpriteOn(0.1f));
 	}
 
@@ -523,12 +523,12 @@ public class Character : MonoBehaviour
       if (!all)
         foreach (var aObjs in a.ActiveObjs)
         {
-          aObjs.SetActiveRecursively(true);
+          aObjs.SetActive/*Recursively*/(true);
         }
 
       foreach (var daObjs in a.DeactiveObjs)
       {
-        daObjs.SetActiveRecursively(false);
+        daObjs.SetActive/*Recursively*/(false);
       }
 
       if (a.State == 2)
@@ -621,7 +621,7 @@ public class Character : MonoBehaviour
 
         foreach (var a in armosGUI[currentArmo].ActiveObjs)
         {
-          a.SetActiveRecursively(true);
+          a.SetActive/*Recursively*/(true);
         }
       }
     }
@@ -662,7 +662,6 @@ public class Character : MonoBehaviour
   {
     yield return new WaitForSeconds(time);
     armo[currentArmo].ShootParticle.emit = false;
-    Debug.LogWarning("Kulak = " + kulak);
   }
 
   private IEnumerator DeadSpriteOn(float time)
