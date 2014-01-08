@@ -6,7 +6,14 @@ public class ButtonLoadLevel : MonoBehaviour
   [SerializeField] private int id = 0;
   [SerializeField] private UILabel loadingText = null;
   private bool loading = false;
+  [SerializeField]
+   private int e = 0;
 
+  private void Start()
+  {
+    e = QualitySettings.antiAliasing;
+  }
+  
   protected virtual void OnPress(bool isPressed)
   {
     if (!isPressed && !loading)
@@ -16,6 +23,7 @@ public class ButtonLoadLevel : MonoBehaviour
       StartCoroutine(Load(0.001f));
       loading = true;
     }
+    e = QualitySettings.antiAliasing;
   }
 
   private IEnumerator Load(float time)

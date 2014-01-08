@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ToggleSEttings : MonoBehaviour
+public class ToggleSettings : MonoBehaviour
 {
   public int a = 0;
   public bool v = false;
