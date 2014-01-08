@@ -7,6 +7,7 @@ public class Controller : MonoBehaviour
   [SerializeField] private int[] patrons = null;
   [SerializeField] private float helth = 100;
   [SerializeField] private int[] things = null;//Aptek, GazMask, Bron
+  [SerializeField] private bool showFPS = true;
   //private Character character = null;
   private float effectsVolume = 0.5f;
   public float EffectsVolume
@@ -34,6 +35,12 @@ public class Controller : MonoBehaviour
   public int[] Things
   {
     set { things = value;}
+  }
+
+  public bool ShowFps
+  {
+    set { showFPS = value;}
+    get { return showFPS; }
   }
 
   private void Start()

@@ -12,13 +12,18 @@ private float accum   = 0; // FPS accumulated over the interval
 private int   frames  = 0; // Frames drawn over the interval
 private float timeleft; // Left time for current interval
 private float fps;
- 
-void Update()
-{
+
+  private void Start()
+  {
+    
+  }
+
+  private void Update()
+  {
     timeleft -= Time.deltaTime;
     accum += Time.timeScale/Time.deltaTime;
     ++frames;
-  Step += 1;
+    Step += 1;
     if( timeleft <= 0.0f )
     {
       fps = accum/frames;
