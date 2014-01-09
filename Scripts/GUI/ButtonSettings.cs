@@ -65,42 +65,91 @@ public class ButtonSettings : MonoBehaviour
     if (!isPressed)
     {
       if (id == 0)
+      {
         QualitySettings.anisotropicFiltering = AnisotropicFiltering.Disable;
+        PlayerPrefs.SetInt("anisotropicFiltering", 0);
+      }
       if (id == 1)
+      {
         QualitySettings.anisotropicFiltering = AnisotropicFiltering.Enable;
+        PlayerPrefs.SetInt("anisotropicFiltering", 1);
+      }
       if (id == 2)
+      {
         QualitySettings.anisotropicFiltering = AnisotropicFiltering.ForceEnable;
+        PlayerPrefs.SetInt("anisotropicFiltering", 2);
+      }
 
       if (id == 3)
+      {
         QualitySettings.antiAliasing = 0;
+        PlayerPrefs.SetInt("antiAliasing", 0);
+      }
       if (id == 4)
+      {
         QualitySettings.antiAliasing = 2;
+        PlayerPrefs.SetInt("antiAliasing", 2);
+      }
       if (id == 5)
+      {
         QualitySettings.antiAliasing = 4;
+        PlayerPrefs.SetInt("antiAliasing", 4);
+      }
       if (id == 6)
+      {
         QualitySettings.antiAliasing = 8;
+        PlayerPrefs.SetInt("antiAliasing", 8);
+      }
 
       if (id == 7)
+      {
         QualitySettings.vSyncCount = 0;
+        PlayerPrefs.SetInt("vSyncCount", 0);
+      }
       if (id == 8)
+      {
         QualitySettings.vSyncCount = 1;
+        PlayerPrefs.SetInt("vSyncCount", 1);
+      }
       if (id == 9)
+      {
         QualitySettings.vSyncCount = 2;
+        PlayerPrefs.SetInt("vSyncCount", 2);
+      }
 
       if (id == 10)
+      {
         QualitySettings.masterTextureLimit = 3;
+        PlayerPrefs.SetInt("masterTextureLimit", 3);
+      }
       if (id == 11)
+      {
         QualitySettings.masterTextureLimit = 2;
+        PlayerPrefs.SetInt("masterTextureLimit", 2);
+      }
       if (id == 12)
+      {
         QualitySettings.masterTextureLimit = 1;
+        PlayerPrefs.SetInt("masterTextureLimit", 1);
+      }
       if (id == 13)
+      {
         QualitySettings.masterTextureLimit = 0;
+        PlayerPrefs.SetInt("masterTextureLimit", 0);
+      }
 
       if (id == 14)
       {
         GameObject.Find("Controller(Clone)").GetComponent<Controller>().ShowFps = !GetComponent<UIToggle>().value;
         if (fpsLabel != null)
-          fpsLabel.enabled = !GetComponent<UIToggle>().value;
+        {
+          bool showFps = !GetComponent<UIToggle>().value;
+          fpsLabel.enabled = showFps;
+          if (showFps)
+            PlayerPrefs.SetInt("showFps", 1);
+          else
+            PlayerPrefs.SetInt("showFps", 0);
+        }
       }
     }
   }
