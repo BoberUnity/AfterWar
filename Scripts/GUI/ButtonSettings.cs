@@ -54,9 +54,17 @@ public class ButtonSettings : MonoBehaviour
 
     if (id == 14)
     {
-      GetComponent<UIToggle>().value = GameObject.Find("Controller(Clone)").GetComponent<Controller>().ShowFps;
-      if (fpsLabel != null)
-        fpsLabel.enabled = GetComponent<UIToggle>().value;
+      GameObject controllerObj = GameObject.Find("Controller(Clone)");
+      if (controllerObj != null)
+      {
+        GetComponent<UIToggle>().value = controllerObj.GetComponent<Controller>().ShowFps;
+        if (fpsLabel != null)
+          fpsLabel.enabled = GetComponent<UIToggle>().value;
+      }
+      else
+      {
+        Debug.LogWarning("Опция Показать ФПС недоступна, т.к. необходимо запустить сцену MenuMain");
+      }
     }
   }
   

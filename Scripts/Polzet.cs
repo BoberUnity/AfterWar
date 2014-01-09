@@ -4,7 +4,9 @@ public class Polzet : MonoBehaviour
 {
   [SerializeField] private Character character = null;
   [SerializeField] private float y = 0;
-  [SerializeField] private bool isUse = false;
+  [SerializeField] private float minX = -100;
+  [SerializeField] private float maxX = 100;
+  private bool isUse = false;
 
   public bool IsUse
   {
@@ -20,10 +22,13 @@ public class Polzet : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
   {
-    if (characterTranform.position.y < y && isUse)
+    if (isUse)
     {
-      character.Polzet = false;
-      isUse = false;
+      if (characterTranform.position.y < y || characterTranform.position.x < minX || characterTranform.position.x > maxX)
+      {
+        character.Polzet = false;
+        isUse = false;
+      }
     }
 	}
 }

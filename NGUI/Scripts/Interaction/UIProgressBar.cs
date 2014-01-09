@@ -3,6 +3,7 @@
 // Copyright © 2011-2013 Tasharen Entertainment
 //----------------------------------------------
 
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -87,6 +88,8 @@ public class UIProgressBar : UIWidgetContainer
 
 	public UIWidget backgroundWidget { get { return mBG; } set { if (mBG != value) { mBG = value; mIsDirty = true; } } }
 
+  public event Action<float> ChangeValue;
+
 	/// <summary>
 	/// The scroll bar's direction.
 	/// </summary>
@@ -134,6 +137,9 @@ public class UIProgressBar : UIWidgetContainer
 					current = null;
 				}
 			}
+		  var handler = ChangeValue;
+      if (handler != null)
+        handler(val);
 		}
 	}
 

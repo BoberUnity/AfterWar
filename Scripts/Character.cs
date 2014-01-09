@@ -426,6 +426,11 @@ public class Character : MonoBehaviour
          Application.Quit();
     }
   //==================================================================================================================
+  private void FixedUpdate()
+  {
+    
+  }
+  //==================================================================================================================
   private void SetAnimCross(AnimationClip cl, float sp)
   {
     animation.clip = cl;
@@ -475,10 +480,13 @@ public class Character : MonoBehaviour
       }
     }
 
-    //if (other.gameObject.name == "PolzetExit" && polzet)
-    //{
-    //  Polzet = false;
-    //}
+    if (other.gameObject.name == "Cube")
+    {
+      if (t.position.x < other.transform.position.x)
+        other.GetComponent<RigObject>().MoveRight = true;
+      else 
+        other.GetComponent<RigObject>().MoveLeft = true;
+    }
   }
   //==================================================================================================================
   public void Action()
@@ -501,6 +509,12 @@ public class Character : MonoBehaviour
     if (other.gameObject.name == "WaterDead")
     {
       Helth -= 101;
+    }
+
+    if (other.gameObject.name == "Cube")
+    {
+      other.GetComponent<RigObject>().MoveRight = false;
+      other.GetComponent<RigObject>().MoveLeft = false;
     }
 
     //if (other.gameObject.name == "PolzetExit" && polzet)
@@ -530,10 +544,8 @@ public class Character : MonoBehaviour
   //==================================================================================================================
   public void JumpToStair(bool right)
   {
-    Debug.LogWarning("JumpToStair" + Time.time);
-    if (/*characterController.isGrounded && */!jump && !dead)
+    if (!jump && !dead)
     {
-      Debug.LogWarning("JumpToStair isGrounded" + Time.time);
       if (right)
         jumpToStair = 1;
       else 

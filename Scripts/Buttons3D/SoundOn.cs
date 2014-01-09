@@ -31,7 +31,7 @@ namespace Assets.Scripts.Buttons3D
       if (character.Controller != null)
         audio.volume*=character.Controller.EffectsVolume;
       else
-        Debug.LogWarning("character.Controller == null");
+        Debug.LogWarning("Controller не найден, необходимо запустить сцену MenuMain");
     }
 
     private IEnumerator SoundPlay(float time)

@@ -10,11 +10,6 @@ public class StairStarter : MonoBehaviour
   {
     if (isPressed)
     {
-      //if (Mathf.Abs(transform.position.x - character.transform.position.x) < distX)
-      //{
-      //  character.Jump();
-      //}
-      Debug.LogWarning("Tap to Stair"+Time.time);
       if (Mathf.Abs(transform.position.x - character.transform.position.x) < distX)
       {
         character.JumpToStair(transform.position.x - character.transform.position.x > 0);   //true - right; false - left
