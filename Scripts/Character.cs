@@ -92,13 +92,16 @@ public class Character : MonoBehaviour
   private CharacterController characterController = null;
   private Transform t = null;
   private bool jump = false;
+  [SerializeField]
   private int jumpToStair = 0;//1 - right. 2 - left
   private bool kulak = false;
   private bool dead = false;
   private bool act = false;
   public event Action<string> TriggerEnter;
   public event Action<int> CharacterAttack;
+  [SerializeField]
   private bool inStair = false;
+  [SerializeField]
   private bool stairZone = false;
   private bool enableSoskok = false;
   private int currentArmo = 0;
@@ -199,13 +202,13 @@ public class Character : MonoBehaviour
       {
         characterController.height = 0.54f;
         characterController.center = Vector3.up * 0.35f;
-        //Debug.LogWarning("enter name-" + other.gameObject.name + Time.time);
+        //Debug.LogWarning("enter polaet-" + Time.time);
       }
       else
       {
         characterController.height = 1.913f;
-        characterController.center = Vector3.up*0.978f;
-        //Debug.LogWarning("exit name-" + other.gameObject.name + Time.time);
+        characterController.center = Vector3.up * 0.978f;
+        //Debug.LogWarning("exit polzet-" + Time.time);
       }
     }
   }
@@ -285,6 +288,8 @@ public class Character : MonoBehaviour
       }
       characterController.Move(-Vector3.up * Time.deltaTime * velocity);
       velocity = Mathf.Min(2.5f, velocity + Time.deltaTime * gravSpeed);
+      if (polzet)//Гравитация в ползание
+        velocity = Mathf.Min(0.4f, velocity + Time.deltaTime * gravSpeed);
     }
     else
     {
@@ -337,7 +342,7 @@ public class Character : MonoBehaviour
     //НА ЛЕСТНИЦЕ----------------------
     if (inStair)
     {
-      if (visotaDown < 0.31f && !jump && enableSoskok)//соскок с лестницы возле пола
+      if (visotaDown < 0.31f && !jump && enableSoskok && !polzet)//соскок с лестницы возле пола
       {
         inStair = false;
         Debug.Log("visotaDown < 0.31f"+Time.deltaTime);
@@ -463,12 +468,17 @@ public class Character : MonoBehaviour
     if (other.gameObject.name == "Polzet" && !polzet)
     {
       Polzet = true;
+      Polzet polzetComponent = other.gameObject.GetComponent<Polzet>();
+      if (polzetComponent != null)
+      {
+        polzetComponent.IsUse = true;
+      }
     }
 
-    if (other.gameObject.name == "PolzetExit" && polzet)
-    {
-      Polzet = false;
-    }
+    //if (other.gameObject.name == "PolzetExit" && polzet)
+    //{
+    //  Polzet = false;
+    //}
   }
   //==================================================================================================================
   public void Action()
