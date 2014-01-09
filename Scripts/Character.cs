@@ -188,6 +188,27 @@ public class Character : MonoBehaviour
     get { return controller; }
     set { controller = value; }
   }
+
+  public bool Polzet
+  {
+    get { return polzet; }
+    set
+    {
+      polzet = value;
+      if (polzet)
+      {
+        characterController.height = 0.54f;
+        characterController.center = Vector3.up * 0.35f;
+        //Debug.LogWarning("enter name-" + other.gameObject.name + Time.time);
+      }
+      else
+      {
+        characterController.height = 1.913f;
+        characterController.center = Vector3.up*0.978f;
+        //Debug.LogWarning("exit name-" + other.gameObject.name + Time.time);
+      }
+    }
+  }
   //==================================================================================================================
 	void Start ()
 	{
@@ -225,12 +246,13 @@ public class Character : MonoBehaviour
       visotaUp = Mathf.Min(hit.distance, visotaUp);
       i++;
     }
-    if (visotaUp < 0.12f)
-    {
-      deadSprite.enabled = true;
-      Debug.LogWarning("Pridavilo visotaUp = " + visotaUp);
-      //Time.timeScale = 0;
-    }
+    //PRIDAVILO !!! DO NOT DESTROY !!!
+    //if (visotaUp < 0.12f)
+    //{
+    //  deadSprite.enabled = true;
+    //  Debug.LogWarning("Pridavilo visotaUp = " + visotaUp);
+    //  //Time.timeScale = 0;
+    //}
     //Контроллер падения
     if (visotaDown > failHeight && !fail)
       fail = true;
@@ -318,7 +340,7 @@ public class Character : MonoBehaviour
       if (visotaDown < 0.31f && !jump && enableSoskok)//соскок с лестницы возле пола
       {
         inStair = false;
-        //Debug.Log("visotaDown < 0.31f"+Time.deltaTime);
+        Debug.Log("visotaDown < 0.31f"+Time.deltaTime);
         enableSoskok = false;
       }
       if (visotaDown > 0.31f)
@@ -438,13 +460,14 @@ public class Character : MonoBehaviour
         handler(other.gameObject.name);
     }
 
-    if (other.gameObject.name == "Polzet")
+    if (other.gameObject.name == "Polzet" && !polzet)
     {
-      polzet = true;
-      characterController.height = 0.54f;
-      characterController.radius = 0.27f;
-      //characterController.center = Vector3.up*0.3f;
-      Debug.LogWarning("enter name-" + other.gameObject.name);
+      Polzet = true;
+    }
+
+    if (other.gameObject.name == "PolzetExit" && polzet)
+    {
+      Polzet = false;
     }
   }
   //==================================================================================================================
@@ -469,16 +492,14 @@ public class Character : MonoBehaviour
     {
       Helth -= 101;
     }
-    //Debug.LogWarning("Tr Exit" + other.gameObject.name);
-    if (other.gameObject.name == "Polzet")
-    {
-      polzet = false;
-      characterController.height = 1.913f;
-      characterController.radius = 0.391f;
-      //characterController.center = Vector3.up * 0.978f;
-      Debug.LogWarning("exit name-" + other.gameObject.name);
-    }
-    //Debug.LogWarning("name-" + other.gameObject.name);
+
+    //if (other.gameObject.name == "PolzetExit" && polzet)
+    //{
+    //  polzet = false;
+    //  characterController.height = 1.913f;
+    //  characterController.center = Vector3.up * 0.978f;
+    //  Debug.LogWarning("EXIT name-" + other.gameObject.name);
+    //}
   }
   //==================================================================================================================
   public void Jump()
