@@ -65,6 +65,7 @@ public class Character : MonoBehaviour
   [SerializeField] private AnimationClip stairClip = null;
   [SerializeField] private AnimationClip stairIdleClip = null;
   [SerializeField] private AnimationClip actionClip = null;
+  [SerializeField] private AnimationClip moveFwClip = null;
   /*[SerializeField]*/ private UISprite deadSprite = null;
   /*[SerializeField]*/ private Indicator helthIndicator = null;
   [SerializeField] private AudioClip failSound = null;
@@ -107,6 +108,7 @@ public class Character : MonoBehaviour
   private bool shooting = false;
   //[SerializeField] private bool isG;
   private float visotaShoot = 1;
+  private bool polzet = false;
 
   public int NearMonstr//Количество монстров близко
   {
@@ -275,11 +277,16 @@ public class Character : MonoBehaviour
       if (Mathf.Abs(progressBar.joysticValue.x) > 30)
       {
         float step = progressBar.joysticValue.x*0.01f*curSpeed;
+        if (polzet)
+          step *= 0.25f;
+        
         characterController.Move(Vector3.right*Time.deltaTime*step);
-        if (!jump && !kulak)
+        if (!jump && !kulak && !polzet)
         {
           SetAnimCross(armo[currentArmo].ArmoRun, Mathf.Abs(step));
         }
+        if (polzet)
+          SetAnimCross(moveFwClip, Mathf.Abs(step*4));
 
         if (progressBar.joysticValue.x > 0)
         {
@@ -299,8 +306,10 @@ public class Character : MonoBehaviour
       }
       else
       {
-        if (!kulak && !jump && !shooting)
+        if (!kulak && !jump && !shooting && !polzet)
           SetAnimCross(armo[currentArmo].ArmoIdle, 1);
+        if (polzet)
+          SetAnimCross(moveFwClip, 0.02f);//лежит ползя
       }
     }
     //НА ЛЕСТНИЦЕ----------------------
@@ -428,6 +437,15 @@ public class Character : MonoBehaviour
       if (handler != null)
         handler(other.gameObject.name);
     }
+
+    if (other.gameObject.name == "Polzet")
+    {
+      polzet = true;
+      characterController.height = 0.54f;
+      characterController.radius = 0.27f;
+      //characterController.center = Vector3.up*0.3f;
+      Debug.LogWarning("enter name-" + other.gameObject.name);
+    }
   }
   //==================================================================================================================
   public void Action()
@@ -446,10 +464,19 @@ public class Character : MonoBehaviour
       stairZone = false;
       inStair = false;
     }
+
     if (other.gameObject.name == "WaterDead")
     {
       Helth -= 101;
-      Debug.LogWarning("WaterDead");
+    }
+    //Debug.LogWarning("Tr Exit" + other.gameObject.name);
+    if (other.gameObject.name == "Polzet")
+    {
+      polzet = false;
+      characterController.height = 1.913f;
+      characterController.radius = 0.391f;
+      //characterController.center = Vector3.up * 0.978f;
+      Debug.LogWarning("exit name-" + other.gameObject.name);
     }
     //Debug.LogWarning("name-" + other.gameObject.name);
   }

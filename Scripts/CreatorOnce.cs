@@ -9,13 +9,22 @@
         QualitySettings.anisotropicFiltering = AnisotropicFiltering.ForceEnable;      QualitySettings.antiAliasing = PlayerPrefs.GetInt("antiAliasing");
       QualitySettings.vSyncCount = PlayerPrefs.GetInt("vSyncCount");
       QualitySettings.masterTextureLimit = PlayerPrefs.GetInt("masterTextureLimit");
-      int sf = PlayerPrefs.GetInt("showFps");
+      
       if (controller != null)
       {
+        int sf = PlayerPrefs.GetInt("showFps");
         if (sf == 0)
           controller.GetComponent<Controller>().ShowFps = false;
         else
-          controller.GetComponent<Controller>().ShowFps = true;      }
+          controller.GetComponent<Controller>().ShowFps = true;
+
+        float vol = PlayerPrefs.GetFloat("effectsVolume");        if (vol == 0)
+        {
+          controller.GetComponent<Controller>().EffectsVolume = 0.75f; 
+          Debug.Log("First start");
+        }
+        else
+          controller.GetComponent<Controller>().EffectsVolume = vol;      }
       else
       {
         Debug.LogWarning("controller was not found");

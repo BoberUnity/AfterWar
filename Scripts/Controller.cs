@@ -9,7 +9,8 @@ public class Controller : MonoBehaviour
   [SerializeField] private int[] things = null;//Aptek, GazMask, Bron
   [SerializeField] private bool showFPS = true;
   //private Character character = null;
-  private float effectsVolume = 0.5f;
+  [SerializeField] private float effectsVolume = 0.7f;
+
   public float EffectsVolume
   {
     get { return effectsVolume; }

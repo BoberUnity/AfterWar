@@ -2,9 +2,10 @@
 
 public class OptionsSetter : MonoBehaviour
 {
-  [SerializeField] private float v;
+  //[SerializeField] private float v;
   private UISlider slider = null;
   private Controller controller = null;
+  private float vol = -1;
 
 	private void Start ()
 	{
@@ -18,8 +19,16 @@ public class OptionsSetter : MonoBehaviour
     else Debug.LogWarning("Controller(Clone) was not found!");
 	}
 	
-  private void Update ()
-	{
-	  controller.EffectsVolume = slider.value;
+  private void Update()
+  {
+    //if (!isPressed)
+    //{
+    //if (vol != controller.EffectsVolume)//Сдвинул ползунок
+    //{
+      //Debug.LogWarning("Upgrade"+Time.time);
+      vol = Mathf.Max(0.01f, controller.EffectsVolume);
+      controller.EffectsVolume = slider.value;
+      PlayerPrefs.SetFloat("effectsVolume", vol);
+    //}
 	}
 }
