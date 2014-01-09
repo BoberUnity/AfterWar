@@ -10,7 +10,7 @@ namespace Assets.Scripts.Buttons3D
     [SerializeField] private float distanse = 1.5f;
     [SerializeField] private float addVolume = 0.1f;//Компенсация, т.к. дистанция не м.б. 0
     [SerializeField] private float waitTime = 0;
-    [SerializeField] private bool loop = false;
+    [SerializeField] private bool loop = false;//цикличность
     private Transform t = null;
     private Transform ct = null;
 

@@ -530,8 +530,10 @@ public class Character : MonoBehaviour
   //==================================================================================================================
   public void JumpToStair(bool right)
   {
-    if (characterController.isGrounded && !jump && !dead)
+    Debug.LogWarning("JumpToStair" + Time.time);
+    if (/*characterController.isGrounded && */!jump && !dead)
     {
+      Debug.LogWarning("JumpToStair isGrounded" + Time.time);
       if (right)
         jumpToStair = 1;
       else 
