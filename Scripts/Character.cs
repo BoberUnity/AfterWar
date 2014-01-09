@@ -514,7 +514,7 @@ public class Character : MonoBehaviour
   //==================================================================================================================
   public void Jump()
   {
-    if ((characterController.isGrounded || visotaDown < 0.31f) && !jump && !dead)
+    if ((characterController.isGrounded || visotaDown < 0.31f) && !jump && !dead && !polzet && !inStair)
     {
       velocity = -jumpHeight;
       jump = true;
@@ -550,7 +550,7 @@ public class Character : MonoBehaviour
   //==================================================================================================================
   public void Attack()
   {
-    if (!kulak && Patrons[currentArmo] > 0 && !dead && !shooting)
+    if (!kulak && Patrons[currentArmo] > 0 && !dead && !shooting && !polzet && !inStair)
     {
       kulak = true;
       Shoot();
