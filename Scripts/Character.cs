@@ -494,6 +494,7 @@ public class Character : MonoBehaviour
         other.GetComponent<RigObject>().MoveLeft = true;
       moveBox = true;
       moveBoxAnim = true;
+      //characterController.radius = 0.5f;
     }
   }
   //==================================================================================================================
@@ -532,7 +533,10 @@ public class Character : MonoBehaviour
   {
     yield return new WaitForSeconds(time);
     if (!moveBox)
+    {
       moveBoxAnim = false;
+      //characterController.radius = 0.391f;
+    }
   }
   //==================================================================================================================
   public void Jump()
