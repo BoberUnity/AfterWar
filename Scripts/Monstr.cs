@@ -79,7 +79,7 @@ public class Monstr : MonoBehaviour
   {
     float heigToChar = Mathf.Abs(t.position.y - characterT.position.y - height);//разница по высоте с персонажем
 
-    if (heigToChar < 0.2f && characterT.position.x > minX && characterT.position.x < maxX && !dead)
+    if (heigToChar < 0.3f && characterT.position.x > minX && characterT.position.x < maxX && !dead)
     {
       //ПОВОРОТЫ
       if (!win)
@@ -319,7 +319,7 @@ public class Monstr : MonoBehaviour
     Gizmos.DrawRay(new Vector3(minX, transform.position.y + 0.1f, 0), Vector3.right * (maxX - minX));
     Gizmos.DrawRay(new Vector3(minX, transform.position.y, 0), Vector3.up * 0.1f);
     Gizmos.DrawRay(new Vector3(maxX, transform.position.y, 0), Vector3.up * 0.1f);
-    Gizmos.DrawRay(transform.position + Vector3.up * 0.2f, /*Vector3.right * Mathf.Sign(character.transform.position.x - transform.position.x)*/(character.transform.position - transform.position) * 5);
+    //Gizmos.DrawRay(transform.position + Vector3.up * 0.2f, /*Vector3.right * Mathf.Sign(character.transform.position.x - transform.position.x)*/(character.transform.position - transform.position) * 5);
     
  
   }

@@ -10352,7 +10352,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 0e76320dd81cbc84898ec6ba773317ad, type: 2}
       propertyPath: m_LocalPosition.x
-      value: .0128295422
+      value: .30847007
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0e76320dd81cbc84898ec6ba773317ad, type: 2}
       propertyPath: m_LocalPosition.y
@@ -10390,6 +10390,14 @@ Prefab:
       propertyPath: character
       value: 
       objectReference: {fileID: 1666401515}
+    - target: {fileID: 6500000, guid: 0e76320dd81cbc84898ec6ba773317ad, type: 2}
+      propertyPath: m_Center.y
+      value: .800000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500000, guid: 0e76320dd81cbc84898ec6ba773317ad, type: 2}
+      propertyPath: m_Size.y
+      value: 3.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e76320dd81cbc84898ec6ba773317ad, type: 2}
   m_RootGameObject: {fileID: 848995770}
@@ -11311,7 +11319,7 @@ Transform:
   m_PrefabInternal: {fileID: 759711607}
   m_GameObject: {fileID: 848995770}
   m_LocalRotation: {x: 0, y: .4226183, z: 0, w: .906307817}
-  m_LocalPosition: {x: .0128295422, y: .5, z: -.0242904425}
+  m_LocalPosition: {x: .30847007, y: .5, z: -.0242904425}
   m_LocalScale: {x: .219999999, y: .219999999, z: .219999999}
   m_Children:
   - {fileID: 1124331474}
@@ -11327,7 +11335,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.5, z: 1}
+  m_Size: {x: 1, y: 3.5, z: 1}
   m_Center: {x: 0, y: .800000012, z: .400000006}
 --- !u!136 &848995773
 CapsuleCollider:
@@ -14273,7 +14281,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.5, z: 1}
+  m_Size: {x: 1, y: 3.5, z: 1}
   m_Center: {x: 0, y: .800000012, z: .400000006}
 --- !u!136 &1071789807
 CapsuleCollider:
@@ -14404,11 +14412,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.61449432
+      value: -3.36652327
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: .800000012
+      value: 1.51999998
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
       propertyPath: m_LocalPosition.z
@@ -14432,11 +14440,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
       propertyPath: minX
-      value: -.469999999
+      value: -4.19999981
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
       propertyPath: maxX
-      value: 1.79999995
+      value: -1.92999995
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
       propertyPath: character
@@ -15271,6 +15279,10 @@ Prefab:
       propertyPath: character
       value: 
       objectReference: {fileID: 1666401515}
+    - target: {fileID: 6500000, guid: 0e76320dd81cbc84898ec6ba773317ad, type: 2}
+      propertyPath: m_Size.y
+      value: 3.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e76320dd81cbc84898ec6ba773317ad, type: 2}
   m_RootGameObject: {fileID: 1071789804}
@@ -17775,7 +17787,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1309035228}
-  - 95: {fileID: 1309035227}
   m_Layer: 0
   m_Name: LocationBLife
   m_TagString: Untagged
@@ -17783,20 +17794,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &1309035227
-Animator:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1309035226}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 23eec7690f3e1ce4da8c2f49e099f331, type: 3}
-  m_Controller: {fileID: 9100000, guid: 3b09d9c1c59972b40aeb0943c9b0574b, type: 2}
-  m_CullingMode: 0
-  m_ApplyRootMotion: 1
-  m_AnimatePhysics: 0
-  m_HasTransformHierarchy: 1
 --- !u!4 &1309035228
 Transform:
   m_ObjectHideFlags: 0
@@ -18425,7 +18422,7 @@ Transform:
   m_PrefabInternal: {fileID: 1071820421}
   m_GameObject: {fileID: 1337398955}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.61449432, y: .800000012, z: 0}
+  m_LocalPosition: {x: -3.36652327, y: 1.51999998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1571208209}
@@ -18485,8 +18482,8 @@ MonoBehaviour:
   attackDist: .300000012
   speed: .300000012
   height: .300000012
-  minX: -.469999999
-  maxX: 1.79999995
+  minX: -4.19999981
+  maxX: -1.92999995
   rotSpeed: 500
   nearDist: .600000024
   winEnabled: 0
@@ -19250,6 +19247,10 @@ Prefab:
       propertyPath: character
       value: 
       objectReference: {fileID: 1666401515}
+    - target: {fileID: 6500000, guid: 0e76320dd81cbc84898ec6ba773317ad, type: 2}
+      propertyPath: m_Size.y
+      value: 3.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e76320dd81cbc84898ec6ba773317ad, type: 2}
   m_RootGameObject: {fileID: 1892031859}
@@ -21023,7 +21024,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.5, z: 1}
+  m_Size: {x: 1, y: 3.5, z: 1}
   m_Center: {x: 0, y: .800000012, z: .400000006}
 --- !u!136 &1528097761
 CapsuleCollider:
@@ -22064,6 +22065,10 @@ Prefab:
       propertyPath: character
       value: 
       objectReference: {fileID: 1666401515}
+    - target: {fileID: 6500000, guid: 0e76320dd81cbc84898ec6ba773317ad, type: 2}
+      propertyPath: m_Size.y
+      value: 3.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e76320dd81cbc84898ec6ba773317ad, type: 2}
   m_RootGameObject: {fileID: 1528097758}
@@ -25686,7 +25691,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.5, z: 1}
+  m_Size: {x: 1, y: 3.5, z: 1}
   m_Center: {x: 0, y: .800000012, z: .400000006}
 --- !u!136 &1892031862
 CapsuleCollider:
