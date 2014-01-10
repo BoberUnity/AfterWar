@@ -66,6 +66,7 @@ public class Character : MonoBehaviour
   [SerializeField] private AnimationClip stairIdleClip = null;
   [SerializeField] private AnimationClip actionClip = null;
   [SerializeField] private AnimationClip moveFwClip = null;
+  [SerializeField] private AnimationClip moveBoxClip = null;
   /*[SerializeField]*/ private UISprite deadSprite = null;
   /*[SerializeField]*/ private Indicator helthIndicator = null;
   [SerializeField] private AudioClip failSound = null;
@@ -92,16 +93,13 @@ public class Character : MonoBehaviour
   private CharacterController characterController = null;
   private Transform t = null;
   private bool jump = false;
-  [SerializeField]
   private int jumpToStair = 0;//1 - right. 2 - left
   private bool kulak = false;
   private bool dead = false;
   private bool act = false;
   public event Action<string> TriggerEnter;
   public event Action<int> CharacterAttack;
-  [SerializeField]
   private bool inStair = false;
-  [SerializeField]
   private bool stairZone = false;
   private bool enableSoskok = false;
   private int currentArmo = 0;
@@ -112,6 +110,10 @@ public class Character : MonoBehaviour
   //[SerializeField] private bool isG;
   private float visotaShoot = 1;
   private bool polzet = false;
+  [SerializeField]
+  private bool moveBox = false;
+  //[SerializeField]
+  private bool moveBoxAnim = false;//off after 0.1 sec
 
   public int NearMonstr//Количество монстров близко
   {
@@ -304,16 +306,18 @@ public class Character : MonoBehaviour
       if (Mathf.Abs(progressBar.joysticValue.x) > 30)
       {
         float step = progressBar.joysticValue.x*0.01f*curSpeed;
-        if (polzet)
+        if (polzet || moveBoxAnim)
           step *= 0.25f;
         
         characterController.Move(Vector3.right*Time.deltaTime*step);
-        if (!jump && !kulak && !polzet)
+        if (!jump && !kulak && !polzet && !moveBoxAnim)
         {
           SetAnimCross(armo[currentArmo].ArmoRun, Mathf.Abs(step));
         }
-        if (polzet)
+        if (polzet)//Анимация ползания
           SetAnimCross(moveFwClip, Mathf.Abs(step*4));
+        if (moveBoxAnim)//Анимация толкания
+          SetAnimCross(moveBoxClip, Mathf.Abs(step*1.7f));
 
         if (progressBar.joysticValue.x > 0)
         {
@@ -337,6 +341,8 @@ public class Character : MonoBehaviour
           SetAnimCross(armo[currentArmo].ArmoIdle, 1);
         if (polzet)
           SetAnimCross(moveFwClip, 0.02f);//лежит ползя
+        if (moveBoxAnim)
+          SetAnimCross(moveBoxClip, 0.02f);//толкает idle
       }
     }
     //НА ЛЕСТНИЦЕ----------------------
@@ -486,6 +492,8 @@ public class Character : MonoBehaviour
         other.GetComponent<RigObject>().MoveRight = true;
       else 
         other.GetComponent<RigObject>().MoveLeft = true;
+      moveBox = true;
+      moveBoxAnim = true;
     }
   }
   //==================================================================================================================
@@ -515,15 +523,16 @@ public class Character : MonoBehaviour
     {
       other.GetComponent<RigObject>().MoveRight = false;
       other.GetComponent<RigObject>().MoveLeft = false;
+      moveBox = false;
+      StartCoroutine(OffMoveBoxAnim(0.1f));
     }
+  }
 
-    //if (other.gameObject.name == "PolzetExit" && polzet)
-    //{
-    //  polzet = false;
-    //  characterController.height = 1.913f;
-    //  characterController.center = Vector3.up * 0.978f;
-    //  Debug.LogWarning("EXIT name-" + other.gameObject.name);
-    //}
+  private IEnumerator OffMoveBoxAnim(float time)
+  {
+    yield return new WaitForSeconds(time);
+    if (!moveBox)
+      moveBoxAnim = false;
   }
   //==================================================================================================================
   public void Jump()
@@ -534,7 +543,6 @@ public class Character : MonoBehaviour
       jump = true;
       animation[jumpClip.name].time = 0;
       SetAnimOnce(jumpClip, 0.3f);
-      //StartCoroutine(EndJump(jumpClip.length));
     }
     //Заскок на лестницу (раб)
     //if (stairZone)
@@ -555,7 +563,6 @@ public class Character : MonoBehaviour
   //==================================================================================================================
   public void EndJump()
   {
-    //yield return new WaitForSeconds(time);
     jump = false;
     progressBar.joysticValue.y = 0;
   }
@@ -595,12 +602,12 @@ public class Character : MonoBehaviour
       if (!all)
         foreach (var aObjs in a.ActiveObjs)
         {
-          aObjs.SetActive/*Recursively*/(true);
+          aObjs.SetActive(true);
         }
 
       foreach (var daObjs in a.DeactiveObjs)
       {
-        daObjs.SetActive/*Recursively*/(false);
+        daObjs.SetActive(false);
       }
 
       if (a.State == 2)

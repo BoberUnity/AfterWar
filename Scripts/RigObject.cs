@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class RigObject : MonoBehaviour
 {
@@ -19,10 +18,9 @@ public class RigObject : MonoBehaviour
   private void FixedUpdate()
   {
     if (moveRight)
-      rigidbody.AddTorque(0, 0, -10);
+      rigidbody.AddForce(0.1f, 0, 0);
 
     if (moveLeft)
-      rigidbody.AddTorque(0, 0, 10);
-
+      rigidbody.AddForce(-0.1f, 0, 0);
   }
 }
