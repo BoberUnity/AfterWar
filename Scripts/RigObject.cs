@@ -18,9 +18,9 @@ public class RigObject : MonoBehaviour
   private void FixedUpdate()
   {
     if (moveRight)
-      rigidbody.AddForce(0.1f, 0, 0);
+      rigidbody.AddForce(0.03f, 0, 0);
 
     if (moveLeft)
-      rigidbody.AddForce(-0.1f, 0, 0);
+      rigidbody.AddForce(-0.03f, 0, 0);
   }
 }

@@ -524,7 +524,7 @@ public class Character : MonoBehaviour
       other.GetComponent<RigObject>().MoveRight = false;
       other.GetComponent<RigObject>().MoveLeft = false;
       moveBox = false;
-      StartCoroutine(OffMoveBoxAnim(0.1f));
+      StartCoroutine(OffMoveBoxAnim(0.3f));
     }
   }
 
