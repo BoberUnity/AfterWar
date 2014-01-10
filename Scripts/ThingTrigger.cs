@@ -7,7 +7,7 @@ public class ThingTrigger : MonoBehaviour
 
   private void OnTriggerEnter(Collider other)
   {
-    if (other.gameObject.layer == 8)
+    if (other.gameObject.name == "Stalker")
     {
       var handler = GetThing;
       if (handler != null)

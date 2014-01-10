@@ -11,6 +11,7 @@ ModelImporter:
     100010: Dver02
     100012: Dver03
     100014: Dver1
+    100016: StenOpen
     400000: Box04
     400002: Box28
     400004: Box47
@@ -19,6 +20,7 @@ ModelImporter:
     400010: Dver02
     400012: Dver03
     400014: Dver1
+    400016: StenOpen
     2300000: Box04
     2300002: Box28
     2300004: Box47
@@ -26,6 +28,7 @@ ModelImporter:
     2300008: Dver02
     2300010: Dver03
     2300012: Dver1
+    2300014: StenOpen
     3300000: Box04
     3300002: Box28
     3300004: Box47
@@ -33,6 +36,7 @@ ModelImporter:
     3300008: Dver02
     3300010: Dver03
     3300012: Dver1
+    3300014: StenOpen
     4300000: Box28
     4300002: Box47
     4300004: Box04
@@ -40,6 +44,7 @@ ModelImporter:
     4300008: Dver1
     4300010: Dver02
     4300012: Dver03
+    4300014: StenOpen
     7400000: Take 001
     9500000: //RootNode
   materials:
@@ -56,7 +61,49 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Box04
+        weight: 1
+      - path: Box28
+        weight: 1
+      - path: Box47
+        weight: 1
+      - path: Dver1
+        weight: 1
+      - path: Dver02
+        weight: 1
+      - path: Dver03
+        weight: 1
+      - path: Object01
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []

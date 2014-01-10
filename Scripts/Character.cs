@@ -188,6 +188,11 @@ public class Character : MonoBehaviour
     }
   }
 
+  public bool MoveBoxAnim
+  {
+    set { moveBoxAnim = value; }
+  }
+
   public Controller Controller
   {
     get { return controller; }
@@ -342,7 +347,7 @@ public class Character : MonoBehaviour
         if (polzet)
           SetAnimCross(moveFwClip, 0.02f);//лежит ползя
         if (moveBoxAnim)
-          SetAnimCross(moveBoxClip, 0.02f);//толкает idle
+          SetAnimCross(moveBoxClip, 0);//толкает idle
       }
     }
     //НА ЛЕСТНИЦЕ----------------------
@@ -432,10 +437,7 @@ public class Character : MonoBehaviour
          Application.Quit();
     }
   //==================================================================================================================
-  private void FixedUpdate()
-  {
-    
-  }
+  
   //==================================================================================================================
   private void SetAnimCross(AnimationClip cl, float sp)
   {
@@ -486,7 +488,7 @@ public class Character : MonoBehaviour
       }
     }
 
-    if (other.gameObject.name == "Cube")
+    if (other.gameObject.name == "Rig")
     {
       if (t.position.y < other.transform.position.y + 0.1f)
       {
@@ -523,7 +525,7 @@ public class Character : MonoBehaviour
       Helth -= 101;
     }
 
-    if (other.gameObject.name == "Cube")
+    if (other.gameObject.name == "Rig")
     {
       other.GetComponent<RigObject>().MoveRight = false;
       other.GetComponent<RigObject>().MoveLeft = false;

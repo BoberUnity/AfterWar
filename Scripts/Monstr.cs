@@ -39,7 +39,7 @@ public class Monstr : MonoBehaviour
   private float distToChar = 10;
   private bool moveDown = false;
   private bool win = false;
-  private float distToWall;
+  //private float distToWall;
 	
 	private void Attack()
 	{
@@ -129,14 +129,28 @@ public class Monstr : MonoBehaviour
       }
 
       //ДВИЖЕНИЕ
+      RaycastHit[] hits;
+      hits = Physics.RaycastAll(t.position + Vector3.up * (0.2f - height), Vector3.right * Mathf.Sign(characterT.position.x - t.position.x), 5);
+      //hits = Physics.RaycastAll(t.position + Vector3.up * (0.2f - height), characterT.position - t.position, 5);
+      int i = 0;
+      float distToWall = 100;
+      while (i < hits.Length)
+      {
+        RaycastHit hit = hits[i];
+        int collLayer = hit.collider.gameObject.layer;
+        if (collLayer == 0)//Default layer
+          distToWall = Mathf.Min(hit.distance, distToWall);
+        i++;
+      }
+
       distToChar = Vector3.Distance(t.position, characterT.position);
 
-      if (distToChar > runDist)
+      if (distToChar > runDist || distToWall < 0.2f)
       {
         run = false;
       }
 
-      if ((distToChar < runDist && distToChar > attackDist) || win)
+      if (((distToChar < runDist && distToChar > attackDist && distToWall > 0.2f) || win))
       {
         run = true;
 
@@ -160,7 +174,6 @@ public class Monstr : MonoBehaviour
       if (win && winEnabled)//Уходит назад после победы
         t.Translate(Vector3.forward * Time.deltaTime * speed);
       
-
       if (distToChar < nearDist && !isNear && !dead)
       {
         isNear = true;
@@ -204,26 +217,31 @@ public class Monstr : MonoBehaviour
     //bool notAttacked = !isNear && character.NearMonstr > 0;//Есть кто-то другой рядом
     //Между монстром и ГГ нет стены или другого монстра
     RaycastHit[] hits;
-    hits = Physics.RaycastAll(t.position + Vector3.up * (0.2f - height), Vector3.right * Mathf.Sign(characterT.position.x - t.position.x), 5);
+    //hits = Physics.RaycastAll(t.position + Vector3.up * (0.2f - height), Vector3.right * Mathf.Sign(characterT.position.x - t.position.x), 5);
+    hits = Physics.RaycastAll(t.position + Vector3.up * 0.2f, characterT.position - t.position, 5);
     int i = 0;
-    distToWall = 100;
+    float rayToChar = 100;
     while (i < hits.Length)
     {
       RaycastHit hit = hits[i];
       int collLayer = hit.collider.gameObject.layer;
       if (collLayer == 0)//Default layer
-        distToWall = Mathf.Min(hit.distance, distToWall);
+        rayToChar = Mathf.Min(hit.distance, rayToChar);
       i++;
     }
-    bool notWall = distToChar < distToWall;
+    bool notWall = distToChar < rayToChar;
+    
     var charPovernut = false;
     if (characterT.eulerAngles.y > 50 && characterT.eulerAngles.y < 120 && characterT.position.x - t.position.x < 0)//ГГ повернут вправо и монстр справа
       charPovernut = true;
     
     if (characterT.eulerAngles.y > 230 && characterT.eulerAngles.y < 310 && characterT.position.x - t.position.x > 0)//ГГ повернут влево и монстр слева
       charPovernut = true;
-    
-    if (distToChar < uronDist[armo] && !dead && charPovernut && heigToChar < 0.2f && notWall)
+    if (distToChar < attackDist && character.NearMonstr < 2)
+      charPovernut = true;
+    Debug.Log("notWall" + notWall + gameObject.name);
+    Debug.Log("HeighttoChar" + heigToChar + gameObject.name);
+    if (distToChar < uronDist[armo] && !dead && charPovernut && heigToChar < 0.35f && notWall)
     {
       helth -= uronMonstr[armo];
       SetAnim(deadClip, 0.5f);
@@ -295,12 +313,14 @@ public class Monstr : MonoBehaviour
 
   void OnDrawGizmos()
   {
+    //Gizmos.DrawRay(transform.position + Vector3.up * 0.2f, Vector3.right * Mathf.Sign(character.transform.position.x - transform.position.x) * 3);
     Gizmos.color = editorColor;
-    Gizmos.DrawRay(new Vector3(minX, transform.position.y, 0), Vector3.right*(maxX - minX));
-    Gizmos.DrawRay(new Vector3(minX, transform.position.y+0.1f, 0), Vector3.right * (maxX - minX));
+    Gizmos.DrawRay(new Vector3(minX, transform.position.y, 0), Vector3.right * (maxX - minX));
+    Gizmos.DrawRay(new Vector3(minX, transform.position.y + 0.1f, 0), Vector3.right * (maxX - minX));
     Gizmos.DrawRay(new Vector3(minX, transform.position.y, 0), Vector3.up * 0.1f);
     Gizmos.DrawRay(new Vector3(maxX, transform.position.y, 0), Vector3.up * 0.1f);
-    Gizmos.color = Color.yellow;
-    Gizmos.DrawRay(transform.position + Vector3.up * 0.2f, Vector3.right * Mathf.Sign(character.transform.position.x - transform.position.x) * distToWall);
+    Gizmos.DrawRay(transform.position + Vector3.up * 0.2f, /*Vector3.right * Mathf.Sign(character.transform.position.x - transform.position.x)*/(character.transform.position - transform.position) * 5);
+    
+ 
   }
 }
