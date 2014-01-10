@@ -488,12 +488,15 @@ public class Character : MonoBehaviour
 
     if (other.gameObject.name == "Cube")
     {
-      if (t.position.x < other.transform.position.x)
-        other.GetComponent<RigObject>().MoveRight = true;
-      else 
-        other.GetComponent<RigObject>().MoveLeft = true;
-      moveBox = true;
-      moveBoxAnim = true;
+      if (t.position.y < other.transform.position.y + 0.1f)
+      {
+        if (t.position.x < other.transform.position.x)
+          other.GetComponent<RigObject>().MoveRight = true;
+        else 
+          other.GetComponent<RigObject>().MoveLeft = true;
+        moveBox = true;
+        moveBoxAnim = true;
+      }
       //characterController.radius = 0.5f;
     }
   }
