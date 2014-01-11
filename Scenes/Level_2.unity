@@ -5954,17 +5954,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 1
+    e00: 360
     e01: 0
     e02: 0
     e03: .791208804
     e10: 0
-    e11: 1
+    e11: 360
     e12: 0
     e13: -360.395599
     e20: 0
     e21: 0
-    e22: 1
+    e22: 360
     e23: 0
     e30: 0
     e31: 0
@@ -7904,6 +7904,7 @@ GameObject:
   - 65: {fileID: 461408715}
   - 23: {fileID: 461408714}
   - 54: {fileID: 461408713}
+  - 114: {fileID: 461408718}
   m_Layer: 0
   m_Name: Rig
   m_TagString: Untagged
@@ -7940,7 +7941,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a7b0032dcd27c2647b5966d20f986c26, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -7982,6 +7983,21 @@ Transform:
   m_Children:
   - {fileID: 695196363}
   m_Father: {fileID: 0}
+--- !u!114 &461408718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: d5025598da26f094fad0c079e22ffde9,
+    type: 2}
+  m_PrefabInternal: {fileID: 2058766120}
+  m_GameObject: {fileID: 461408712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7796658a152a1214488d1a61958c7a22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1404807472}
+  blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
+  rpgFofce: 2000
 --- !u!1 &462784926
 GameObject:
   m_ObjectHideFlags: 0
@@ -16126,6 +16142,10 @@ Prefab:
       propertyPath: character
       value: 
       objectReference: {fileID: 1404807472}
+    - target: {fileID: 11400002, guid: d5025598da26f094fad0c079e22ffde9, type: 2}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 1404807472}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d5025598da26f094fad0c079e22ffde9, type: 2}
   m_RootGameObject: {fileID: 1527834528}
@@ -17335,15 +17355,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: .00277777785
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: .00277777785
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: .00277777785
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
@@ -18194,17 +18214,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 1
+    e00: 360
     e01: 0
     e02: 0
     e03: .791208804
     e10: 0
-    e11: 1
+    e11: 360
     e12: 0
     e13: 359.60437
     e20: 0
     e21: 0
-    e22: 1
+    e22: 360
     e23: 0
     e30: 0
     e31: 0
@@ -29929,17 +29949,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 1
+    e00: 360
     e01: 0
     e02: 0
     e03: .791208804
     e10: 0
-    e11: 1
+    e11: 360
     e12: 0
     e13: -.395604402
     e20: 0
     e21: 0
-    e22: 1
+    e22: 360
     e23: 0
     e30: 0
     e31: 0
@@ -30697,6 +30717,7 @@ GameObject:
   - 65: {fileID: 1527834532}
   - 23: {fileID: 1527834531}
   - 54: {fileID: 1527834530}
+  - 114: {fileID: 1527834534}
   m_Layer: 0
   m_Name: Rig
   m_TagString: Untagged
@@ -30745,7 +30766,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a7b0032dcd27c2647b5966d20f986c26, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -30775,6 +30796,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 805776484}
   m_GameObject: {fileID: 1527834528}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1527834534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: d5025598da26f094fad0c079e22ffde9,
+    type: 2}
+  m_PrefabInternal: {fileID: 805776484}
+  m_GameObject: {fileID: 1527834528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7796658a152a1214488d1a61958c7a22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1404807472}
+  blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
+  rpgFofce: 2000
 --- !u!1 &1539787159
 GameObject:
   m_ObjectHideFlags: 0
@@ -32376,6 +32412,10 @@ Prefab:
       propertyPath: character
       value: 
       objectReference: {fileID: 1404807472}
+    - target: {fileID: 11400002, guid: d5025598da26f094fad0c079e22ffde9, type: 2}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 1404807472}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d5025598da26f094fad0c079e22ffde9, type: 2}
   m_RootGameObject: {fileID: 1630033864}
@@ -32406,7 +32446,7 @@ Transform:
   m_GameObject: {fileID: 1594113642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .00277777785, y: .00277777785, z: .00277777785}
   m_Children:
   - {fileID: 353684337}
   m_Father: {fileID: 0}
@@ -32656,17 +32696,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 1
+    e00: 360
     e01: 0
     e02: 0
     e03: 492.923065
     e10: 0
-    e11: 1
+    e11: 360
     e12: 0
     e13: -.395604402
     e20: 0
     e21: 0
-    e22: 1
+    e22: 360
     e23: 0
     e30: 0
     e31: 0
@@ -33608,6 +33648,7 @@ GameObject:
   - 65: {fileID: 1630033867}
   - 23: {fileID: 1630033866}
   - 54: {fileID: 1630033865}
+  - 114: {fileID: 1630033870}
   m_Layer: 0
   m_Name: Rig
   m_TagString: Untagged
@@ -33644,7 +33685,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a7b0032dcd27c2647b5966d20f986c26, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -33686,6 +33727,21 @@ Transform:
   m_Children:
   - {fileID: 113344536}
   m_Father: {fileID: 0}
+--- !u!114 &1630033870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: d5025598da26f094fad0c079e22ffde9,
+    type: 2}
+  m_PrefabInternal: {fileID: 1592212799}
+  m_GameObject: {fileID: 1630033864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7796658a152a1214488d1a61958c7a22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1404807472}
+  blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
+  rpgFofce: 2000
 --- !u!1 &1631401911
 GameObject:
   m_ObjectHideFlags: 0
@@ -41810,6 +41866,10 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: d5025598da26f094fad0c079e22ffde9, type: 2}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 1404807472}
+    - target: {fileID: 11400002, guid: d5025598da26f094fad0c079e22ffde9, type: 2}
       propertyPath: character
       value: 
       objectReference: {fileID: 1404807472}
