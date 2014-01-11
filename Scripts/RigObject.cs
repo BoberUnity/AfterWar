@@ -61,41 +61,41 @@ public class RigObject : MonoBehaviour
 
 
 
-    if (isNear)
-    {
-      float distToChar = Vector3.Distance(characterTransform.position, thisTransform.position);
-      if (distToChar < 0.4f && characterTransform.position.y < thisTransform.position.y)
-      {
-        moveRight = thisTransform.position.x > characterTransform.position.x;
-        moveLeft = thisTransform.position.x < characterTransform.position.x;
-        character.MoveBoxAnim = true;
-      }
-      else
-      {
-        moveRight = false;
-        moveLeft = false;
-        character.MoveBoxAnim = false;
-      }
+    //if (isNear)
+    //{
+    //  float distToChar = Vector3.Distance(characterTransform.position, thisTransform.position);
+    //  if (distToChar < 0.4f && characterTransform.position.y < thisTransform.position.y && Mathf.Abs(character.Joystik.joysticValue.x) > 20)
+    //  {
+    //    moveRight = thisTransform.position.x > characterTransform.position.x;
+    //    moveLeft = thisTransform.position.x < characterTransform.position.x;
+    //    character.MoveBoxAnim = true;
+    //  }
+    //  else
+    //  {
+    //    moveRight = false;
+    //    moveLeft = false;
+    //    character.MoveBoxAnim = false;
+    //  }
 
-      if (moveRight || moveLeft)
-      {
-        if (characterTransform.position.y < thisTransform.position.y)
-        {
-          if (moveRight)
-            rigidbody.AddForce(200, 0, 0);
+    //  if (moveRight || moveLeft)
+    //  {
+    //    if (characterTransform.position.y < thisTransform.position.y)
+    //    {
+    //      if (moveRight)
+    //        rigidbody.AddForce(200, 0, 0);
 
-          if (moveLeft)
-            rigidbody.AddForce(200, 0, 0);
-        }
-        else
-        {
-          character.MoveBoxAnim = false;
-          moveRight = false;
-          moveLeft = false;
-          character.MoveBoxAnim = false;
-        }
-      }
-    }
+    //      if (moveLeft)
+    //        rigidbody.AddForce(200, 0, 0);
+    //    }
+    //    else
+    //    {
+    //      character.MoveBoxAnim = false;
+    //      moveRight = false;
+    //      moveLeft = false;
+    //      character.MoveBoxAnim = false;
+    //    }
+    //  }
+    //}
   }
 
   private void OnTriggerEnter(Collider other)

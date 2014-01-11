@@ -67,6 +67,7 @@ public class Character : MonoBehaviour
   [SerializeField] private AnimationClip actionClip = null;
   [SerializeField] private AnimationClip moveFwClip = null;
   [SerializeField] private AnimationClip moveBoxClip = null;
+  [SerializeField] private AnimationClip moveBoxBackClip = null;
   /*[SerializeField]*/ private UISprite deadSprite = null;
   /*[SerializeField]*/ private Indicator helthIndicator = null;
   [SerializeField] private AudioClip failSound = null;
@@ -114,6 +115,7 @@ public class Character : MonoBehaviour
   private bool moveBox = false;
   //[SerializeField]
   private bool moveBoxAnim = false;//off after 0.1 sec
+  private bool moveBoxBack = false;
 
   public int NearMonstr//Количество монстров близко
   {
@@ -191,6 +193,11 @@ public class Character : MonoBehaviour
   public bool MoveBoxAnim
   {
     set { moveBoxAnim = value; }
+  }
+
+  public bool MoveBoxBack
+  {
+    set { moveBoxBack = value; }
   }
 
   public Controller Controller
@@ -322,9 +329,14 @@ public class Character : MonoBehaviour
         if (polzet)//Анимация ползания
           SetAnimCross(moveFwClip, Mathf.Abs(step*4));
         if (moveBoxAnim)//Анимация толкания
-          SetAnimCross(moveBoxClip, Mathf.Abs(step*1.7f));
+        {
+          if (moveBoxBack)
+            SetAnimCross(moveBoxBackClip, Mathf.Abs(step * 1.7f));
+          else
+            SetAnimCross(moveBoxClip, Mathf.Abs(step*1.7f));
+        }
 
-        if (progressBar.joysticValue.x > 0)
+        if (progressBar.joysticValue.x > 0 && !moveBoxAnim)
         {
           if (t.eulerAngles.y > 90)
             t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Max(90, t.eulerAngles.y - rotSpeed*Time.deltaTime), t.eulerAngles.z);
@@ -332,7 +344,7 @@ public class Character : MonoBehaviour
             t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Min(90, t.eulerAngles.y + rotSpeed * Time.deltaTime), t.eulerAngles.z);
         }
 
-        if (progressBar.joysticValue.x < 0)
+        if (progressBar.joysticValue.x < 0 && !moveBoxAnim)
         {
           if (t.eulerAngles.y < 270 && t.eulerAngles.y > 70)
             t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Min(270,t.eulerAngles.y + rotSpeed*Time.deltaTime), t.eulerAngles.z);
