@@ -86,10 +86,9 @@ public class Character : MonoBehaviour
   [SerializeField] private int[] patrons = new int[5];
   [SerializeField] private ArmoGUI[] armosGUI = new ArmoGUI[5];
   [SerializeField] private GameObject[] armoObjs = new GameObject[4];
-  [SerializeField] private int[] things = new int[3];//Aptek, GazMask, Bron
+  [SerializeField] private float[] things = new float[3];//Aptek, GazMask, Bron
   [SerializeField] private float visotaDown = 1;
   private float visotaUp = 1;
-  //private bool liftZone;
   [SerializeField] private float velocity = 0;
   private CharacterController characterController = null;
   private Transform t = null;
@@ -112,9 +111,7 @@ public class Character : MonoBehaviour
   //[SerializeField] private bool isG;
   private float visotaShoot = 1;
   private bool polzet = false;
-  [SerializeField]
   private bool moveBox = false;
-  //[SerializeField]
   private bool moveBoxAnim = false;//off after 0.1 sec
   private bool moveBoxBack = false;
 
@@ -182,7 +179,7 @@ public class Character : MonoBehaviour
     get { return armoObjs;}
   }
 
-  public int[] Things
+  public float[] Things
   {
     get { return things; }
     set
@@ -430,16 +427,6 @@ public class Character : MonoBehaviour
       }
     }
 
-    //lift Zona
-    //if (liftZone && !jump)
-    //{
-    //  if (visotaDown < 0.31f)
-    //    t.position += Vector3.up * (0.31f - visotaDown);
-      
-    //  if (visotaDown > 0.32f && visotaDown < 0.35f)
-    //    t.localPosition += Vector3.up * (0.31f - visotaDown);
-    //}
-
     //Поворот к стене во время действия
     if (act && t.eulerAngles.y < 125 && t.eulerAngles.y > 30)
     {
@@ -500,23 +487,6 @@ public class Character : MonoBehaviour
         polzetComponent.IsUse = true;
       }
     }
-
-    //if (other.gameObject.name == "Rig")
-    //{
-    //  if (t.position.y < other.transform.position.y + 0.1f)
-    //  {
-    //    if (t.position.x < other.transform.position.x)
-    //    {
-    //      other.GetComponent<RigObject>().MoveRight = true;
-    //    }
-    //    else
-    //    {
-    //      other.GetComponent<RigObject>().MoveLeft = true;
-    //    }
-    //    moveBox = true;
-    //    moveBoxAnim = true;
-    //  }
-    //}
   }
   //==================================================================================================================
   public void Action()

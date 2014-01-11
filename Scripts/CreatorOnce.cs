@@ -1,12 +1,12 @@
 ﻿using UnityEngine;public class CreatorOnce : MonoBehaviour{  [SerializeField] private GameObject prefab = null;  private void Start()  {    if (GameObject.Find(prefab.name + "(Clone)") == null)    {      GameObject controller = Instantiate(prefab, Vector3.zero, Quaternion.identity) as GameObject;
 
-      int aaf = PlayerPrefs.GetInt("anisotropicFiltering");
-      if (aaf == 0)
-        QualitySettings.anisotropicFiltering = AnisotropicFiltering.Disable;
-      if (aaf == 1)
-        QualitySettings.anisotropicFiltering = AnisotropicFiltering.Enable;
-      if (aaf == 2)
-        QualitySettings.anisotropicFiltering = AnisotropicFiltering.ForceEnable;      QualitySettings.antiAliasing = PlayerPrefs.GetInt("antiAliasing");
+      //int aaf = PlayerPrefs.GetInt("anisotropicFiltering");
+      //if (aaf == 0)
+      //  QualitySettings.anisotropicFiltering = AnisotropicFiltering.Disable;
+      //if (aaf == 1)
+      //  QualitySettings.anisotropicFiltering = AnisotropicFiltering.Enable;
+      //if (aaf == 2)
+      //  QualitySettings.anisotropicFiltering = AnisotropicFiltering.ForceEnable;      QualitySettings.antiAliasing = PlayerPrefs.GetInt("antiAliasing");
       QualitySettings.vSyncCount = PlayerPrefs.GetInt("vSyncCount");
       QualitySettings.masterTextureLimit = PlayerPrefs.GetInt("masterTextureLimit");
       
@@ -17,14 +17,30 @@
           controller.GetComponent<Controller>().ShowFps = false;
         else
           controller.GetComponent<Controller>().ShowFps = true;
-
-        float vol = PlayerPrefs.GetFloat("effectsVolume");        if (vol == 0)
+        //Громкость эффектов
+        float vol = PlayerPrefs.GetFloat("effectsVolume");        if (vol < 0.001f)
         {
           controller.GetComponent<Controller>().EffectsVolume = 0.75f; 
           Debug.Log("First start");
         }
         else
-          controller.GetComponent<Controller>().EffectsVolume = vol;      }
+          controller.GetComponent<Controller>().EffectsVolume = vol;
+        //Громкость музыки
+        vol = PlayerPrefs.GetFloat("musicVolume");
+        if (vol < 0.001f)
+        {
+          controller.GetComponent<Controller>().MusicVolume = 0.75f;
+        }
+        else
+          controller.GetComponent<Controller>().MusicVolume = vol;
+        //Яркость экрана
+        vol = PlayerPrefs.GetFloat("screenBright");
+        if (vol < 0.001f)
+        {
+          controller.GetComponent<Controller>().ScreenBright = 0.75f;
+        }
+        else
+          controller.GetComponent<Controller>().ScreenBright = vol;      }
       else
       {
         Debug.LogWarning("controller was not found");

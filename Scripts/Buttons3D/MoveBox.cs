@@ -6,7 +6,6 @@ namespace Assets.Scripts.Buttons3D
   public class MoveBox : MonoBehaviour
   {
     [SerializeField] private Character character = null;
-    [SerializeField] private float dist = 0.5f;
     [SerializeField] private float fixDist = 0.36f;
     //private float distToChar = 10;
     private bool isFix = false;

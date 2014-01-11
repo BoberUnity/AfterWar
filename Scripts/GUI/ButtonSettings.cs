@@ -8,14 +8,7 @@ public class ButtonSettings : MonoBehaviour
   private void Start()
   {
     //------------------------------------------------------------------------------------------
-    if (QualitySettings.anisotropicFiltering == AnisotropicFiltering.Disable && id == 0)
-      GetComponent<UIToggle>().value = true;
-
-    if (QualitySettings.anisotropicFiltering == AnisotropicFiltering.Enable && id == 1)
-      GetComponent<UIToggle>().value = true;
-
-    if (QualitySettings.anisotropicFiltering == AnisotropicFiltering.ForceEnable && id == 2)
-      GetComponent<UIToggle>().value = true;
+    
 
     //------------------------------------------------------------------------------------------
     if (QualitySettings.antiAliasing == 0 && id == 3)
@@ -25,9 +18,6 @@ public class ButtonSettings : MonoBehaviour
       GetComponent<UIToggle>().value = true;
 
     if (QualitySettings.antiAliasing == 4 && id == 5)
-      GetComponent<UIToggle>().value = true;
-
-    if (QualitySettings.antiAliasing == 8 && id == 6)
       GetComponent<UIToggle>().value = true;
 
     //------------------------------------------------------------------------------------------
@@ -66,28 +56,34 @@ public class ButtonSettings : MonoBehaviour
         Debug.LogWarning("Опция Показать ФПС недоступна, т.к. необходимо запустить сцену MenuMain");
       }
     }
+
+    if (id == 1)
+    {
+      GameObject controllerObj = GameObject.Find("Controller(Clone)");
+      if (controllerObj != null)
+      {
+        GetComponent<UIToggle>().value = !controllerObj.GetComponent<Controller>().WaterHigh;
+        //if (fpsLabel != null)
+        //  fpsLabel.enabled = GetComponent<UIToggle>().value;
+      }
+    }
+
+    if (id == 2)
+    {
+      GameObject controllerObj = GameObject.Find("Controller(Clone)");
+      if (controllerObj != null)
+      {
+        GetComponent<UIToggle>().value = controllerObj.GetComponent<Controller>().WaterHigh;
+        //if (fpsLabel != null)
+        //  fpsLabel.enabled = GetComponent<UIToggle>().value;
+      }
+    }
   }
   
   protected virtual void OnPress(bool isPressed)
   {
     if (!isPressed)
     {
-      if (id == 0)
-      {
-        QualitySettings.anisotropicFiltering = AnisotropicFiltering.Disable;
-        PlayerPrefs.SetInt("anisotropicFiltering", 0);
-      }
-      if (id == 1)
-      {
-        QualitySettings.anisotropicFiltering = AnisotropicFiltering.Enable;
-        PlayerPrefs.SetInt("anisotropicFiltering", 1);
-      }
-      if (id == 2)
-      {
-        QualitySettings.anisotropicFiltering = AnisotropicFiltering.ForceEnable;
-        PlayerPrefs.SetInt("anisotropicFiltering", 2);
-      }
-
       if (id == 3)
       {
         QualitySettings.antiAliasing = 0;
@@ -103,11 +99,7 @@ public class ButtonSettings : MonoBehaviour
         QualitySettings.antiAliasing = 4;
         PlayerPrefs.SetInt("antiAliasing", 4);
       }
-      if (id == 6)
-      {
-        QualitySettings.antiAliasing = 8;
-        PlayerPrefs.SetInt("antiAliasing", 8);
-      }
+
 
       if (id == 7)
       {
@@ -158,6 +150,18 @@ public class ButtonSettings : MonoBehaviour
           else
             PlayerPrefs.SetInt("showFps", 0);
         }
+      }
+
+      if (id == 1)
+      {
+        GameObject.Find("Controller(Clone)").GetComponent<Controller>().ShowFps = !GetComponent<UIToggle>().value;
+        PlayerPrefs.SetInt("waterHigh", 0);
+      }
+
+      if (id == 2)
+      {
+        GameObject.Find("Controller(Clone)").GetComponent<Controller>().ShowFps = !GetComponent<UIToggle>().value;
+        PlayerPrefs.SetInt("waterHigh", 1);
       }
     }
   }

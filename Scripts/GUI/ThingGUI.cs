@@ -22,23 +22,6 @@ public class ThingGUI : MonoBehaviour
   //private int nums = 0;
   private float tUsed = 0;
 
-  //public bool Presence
-  //{
-  //  get { return presence;}
-  //  set 
-  //  { 
-  //    presence = value;
-  //    if (presence && state == 0)
-  //    {
-  //      State = 1; 
-  //    }
-  //    if (!presence)
-  //    {
-  //      State = 0;
-  //    }
-  //  }
-  //}
-
   public int State
   {
     get { return state; }
@@ -122,26 +105,42 @@ public class ThingGUI : MonoBehaviour
     {
       //if (presence)
       //{
-        if (state == 1)
-        {
-          //nums -= 1;
+      if (state == 1)
+      {
+        //nums -= 1;
+        if (tUsed < 0.0001f)
           character.Things[id] -= 1;
-          counter.text = character.Things[id].ToString("f0");
-          if (counter.text == "0")
-            counter.text = "";
-          State = 2;
-          tUsed = 0;
+        else
+          character.Things[id] -= indicator.Val / 100;
+
+        counter.text = character.Things[id].ToString("f0");
+        if (counter.text == "0")
+          counter.text = "";
+        State = 2;
+        //tUsed = 0;
+        if (thing != null)
+          thing.SetActive(true);
+        if (thingDisable != null)
+          thingDisable.SetActive(false);
+        //одеть
+        if (id == 0)
+          StartCoroutine(OffButton(activeTime - tUsed));
+        if (id == 1)
+          StartCoroutine(OffButton(activeTime - tUsed));//Время противогаза
+      }
+      else
+      {
+        if (state == 2)
+        {
+          character.Things[id] += indicator.Val/100;
+          StopAllCoroutines();
+          State = 1;
           if (thing != null)
-            thing.SetActive(true);
+            thing.SetActive(false);
           if (thingDisable != null)
-            thingDisable.SetActive(false);
-          //одеть
-          if (id == 0)
-            StartCoroutine(OffButton(activeTime));
-          if (id == 1)
-            StartCoroutine(OffButton(activeTime));//Время противогаза
+            thingDisable.SetActive(true);
         }
-      //}
+      }
     }
   }
 	//=============================================================================================================
@@ -149,9 +148,12 @@ public class ThingGUI : MonoBehaviour
   {
     yield return new WaitForSeconds(time);
     thing.SetActive(false);
+    tUsed = 0;
+    //character.Things[id] -= 1;
+    //counter.text = character.Things[id].ToString("f0");
     if (thingDisable != null)
       thingDisable.SetActive(true);
-    if (character.Things[id] > 0)
+    if (character.Things[id] > 0.0001f)
       State = 1;
     else
       State = 0;

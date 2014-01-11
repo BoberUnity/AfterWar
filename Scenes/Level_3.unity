@@ -754,7 +754,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 1666401515}
-  dist: .400000006
   fixDist: .370000005
 --- !u!82 &79510757
 AudioSource:
@@ -2083,7 +2082,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 199175633}
   m_LocalRotation: {x: .5, y: .5, z: .5, w: -.5}
-  m_LocalPosition: {x: -.924195528, y: 1.6618408, z: -.0299999993}
+  m_LocalPosition: {x: -1.12556159, y: 2.1245544, z: -.0299999993}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1870959340}
@@ -2357,17 +2356,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: .791208804
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: 359.60437
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0
@@ -5018,7 +5017,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 1666401515}
-  dist: .400000006
   fixDist: .370000005
 --- !u!82 &405429677
 AudioSource:
@@ -8505,7 +8503,7 @@ Light:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 666272593}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -9294,7 +9292,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 725554400}
   m_LocalRotation: {x: -.00129584013, y: -.707105637, z: .00129584013, w: .707105637}
-  m_LocalPosition: {x: -.511458457, y: 1.7923919, z: -.0299999993}
+  m_LocalPosition: {x: -1.0405798, y: 1.82666695, z: -.0299999993}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1567838256}
@@ -13945,7 +13943,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 1666401515}
-  dist: .400000006
   fixDist: .370000005
 --- !u!82 &1098478340
 AudioSource:
@@ -14156,15 +14153,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.x
-      value: .00277777785
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.y
-      value: .00277777785
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.z
-      value: .00277777785
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
@@ -14435,17 +14432,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: 492.923065
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: -.395604402
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0
@@ -16718,17 +16715,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: .791208804
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: -360.395599
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0
@@ -19603,6 +19600,10 @@ Prefab:
       propertyPath: character
       value: 
       objectReference: {fileID: 1666401515}
+    - target: {fileID: 11400002, guid: d5025598da26f094fad0c079e22ffde9, type: 2}
+      propertyPath: rpgFofce
+      value: 2000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d5025598da26f094fad0c079e22ffde9, type: 2}
   m_RootGameObject: {fileID: 1076298743}
@@ -21492,10 +21493,12 @@ MonoBehaviour:
   - {fileID: 1624174093}
   - {fileID: 190803236}
   - {fileID: 761648088}
-  things: 000000000000000000000000
+  things:
+  - 0
+  - 0
+  - 0
   visotaDown: 1
   velocity: 0
-  moveBox: 0
 --- !u!82 &1666401516
 AudioSource:
   m_ObjectHideFlags: 0
@@ -21646,17 +21649,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: .791208804
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: -.395604402
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0
@@ -23042,7 +23045,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 1666401515}
-  dist: .400000006
   fixDist: .370000005
 --- !u!82 &1820778321
 AudioSource:
@@ -25200,7 +25202,7 @@ Transform:
   m_GameObject: {fileID: 1978581601}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .00277777785, y: .00277777785, z: .00277777785}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 125284557}
   m_Father: {fileID: 0}
