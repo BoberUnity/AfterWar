@@ -20,11 +20,13 @@ namespace Assets.Scripts.Buttons3D
       t = transform;
       ct = character.transform;
       character.CharacterAttack += CharacterAttack;
+      character.CharacterJump += CharacterJump;
     }
 
     private void OnDestroy()
     {
       character.CharacterAttack -= CharacterAttack;
+      character.CharacterJump -= CharacterJump;
     }
 
     protected virtual void OnPress(bool isPressed)
@@ -37,7 +39,7 @@ namespace Assets.Scripts.Buttons3D
         }
         else
         {
-          if (Vector3.Distance(t.position, ct.position) < dist)
+          if (Vector3.Distance(t.position, ct.position) < fixDist && ct.position.y < t.position.y + 0.1f)
           {
             character.MoveBoxAnim = true;
             CorrectCharacterPosition();
@@ -60,9 +62,10 @@ namespace Assets.Scripts.Buttons3D
           isFix = false;
           character.MoveBoxAnim = false;
         }
-        if (distToChar < fixDist - 0.01f)
+        if (distToChar < fixDist - 0.015f)
         {
           ReleaseBox();
+          Debug.Log("Release");
         }
 
         if (moveRight) 
@@ -99,6 +102,11 @@ namespace Assets.Scripts.Buttons3D
     }
 
     private void CharacterAttack(int armo)
+    {
+      ReleaseBox();
+    }
+
+    private void CharacterJump()
     {
       ReleaseBox();
     }

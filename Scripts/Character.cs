@@ -100,6 +100,7 @@ public class Character : MonoBehaviour
   private bool act = false;
   public event Action<string> TriggerEnter;
   public event Action<int> CharacterAttack;
+  public event Action CharacterJump;
   private bool inStair = false;
   private bool stairZone = false;
   private bool enableSoskok = false;
@@ -564,6 +565,9 @@ public class Character : MonoBehaviour
   {
     if ((characterController.isGrounded || visotaDown < 0.31f) && !jump && !dead && !polzet && !inStair)
     {
+      var handler = CharacterJump;
+      if (handler != null)
+        handler();
       velocity = -jumpHeight;
       jump = true;
       animation[jumpClip.name].time = 0;

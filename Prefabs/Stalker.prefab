@@ -2428,7 +2428,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100176}
   m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: 0, y: .0599999987, z: -3.55899783e-06}
+  m_LocalPosition: {x: -2.26207161, y: 1.28999996, z: 0}
   m_LocalScale: {x: .230000004, y: .230000004, z: .230000004}
   m_Children:
   - {fileID: 400174}
@@ -3104,7 +3104,7 @@ MonoBehaviour:
   fonarDist: .5
   camDist: 2
   camHeight: .5
-  minX: .100000001
+  minX: -100
   maxX: 33.4000015
   minY: -.150000006
   maxY: 100
@@ -3177,6 +3177,9 @@ MonoBehaviour:
   stairClip: {fileID: 7400040, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
   stairIdleClip: {fileID: 7400044, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
   actionClip: {fileID: 7400050, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
+  moveFwClip: {fileID: 7400056, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
+  moveBoxClip: {fileID: 7400052, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
+  moveBoxBackClip: {fileID: 7400054, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
   failSound: {fileID: 8300000, guid: c80b078010c94b145b88371250c678fe, type: 3}
   controller: {fileID: 0}
   hand: {fileID: 400138}
@@ -3187,7 +3190,7 @@ MonoBehaviour:
   rotSpeed: 580
   stairSpeed: .699999988
   gravSpeed: 4
-  jumpHeight: 1.29999995
+  jumpHeight: 1.5
   failHeight: 1.5
   patrons: 0000000000000000000000000000000000000000
   armosGUI:
@@ -3204,6 +3207,7 @@ MonoBehaviour:
   things: 000000000000000000000000
   visotaDown: 1
   velocity: 0
+  moveBox: 0
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -3372,7 +3376,7 @@ CharacterController:
   m_GameObject: {fileID: 100176}
   serializedVersion: 2
   m_Height: 1.91299999
-  m_Radius: .391000003
+  m_Radius: .300000012
   m_SlopeLimit: 90
   m_StepOffset: .00999999978
   m_SkinWidth: .00999999978
