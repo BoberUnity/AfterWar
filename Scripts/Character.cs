@@ -314,7 +314,7 @@ public class Character : MonoBehaviour
         if (polzet || moveBoxAnim)
           step *= 0.25f;
         
-        characterController.Move(Vector3.right*Time.deltaTime*step);
+        characterController.Move/*transform.position +=*/ (Vector3.right*Time.deltaTime*step);
         if (!jump && !kulak && !polzet && !moveBoxAnim)
         {
           SetAnimCross(armo[currentArmo].ArmoRun, Mathf.Abs(step));
@@ -488,19 +488,22 @@ public class Character : MonoBehaviour
       }
     }
 
-    if (other.gameObject.name == "Rig")
-    {
-      if (t.position.y < other.transform.position.y + 0.1f)
-      {
-        if (t.position.x < other.transform.position.x)
-          other.GetComponent<RigObject>().MoveRight = true;
-        else 
-          other.GetComponent<RigObject>().MoveLeft = true;
-        moveBox = true;
-        moveBoxAnim = true;
-      }
-      //characterController.radius = 0.5f;
-    }
+    //if (other.gameObject.name == "Rig")
+    //{
+    //  if (t.position.y < other.transform.position.y + 0.1f)
+    //  {
+    //    if (t.position.x < other.transform.position.x)
+    //    {
+    //      other.GetComponent<RigObject>().MoveRight = true;
+    //    }
+    //    else
+    //    {
+    //      other.GetComponent<RigObject>().MoveLeft = true;
+    //    }
+    //    moveBox = true;
+    //    moveBoxAnim = true;
+    //  }
+    //}
   }
   //==================================================================================================================
   public void Action()
@@ -525,13 +528,13 @@ public class Character : MonoBehaviour
       Helth -= 101;
     }
 
-    if (other.gameObject.name == "Rig")
-    {
-      other.GetComponent<RigObject>().MoveRight = false;
-      other.GetComponent<RigObject>().MoveLeft = false;
-      moveBox = false;
-      StartCoroutine(OffMoveBoxAnim(0.3f));
-    }
+    //if (other.gameObject.name == "Rig")
+    //{
+    //  other.GetComponent<RigObject>().MoveRight = false;
+    //  other.GetComponent<RigObject>().MoveLeft = false;
+    //  moveBox = false;
+    //  StartCoroutine(OffMoveBoxAnim(0.2f));
+    //}
   }
 
   private IEnumerator OffMoveBoxAnim(float time)
@@ -540,6 +543,7 @@ public class Character : MonoBehaviour
     if (!moveBox)
     {
       moveBoxAnim = false;
+      //characterController.radius = 0.3f;
       //characterController.radius = 0.391f;
     }
   }
