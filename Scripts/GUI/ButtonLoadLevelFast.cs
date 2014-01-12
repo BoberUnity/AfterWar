@@ -18,8 +18,12 @@ public class ButtonLoadLevelFast : MonoBehaviour
           Controller controller = obj.GetComponent<Controller>();
           controller.Reset();
         }
+        Application.LoadLevel(Application.loadedLevel);
       }
-      Application.LoadLevel(id);
+      else
+      {
+        Application.LoadLevel(id);
+      }
       Time.timeScale = 1;
     }
   }
