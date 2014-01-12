@@ -16,10 +16,9 @@ public class ThingGUI : MonoBehaviour
   [SerializeField] private Indicator indicator = null;
   [SerializeField] private int id = 0;//0-apt 1-gazMask 2-bron
   [SerializeField] private int state = 0;
-  //[SerializeField] private bool presence = false;
   [SerializeField] private float activeTime = 5;
+  [SerializeField] private float addHelth = 30;
   private Character character = null;
-  //private int nums = 0;
   private float tUsed = 0;
 
   public int State
@@ -52,8 +51,18 @@ public class ThingGUI : MonoBehaviour
       State = 1;
       counter.text = character.Things[id].ToString("f0");
     }
+    //Debug.Log("id=" +id + " Things=" + character.Things[id] );
+    //if (character.Things[id] - Mathf.Floor(character.Things[id]) > 0.01f)
+    //{
+    //  Debug.Log(character.Things[id] - Mathf.Floor(character.Things[id]));
+    //  State = 2;
+    //  counter.text = character.Things[id].ToString("f0");
+    //  indicator.Val = character.Things[id] - Mathf.Floor(character.Things[id]);
+    //}
 
-    thing.SetActive(false);//????????????????????????????????????????? !!!!!!!!!!!!!!!!!!!
+
+    if (thing != null)
+      thing.SetActive(false);//????????????????????????????????????????? !!!!!!!!!!!!!!!!!!!
     if (thingDisable != null)
       thingDisable.SetActive(true);
 
@@ -86,6 +95,11 @@ public class ThingGUI : MonoBehaviour
       tUsed += Time.deltaTime;
       if (indicator != null)
         indicator.Val = (activeTime - tUsed) * 100 / activeTime;
+      if (id == 0)
+      {
+        character.Helth += Time.deltaTime / activeTime * addHelth;
+      }
+      //character.Things[id] -= Time.deltaTime/activeTime;
     }
   }
   //=============================================================================================================
@@ -101,14 +115,13 @@ public class ThingGUI : MonoBehaviour
   //=============================================================================================================
   protected virtual void OnPress(bool isPressed)
   {
-    if (!isPressed && Time.timeScale >0.1f)
+    if (!isPressed && Time.timeScale > 0.1f)
     {
       //if (presence)
       //{
       if (state == 1)
       {
-        //nums -= 1;
-        if (tUsed < 0.0001f)
+        if (tUsed < 0.01f)
           character.Things[id] -= 1;
         else
           character.Things[id] -= indicator.Val / 100;
@@ -127,6 +140,8 @@ public class ThingGUI : MonoBehaviour
           StartCoroutine(OffButton(activeTime - tUsed));
         if (id == 1)
           StartCoroutine(OffButton(activeTime - tUsed));//Время противогаза
+        if (id == 2)
+          StartCoroutine(OffButton(activeTime - tUsed));//Время bron
       }
       else
       {
@@ -147,13 +162,14 @@ public class ThingGUI : MonoBehaviour
   private IEnumerator OffButton(float time)
   {
     yield return new WaitForSeconds(time);
-    thing.SetActive(false);
+    if (thing != null)
+      thing.SetActive(false);
     tUsed = 0;
     //character.Things[id] -= 1;
     //counter.text = character.Things[id].ToString("f0");
     if (thingDisable != null)
       thingDisable.SetActive(true);
-    if (character.Things[id] > 0.0001f)
+    if (character.Things[id] > 0.01f)
       State = 1;
     else
       State = 0;

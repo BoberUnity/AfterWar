@@ -154,13 +154,13 @@ public class ButtonSettings : MonoBehaviour
 
       if (id == 1)
       {
-        GameObject.Find("Controller(Clone)").GetComponent<Controller>().ShowFps = !GetComponent<UIToggle>().value;
+        GameObject.Find("Controller(Clone)").GetComponent<Controller>().WaterHigh = GetComponent<UIToggle>().value;
         PlayerPrefs.SetInt("waterHigh", 0);
       }
 
       if (id == 2)
       {
-        GameObject.Find("Controller(Clone)").GetComponent<Controller>().ShowFps = !GetComponent<UIToggle>().value;
+        GameObject.Find("Controller(Clone)").GetComponent<Controller>().WaterHigh = !GetComponent<UIToggle>().value;
         PlayerPrefs.SetInt("waterHigh", 1);
       }
     }
