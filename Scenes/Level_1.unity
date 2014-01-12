@@ -8161,7 +8161,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: dbb48d9a862aaba4bb691d3fe611e345, type: 2}
       propertyPath: lightningAmplitude
-      value: .300000012
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: dbb48d9a862aaba4bb691d3fe611e345, type: 2}
       propertyPath: lifetimeLowerLimit
@@ -8178,6 +8178,14 @@ Prefab:
     - target: {fileID: 11400000, guid: dbb48d9a862aaba4bb691d3fe611e345, type: 2}
       propertyPath: invisibleTimeUpperLimit
       value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: dbb48d9a862aaba4bb691d3fe611e345, type: 2}
+      propertyPath: targetSize
+      value: .200000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200000, guid: dbb48d9a862aaba4bb691d3fe611e345, type: 2}
+      propertyPath: m_Volume
+      value: .100000001
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400002, guid: dbb48d9a862aaba4bb691d3fe611e345, type: 2}
@@ -16756,7 +16764,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 0fddc5019576e02409f1770320ac1266, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: .100000001
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -16817,8 +16825,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glow: {fileID: 1205967249}
-  targetSize: .100000001
-  lightningAmplitude: .300000012
+  targetSize: .200000003
+  lightningAmplitude: .5
   lightningFuzziness: 1
   lightningAgility: 1
   lifetimeLowerLimit: 4
@@ -22240,15 +22248,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: .00277777785
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: .00277777785
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: .00277777785
       objectReference: {fileID: 0}
     - target: {fileID: 11400332, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: id
@@ -35287,7 +35295,7 @@ Transform:
   m_GameObject: {fileID: 1978581601}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .00277777785, y: .00277777785, z: .00277777785}
   m_Children:
   - {fileID: 125284557}
   m_Father: {fileID: 0}
