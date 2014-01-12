@@ -74,6 +74,7 @@ public class Character : MonoBehaviour
   [SerializeField] private Controller controller = null;
   [SerializeField] private Transform hand = null;
   [SerializeField] private GameObject BlastPrefab = null;
+  [SerializeField] private GameObject MolnyPrefab = null;
   [SerializeField] private Transform endPistol = null;
   [SerializeField] private GameObject PistolPartPrefab = null;
   [SerializeField] private float curSpeed = 1;
@@ -487,6 +488,14 @@ public class Character : MonoBehaviour
         polzetComponent.IsUse = true;
       }
     }
+
+    if (other.gameObject.name == "WaterDead")
+    {
+      Helth -= 101;
+      GameObject molny = Instantiate(MolnyPrefab, transform.position, Quaternion.identity) as GameObject;
+      if (molny != null)
+        molny.transform.parent = transform;
+    }
   }
   //==================================================================================================================
   public void Action()
@@ -504,11 +513,6 @@ public class Character : MonoBehaviour
     {
       stairZone = false;
       inStair = false;
-    }
-
-    if (other.gameObject.name == "WaterDead")
-    {
-      Helth -= 101;
     }
 
     //if (other.gameObject.name == "Rig")

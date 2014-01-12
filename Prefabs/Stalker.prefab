@@ -2428,7 +2428,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100176}
   m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: -2.26207161, y: 1.28999996, z: 0}
+  m_LocalPosition: {x: 3.46094918, y: 1.58967686, z: -1.21825042e-06}
   m_LocalScale: {x: .230000004, y: .230000004, z: .230000004}
   m_Children:
   - {fileID: 400174}
@@ -3099,15 +3099,15 @@ MonoBehaviour:
   minDist: .699999988
   maxDist: 3
   sensity: .000500000024
-  camSpeed: 2
+  camSpeed: 3
   fonarHeight: .5
   fonarDist: .5
   camDist: 2
   camHeight: .5
-  minX: -100
-  maxX: 33.4000015
-  minY: -.150000006
-  maxY: 100
+  minX: -.699999988
+  maxX: 11
+  minY: .649999976
+  maxY: 1.75
   follow: 1
 --- !u!114 &11400002
 MonoBehaviour:
@@ -3184,6 +3184,7 @@ MonoBehaviour:
   controller: {fileID: 0}
   hand: {fileID: 400138}
   BlastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
+  MolnyPrefab: {fileID: 100000, guid: 86b31faa5da649442af978439207d79d, type: 2}
   endPistol: {fileID: 400170}
   PistolPartPrefab: {fileID: 100000, guid: 84d4ab06027e42c4daaf5d7c70d1fc16, type: 2}
   curSpeed: 1
@@ -3204,10 +3205,12 @@ MonoBehaviour:
   - {fileID: 100048}
   - {fileID: 100088}
   - {fileID: 100044}
-  things: 000000000000000000000000
+  things:
+  - 0
+  - 0
+  - 0
   visotaDown: 1
   velocity: 0
-  moveBox: 0
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
