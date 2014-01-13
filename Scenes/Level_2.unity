@@ -4560,6 +4560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 11
   fpsLabel: {fileID: 0}
+  qualityEffects: []
 --- !u!114 &272369670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10856,6 +10857,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 8
   fpsLabel: {fileID: 0}
+  qualityEffects: []
 --- !u!114 &561837372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12193,7 +12195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &621710462
 Transform:
   m_ObjectHideFlags: 0
@@ -12207,7 +12209,7 @@ Transform:
   - {fileID: 566582874}
   - {fileID: 181374138}
   - {fileID: 946583956}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1364909637}
 --- !u!1 &628650277
 GameObject:
   m_ObjectHideFlags: 0
@@ -14107,6 +14109,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   fpsLabel: {fileID: 0}
+  qualityEffects:
+  - {fileID: 1364909638}
 --- !u!114 &708726590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18944,6 +18948,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 9
   fpsLabel: {fileID: 0}
+  qualityEffects: []
 --- !u!114 &914581565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18974,6 +18979,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   fpsLabel: {fileID: 0}
+  qualityEffects: []
 --- !u!114 &914581567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18988,6 +18994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 13
   fpsLabel: {fileID: 0}
+  qualityEffects: []
 --- !u!114 &914581568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19259,6 +19266,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   fpsLabel: {fileID: 0}
+  qualityEffects:
+  - {fileID: 1364909638}
 --- !u!1 &922810246
 GameObject:
   m_ObjectHideFlags: 0
@@ -27127,7 +27136,7 @@ Transform:
   m_Children:
   - {fileID: 468091126}
   - {fileID: 2107081085}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1364909637}
 --- !u!1 &1326095403
 GameObject:
   m_ObjectHideFlags: 0
@@ -27508,6 +27517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 12
   fpsLabel: {fileID: 0}
+  qualityEffects: []
 --- !u!114 &1337062930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27771,6 +27781,50 @@ Transform:
   m_Children:
   - {fileID: 424994689}
   m_Father: {fileID: 228005301}
+--- !u!1 &1364909636
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1364909637}
+  - 114: {fileID: 1364909638}
+  m_Layer: 0
+  m_Name: Water
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1364909637
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1364909636}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1659663266}
+  - {fileID: 621710462}
+  - {fileID: 1325203504}
+  m_Father: {fileID: 0}
+--- !u!114 &1364909638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1364909636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa7e0dfa47971b04e8d0ca84f4cc1c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  low: {fileID: 1659663260}
+  middle: {fileID: 1325203503}
+  high: {fileID: 621710461}
 --- !u!1 &1369509802
 GameObject:
   m_ObjectHideFlags: 0
@@ -29535,6 +29589,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   fpsLabel: {fileID: 0}
+  qualityEffects:
+  - {fileID: 1364909638}
 --- !u!114 &1434431158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32522,6 +32578,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 14
   fpsLabel: {fileID: 959823085}
+  qualityEffects: []
 --- !u!1 &1588063065
 GameObject:
   m_ObjectHideFlags: 0
@@ -32878,7 +32935,7 @@ Transform:
   m_GameObject: {fileID: 1594113642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .00277777785, y: .00277777785, z: .00277777785}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 353684337}
   m_Father: {fileID: 0}
@@ -33377,6 +33434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5
   fpsLabel: {fileID: 0}
+  qualityEffects: []
 --- !u!114 &1609550354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34863,7 +34921,7 @@ Transform:
   m_LocalPosition: {x: 17, y: -1.63899994, z: 0}
   m_LocalScale: {x: 3.20000005, y: 1, z: 17.2000008}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1364909637}
 --- !u!1 &1665117217
 GameObject:
   m_ObjectHideFlags: 0
@@ -38551,6 +38609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 7
   fpsLabel: {fileID: 0}
+  qualityEffects: []
 --- !u!114 &1855798014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39189,6 +39248,18 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11400286, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
+      propertyPath: qualityEffects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400398, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
+      propertyPath: qualityEffects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400442, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
+      propertyPath: qualityEffects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -39239,15 +39310,15 @@ Prefab:
       objectReference: {fileID: 946583955}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.x
-      value: .00277777785
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.y
-      value: .00277777785
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.z
-      value: .00277777785
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100290, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_IsActive
@@ -39265,6 +39336,18 @@ Prefab:
       propertyPath: fpsLabel
       value: 
       objectReference: {fileID: 959823085}
+    - target: {fileID: 11400286, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
+      propertyPath: qualityEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 1364909638}
+    - target: {fileID: 11400398, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
+      propertyPath: qualityEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 1364909638}
+    - target: {fileID: 11400442, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
+      propertyPath: qualityEffects.Array.data[0]
+      value: 
+      objectReference: {fileID: 1364909638}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
   m_RootGameObject: {fileID: 1594113642}
@@ -44670,3 +44753,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 4
   fpsLabel: {fileID: 0}
+  qualityEffects: []

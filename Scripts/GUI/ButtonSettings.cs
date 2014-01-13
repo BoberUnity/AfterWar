@@ -4,6 +4,7 @@ public class ButtonSettings : MonoBehaviour
 {
   [SerializeField] private int id = 0;
   [SerializeField] private UILabel fpsLabel = null;
+  [SerializeField] private QualityEffect[] qualityEffects = null;
 
   private void Start()
   {
@@ -145,6 +146,10 @@ public class ButtonSettings : MonoBehaviour
       {
         GameObject.Find("Controller(Clone)").GetComponent<Controller>().WaterHigh = id;
         PlayerPrefs.SetInt("waterHigh", id);
+        foreach (var qe in qualityEffects)
+        {
+          qe.Quality = id;
+        }
       }
     }
   }
