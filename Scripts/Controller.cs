@@ -12,7 +12,7 @@ public class Controller : MonoBehaviour
   [SerializeField] private float effectsVolume = 0.7f;
   [SerializeField] private float musicVolume = 0.7f;
   [SerializeField] private float screenBright = 0.7f;
-  [SerializeField] private bool waterHigh = false;
+  [SerializeField] private int waterHigh = 1;
 
   public float EffectsVolume
   {
@@ -26,7 +26,7 @@ public class Controller : MonoBehaviour
     set { musicVolume = value; }
   }
 
-  public bool WaterHigh
+  public int WaterHigh
   {
     get { return waterHigh; }
     set { waterHigh = value; }

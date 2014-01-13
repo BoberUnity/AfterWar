@@ -4,11 +4,11 @@ public class ButtonSettings : MonoBehaviour
 {
   [SerializeField] private int id = 0;
   [SerializeField] private UILabel fpsLabel = null;
-  
+
   private void Start()
   {
     //------------------------------------------------------------------------------------------
-    
+
 
     //------------------------------------------------------------------------------------------
     if (QualitySettings.antiAliasing == 0 && id == 3)
@@ -57,23 +57,12 @@ public class ButtonSettings : MonoBehaviour
       }
     }
 
-    if (id == 1)
+    if (id == 0 || id == 1 || id == 2)
     {
       GameObject controllerObj = GameObject.Find("Controller(Clone)");
       if (controllerObj != null)
       {
-        GetComponent<UIToggle>().value = !controllerObj.GetComponent<Controller>().WaterHigh;
-        //if (fpsLabel != null)
-        //  fpsLabel.enabled = GetComponent<UIToggle>().value;
-      }
-    }
-
-    if (id == 2)
-    {
-      GameObject controllerObj = GameObject.Find("Controller(Clone)");
-      if (controllerObj != null)
-      {
-        GetComponent<UIToggle>().value = controllerObj.GetComponent<Controller>().WaterHigh;
+        GetComponent<UIToggle>().value = controllerObj.GetComponent<Controller>().WaterHigh == id;
         //if (fpsLabel != null)
         //  fpsLabel.enabled = GetComponent<UIToggle>().value;
       }
@@ -152,16 +141,10 @@ public class ButtonSettings : MonoBehaviour
         }
       }
 
-      if (id == 1)
+      if (id == 0 || id == 1 || id == 2)
       {
-        GameObject.Find("Controller(Clone)").GetComponent<Controller>().WaterHigh = GetComponent<UIToggle>().value;
-        PlayerPrefs.SetInt("waterHigh", 0);
-      }
-
-      if (id == 2)
-      {
-        GameObject.Find("Controller(Clone)").GetComponent<Controller>().WaterHigh = !GetComponent<UIToggle>().value;
-        PlayerPrefs.SetInt("waterHigh", 1);
+        GameObject.Find("Controller(Clone)").GetComponent<Controller>().WaterHigh = id;
+        PlayerPrefs.SetInt("waterHigh", id);
       }
     }
   }

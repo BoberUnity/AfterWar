@@ -1,12 +1,6 @@
 ﻿using UnityEngine;public class CreatorOnce : MonoBehaviour{  [SerializeField] private GameObject prefab = null;  private void Start()  {    if (GameObject.Find(prefab.name + "(Clone)") == null)    {      GameObject controller = Instantiate(prefab, Vector3.zero, Quaternion.identity) as GameObject;
 
-      //int aaf = PlayerPrefs.GetInt("anisotropicFiltering");
-      //if (aaf == 0)
-      //  QualitySettings.anisotropicFiltering = AnisotropicFiltering.Disable;
-      //if (aaf == 1)
-      //  QualitySettings.anisotropicFiltering = AnisotropicFiltering.Enable;
-      //if (aaf == 2)
-      //  QualitySettings.anisotropicFiltering = AnisotropicFiltering.ForceEnable;      QualitySettings.antiAliasing = PlayerPrefs.GetInt("antiAliasing");
+      QualitySettings.antiAliasing = PlayerPrefs.GetInt("antiAliasing");
       QualitySettings.vSyncCount = PlayerPrefs.GetInt("vSyncCount");
       QualitySettings.masterTextureLimit = PlayerPrefs.GetInt("masterTextureLimit");
       
@@ -40,7 +34,8 @@
           controller.GetComponent<Controller>().ScreenBright = 0.75f;
         }
         else
-          controller.GetComponent<Controller>().ScreenBright = vol;      }
+          controller.GetComponent<Controller>().ScreenBright = vol;        //Effects
+        controller.GetComponent<Controller>().WaterHigh = PlayerPrefs.GetInt("waterHigh");      }
       else
       {
         Debug.LogWarning("controller was not found");
