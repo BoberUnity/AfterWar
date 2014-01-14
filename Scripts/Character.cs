@@ -151,6 +151,11 @@ public class Character : MonoBehaviour
             StartCoroutine(bronButton.OffButton(0));
             bronButton.Indicator.Val = 100;
           }
+          if (value < -101)
+          {
+            helth = 0;
+            SetHelth();
+          }
         }
       }
     }
@@ -509,7 +514,7 @@ public class Character : MonoBehaviour
 
     if (other.gameObject.name == "WaterDead")
     {
-      Helth -= 101;
+      Helth -= 301;
       GameObject molny = Instantiate(MolnyPrefab, transform.position, Quaternion.identity) as GameObject;
       if (molny != null)
         molny.transform.parent = transform;

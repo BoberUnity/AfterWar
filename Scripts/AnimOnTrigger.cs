@@ -11,4 +11,10 @@ public class AnimOnTrigger : MonoBehaviour
     if (other.gameObject.name == "Stalker")
       anim.Play();
 	}
+
+  private void OnTriggerExit(Collider other)
+  {
+    if (other.gameObject.name == "Stalker")
+      anim.Play();
+  }
 }
