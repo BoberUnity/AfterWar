@@ -34,7 +34,7 @@ public class Indicator : MonoBehaviour
     thisSprite = GetComponent<UISprite>();
   }
 
-  private void SetState(bool on)
+  public void SetState(bool on)
   {
     thisSprite.enabled = on;
     sprite.enabled = on;

@@ -31,6 +31,11 @@ public class ThingGUI : MonoBehaviour
     }
   }
 
+  public Indicator Indicator
+  {
+    get { return indicator; }
+  }
+
   //=============================================================================================================
 	private void Start ()
 	{
@@ -49,7 +54,7 @@ public class ThingGUI : MonoBehaviour
     if (character.Things[id] > 0)
     {
       State = 1;
-      counter.text = character.Things[id].ToString("f0");
+      counter.text = Mathf.Floor(character.Things[id]).ToString("f0");
     }
     //Debug.Log("id=" +id + " Things=" + character.Things[id] );
     //if (character.Things[id] - Mathf.Floor(character.Things[id]) > 0.01f)
@@ -92,13 +97,17 @@ public class ThingGUI : MonoBehaviour
   {
     if (state == 2)
     {
-      tUsed += Time.deltaTime;
-      if (indicator != null)
-        indicator.Val = (activeTime - tUsed) * 100 / activeTime;
-      if (id == 0)
+      if (id == 0 || id == 1)
       {
-        character.Helth += Time.deltaTime / activeTime * addHelth;
+        tUsed += Time.deltaTime;
+        if (indicator != null)
+          indicator.Val = (activeTime - tUsed) * 100 / activeTime;
+        if (id == 0)
+        {
+          character.Helth += Time.deltaTime / activeTime * addHelth;
+        }
       }
+      //counter.text = character.Things[id].ToString("f2");
       //character.Things[id] -= Time.deltaTime/activeTime;
     }
   }
@@ -117,14 +126,12 @@ public class ThingGUI : MonoBehaviour
   {
     if (!isPressed && Time.timeScale > 0.1f)
     {
-      //if (presence)
-      //{
       if (state == 1)
       {
-        if (tUsed < 0.01f)
+        if ((id == 0 || id == 1) && tUsed < 0.01f)
           character.Things[id] -= 1;
         else
-          character.Things[id] -= indicator.Val / 100;
+          character.Things[id] -= indicator.Val/100;
 
         counter.text = character.Things[id].ToString("f0");
         if (counter.text == "0")
@@ -141,7 +148,11 @@ public class ThingGUI : MonoBehaviour
         if (id == 1)
           StartCoroutine(OffButton(activeTime - tUsed));//Время противогаза
         if (id == 2)
-          StartCoroutine(OffButton(activeTime - tUsed));//Время bron
+        {
+        //  //indicator.Val = 100;
+          indicator.SetState(true);
+        }
+        //  StartCoroutine(OffButton(activeTime - tUsed));//Время bron
       }
       else
       {
@@ -150,16 +161,21 @@ public class ThingGUI : MonoBehaviour
           character.Things[id] += indicator.Val/100;
           StopAllCoroutines();
           State = 1;
+          counter.text = Mathf.Floor(character.Things[id]).ToString("f0");
+          if (counter.text == "0")
+            counter.text = "";
           if (thing != null)
             thing.SetActive(false);
           if (thingDisable != null)
             thingDisable.SetActive(true);
+          if (id == 2)
+            indicator.SetState(false);
         }
       }
     }
   }
 	//=============================================================================================================
-  private IEnumerator OffButton(float time)
+  public IEnumerator OffButton(float time)
   {
     yield return new WaitForSeconds(time);
     if (thing != null)
@@ -173,6 +189,10 @@ public class ThingGUI : MonoBehaviour
       State = 1;
     else
       State = 0;
+    if (id == 2)
+      indicator.SetState(false);
+    //character.Things[id] -= 1;
+
   }
   //=============================================================================================================
 	private void SetSprite () 
@@ -201,8 +221,6 @@ public class ThingGUI : MonoBehaviour
 
   private void GetThing()
   {
-    //State = 1;
-    //Presence = true;//?
     if (State == 0)
       State = 1;
     character.Things[id] += 1;

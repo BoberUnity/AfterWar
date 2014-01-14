@@ -5,6 +5,7 @@ public class SenderToStalker : MonoBehaviour
   [SerializeField] private UIProgressBar progressBar = null;
   [SerializeField] private UISprite deadSprite = null;
   [SerializeField] private Indicator helthIndicator = null;
+  [SerializeField] private ThingGUI bronButton = null;
   [SerializeField] private ArmoGUI[] armosGUI = new ArmoGUI[5];
   //[SerializeField] private UILabel fpsLabel = null;
   //private Character character = null;
@@ -17,6 +18,7 @@ public class SenderToStalker : MonoBehaviour
       character.Joystik = progressBar;
       character.DeadSprite = deadSprite;
       character.HelthIndicator = helthIndicator;
+      character.BronButton = bronButton;
       character.ArmosGUI = armosGUI;
     }
     else Debug.LogWarning("Character was not found!");

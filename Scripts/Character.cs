@@ -115,6 +115,12 @@ public class Character : MonoBehaviour
   private bool moveBox = false;
   private bool moveBoxAnim = false;//off after 0.1 sec
   private bool moveBoxBack = false;
+  private ThingGUI bronButton = null;
+  
+  public ThingGUI BronButton
+  {
+    set { bronButton = value;}
+  }
 
   public int NearMonstr//Количество монстров близко
   {
@@ -126,14 +132,26 @@ public class Character : MonoBehaviour
   {
     get { return helth; }
     set 
-    { 
+    {
       if (helth > 0)
       {
-        if (value < helth && enableDead)
+        if (bronButton.State != 2)
+        {
+          if (value < helth && enableDead)
           deadSprite.animation.Play();
 
-        helth = Mathf.Clamp(value, 0, 100);
-        SetHelth();
+          helth = Mathf.Clamp(value, 0, 100);
+          SetHelth();
+        }
+        else
+        {
+          bronButton.Indicator.Val -= (helth - value)*2;//Bron live
+          if (bronButton.Indicator.Val < 1)
+          {
+            StartCoroutine(bronButton.OffButton(0));
+            bronButton.Indicator.Val = 100;
+          }
+        }
       }
     }
   }
