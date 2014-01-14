@@ -144,7 +144,9 @@ public class ButtonSettings : MonoBehaviour
 
       if (id == 0 || id == 1 || id == 2)
       {
-        GameObject.Find("Controller(Clone)").GetComponent<Controller>().WaterHigh = id;
+        GameObject obj = GameObject.Find("Controller(Clone)");
+        if (obj != null)
+          obj.GetComponent<Controller>().WaterHigh = id;
         PlayerPrefs.SetInt("waterHigh", id);
         foreach (var qe in qualityEffects)
         {
