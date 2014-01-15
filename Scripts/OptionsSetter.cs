@@ -5,6 +5,7 @@
 public class OptionsSetter : MonoBehaviour
 {
   [SerializeField] private int id = 0;//0 effects; 1 music; 2-screen
+  [SerializeField] private Light light = null;
   private UIProgressBar progressBar = null;
   private Controller controller = null;
 
@@ -22,6 +23,7 @@ public class OptionsSetter : MonoBehaviour
         progressBar.value = controller.MusicVolume;
       if (id == 2)
         progressBar.value = controller.ScreenBright;
+      
     }
     else Debug.LogWarning("Controller не создан, необходимо запустить сценгу MtnuMain");
 	}
@@ -47,6 +49,8 @@ public class OptionsSetter : MonoBehaviour
     {
       controller.ScreenBright = value;
       PlayerPrefs.SetFloat("screenBright", Mathf.Max(0.01f, value));
+      if (light != null)
+        light.intensity = 2.5f + value*5.5f;
     }
 	}
 }

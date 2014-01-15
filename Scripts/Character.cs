@@ -120,6 +120,8 @@ public class Character : MonoBehaviour
   private bool moveBoxBack = false;
   private ThingGUI bronButton = null;
   private bool isSwiming = false;
+  private bool useGazMask = false;
+  private bool inGazZone = false;
   
   public ThingGUI BronButton
   {
@@ -250,6 +252,16 @@ public class Character : MonoBehaviour
         characterController.center = Vector3.up * 0.978f;
         //Debug.LogWarning("exit polzet-" + Time.time);
       }
+    }
+  }
+
+  public bool UseGazMask
+  {
+    set
+    {
+      useGazMask = value;
+      if (!useGazMask && inGazZone)
+        Helth -= 301;
     }
   }
   //==================================================================================================================
@@ -528,6 +540,13 @@ public class Character : MonoBehaviour
         molny.transform.parent = transform;
     }
 
+    if (other.gameObject.name == "GazZona")
+    {
+      inGazZone = true;
+      if (!useGazMask)
+        Helth -= 301;
+    }
+
     if (other.gameObject.name == "Swim")
     {
       isSwiming = true;
@@ -556,13 +575,10 @@ public class Character : MonoBehaviour
       isSwiming = false;
     }
 
-    //if (other.gameObject.name == "Rig")
-    //{
-    //  other.GetComponent<RigObject>().MoveRight = false;
-    //  other.GetComponent<RigObject>().MoveLeft = false;
-    //  moveBox = false;
-    //  StartCoroutine(OffMoveBoxAnim(0.2f));
-    //}
+    if (other.gameObject.name == "GazZona")
+    {
+      inGazZone = false;
+    }
   }
 
   private IEnumerator OffMoveBoxAnim(float time)

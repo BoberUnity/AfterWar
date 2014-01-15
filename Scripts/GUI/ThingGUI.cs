@@ -146,7 +146,10 @@ public class ThingGUI : MonoBehaviour
         if (id == 0)
           StartCoroutine(OffButton(activeTime - tUsed));
         if (id == 1)
+        {
           StartCoroutine(OffButton(activeTime - tUsed));//Время противогаза
+          character.UseGazMask = true;
+        }
         if (id == 2)
         {
         //  //indicator.Val = 100;
@@ -168,6 +171,10 @@ public class ThingGUI : MonoBehaviour
             thing.SetActive(false);
           if (thingDisable != null)
             thingDisable.SetActive(true);
+          if (id == 1)
+          {
+            character.UseGazMask = false;
+          }
           if (id == 2)
             indicator.SetState(false);
         }
@@ -189,6 +196,11 @@ public class ThingGUI : MonoBehaviour
       State = 1;
     else
       State = 0;
+
+    if (id == 1)
+    {
+      character.UseGazMask = false;
+    }
     if (id == 2)
       indicator.SetState(false);
     //character.Things[id] -= 1;

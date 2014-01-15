@@ -5325,6 +5325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 2
+  light: {fileID: 718023790}
 --- !u!65 &468090599
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7161,6 +7162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  light: {fileID: 0}
 --- !u!1 &602360188
 GameObject:
   m_ObjectHideFlags: 0
@@ -8015,7 +8017,7 @@ Light:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 666272593}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -8502,6 +8504,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 718023789}
   - 108: {fileID: 718023790}
+  - 114: {fileID: 718023791}
   m_Layer: 8
   m_Name: Light
   m_TagString: Untagged
@@ -8516,7 +8519,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 718023788}
   m_LocalRotation: {x: 0, y: .998086572, z: 0, w: .0618323721}
-  m_LocalPosition: {x: -.800000012, y: 2, z: 0}
+  m_LocalPosition: {x: 5.26000023, y: .449999988, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8529,8 +8532,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 3
   m_Type: 2
-  m_Color: {r: .333333343, g: .333333343, b: .333333343, a: 1}
-  m_Intensity: 5.5
+  m_Color: {r: .470588237, g: .470588237, b: .470588237, a: 1}
+  m_Intensity: 2.5
   m_Range: 3
   m_SpotAngle: 90
   m_CookieSize: 10
@@ -8555,6 +8558,17 @@ Light:
   m_ShadowAngle: 0
   m_IndirectIntensity: 1
   m_AreaSize: {x: 1, y: 1}
+--- !u!114 &718023791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 718023788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45b0eed8a721e7f4a8487bf5722e3846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &719285353
 GameObject:
   m_ObjectHideFlags: 0
@@ -11214,6 +11228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
+  light: {fileID: 0}
 --- !u!1 &932231447
 GameObject:
   m_ObjectHideFlags: 0
@@ -13309,6 +13324,10 @@ Prefab:
       propertyPath: fpsLabel
       value: 
       objectReference: {fileID: 340218018}
+    - target: {fileID: 11400352, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
+      propertyPath: light
+      value: 
+      objectReference: {fileID: 718023790}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
   m_RootGameObject: {fileID: 1978581601}

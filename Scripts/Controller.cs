@@ -72,7 +72,7 @@ public class Controller : MonoBehaviour
 
   private void OnLevelWasLoaded(int level)
 	{
-    if (level > 1)
+    if (level > 4)
     {
       GameObject obj = GameObject.Find("Stalker");
       if (obj != null)
