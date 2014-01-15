@@ -535,6 +535,11 @@ public class Character : MonoBehaviour
     if (other.gameObject.name == "WaterDead")
     {
       Helth -= 301;
+    }
+
+    if (other.gameObject.name == "WaterElectro")
+    {
+      Helth -= 301;
       GameObject molny = Instantiate(MolnyPrefab, transform.position, Quaternion.identity) as GameObject;
       if (molny != null)
         molny.transform.parent = transform;
