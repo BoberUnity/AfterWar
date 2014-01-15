@@ -62,12 +62,15 @@ public class Character : MonoBehaviour
   /*[SerializeField]*/ private UIProgressBar progressBar = null;
   [SerializeField] private AnimationClip jumpClip = null;
   [SerializeField] private AnimationClip deadClip = null;
+  [SerializeField] private AnimationClip deadBackClip = null;
   [SerializeField] private AnimationClip stairClip = null;
   [SerializeField] private AnimationClip stairIdleClip = null;
   [SerializeField] private AnimationClip actionClip = null;
   [SerializeField] private AnimationClip moveFwClip = null;
   [SerializeField] private AnimationClip moveBoxClip = null;
   [SerializeField] private AnimationClip moveBoxBackClip = null;
+  [SerializeField] private AnimationClip swimClip = null;
+  [SerializeField] private AnimationClip swimDeadClip = null;
   /*[SerializeField]*/ private UISprite deadSprite = null;
   /*[SerializeField]*/ private Indicator helthIndicator = null;
   [SerializeField] private AudioClip failSound = null;
@@ -116,6 +119,7 @@ public class Character : MonoBehaviour
   private bool moveBoxAnim = false;//off after 0.1 sec
   private bool moveBoxBack = false;
   private ThingGUI bronButton = null;
+  private bool isSwiming = false;
   
   public ThingGUI BronButton
   {
@@ -135,7 +139,7 @@ public class Character : MonoBehaviour
     {
       if (helth > 0)
       {
-        if (bronButton.State != 2)
+        if (bronButton.State != 2 || value > helth)
         {
           if (value < helth && enableDead)
           deadSprite.animation.Play();
@@ -340,11 +344,11 @@ public class Character : MonoBehaviour
       if (Mathf.Abs(progressBar.joysticValue.x) > 30)
       {
         float step = progressBar.joysticValue.x*0.01f*curSpeed;
-        if (polzet || moveBoxAnim)
+        if (polzet || moveBoxAnim || isSwiming)
           step *= 0.25f;
         
         characterController.Move/*transform.position +=*/ (Vector3.right*Time.deltaTime*step);
-        if (!jump && !kulak && !polzet && !moveBoxAnim)
+        if (!jump && !kulak && !polzet && !moveBoxAnim && !isSwiming)
         {
           SetAnimCross(armo[currentArmo].ArmoRun, Mathf.Abs(step));
         }
@@ -357,6 +361,8 @@ public class Character : MonoBehaviour
           else
             SetAnimCross(moveBoxClip, Mathf.Abs(step*1.7f));
         }
+        if (isSwiming)
+          SetAnimCross(swimClip, Mathf.Abs(step * 4));
 
         if (progressBar.joysticValue.x > 0 && !moveBoxAnim)
         {
@@ -382,6 +388,8 @@ public class Character : MonoBehaviour
           SetAnimCross(moveFwClip, 0.02f);//лежит ползя
         if (moveBoxAnim)
           SetAnimCross(moveBoxClip, 0);//толкает idle
+        if (isSwiming)
+          SetAnimCross(swimClip, 0.5f);
       }
     }
     //НА ЛЕСТНИЦЕ----------------------
@@ -519,6 +527,11 @@ public class Character : MonoBehaviour
       if (molny != null)
         molny.transform.parent = transform;
     }
+
+    if (other.gameObject.name == "Swim")
+    {
+      isSwiming = true;
+    }
   }
   //==================================================================================================================
   public void Action()
@@ -536,6 +549,11 @@ public class Character : MonoBehaviour
     {
       stairZone = false;
       inStair = false;
+    }
+
+    if (other.gameObject.name == "Swim")
+    {
+      isSwiming = false;
     }
 
     //if (other.gameObject.name == "Rig")
@@ -560,7 +578,7 @@ public class Character : MonoBehaviour
   //==================================================================================================================
   public void Jump()
   {
-    if ((characterController.isGrounded || visotaDown < 0.31f) && !jump && !dead && !polzet && !inStair)
+    if ((characterController.isGrounded || visotaDown < 0.31f) && !jump && !dead && !polzet && !inStair && !isSwiming)
     {
       var handler = CharacterJump;
       if (handler != null)
@@ -595,7 +613,7 @@ public class Character : MonoBehaviour
   //==================================================================================================================
   public void Attack()
   {
-    if (!kulak && Patrons[currentArmo] > 0 && !dead && !shooting && !polzet && !inStair)
+    if (!kulak && Patrons[currentArmo] > 0 && !dead && !shooting && !polzet && !inStair && !isSwiming)
     {
       kulak = true;
       Shoot();
@@ -654,7 +672,15 @@ public class Character : MonoBehaviour
     if (helth < 1)
     {  
       StopAllCoroutines();
-      SetAnimOnce(deadClip, 0.5f);
+      if (isSwiming)
+        SetAnimOnce(swimDeadClip, 0.5f);
+      else
+      {
+        if (UnityEngine.Random.value > 0.5f)
+          SetAnimOnce(deadClip, 0.5f);
+        else 
+          SetAnimOnce(deadBackClip, 0.5f);
+      }
       dead = true;
       //deadSprite.enabled = true;
     }

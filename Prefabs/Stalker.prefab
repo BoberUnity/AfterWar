@@ -2428,7 +2428,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100176}
   m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: 3.46094918, y: 1.58967686, z: -1.21825042e-06}
+  m_LocalPosition: {x: -2.26207161, y: 1.28999996, z: 0}
   m_LocalScale: {x: .230000004, y: .230000004, z: .230000004}
   m_Children:
   - {fileID: 400174}
@@ -3104,10 +3104,10 @@ MonoBehaviour:
   fonarDist: .5
   camDist: 2
   camHeight: .5
-  minX: -.699999988
-  maxX: 11
+  minX: -20.7000008
+  maxX: 32
   minY: .649999976
-  maxY: 1.75
+  maxY: 3.75
   follow: 1
 --- !u!114 &11400002
 MonoBehaviour:
@@ -3173,13 +3173,16 @@ MonoBehaviour:
     armoClip: {fileID: 8300000, guid: fdf7f2f21d998f648841d6cafb045db4, type: 3}
     animSpeed: .5
   jumpClip: {fileID: 7400010, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
-  deadClip: {fileID: 7400032, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
+  deadClip: {fileID: 7400030, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
+  deadBackClip: {fileID: 7400032, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
   stairClip: {fileID: 7400040, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
   stairIdleClip: {fileID: 7400044, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
   actionClip: {fileID: 7400050, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
   moveFwClip: {fileID: 7400056, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
   moveBoxClip: {fileID: 7400052, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
   moveBoxBackClip: {fileID: 7400054, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
+  swimClip: {fileID: 7400034, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
+  swimDeadClip: {fileID: 7400036, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
   failSound: {fileID: 8300000, guid: c80b078010c94b145b88371250c678fe, type: 3}
   controller: {fileID: 0}
   hand: {fileID: 400138}

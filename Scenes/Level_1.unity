@@ -317,6 +317,10 @@ Prefab:
       propertyPath: fonar
       value: 
       objectReference: {fileID: 718023789}
+    - target: {fileID: 11400000, guid: 9397f4a1aca4742438b2e4f0eaaec618, type: 2}
+      propertyPath: maxY
+      value: 1.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9397f4a1aca4742438b2e4f0eaaec618, type: 2}
   m_RootGameObject: {fileID: 1666401510}
@@ -1454,7 +1458,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 1666401515}
   dist: .400000006
-  id: 5
+  id: 6
   waitTime: .949999988
 --- !u!65 &82863539
 BoxCollider:
@@ -30292,8 +30296,8 @@ MonoBehaviour:
   fonarDist: .5
   camDist: 2
   camHeight: .5
-  minX: -.699999988
-  maxX: 11
+  minX: -20.7000008
+  maxX: 32
   minY: .649999976
   maxY: 1.75
   follow: 1
@@ -30366,13 +30370,16 @@ MonoBehaviour:
     armoClip: {fileID: 8300000, guid: fdf7f2f21d998f648841d6cafb045db4, type: 3}
     animSpeed: .5
   jumpClip: {fileID: 7400010, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
-  deadClip: {fileID: 7400032, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
+  deadClip: {fileID: 7400030, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
+  deadBackClip: {fileID: 7400032, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
   stairClip: {fileID: 7400040, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
   stairIdleClip: {fileID: 7400044, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
   actionClip: {fileID: 7400050, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
   moveFwClip: {fileID: 7400056, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
   moveBoxClip: {fileID: 7400052, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
   moveBoxBackClip: {fileID: 7400054, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
+  swimClip: {fileID: 7400034, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
+  swimDeadClip: {fileID: 7400036, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
   failSound: {fileID: 8300000, guid: c80b078010c94b145b88371250c678fe, type: 3}
   controller: {fileID: 0}
   hand: {fileID: 509094867}
