@@ -2665,6 +2665,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   light: {fileID: 0}
+  brightEffect: {fileID: 0}
 --- !u!65 &118938505
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4162,17 +4163,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 1
+    e00: 360
     e01: 0
     e02: 0
     e03: .791208804
     e10: 0
-    e11: 1
+    e11: 360
     e12: 0
     e13: 359.60437
     e20: 0
     e21: 0
-    e22: 1
+    e22: 360
     e23: 0
     e30: 0
     e31: 0
@@ -9903,6 +9904,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   light: {fileID: 718023790}
+  brightEffect: {fileID: 1965746816}
 --- !u!114 &487790149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13696,7 +13698,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967273
+    m_Bits: 4294967295
   m_Lightmapping: 1
   m_ShadowSamples: 1
   m_ShadowRadius: 0
@@ -21540,20 +21542,24 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: .00277777785
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: .00277777785
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: .00277777785
       objectReference: {fileID: 0}
     - target: {fileID: 11400352, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: light
       value: 
       objectReference: {fileID: 718023790}
+    - target: {fileID: 11400352, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
+      propertyPath: brightEffect
+      value: 
+      objectReference: {fileID: 1965746816}
     m_RemovedComponents:
     - {fileID: 11400456, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
@@ -22485,17 +22491,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 1
+    e00: 360
     e01: 0
     e02: 0
     e03: 492.923065
     e10: 0
-    e11: 1
+    e11: 360
     e12: 0
     e13: -.395604402
     e20: 0
     e21: 0
-    e22: 1
+    e22: 360
     e23: 0
     e30: 0
     e31: 0
@@ -25497,17 +25503,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 1
+    e00: 360
     e01: 0
     e02: 0
     e03: .791208804
     e10: 0
-    e11: 1
+    e11: 360
     e12: 0
     e13: -360.395599
     e20: 0
     e21: 0
-    e22: 1
+    e22: 360
     e23: 0
     e30: 0
     e31: 0
@@ -32642,17 +32648,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 1
+    e00: 360
     e01: 0
     e02: 0
     e03: .00125000009
     e10: 0
-    e11: 1
+    e11: 360
     e12: 0
     e13: -.00124999997
     e20: 0
     e21: 0
-    e22: 1
+    e22: 360
     e23: 0
     e30: 0
     e31: 0
@@ -37848,6 +37854,7 @@ GameObject:
   - 81: {fileID: 1965746811}
   - 124: {fileID: 1965746814}
   - 114: {fileID: 1965746815}
+  - 114: {fileID: 1965746816}
   m_Layer: 8
   m_Name: Camera
   m_TagString: World
@@ -37951,6 +37958,19 @@ MonoBehaviour:
   submitKey1: 330
   cancelKey0: 27
   cancelKey1: 331
+--- !u!114 &1965746816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1965746809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85c0459ffe6fd6b4f8afec8709b466e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shader: {fileID: 4800000, guid: 603fcb2f1be91a6449b7686c2fb12345, type: 3}
+  bright: .5
 --- !u!1 &1969690776
 GameObject:
   m_ObjectHideFlags: 0
@@ -38029,7 +38049,7 @@ Transform:
   m_GameObject: {fileID: 1978581601}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .00277777785, y: .00277777785, z: .00277777785}
   m_Children:
   - {fileID: 125284557}
   m_Father: {fileID: 0}
@@ -39427,6 +39447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   light: {fileID: 0}
+  brightEffect: {fileID: 0}
 --- !u!1 &2066690845
 GameObject:
   m_ObjectHideFlags: 0
