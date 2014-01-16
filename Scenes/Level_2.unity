@@ -1042,7 +1042,8 @@ MonoBehaviour:
   charRotY: 240
   activeObjs:
   - {fileID: 2013344531}
-  deactiveObjs: []
+  deactiveObjs:
+  - {fileID: 772254706}
 --- !u!65 &62062698
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1435,7 +1436,7 @@ Transform:
   - {fileID: 1625579996}
   - {fileID: 1554096101}
   - {fileID: 769809958}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 772254707}
 --- !u!1 &86168349
 GameObject:
   m_ObjectHideFlags: 0
@@ -2051,7 +2052,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 772254707}
     m_Modifications:
     - target: {fileID: 400012, guid: 9717b9992305af54abfa35f8621adc5f, type: 2}
       propertyPath: m_LocalPosition.x
@@ -2079,6 +2080,18 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 9717b9992305af54abfa35f8621adc5f, type: 2}
       propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: 9717b9992305af54abfa35f8621adc5f, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: 9717b9992305af54abfa35f8621adc5f, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: 9717b9992305af54abfa35f8621adc5f, type: 2}
+      propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2745,7 +2758,8 @@ MonoBehaviour:
   camHeight: .5
   follow: 1
   charRotY: 190
-  activeObjs: []
+  activeObjs:
+  - {fileID: 772254706}
   deactiveObjs:
   - {fileID: 2013344531}
 --- !u!65 &171692172
@@ -11587,7 +11601,8 @@ MonoBehaviour:
   charRotY: 270
   activeObjs:
   - {fileID: 1835172889}
-  deactiveObjs: []
+  deactiveObjs:
+  - {fileID: 772254706}
 --- !u!65 &610955957
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15826,6 +15841,35 @@ Transform:
   m_Children:
   - {fileID: 2126262203}
   m_Father: {fileID: 85969511}
+--- !u!1 &772254706
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 772254707}
+  m_Layer: 0
+  m_Name: Kanalizac
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &772254707
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 772254706}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1091610081}
+  - {fileID: 1364909637}
+  - {fileID: 85969511}
+  m_Father: {fileID: 0}
 --- !u!1 &772307268
 GameObject:
   m_ObjectHideFlags: 0
@@ -23123,7 +23167,7 @@ Transform:
   - {fileID: 882032622}
   - {fileID: 1085751413}
   - {fileID: 1227399486}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 772254707}
 --- !u!1 &1094021860
 GameObject:
   m_ObjectHideFlags: 0
@@ -23475,7 +23519,8 @@ MonoBehaviour:
   camHeight: .5
   follow: 1
   charRotY: 190
-  activeObjs: []
+  activeObjs:
+  - {fileID: 772254706}
   deactiveObjs:
   - {fileID: 1835172889}
 --- !u!65 &1122360061
@@ -24733,7 +24778,8 @@ MonoBehaviour:
   charRotY: 230
   activeObjs:
   - {fileID: 641105204}
-  deactiveObjs: []
+  deactiveObjs:
+  - {fileID: 772254706}
 --- !u!65 &1190818865
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28023,7 +28069,8 @@ Transform:
   - {fileID: 1659663266}
   - {fileID: 621710462}
   - {fileID: 1325203504}
-  m_Father: {fileID: 0}
+  - {fileID: 1590597642}
+  m_Father: {fileID: 772254707}
 --- !u!114 &1364909638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31312,7 +31359,8 @@ MonoBehaviour:
   camHeight: .5
   follow: 1
   charRotY: 190
-  activeObjs: []
+  activeObjs:
+  - {fileID: 772254706}
   deactiveObjs:
   - {fileID: 641105204}
 --- !u!65 &1519582047
@@ -33081,10 +33129,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1590597641}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.8150234, y: -.0606850386, z: .000976563781}
+  m_LocalPosition: {x: 30.8150234, y: -.374777704, z: .0009765508}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1364909637}
 --- !u!65 &1590597643
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37486,7 +37534,7 @@ ParticleAnimator:
     rgba: 174219801
   worldRotationAxis: {x: 0, y: 0, z: 0}
   localRotationAxis: {x: 0, y: 0, z: 0}
-  sizeGrow: .699999988
+  sizeGrow: 1
   rndForce: {x: 0, y: 0, z: 0}
   force: {x: 0, y: 0, z: 0}
   damping: 1
@@ -37501,12 +37549,12 @@ EllipsoidParticleEmitter:
   serializedVersion: 2
   m_Enabled: 1
   m_Emit: 1
-  minSize: .100000001
-  maxSize: .200000003
+  minSize: .150000006
+  maxSize: .25
   minEnergy: 6
   maxEnergy: 6
-  minEmission: 15
-  maxEmission: 25
+  minEmission: 25
+  maxEmission: 35
   worldVelocity: {x: 0, y: 0, z: 0}
   localVelocity: {x: 0, y: -.5, z: 0}
   rndVelocity: {x: .5, y: .200000003, z: .200000003}
@@ -37526,7 +37574,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1789307135}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.05000019, y: -3.67049313, z: -.207275391}
+  m_LocalPosition: {x: 2.20000005, y: -3.67049313, z: -.207275391}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2013344532}
