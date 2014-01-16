@@ -6,6 +6,7 @@ namespace Assets.Scripts.Buttons3D
   public class PlayAnim : Button3DBase
   {
     [SerializeField] private Animation anim = null;
+    [SerializeField] private AnimationClip clip = null;
     [SerializeField] private bool always = false;
     [SerializeField] private AudioClip sound = null; 
     [SerializeField] private bool loop = false;
@@ -13,17 +14,14 @@ namespace Assets.Scripts.Buttons3D
 
     protected override void MakeAction()
     {
-      if (!always && !isPlayed)
+      if (!isPlayed)
       {
-        anim.Play();
-        isPlayed = true;
-        PlayingSound();
-      }
-
-      if (always)
-      {
+        if (clip != null)
+          anim.clip = clip;
         anim.Play();
         PlayingSound();
+        if (!always)
+          isPlayed = true;
       }
     }
 
