@@ -102,6 +102,7 @@ Shader "Animated/Point Light Animated Water"
 			f = lerp(2.0f * f, 2.0f * (1.0f - f) , step(0.5, f));
 
 			fixed3 normal = lerp(n1.xzy, n2.xzy, f);
+			//fixed3 normal = n1.xzy*2;
 
 			fixed3 c = texCUBE (_Cube, reflect(-input.dir, normal)).rgb;
 

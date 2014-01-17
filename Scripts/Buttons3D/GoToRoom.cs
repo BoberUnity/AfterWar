@@ -17,13 +17,19 @@ namespace Assets.Scripts.Buttons3D
     [SerializeField] private float camHeight = 0.5f;
     [SerializeField] private bool follow = false;
     [SerializeField] private float charRotY = 270;
+    [SerializeField] private bool open = true;
     [SerializeField] private GameObject[] activeObjs = null;
     [SerializeField] private GameObject[] deactiveObjs = null;
     private bool isLoaded = false;
 
+    public bool Open
+    {
+      set { open = value;}
+    }
+
     protected override void MakeAction()
     {
-      if (!isLoaded)
+      if (!isLoaded && open)
       {
         StartCoroutine(LoadLevel(waitTime));
       }
