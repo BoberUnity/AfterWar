@@ -348,7 +348,7 @@ public class Character : MonoBehaviour
       velocity = 0;
     }
     //ДВИЖЕНИЕ--------------------------
-    if (Mathf.Abs(t.localPosition.z) > 0.02)
+    if (Mathf.Abs(t.localPosition.z) > 0.02f && t.parent == null)
       t.localPosition = new Vector3(t.localPosition.x, t.localPosition.y, 0);
 
     if (!dead && !inStair && !act && jumpToStair == 0)
