@@ -6338,17 +6338,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 1
+    e00: 360
     e01: 0
     e02: 0
     e03: .791208804
     e10: 0
-    e11: 1
+    e11: 360
     e12: 0
     e13: -360.395599
     e20: 0
     e21: 0
-    e22: 1
+    e22: 360
     e23: 0
     e30: 0
     e31: 0
@@ -18887,17 +18887,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 1
+    e00: 360
     e01: 0
     e02: 0
     e03: .791208804
     e10: 0
-    e11: 1
+    e11: 360
     e12: 0
     e13: 359.60437
     e20: 0
     e21: 0
-    e22: 1
+    e22: 360
     e23: 0
     e30: 0
     e31: 0
@@ -30810,17 +30810,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 1
+    e00: 360
     e01: 0
     e02: 0
     e03: .00125000009
     e10: 0
-    e11: 1
+    e11: 360
     e12: 0
     e13: -.00124999997
     e20: 0
     e21: 0
-    e22: 1
+    e22: 360
     e23: 0
     e30: 0
     e31: 0
@@ -33584,17 +33584,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 1
+    e00: 360
     e01: 0
     e02: 0
     e03: 492.923065
     e10: 0
-    e11: 1
+    e11: 360
     e12: 0
     e13: -.395604402
     e20: 0
     e21: 0
-    e22: 1
+    e22: 360
     e23: 0
     e30: 0
     e31: 0
@@ -37508,8 +37508,8 @@ ParticleRenderer:
   serializedVersion: 2
   m_CameraVelocityScale: 0
   m_StretchParticles: 0
-  m_LengthScale: 6
-  m_VelocityScale: 2
+  m_LengthScale: 1
+  m_VelocityScale: 1
   m_MaxParticleSize: 1
   UV Animation:
     x Tile: 1
@@ -37554,14 +37554,14 @@ EllipsoidParticleEmitter:
   serializedVersion: 2
   m_Enabled: 1
   m_Emit: 1
-  minSize: .150000006
-  maxSize: .25
+  minSize: .100000001
+  maxSize: .400000006
   minEnergy: 6
   maxEnergy: 6
-  minEmission: 25
-  maxEmission: 35
+  minEmission: 8
+  maxEmission: 15
   worldVelocity: {x: 0, y: 0, z: 0}
-  localVelocity: {x: 0, y: -.5, z: 0}
+  localVelocity: {x: 0, y: -.300000012, z: 0}
   rndVelocity: {x: .5, y: .200000003, z: .200000003}
   emitterVelocityScale: .0500000007
   tangentVelocity: {x: 0, y: 0, z: 0}
@@ -37570,7 +37570,7 @@ EllipsoidParticleEmitter:
   rndRotation: 0
   Simulate in Worldspace?: 1
   m_OneShot: 0
-  m_Ellipsoid: {x: 0, y: 0, z: 0}
+  m_Ellipsoid: {x: 1.5, y: 0, z: 0}
   m_MinEmitterRange: 0
 --- !u!4 &1789307140
 Transform:
