@@ -9,7 +9,7 @@ public class LightIntensit : MonoBehaviour
     {
       Controller controller = obj.GetComponent<Controller>();
       if (light != null)
-        light.intensity = 2.5f + controller.ScreenBright*5.5f;
+        light.intensity = controller.ScreenBright;
     }
   }
 }
