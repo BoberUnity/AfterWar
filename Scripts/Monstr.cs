@@ -197,7 +197,7 @@ public class Monstr : MonoBehaviour
         Attack();
       }
 
-      if (distToChar < attackDist-0.05f)
+      if (distToChar < attackDist-0.05f && !winEnabled)//для людей отключим движение назад
         t.Translate(-Vector3.forward * Time.deltaTime * speed);
 
       t.position = new Vector3(t.position.x, t.position.y, zPos);
