@@ -29,6 +29,7 @@ public class Monstr : MonoBehaviour
   [SerializeField] private float rotSpeed = 300;
   [SerializeField] private float nearDist = 0.6f;//attack down
   [SerializeField] private bool winEnabled = false;
+  private float zPos = 0;
   private bool isNear = false;
   private Transform t = null;
   private Transform characterT = null;
@@ -64,6 +65,7 @@ public class Monstr : MonoBehaviour
   {
     SetAnim(idleClip, 1);
     t = transform;
+    zPos = t.position.z;
     characterT = character.transform;
     character.CharacterAttack += CharacterAttack;
     becameInVisible.ExtiRender += ExtiRender;
@@ -195,10 +197,10 @@ public class Monstr : MonoBehaviour
         Attack();
       }
 
-      if (distToChar < attackDist*0.95f)
+      if (distToChar < attackDist-0.05f)
         t.Translate(-Vector3.forward * Time.deltaTime * speed);
 
-      t.position = new Vector3(t.position.x, t.position.y, 0);
+      t.position = new Vector3(t.position.x, t.position.y, zPos);
     }
     else
     {
