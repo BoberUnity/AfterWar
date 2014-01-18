@@ -26,7 +26,7 @@ public class OptionsSetter : MonoBehaviour
       {
         progressBar.value = controller.ScreenBright;
         if (light != null)
-          light.intensity = progressBar.value;
+          light.intensity = progressBar.value*2;
           //light.intensity = 2.5f + progressBar.value * 5.5f;
         //brightEffect.Bright = progressBar.value;
       }
@@ -58,7 +58,7 @@ public class OptionsSetter : MonoBehaviour
         controller.ScreenBright = value;
       PlayerPrefs.SetFloat("screenBright", Mathf.Max(0.01f, value));
       if (light != null)
-        light.intensity = value;
+        light.intensity = value*2;
       //brightEffect.Bright = value;
     }
 	}

@@ -195,6 +195,9 @@ public class Monstr : MonoBehaviour
         Attack();
       }
 
+      if (distToChar < attackDist*0.95f)
+        t.Translate(-Vector3.forward * Time.deltaTime * speed);
+
       t.position = new Vector3(t.position.x, t.position.y, 0);
     }
     else
@@ -235,8 +238,8 @@ public class Monstr : MonoBehaviour
     
     if (characterT.eulerAngles.y > 230 && characterT.eulerAngles.y < 310 && characterT.position.x - t.position.x > 0)//ГГ повернут влево и монстр слева
       charPovernut = true;
-    if (distToChar < attackDist && character.NearMonstr < 2)
-      charPovernut = true;
+    //if (distToChar < attackDist && character.NearMonstr < 2)
+    //  charPovernut = true;
 
     if (distToChar < uronDist[armo] && !dead && charPovernut && heigToChar < 0.35f && notWall)
     {
