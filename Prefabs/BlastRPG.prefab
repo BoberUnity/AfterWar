@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 400002}
   - 108: {fileID: 10800000}
   - 114: {fileID: 11400002}
+  - 111: {fileID: 11100000}
   m_Layer: 0
   m_Name: Lightsource
   m_TagString: Untagged
@@ -487,6 +488,21 @@ Light:
   m_ShadowAngle: 0
   m_IndirectIntensity: 1
   m_AreaSize: {x: 1, y: 1}
+--- !u!111 &11100000
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 57da55fff4d67d14ea980f880fccf2de, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 57da55fff4d67d14ea980f880fccf2de, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -498,7 +514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c13b0bcc59822c499ccbf91d0267196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  liveTime: .699999988
+  liveTime: .949999988
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
