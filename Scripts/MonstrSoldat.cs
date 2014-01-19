@@ -13,6 +13,8 @@ public class MonstrSoldat : MonoBehaviour
   [SerializeField] private AnimationClip runClip = null;
   [SerializeField] private AnimationClip attackClip = null;
   [SerializeField] private AnimationClip deadClip = null;
+  [SerializeField] private AnimationClip dead2Clip = null;
+  [SerializeField] private AnimationClip deadRPGClip = null;
   [SerializeField] private AudioClip attackSound = null;
   [SerializeField] private AudioClip charAttackSound = null;
   [SerializeField] private AudioClip deadSound = null;
@@ -257,7 +259,15 @@ public class MonstrSoldat : MonoBehaviour
     if (distToChar < uronDist[armo] && !dead && charPovernut && heigToChar < 0.35f && notWall)
     {
       helth -= uronMonstr[armo];
-      SetAnim(deadClip, 1);
+      if (armo == 4 || armo == 2)
+        SetAnim(deadRPGClip, 1);
+      else
+      {
+        if (Random.value > 0.5f)
+          SetAnim(deadClip, 1);
+        else
+          SetAnim(dead2Clip, 1);
+      }
       if (helth < 0)
       {
         dead = true;
