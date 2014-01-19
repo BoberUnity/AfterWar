@@ -101,6 +101,42 @@ Transform:
   m_Children:
   - {fileID: 860245374}
   m_Father: {fileID: 1666918579}
+--- !u!1 &3967951
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 3967953}
+  - 220: {fileID: 3967952}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!220 &3967952
+LightProbeGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 3967951}
+  m_Enabled: 1
+  m_SourcePositions:
+  - {x: -23.5352974, y: -7.42547607, z: 0}
+--- !u!4 &3967953
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 3967951}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 24.1959953, y: 8.07580757, z: -.57141149}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &7461087
 GameObject:
   m_ObjectHideFlags: 0
@@ -14157,7 +14193,7 @@ Light:
   serializedVersion: 3
   m_Type: 1
   m_Color: {r: .588235259, g: .588235259, b: .588235259, a: 1}
-  m_Intensity: 1
+  m_Intensity: .100000001
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
