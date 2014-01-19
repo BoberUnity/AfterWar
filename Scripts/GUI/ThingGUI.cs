@@ -181,6 +181,36 @@ public class ThingGUI : MonoBehaviour
       }
     }
   }
+  //=============================================================================================================
+  private void OnDisable()
+  {
+    if (state == 2)
+    {
+      StopAllCoroutines();
+      State = 3;
+    }
+  }
+  //=============================================================================================================
+  private void OnEnable()
+  {
+    if (state == 3)
+    {
+      State = 2;
+
+      //одеть
+      if (id == 0)
+        StartCoroutine(OffButton(activeTime - tUsed));
+      if (id == 1)
+      {
+        StartCoroutine(OffButton(activeTime - tUsed));//Время противогаза
+        character.UseGazMask = true;
+      }
+      if (id == 2)
+      {
+        indicator.SetState(true);
+      }
+    }
+  }
 	//=============================================================================================================
   public IEnumerator OffButton(float time)
   {
