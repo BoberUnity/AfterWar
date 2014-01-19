@@ -6327,7 +6327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 2
-  light: {fileID: 666272594}
+  dirLight: {fileID: 666272594}
 --- !u!65 &468090599
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8209,7 +8209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  light: {fileID: 0}
+  dirLight: {fileID: 0}
 --- !u!1 &602360188
 GameObject:
   m_ObjectHideFlags: 0
@@ -13060,7 +13060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  light: {fileID: 0}
+  dirLight: {fileID: 0}
 --- !u!1 &932231447
 GameObject:
   m_ObjectHideFlags: 0
@@ -15608,6 +15608,10 @@ Prefab:
       propertyPath: qualityEffects.Array.data[1]
       value: 
       objectReference: {fileID: 1018264049}
+    - target: {fileID: 11400352, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
+      propertyPath: dirLight
+      value: 
+      objectReference: {fileID: 666272594}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
   m_RootGameObject: {fileID: 1978581601}

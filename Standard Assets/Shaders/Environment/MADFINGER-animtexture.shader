@@ -92,6 +92,12 @@ SubShader {
 		#pragma fragmentoption ARB_precision_hint_fastest		
 		fixed4 frag (v2f i) : COLOR
 		{
+			
+			//fixed4 o;
+
+			//o = lerp(tex2D (_MainTex, i.uv.xy),tex2D (_MainTex, i.uv.zw),i.col.r) * i.col;
+
+			//			return o;	
 			return lerp(tex2D (_MainTex, i.uv.xy),tex2D (_MainTex, i.uv.zw),i.col.a) * i.col;						
 		}
 		ENDCG 
