@@ -476,10 +476,7 @@ public class Character : MonoBehaviour
     {
       t.localRotation = Quaternion.Euler(t.eulerAngles.x, t.eulerAngles.y - rotSpeed*0.5f * Time.deltaTime, t.eulerAngles.z);
     }
-        
-    if (Input.GetKeyDown(KeyCode.Escape))
-         Application.Quit();
-    }
+  }
   //==================================================================================================================
   
   //==================================================================================================================

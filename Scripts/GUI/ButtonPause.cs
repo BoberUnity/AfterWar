@@ -16,4 +16,5 @@ public class ButtonPause : MonoBehaviour
       pauseMenu.gameObject.SetActive/*Recursively*/(Time.timeScale < .1f);
     }
   }
+
 }
