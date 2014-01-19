@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 
 [ExecuteInEditMode]
 [AddComponentMenu("Image Effects/Color Adjustments/BrightEffect")]
@@ -26,4 +26,4 @@ public class BrightEffect : ImageEffectBase
     material.SetFloat("_Mtl", bright);
 		Graphics.Blit (source, destination, material);
 	}
-}
+}*/

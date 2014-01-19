@@ -1,4 +1,4 @@
-Shader "Animated/Point Light Animated Water"
+Shader "Animated/Water Bober"
 {
 	Properties
 	{

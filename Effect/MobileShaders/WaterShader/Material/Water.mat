@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Water
-  m_Shader: {fileID: 4800000, guid: f7d215f6f47375842bee09a3623b9fa8, type: 3}
+  m_Shader: {fileID: 4800000, guid: c905a581a44a8374fbbc6bc805779d9c, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -15,24 +15,31 @@ Material:
     m_TexEnvs:
       data:
         first:
+          name: _MainTex
+        second:
+          m_Texture: {fileID: 2800000, guid: a74f48b6edd49ab4399740c835a55801, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
           name: _BumpMap
         second:
           m_Texture: {fileID: 2800000, guid: 58119c82b434c4748aac76b873e2ed90, type: 3}
-          m_Scale: {x: 1, y: 1}
+          m_Scale: {x: 2, y: 3}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _BumpMap2
         second:
           m_Texture: {fileID: 2800000, guid: 1e885f1ea88eda742b71dc8d0a438a99, type: 3}
-          m_Scale: {x: 1, y: 1}
+          m_Scale: {x: 2, y: 3}
           m_Offset: {x: 1, y: 1}
       data:
         first:
           name: _FlowMap
         second:
           m_Texture: {fileID: 2800000, guid: 3ca60501953d4844ba2701d883e09540, type: 3}
-          m_Scale: {x: 1, y: 1}
+          m_Scale: {x: 5, y: 5}
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -52,20 +59,24 @@ Material:
       data:
         first:
           name: _Shininess
-        second: 200
+        second: 19.9370785
       data:
         first:
           name: _Cycle
-        second: 4
+        second: 2
       data:
         first:
           name: _Speed
         second: .0500000007
+      data:
+        first:
+          name: _Alfa
+        second: .713571429
     m_Colors:
       data:
         first:
           name: _Color
-        second: {r: 0, g: .213235319, b: .151470602, a: 1}
+        second: {r: 0, g: .19754903, b: .227941155, a: .509803951}
       data:
         first:
           name: _SpecColor
