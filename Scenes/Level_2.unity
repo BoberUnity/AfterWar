@@ -2899,6 +2899,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 118936730}
+  - 136: {fileID: 118936731}
   m_Layer: 0
   m_Name: zomb_polovinka Spine
   m_TagString: Untagged
@@ -2920,6 +2921,19 @@ Transform:
   - {fileID: 249195408}
   - {fileID: 1292080320}
   m_Father: {fileID: 16367425}
+--- !u!136 &118936731
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 118936729}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: .200000003
+  m_Height: .449999988
+  m_Direction: 0
+  m_Center: {x: -.360000014, y: .159999996, z: 0}
 --- !u!1 &121486213
 GameObject:
   m_ObjectHideFlags: 0
@@ -3907,6 +3921,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 170404741}
   - 137: {fileID: 170404742}
+  - 114: {fileID: 170404743}
   m_Layer: 0
   m_Name: zomb_polovina
   m_TagString: Untagged
@@ -3978,6 +3993,17 @@ SkinnedMeshRenderer:
     m_Center: {x: -.452750266, y: .161947638, z: -.0498925447}
     m_Extent: {x: .618659794, y: .654261708, z: .795571923}
   m_DirtyAABB: 0
+--- !u!114 &170404743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 170404740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0a078a7e186dfb46846b590f47c0aa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &170683167
 GameObject:
   m_ObjectHideFlags: 0
@@ -7274,6 +7300,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 285034147}
+  - 136: {fileID: 285034148}
   m_Layer: 0
   m_Name: zombie Spine
   m_TagString: Untagged
@@ -7295,6 +7322,19 @@ Transform:
   - {fileID: 522652127}
   - {fileID: 1639678928}
   m_Father: {fileID: 144406861}
+--- !u!136 &285034148
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 285034146}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: .100000001
+  m_Height: .430000007
+  m_Direction: 0
+  m_Center: {x: -.400000006, y: 0, z: -.100000001}
 --- !u!1 &285582511
 GameObject:
   m_ObjectHideFlags: 0
@@ -7398,15 +7438,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400070, guid: 59db4006c256a6044819c61b4ea3c48a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: .899999976
+      value: 11.3731422
       objectReference: {fileID: 0}
     - target: {fileID: 400070, guid: 59db4006c256a6044819c61b4ea3c48a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: .0288833976
+      value: .197862267
       objectReference: {fileID: 0}
     - target: {fileID: 400070, guid: 59db4006c256a6044819c61b4ea3c48a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1.24849555e-06
       objectReference: {fileID: 0}
     - target: {fileID: 400070, guid: 59db4006c256a6044819c61b4ea3c48a, type: 3}
       propertyPath: m_LocalRotation.x
@@ -12600,15 +12640,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 659570b4667b17649846f059c25f7ab4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.09000003
+      value: 4.8499999
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 659570b4667b17649846f059c25f7ab4, type: 2}
       propertyPath: m_LocalPosition.y
-      value: .0591215491
+      value: .00999999978
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 659570b4667b17649846f059c25f7ab4, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 4.37042701e-07
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 659570b4667b17649846f059c25f7ab4, type: 2}
       propertyPath: m_LocalRotation.x
@@ -32452,6 +32492,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 1103119053}
   - 111: {fileID: 1103119054}
+  - 82: {fileID: 1103119056}
+  - 114: {fileID: 1103119055}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -32466,7 +32508,7 @@ Transform:
   m_PrefabInternal: {fileID: 448862655}
   m_GameObject: {fileID: 1103119052}
   m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: 1.09000003, y: .0591215491, z: 0}
+  m_LocalPosition: {x: 4.8499999, y: .00999999978, z: 4.37042701e-07}
   m_LocalScale: {x: .230000004, y: .230000004, z: .230000004}
   m_Children:
   - {fileID: 1145702461}
@@ -32492,6 +32534,110 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 1
+--- !u!114 &1103119055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1103119052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e522a945d15c3c1468f4e0c8703ace80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editorColor: {r: 1, g: 0, b: 0, a: 1}
+  character: {fileID: 1404807472}
+  becameInVisible: {fileID: 1145702463}
+  anim: {fileID: 1103119054}
+  idleClip: {fileID: 7400000, guid: 80784c9e31952c9428bac8d5f339a59d, type: 3}
+  runClip: {fileID: 7400000, guid: 136170e0a906cfe468437bb46bf37d3e, type: 3}
+  attackClip: {fileID: 7400000, guid: 0bd2408437f3b644ebda3a8c7e9bb62f, type: 3}
+  deadClip: {fileID: 7400000, guid: 5b9c33a1fbda5eb42a0c4404959fd01b, type: 3}
+  attackSound: {fileID: 8300000, guid: 577d6a80811f56946ad39accab092241, type: 3}
+  charAttackSound: {fileID: 8300000, guid: b507ac2f7143ebc4f8c1bd4068fc735c, type: 3}
+  deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
+  blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
+  fire: {fileID: 0}
+  uron: 5
+  uronDist:
+  - .300000012
+  - 1.5
+  - 1.5
+  - 2
+  - 2
+  uronMonstr:
+  - 51
+  - 34
+  - 51
+  - 21
+  - 51
+  runDist: 1.5
+  attackDist: .25
+  speed: .200000003
+  height: 0
+  leftZona: 1.5
+  rightZona: 1
+  rotSpeed: 300
+  nearDist: 0
+  winEnabled: 0
+--- !u!82 &1103119056
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1103119052}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1001 &1103519699
 Prefab:
   m_ObjectHideFlags: 0
@@ -33563,6 +33709,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1145702461}
   - 137: {fileID: 1145702462}
+  - 114: {fileID: 1145702463}
   m_Layer: 0
   m_Name: zombie
   m_TagString: Untagged
@@ -33639,6 +33786,17 @@ SkinnedMeshRenderer:
     m_Center: {x: .0213300884, y: .219076678, z: -.0411942303}
     m_Extent: {x: .971013904, y: .67813009, z: .631649971}
   m_DirtyAABB: 0
+--- !u!114 &1145702463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1145702460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0a078a7e186dfb46846b590f47c0aa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1147249209
 GameObject:
   m_ObjectHideFlags: 0
@@ -47351,6 +47509,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 1623490909}
   - 111: {fileID: 1623490910}
+  - 82: {fileID: 1623490912}
+  - 114: {fileID: 1623490911}
   m_Layer: 0
   m_Name: ZombiePolovinka
   m_TagString: Untagged
@@ -47365,7 +47525,7 @@ Transform:
   m_PrefabInternal: {fileID: 289670651}
   m_GameObject: {fileID: 1623490908}
   m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: .899999976, y: .0288833976, z: 0}
+  m_LocalPosition: {x: 11.3731422, y: .197862267, z: 1.24849555e-06}
   m_LocalScale: {x: .230000004, y: .230000004, z: .230000004}
   m_Children:
   - {fileID: 170404741}
@@ -47390,6 +47550,110 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 1
+--- !u!114 &1623490911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1623490908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e522a945d15c3c1468f4e0c8703ace80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editorColor: {r: 1, g: 0, b: 0, a: 1}
+  character: {fileID: 1404807472}
+  becameInVisible: {fileID: 170404743}
+  anim: {fileID: 1623490910}
+  idleClip: {fileID: 7400000, guid: b40a320d5aaa75145aab662fd1306478, type: 3}
+  runClip: {fileID: 7400000, guid: b40a320d5aaa75145aab662fd1306478, type: 3}
+  attackClip: {fileID: 7400000, guid: b5f4c3240f787bd4a802012a7d7d2b67, type: 3}
+  deadClip: {fileID: 7400000, guid: a43c6025f5cf1a945987c4ac093082c5, type: 3}
+  attackSound: {fileID: 8300000, guid: 577d6a80811f56946ad39accab092241, type: 3}
+  charAttackSound: {fileID: 8300000, guid: b507ac2f7143ebc4f8c1bd4068fc735c, type: 3}
+  deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
+  blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
+  fire: {fileID: 0}
+  uron: 5
+  uronDist:
+  - .300000012
+  - 1.5
+  - 1.5
+  - 1.5
+  - 1.5
+  uronMonstr:
+  - 51
+  - 34
+  - 51
+  - 21
+  - 51
+  runDist: 1
+  attackDist: .280000001
+  speed: 0
+  height: 0
+  leftZona: 1
+  rightZona: 1
+  rotSpeed: 300
+  nearDist: .5
+  winEnabled: 0
+--- !u!82 &1623490912
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1623490908}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1623749246
 GameObject:
   m_ObjectHideFlags: 0
