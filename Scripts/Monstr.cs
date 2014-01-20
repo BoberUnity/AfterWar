@@ -24,8 +24,10 @@ public class Monstr : MonoBehaviour
   [SerializeField] private float attackDist = 0.2f;
   [SerializeField] private float speed = 0.6f;
   [SerializeField] private float height = 0;//Rat - 0, Bat - 0.3f
-  [SerializeField] private float minX = 0;
-  [SerializeField] private float maxX = 0;
+  [SerializeField] private float leftZona = 1;
+  [SerializeField] private float rightZona = 1;
+  private float minX = 0;
+  private float maxX = 0;
   [SerializeField] private float rotSpeed = 300;
   [SerializeField] private float nearDist = 0.6f;//attack down
   [SerializeField] private bool winEnabled = false;
@@ -69,6 +71,8 @@ public class Monstr : MonoBehaviour
     characterT = character.transform;
     character.CharacterAttack += CharacterAttack;
     becameInVisible.ExtiRender += ExtiRender;
+    minX = t.position.x - leftZona;
+    maxX = t.position.x + rightZona;
   }
 
   private void OnDestroy()
@@ -246,9 +250,9 @@ public class Monstr : MonoBehaviour
     if (distToChar < uronDist[armo] && !dead && charPovernut && heigToChar < 0.35f && notWall)
     {
       helth -= uronMonstr[armo];
-      SetAnim(deadClip, 0.5f);
       if (helth < 0)
       {
+        SetAnim(deadClip, 0.5f);
         dead = true;
         if (character.Controller != null)
           audio.volume = character.Controller.EffectsVolume;
@@ -317,12 +321,9 @@ public class Monstr : MonoBehaviour
   {
     //Gizmos.DrawRay(transform.position + Vector3.up * 0.2f, Vector3.right * Mathf.Sign(character.transform.position.x - transform.position.x) * 3);
     Gizmos.color = editorColor;
-    Gizmos.DrawRay(new Vector3(minX, transform.position.y, 0), Vector3.right * (maxX - minX));
-    Gizmos.DrawRay(new Vector3(minX, transform.position.y + 0.1f, 0), Vector3.right * (maxX - minX));
-    Gizmos.DrawRay(new Vector3(minX, transform.position.y, 0), Vector3.up * 0.1f);
-    Gizmos.DrawRay(new Vector3(maxX, transform.position.y, 0), Vector3.up * 0.1f);
-    //Gizmos.DrawRay(transform.position + Vector3.up * 0.2f, /*Vector3.right * Mathf.Sign(character.transform.position.x - transform.position.x)*/(character.transform.position - transform.position) * 5);
-    
- 
+    Gizmos.DrawRay(new Vector3(transform.position.x - leftZona, transform.position.y, 0), Vector3.right * (rightZona + leftZona));
+    Gizmos.DrawRay(new Vector3(transform.position.x - leftZona, transform.position.y + 0.1f, 0), Vector3.right * (rightZona + leftZona));
+    Gizmos.DrawRay(new Vector3(transform.position.x - leftZona, transform.position.y, 0), Vector3.up * 0.1f);
+    Gizmos.DrawRay(new Vector3(transform.position.x + rightZona, transform.position.y, 0), Vector3.up * 0.1f);
   }
 }

@@ -26,14 +26,14 @@ public class MonstrSoldat : MonoBehaviour
   [SerializeField] private float runDist = 1;
   [SerializeField] private float attackDist = 0.2f;
   [SerializeField] private float speed = 0.6f;
-  [SerializeField] private float height = 0;//Rat - 0, Bat - 0.3f
+  //[SerializeField] private float height = 0;//Rat - 0, Bat - 0.3f
   private float minX = 0;
   private float maxX = 0;
   [SerializeField] private float leftZona = 1;
   [SerializeField] private float rightZona = 1;
   [SerializeField] private float rotSpeed = 300;
   [SerializeField] private float nearDist = 0.6f;//attack down
-  [SerializeField] private bool winEnabled = false;
+  //[SerializeField] private bool winEnabled = false;
   private int isActive = 0;//1-vstaet
   private float zPos = 0;
   private bool isNear = false;
@@ -44,9 +44,8 @@ public class MonstrSoldat : MonoBehaviour
   private bool dead = false;
   private float helth = 100;
   private float distToChar = 10;
-  private bool moveDown = false;
+  //private bool moveDown = false;
   private bool win = false;
-  //private float distToWall;
 	
 	private void Attack()
 	{
@@ -87,13 +86,17 @@ public class MonstrSoldat : MonoBehaviour
 
   private void Update()
   {
-    float heigToChar = Mathf.Abs(t.position.y - characterT.position.y - height);//разница по высоте с персонажем
+    float heigToChar = Mathf.Abs(t.position.y - characterT.position.y);//разница по высоте с персонажем
 
     if (heigToChar < 0.3f && characterT.position.x > minX && characterT.position.x < maxX && !dead && isActive == 0)
     {
-      isActive = 1;
-      StartCoroutine(EndUpAnim(upClip.length*0.33f));
-      SetAnim(upClip,3);
+      distToChar = Vector3.Distance(t.position, characterT.position);
+      if (distToChar < runDist)
+      {
+        isActive = 1;
+        StartCoroutine(EndUpAnim(upClip.length*0.33f));
+        SetAnim(upClip,3);
+      }
     }
 
     if (heigToChar < 0.3f && characterT.position.x > minX && characterT.position.x < maxX && !dead && isActive == 2)
@@ -118,22 +121,19 @@ public class MonstrSoldat : MonoBehaviour
       }
       else//Уходит после победы
       {
-        if (winEnabled)
+        if (characterT.position.x < t.position.x)
         {
-          if (characterT.position.x < t.position.x)
-          {
-            if (t.eulerAngles.y > 90)
-              t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Max(90, t.eulerAngles.y - rotSpeed * Time.deltaTime), t.eulerAngles.z);
-            else
-              t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Min(90, t.eulerAngles.y + rotSpeed * Time.deltaTime), t.eulerAngles.z);
-          }
+          if (t.eulerAngles.y > 90)
+            t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Max(90, t.eulerAngles.y - rotSpeed * Time.deltaTime), t.eulerAngles.z);
           else
-          {
-            if (t.eulerAngles.y < 270 && t.eulerAngles.y > 70)
-              t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Min(270, t.eulerAngles.y + rotSpeed * Time.deltaTime), t.eulerAngles.z);
-            else
-              t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Max(270, t.eulerAngles.y - rotSpeed * Time.deltaTime), t.eulerAngles.z);
-          }
+            t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Min(90, t.eulerAngles.y + rotSpeed * Time.deltaTime), t.eulerAngles.z);
+        }
+        else
+        {
+          if (t.eulerAngles.y < 270 && t.eulerAngles.y > 70)
+            t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Min(270, t.eulerAngles.y + rotSpeed * Time.deltaTime), t.eulerAngles.z);
+          else
+            t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Max(270, t.eulerAngles.y - rotSpeed * Time.deltaTime), t.eulerAngles.z);
         }
       }
 
@@ -147,8 +147,7 @@ public class MonstrSoldat : MonoBehaviour
 
       //ДВИЖЕНИЕ
       RaycastHit[] hits;
-      hits = Physics.RaycastAll(t.position + Vector3.up * (0.2f - height), Vector3.right * Mathf.Sign(characterT.position.x - t.position.x), 5);
-      //hits = Physics.RaycastAll(t.position + Vector3.up * (0.2f - height), characterT.position - t.position, 5);
+      hits = Physics.RaycastAll(t.position + Vector3.up * 0.2f, Vector3.right * Mathf.Sign(characterT.position.x - t.position.x), 5);
       int i = 0;
       float distToWall = 100;
       while (i < hits.Length)
@@ -188,21 +187,19 @@ public class MonstrSoldat : MonoBehaviour
           run = false;
         }
       }
-      if (win && winEnabled)//Уходит назад после победы
+      if (win)//Уходит назад после победы
         t.Translate(Vector3.forward * Time.deltaTime * speed);
       
       if (distToChar < nearDist && !isNear && !dead)
       {
         isNear = true;
-        if (height < 0.1f)
-          character.NearMonstr += 1;
+        character.NearMonstr += 1;
       }
 
       if (distToChar > nearDist && isNear)
       {
         isNear = false;
-        if (height < 0.1f)
-          character.NearMonstr -= 1;
+        character.NearMonstr -= 1;
       }
 
       if (distToChar < attackDist && !att)
@@ -224,19 +221,17 @@ public class MonstrSoldat : MonoBehaviour
     }
 
     if (!att && !dead && isActive == 2)
-    //SetAnim(run ? runClip : idleClip, 1);
       SetAnim(run ? runClip : attackClip, run ? 1:0.1f);
     
 
-    if (moveDown)
-      t.position -= Vector3.up * height * Time.deltaTime;
+    //if (moveDown)
+    //  t.position -= Vector3.up * height * Time.deltaTime;
   }
   //--------------------------------------------------------------------------------------------------
   private void CharacterAttack(int armo)
   {
-    float heigToChar = Mathf.Abs(t.position.y - characterT.position.y - height);//разница по высоте с персонажем
+    float heigToChar = Mathf.Abs(t.position.y - characterT.position.y);//разница по высоте с персонажем
     distToChar = Vector3.Distance(t.position, characterT.position);
-    //bool notAttacked = !isNear && character.NearMonstr > 0;//Есть кто-то другой рядом
     //Между монстром и ГГ нет стены или другого монстра
     RaycastHit[] hits;
     //hits = Physics.RaycastAll(t.position + Vector3.up * (0.2f - height), Vector3.right * Mathf.Sign(characterT.position.x - t.position.x), 5);
@@ -263,33 +258,30 @@ public class MonstrSoldat : MonoBehaviour
     if (distToChar < uronDist[armo] && !dead && charPovernut && heigToChar < 0.35f && notWall)
     {
       helth -= uronMonstr[armo];
-      if (armo == 4 || armo == 2)
-        SetAnim(deadRPGClip, 1);
-      else
-      {
-        if (Random.value > 0.5f)
-          SetAnim(deadClip, 1);
-        else
-          SetAnim(dead2Clip, 1);
-      }
+      
       if (helth < 0)
       {
+        if (armo == 4 || armo == 2)
+          SetAnim(deadRPGClip, 1);
+        else
+        {
+          if (Random.value > 0.5f)
+            SetAnim(deadClip, 1);
+          else
+            SetAnim(dead2Clip, 1);
+        }
         dead = true;
         if (character.Controller != null)
           audio.volume = character.Controller.EffectsVolume;
         audio.clip = deadSound;
         audio.Play();
-        if (isNear && height < 0.1f)
+        if (isNear)
         { 
           character.NearMonstr -= 1;
           isNear = false;
         }
         StopAllCoroutines();
-        if (height > 0)//Падение после смерти
-        {
-          StartCoroutine(EndDown(1));
-          moveDown = true;
-        }
+        
         Destroy(GetComponent<BoxCollider>(), 0.2f);
         if (armo == 4)
           Instantiate(blastPrefab, t.position, t.rotation);
@@ -307,11 +299,11 @@ public class MonstrSoldat : MonoBehaviour
     }
   }
 
-  private IEnumerator EndDown(float time)
-  {
-    yield return new WaitForSeconds(time);
-    moveDown = false;
-  }
+  //private IEnumerator EndDown(float time)
+  //{
+  //  yield return new WaitForSeconds(time);
+  //  moveDown = false;
+  //}
 
   //--------------------------------------------------------------------------------------------------
   private IEnumerator EndAttack(float time)
@@ -346,14 +338,10 @@ public class MonstrSoldat : MonoBehaviour
 
   void OnDrawGizmos()
   {
-    //Gizmos.DrawRay(transform.position + Vector3.up * 0.2f, Vector3.right * Mathf.Sign(character.transform.position.x - transform.position.x) * 3);
     Gizmos.color = editorColor;
     Gizmos.DrawRay(new Vector3(transform.position.x - leftZona, transform.position.y, 0), Vector3.right * (rightZona + leftZona));
     Gizmos.DrawRay(new Vector3(transform.position.x - leftZona, transform.position.y + 0.1f, 0), Vector3.right * (rightZona + leftZona));
     Gizmos.DrawRay(new Vector3(transform.position.x - leftZona, transform.position.y, 0), Vector3.up * 0.1f);
     Gizmos.DrawRay(new Vector3(transform.position.x + rightZona, transform.position.y, 0), Vector3.up * 0.1f);
-    //Gizmos.DrawRay(transform.position + Vector3.up * 0.2f, /*Vector3.right * Mathf.Sign(character.transform.position.x - transform.position.x)*/(character.transform.position - transform.position) * 5);
-    
- 
   }
 }

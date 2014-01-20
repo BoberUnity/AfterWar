@@ -218,13 +218,12 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400028}
-  - 15: {fileID: 1500000}
-  - 12: {fileID: 1200000}
-  - 26: {fileID: 2600000}
-  - 76: {fileID: 7600000}
-  - 114: {fileID: 11400000}
-  m_Layer: 8
-  m_Name: ShootA
+  - 33: {fileID: 3300000}
+  - 23: {fileID: 2300000}
+  - 111: {fileID: 11100002}
+  - 65: {fileID: 6500000}
+  m_Layer: 0
+  m_Name: Tac-9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -317,7 +316,7 @@ GameObject:
   - 82: {fileID: 8200000}
   - 114: {fileID: 11400002}
   m_Layer: 0
-  m_Name: KapitanA
+  m_Name: KapitanP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -361,11 +360,11 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400046}
-  - 33: {fileID: 3300000}
-  - 23: {fileID: 2300000}
-  - 65: {fileID: 6500000}
+  - 15: {fileID: 1500000}
+  - 12: {fileID: 1200000}
+  - 26: {fileID: 2600000}
   m_Layer: 8
-  m_Name: Akm
+  m_Name: ShootP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -643,7 +642,7 @@ Transform:
   m_Children:
   - {fileID: 400006}
   - {fileID: 400022}
-  - {fileID: 400046}
+  - {fileID: 400028}
   m_Father: {fileID: 400002}
 --- !u!4 &400010
 Transform:
@@ -759,11 +758,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100028}
-  m_LocalRotation: {x: .0185106471, y: .706864476, z: .0185100958, w: .706864476}
-  m_LocalPosition: {x: .0239162501, y: .0657753944, z: -.541189969}
-  m_LocalScale: {x: 4.34782648, y: 4.34782219, z: 4.34783173}
-  m_Children: []
-  m_Father: {fileID: 400046}
+  m_LocalRotation: {x: .560985744, y: -.560985386, z: -.430459142, w: .430459559}
+  m_LocalPosition: {x: -.189999998, y: .0407769531, z: -.0199999996}
+  m_LocalScale: {x: .297860801, y: .297860861, z: .297860801}
+  m_Children:
+  - {fileID: 400046}
+  m_Father: {fileID: 400008}
 --- !u!4 &400030
 Transform:
   m_ObjectHideFlags: 1
@@ -828,8 +828,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100040}
-  m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: 5.69309235, y: .0299999993, z: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: -4.37113883e-08}
+  m_LocalPosition: {x: 1, y: .0299999993, z: 0}
   m_LocalScale: {x: .230000004, y: .230000004, z: .230000004}
   m_Children:
   - {fileID: 400070}
@@ -864,12 +864,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100046}
-  m_LocalRotation: {x: .459229141, y: .459229141, z: .537688255, w: .537688255}
-  m_LocalPosition: {x: -.0481588803, y: .00293822889, z: .0337550119}
+  m_LocalRotation: {x: .0729511753, y: .630395949, z: -.0888420492, w: -.767714977}
+  m_LocalPosition: {x: .112691894, y: .190996304, z: .539990485}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 400028}
-  m_Father: {fileID: 400008}
+  m_Children: []
+  m_Father: {fileID: 400028}
 --- !u!4 &400048
 Transform:
   m_ObjectHideFlags: 1
@@ -1044,14 +1043,14 @@ ParticleAnimator:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100028}
+  m_GameObject: {fileID: 100046}
   Does Animate Color?: 1
   colorAnimation[0]:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 989855743
   colorAnimation[1]:
     serializedVersion: 2
-    rgba: 2701131775
+    rgba: 16777215
   colorAnimation[2]:
     serializedVersion: 2
     rgba: 16777215
@@ -1074,19 +1073,19 @@ EllipsoidParticleEmitter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100028}
+  m_GameObject: {fileID: 100046}
   serializedVersion: 2
   m_Enabled: 1
   m_Emit: 0
-  minSize: .200000003
-  maxSize: .300000012
-  minEnergy: .100000001
-  maxEnergy: .100000001
-  minEmission: 7
-  maxEmission: 8
+  minSize: .0399999991
+  maxSize: .0399999991
+  minEnergy: .469999999
+  maxEnergy: .469999999
+  minEmission: 1
+  maxEmission: 1
   worldVelocity: {x: 0, y: 0, z: 0}
-  localVelocity: {x: 4, y: 0, z: 0}
-  rndVelocity: {x: 1, y: .100000001, z: 0}
+  localVelocity: {x: 2, y: -.400000006, z: 0}
+  rndVelocity: {x: .200000003, y: 0, z: 0}
   emitterVelocityScale: .0500000007
   tangentVelocity: {x: 0, y: 0, z: 0}
   angularVelocity: 0
@@ -1101,14 +1100,14 @@ Renderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100046}
+  m_GameObject: {fileID: 100028}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 581cecc0087d0e04c9fb3094b066dd1d, type: 2}
+  - {fileID: 2100000, guid: 9e41744996ec9d34b8141afb0ed3fbb5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -1122,7 +1121,7 @@ ParticleRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100028}
+  m_GameObject: {fileID: 100046}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -1153,33 +1152,20 @@ MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100046}
-  m_Mesh: {fileID: 4300006, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
+  m_GameObject: {fileID: 100028}
+  m_Mesh: {fileID: 4300000, guid: 871f4e9c60c955440b9cf36c2323d044, type: 3}
 --- !u!65 &6500000
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100046}
+  m_GameObject: {fileID: 100028}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .0379521735, y: .25779134, z: .881726742}
-  m_Center: {x: .0243675895, y: -.0117133697, z: -.224782392}
---- !u!76 &7600000
-WorldParticleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100028}
-  m_BounceFactor: .25
-  m_CollisionEnergyLoss: .25
-  m_CollidesWith:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_SendCollisionMessage: 0
-  m_MinKillVelocity: 0
+  m_Size: {x: .16950801, y: .640120983, z: 1.18908048}
+  m_Center: {x: 4.73111868e-07, y: -1.89244747e-06, z: 5.96046448e-07}
 --- !u!82 &8200000
 AudioSource:
   m_ObjectHideFlags: 1
@@ -1268,17 +1254,20 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 1
---- !u!114 &11400000
-MonoBehaviour:
+--- !u!111 &11100002
+Animation:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100028}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df12d6dff14075345b2d5ca04ad74364, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1294,14 +1283,14 @@ MonoBehaviour:
   character: {fileID: 0}
   becameInVisible: {fileID: 11400004}
   anim: {fileID: 11100000}
-  upClip: {fileID: 7400000, guid: e0eb424593e94c14184b42329973a625, type: 3}
-  idleClip: {fileID: 7400000, guid: 3f625611b6c98524896294db1f090c2c, type: 3}
-  runClip: {fileID: 7400000, guid: 628c2eb2e340cfd4f8c4aea8d9969170, type: 3}
-  attackClip: {fileID: 7400000, guid: acf27d831a879614e9ec89d925e86f34, type: 3}
+  upClip: {fileID: 7400000, guid: efe450154be5351419c9b1f077f93d0e, type: 3}
+  idleClip: {fileID: 7400000, guid: b9cfa7d9be699c84fa752dd1368e61f4, type: 3}
+  runClip: {fileID: 7400000, guid: 9fb2b3aef7f29484bb6aa3d5c41f31b1, type: 3}
+  attackClip: {fileID: 7400000, guid: 38987194468790f4ba2e59d65f9d7fa8, type: 3}
   deadClip: {fileID: 7400000, guid: a5d9bb6195ad40c4796f073b316067ae, type: 3}
   dead2Clip: {fileID: 7400000, guid: c66dd26fe94719e4b9e86b9d32ad2977, type: 3}
   deadRPGClip: {fileID: 7400000, guid: 19c1a68310f38a147ba0ba931ea1305a, type: 3}
-  attackSound: {fileID: 8300000, guid: fb16b45a6ff00ff4d8627a1220f0a6e1, type: 3}
+  attackSound: {fileID: 8300000, guid: 841e774e5a29a204aa08fcc6946ff8f3, type: 3}
   charAttackSound: {fileID: 8300000, guid: b507ac2f7143ebc4f8c1bd4068fc735c, type: 3}
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
   blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
