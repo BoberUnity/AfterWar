@@ -11,6 +11,7 @@ public class Monstr : MonoBehaviour
   [SerializeField] private AnimationClip idleClip = null;
   [SerializeField] private AnimationClip runClip = null;
   [SerializeField] private AnimationClip attackClip = null;
+  [SerializeField] private float attackAnimSpeed = 1;
   [SerializeField] private AnimationClip deadClip = null;
   [SerializeField] private AudioClip attackSound = null;
   [SerializeField] private AudioClip charAttackSound = null;
@@ -55,7 +56,7 @@ public class Monstr : MonoBehaviour
 	    audio.Play();
 	    character.Helth -= uron;
       //Debug.Log("Uron" + gameObject.name);
-      SetAnim(attackClip, 1);
+      SetAnim(attackClip, attackAnimSpeed);
 	    att = true;
       StartCoroutine(EndAttack(attackClip.length));
       if (fire)
