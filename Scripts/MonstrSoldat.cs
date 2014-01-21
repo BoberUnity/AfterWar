@@ -261,8 +261,13 @@ public class MonstrSoldat : MonoBehaviour
       
       if (helth < 0)
       {
+        StopAllCoroutines();
         if (armo == 4 || armo == 2)
+        {
           SetAnim(deadRPGClip, 1);
+          //Чтобы не висел в воздухе
+          StartCoroutine(FailDown(deadRPGClip.length*0.9f));
+        }
         else
         {
           if (Random.value > 0.5f)
@@ -280,11 +285,10 @@ public class MonstrSoldat : MonoBehaviour
           character.NearMonstr -= 1;
           isNear = false;
         }
-        StopAllCoroutines();
         
         Destroy(GetComponent<BoxCollider>(), 0.2f);
         if (armo == 4)
-          Instantiate(blastPrefab, t.position, t.rotation);
+          Instantiate(blastPrefab, t.position + Vector3.up*0.25f, t.rotation);
         if (fire)
           fire.emit = false;
       }
@@ -304,6 +308,27 @@ public class MonstrSoldat : MonoBehaviour
   //  yield return new WaitForSeconds(time);
   //  moveDown = false;
   //}
+  private IEnumerator FailDown(float time)
+  {
+    yield return new WaitForSeconds(time);
+    
+    RaycastHit[] hitsD;
+    if (characterT.position.x < t.position.x)
+      hitsD = Physics.RaycastAll(t.position + Vector3.right * 1.5f, -Vector3.up, 10);
+    else
+      hitsD = Physics.RaycastAll(t.position - Vector3.right * 1.5f, -Vector3.up, 10);
+    int j = 0;
+    float downDist = 100;
+    while (j < hitsD.Length)
+    {
+      RaycastHit hit = hitsD[j];
+      downDist = Mathf.Min(hit.distance, downDist);
+      j++;
+    }
+    Debug.LogWarning("downD"+downDist);
+    if (downDist > 0.35f)
+      gameObject.AddComponent("Rigidbody");
+  }
 
   //--------------------------------------------------------------------------------------------------
   private IEnumerator EndAttack(float time)
@@ -343,5 +368,7 @@ public class MonstrSoldat : MonoBehaviour
     Gizmos.DrawRay(new Vector3(transform.position.x - leftZona, transform.position.y + 0.1f, 0), Vector3.right * (rightZona + leftZona));
     Gizmos.DrawRay(new Vector3(transform.position.x - leftZona, transform.position.y, 0), Vector3.up * 0.1f);
     Gizmos.DrawRay(new Vector3(transform.position.x + rightZona, transform.position.y, 0), Vector3.up * 0.1f);
+    Gizmos.color = Color.yellow;
+    Gizmos.DrawRay(transform.position + Vector3.right * 1.5f, -Vector3.up * 0.5f);
   }
 }

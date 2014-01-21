@@ -282,7 +282,7 @@ public class Character : MonoBehaviour
     //isG = characterController.isGrounded;
     // ЛУЧИ -------------------------------
     RaycastHit[] hits;
-    hits = Physics.RaycastAll(t.position + Vector3.up * 0.3f, -Vector2.up, 100);
+    hits = Physics.RaycastAll(t.position + Vector3.up * 0.3f, -Vector3.up, 100);
     int i = 0;
     visotaDown = 100;
     while (i < hits.Length)
@@ -292,7 +292,7 @@ public class Character : MonoBehaviour
       i++;
     }
     //луч вверх (придавило лифтом)
-    hits = Physics.RaycastAll(t.position + Vector3.up * 0.3f, Vector2.up, 100);
+    hits = Physics.RaycastAll(t.position + Vector3.up * 0.3f, Vector3.up, 100);
     i = 0;
     visotaUp = 100;
     while (i < hits.Length)
