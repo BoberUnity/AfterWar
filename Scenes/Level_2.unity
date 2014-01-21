@@ -9335,7 +9335,7 @@ MonoBehaviour:
   - 101
   - 34
   - 101
-  runDist: 2
+  runDist: 1
   attackDist: .5
   speed: .5
   leftZona: 1
@@ -29420,6 +29420,10 @@ Prefab:
       propertyPath: m_Center.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 6dcfe7739066f884a8073f7057be5d75, type: 2}
+      propertyPath: runDist
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6dcfe7739066f884a8073f7057be5d75, type: 2}
   m_RootGameObject: {fileID: 348280454}
@@ -38012,7 +38016,7 @@ Prefab:
     - target: {fileID: 11100000, guid: 33bd1597ada70a44fbe9bccac2c437d0, type: 2}
       propertyPath: m_Animation
       value: 
-      objectReference: {fileID: 7400000, guid: bc31e0b51b9868c40989743a6bcbaed1, type: 3}
+      objectReference: {fileID: 7400000, guid: e259e18840b38cc4fbc262c4592fa56e, type: 3}
     - target: {fileID: 100000, guid: 33bd1597ada70a44fbe9bccac2c437d0, type: 2}
       propertyPath: m_Name
       value: Soldat2Gitara
@@ -53148,7 +53152,7 @@ Animation:
   m_GameObject: {fileID: 1741027136}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: bc31e0b51b9868c40989743a6bcbaed1, type: 3}
+  m_Animation: {fileID: 7400000, guid: e259e18840b38cc4fbc262c4592fa56e, type: 3}
   m_Animations:
   - {fileID: 7400000, guid: 4697b1bdf11e9b343aebb073cab7081a, type: 3}
   - {fileID: 7400000, guid: 4d6748c7660fe204a934298895322b03, type: 3}
@@ -53175,7 +53179,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1741027136}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e522a945d15c3c1468f4e0c8703ace80, type: 3}
   m_Name: 

@@ -286,7 +286,7 @@ public class MonstrSoldat : MonoBehaviour
           isNear = false;
         }
         
-        Destroy(GetComponent<BoxCollider>(), 0.2f);
+        //Destroy(GetComponent<BoxCollider>(), 0.2f);
         if (armo == 4)
           Instantiate(blastPrefab, t.position + Vector3.up*0.25f, t.rotation);
         if (fire)
@@ -326,8 +326,8 @@ public class MonstrSoldat : MonoBehaviour
       j++;
     }
     Debug.LogWarning("downD"+downDist);
-    if (downDist > 0.35f)
-      gameObject.AddComponent("Rigidbody");
+    //if (downDist > 0.35f)
+    //  gameObject.AddComponent("Rigidbody");
   }
 
   //--------------------------------------------------------------------------------------------------
@@ -368,7 +368,7 @@ public class MonstrSoldat : MonoBehaviour
     Gizmos.DrawRay(new Vector3(transform.position.x - leftZona, transform.position.y + 0.1f, 0), Vector3.right * (rightZona + leftZona));
     Gizmos.DrawRay(new Vector3(transform.position.x - leftZona, transform.position.y, 0), Vector3.up * 0.1f);
     Gizmos.DrawRay(new Vector3(transform.position.x + rightZona, transform.position.y, 0), Vector3.up * 0.1f);
-    Gizmos.color = Color.yellow;
-    Gizmos.DrawRay(transform.position + Vector3.right * 1.5f, -Vector3.up * 0.5f);
+    //Gizmos.color = Color.yellow;
+    //Gizmos.DrawRay(transform.position + Vector3.right * 1.5f, -Vector3.up * 0.5f);
   }
 }
