@@ -12,6 +12,8 @@ public class Monstr : MonoBehaviour
   [SerializeField] private AnimationClip runClip = null;
   [SerializeField] private AnimationClip attackClip = null;
   [SerializeField] private float attackAnimSpeed = 1;
+  [SerializeField] private AnimationClip eatClip = null;
+  [SerializeField] private bool eatEnabled = false;
   [SerializeField] private AnimationClip deadClip = null;
   [SerializeField] private AudioClip attackSound = null;
   [SerializeField] private AudioClip charAttackSound = null;
@@ -21,6 +23,11 @@ public class Monstr : MonoBehaviour
   [SerializeField] private float uron = 5;
   [SerializeField] private float[] uronDist = new float[5];
   [SerializeField] private float[] uronMonstr = new float[5];
+  [SerializeField] private bool addRpgForce = false;
+  [SerializeField] private Vector3 boxColliderCenter = Vector3.zero;
+  [SerializeField] private Vector3 boxColliderSize = Vector3.one*0.4f;
+  [SerializeField] private float rpgForceX = 350;
+  [SerializeField] private float rpgForceY = 50;
   [SerializeField] private float runDist = 1;
   [SerializeField] private float attackDist = 0.2f;
   [SerializeField] private float speed = 0.6f;
@@ -213,8 +220,15 @@ public class Monstr : MonoBehaviour
       distToChar = 10000;
     }
 
-    if (!att && !dead)
+    if (win && eatEnabled)
+    {
+      SetAnim(eatClip, 1);
+    }
+    else
+    {
+      if (!att && !dead)
       SetAnim(run ? runClip : idleClip, 1);
+    }
 
     if (moveDown)
       t.position -= Vector3.up * height * Time.deltaTime;
@@ -253,6 +267,28 @@ public class Monstr : MonoBehaviour
       helth -= uronMonstr[armo];
       if (helth < 0)
       {
+        if (addRpgForce)
+        {
+          if (armo == 2 || armo == 4)
+          {
+            BoxCollider boxCollider = gameObject.AddComponent("BoxCollider") as BoxCollider;
+            if (boxCollider != null)
+            {
+              boxCollider.center = boxColliderCenter;//new Vector3(0, 0.15f, -0.8f);
+              boxCollider.size = boxColliderSize;//new Vector3(0.3f, 0.3f, 1.8f);
+            }
+            gameObject.AddComponent("Rigidbody");
+            if (rigidbody != null)
+            {
+              rigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
+              rigidbody.freezeRotation = true;
+              if (characterT.position.x < t.position.x)
+                rigidbody.AddForce(rpgForceX, rpgForceY, 0);
+              else
+                rigidbody.AddForce(-rpgForceX, rpgForceY, 0);
+            }
+          }
+        }
         SetAnim(deadClip, 0.5f);
         dead = true;
         if (character.Controller != null)
@@ -270,7 +306,7 @@ public class Monstr : MonoBehaviour
           StartCoroutine(EndDown(1));
           moveDown = true;
         }
-        Destroy(GetComponent<BoxCollider>(), 0.2f);
+        //Destroy(GetComponent<BoxCollider>(), 0.2f);
         if (armo == 4)
           Instantiate(blastPrefab, t.position, t.rotation);
         if (fire)
@@ -301,8 +337,6 @@ public class Monstr : MonoBehaviour
     if (fire)
       fire.emit = false;
     win = character.Helth < 1;
-    //if (win)
-    //  animation[winClip.name].time = 0.5f;
   }
 
   private void SetAnim(AnimationClip cl, float sp)
