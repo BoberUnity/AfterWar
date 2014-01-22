@@ -232,8 +232,8 @@ public class Monstr : MonoBehaviour
       SetAnim(run ? runClip : idleClip, 1);
     }
 
-    if (moveDown)
-      t.position -= Vector3.up * height * Time.deltaTime;
+    //if (moveDown)
+    //  t.position -= Vector3.up * height * Time.deltaTime;
   }
   //--------------------------------------------------------------------------------------------------
   private void CharacterAttack(int armo)
@@ -303,11 +303,11 @@ public class Monstr : MonoBehaviour
           isNear = false;
         }
         StopAllCoroutines();
-        if (height > 0)//Падение после смерти
-        {
-          StartCoroutine(EndDown(1));
-          moveDown = true;
-        }
+        //if (height > 0)//Падение после смерти
+        //{
+        //  StartCoroutine(EndDown(1));
+        //  moveDown = true;
+        //}
         Destroy(trigger, 0.2f);//????
         if (armo == 4)
           Instantiate(blastPrefab, t.position, t.rotation);
@@ -325,11 +325,11 @@ public class Monstr : MonoBehaviour
     }
   }
 
-  private IEnumerator EndDown(float time)
-  {
-    yield return new WaitForSeconds(time);
-    moveDown = false;
-  }
+  //private IEnumerator EndDown(float time)
+  //{
+  //  yield return new WaitForSeconds(time);
+  //  moveDown = false;
+  //}
 
   //--------------------------------------------------------------------------------------------------
   private IEnumerator EndAttack(float time)
