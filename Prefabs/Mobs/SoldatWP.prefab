@@ -1304,7 +1304,7 @@ Animation:
   m_Animation: {fileID: 7400000, guid: 32142b967e78cc94d9991b3d809f7b7a, type: 3}
   m_Animations:
   - {fileID: 7400000, guid: 1db9ee6fae96ca94bbcb270ce2d44e91, type: 3}
-  - {fileID: 7400000, guid: 628d27c1942695d488a4b4f0e37baf43, type: 3}
+  - {fileID: 7400000, guid: 3ef73433be55d234d9dc859457e46463, type: 3}
   - {fileID: 7400000, guid: 18589bf5e72334742bd71ee16b5d0148, type: 3}
   - {fileID: 7400000, guid: 50b5887ff5c4b7341abd60d48d2d4310, type: 3}
   - {fileID: 7400000, guid: cd5ab9cdf72359b45b27d0ce343ed4f0, type: 3}
@@ -1358,7 +1358,7 @@ MonoBehaviour:
   attackClip: {fileID: 7400000, guid: a54f85dda28d363448f3765f27052ce7, type: 3}
   deadClip: {fileID: 7400000, guid: 50b5887ff5c4b7341abd60d48d2d4310, type: 3}
   dead2Clip: {fileID: 7400000, guid: 18589bf5e72334742bd71ee16b5d0148, type: 3}
-  deadRPGClip: {fileID: 7400000, guid: 628d27c1942695d488a4b4f0e37baf43, type: 3}
+  deadRPGClip: {fileID: 7400000, guid: 3ef73433be55d234d9dc859457e46463, type: 3}
   attackSound: {fileID: 8300000, guid: 841e774e5a29a204aa08fcc6946ff8f3, type: 3}
   charAttackSound: {fileID: 8300000, guid: b507ac2f7143ebc4f8c1bd4068fc735c, type: 3}
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
@@ -1377,6 +1377,11 @@ MonoBehaviour:
   - 101
   - 34
   - 101
+  addRpgForce: 1
+  boxColliderCenter: {x: 0, y: 0, z: 0}
+  boxColliderSize: {x: .400000006, y: .400000006, z: 1.70000005}
+  rpgForceX: 150
+  rpgForceY: 120
   runDist: 2
   attackDist: .400000006
   speed: .699999988
