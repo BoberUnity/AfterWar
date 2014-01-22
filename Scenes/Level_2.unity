@@ -4227,6 +4227,11 @@ MonoBehaviour:
   - 101
   - 34
   - 101
+  addRpgForce: 0
+  boxColliderCenter: {x: 0, y: 0, z: 0}
+  boxColliderSize: {x: .400000006, y: .400000006, z: .400000006}
+  rpgForceX: 250
+  rpgForceY: 50
   runDist: 2
   attackDist: .400000006
   speed: .699999988
@@ -5619,6 +5624,14 @@ Prefab:
       propertyPath: rightZona
       value: .349999994
       objectReference: {fileID: 0}
+    - target: {fileID: 11100000, guid: 79f223fcaae968f408440fe2f0d92a8d, type: 2}
+      propertyPath: m_Animations.Array.data[0]
+      value: 
+      objectReference: {fileID: 7400000, guid: 79727f17bee6e4b4d86a312bee4f46d3, type: 3}
+    - target: {fileID: 11400002, guid: 79f223fcaae968f408440fe2f0d92a8d, type: 2}
+      propertyPath: deadRPGClip
+      value: 
+      objectReference: {fileID: 7400000, guid: 79727f17bee6e4b4d86a312bee4f46d3, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79f223fcaae968f408440fe2f0d92a8d, type: 2}
   m_RootGameObject: {fileID: 851575819}
@@ -8450,6 +8463,11 @@ MonoBehaviour:
   - 101
   - 34
   - 101
+  addRpgForce: 0
+  boxColliderCenter: {x: 0, y: 0, z: 0}
+  boxColliderSize: {x: .400000006, y: .400000006, z: .400000006}
+  rpgForceX: 250
+  rpgForceY: 50
   runDist: 2
   attackDist: .400000006
   speed: .699999988
@@ -9151,7 +9169,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400040, guid: 6dcfe7739066f884a8073f7057be5d75, type: 2}
   m_PrefabInternal: {fileID: 969177385}
   m_GameObject: {fileID: 348280454}
-  m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106829}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: -4.37113883e-08}
   m_LocalPosition: {x: 4.41757536, y: .0107906759, z: -8.91744776e-07}
   m_LocalScale: {x: .230000004, y: .230000004, z: .230000004}
   m_Children:
@@ -9180,7 +9198,7 @@ MonoBehaviour:
   attackClip: {fileID: 7400000, guid: 38987194468790f4ba2e59d65f9d7fa8, type: 3}
   deadClip: {fileID: 7400000, guid: a5d9bb6195ad40c4796f073b316067ae, type: 3}
   dead2Clip: {fileID: 7400000, guid: c66dd26fe94719e4b9e86b9d32ad2977, type: 3}
-  deadRPGClip: {fileID: 7400000, guid: 19c1a68310f38a147ba0ba931ea1305a, type: 3}
+  deadRPGClip: {fileID: 7400000, guid: 79727f17bee6e4b4d86a312bee4f46d3, type: 3}
   attackSound: {fileID: 8300000, guid: 841e774e5a29a204aa08fcc6946ff8f3, type: 3}
   charAttackSound: {fileID: 8300000, guid: b507ac2f7143ebc4f8c1bd4068fc735c, type: 3}
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
@@ -9199,6 +9217,11 @@ MonoBehaviour:
   - 101
   - 34
   - 101
+  addRpgForce: 1
+  boxColliderCenter: {x: 0, y: .150000006, z: 0}
+  boxColliderSize: {x: .400000006, y: .300000012, z: 1.79999995}
+  rpgForceX: 200
+  rpgForceY: 50
   runDist: 1
   attackDist: .5
   speed: .5
@@ -9276,8 +9299,8 @@ Animation:
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: 3f625611b6c98524896294db1f090c2c, type: 3}
   m_Animations:
-  - {fileID: 7400000, guid: e6992dd8408afe1439b3b19b4eff76b1, type: 3}
-  - {fileID: 7400000, guid: 19c1a68310f38a147ba0ba931ea1305a, type: 3}
+  - {fileID: 7400000, guid: 79727f17bee6e4b4d86a312bee4f46d3, type: 3}
+  - {fileID: 7400000, guid: 79727f17bee6e4b4d86a312bee4f46d3, type: 3}
   - {fileID: 7400000, guid: a5d9bb6195ad40c4796f073b316067ae, type: 3}
   - {fileID: 7400000, guid: c66dd26fe94719e4b9e86b9d32ad2977, type: 3}
   - {fileID: 7400000, guid: acf27d831a879614e9ec89d925e86f34, type: 3}
@@ -9832,6 +9855,11 @@ MonoBehaviour:
   - 101
   - 34
   - 101
+  addRpgForce: 0
+  boxColliderCenter: {x: 0, y: 0, z: 0}
+  boxColliderSize: {x: .400000006, y: .400000006, z: .400000006}
+  rpgForceX: 250
+  rpgForceY: 50
   runDist: 2
   attackDist: .400000006
   speed: .699999988
@@ -10205,17 +10233,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: .791208804
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: -360.395599
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0
@@ -15900,7 +15928,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400036, guid: d7a0a30180a85114b82733c0dd9ae89d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 9.57471085
+      value: 9.34220695
       objectReference: {fileID: 0}
     - target: {fileID: 400036, guid: d7a0a30180a85114b82733c0dd9ae89d, type: 2}
       propertyPath: m_LocalPosition.y
@@ -15908,7 +15936,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400036, guid: d7a0a30180a85114b82733c0dd9ae89d, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 5.55560462e-07
+      value: 5.27843838e-07
       objectReference: {fileID: 0}
     - target: {fileID: 400036, guid: d7a0a30180a85114b82733c0dd9ae89d, type: 2}
       propertyPath: m_LocalRotation.x
@@ -17305,6 +17333,11 @@ MonoBehaviour:
   - 101
   - 34
   - 101
+  addRpgForce: 0
+  boxColliderCenter: {x: 0, y: 0, z: 0}
+  boxColliderSize: {x: .400000006, y: .400000006, z: .400000006}
+  rpgForceX: 250
+  rpgForceY: 50
   runDist: 1.39999998
   attackDist: .400000006
   speed: .699999988
@@ -19479,6 +19512,7 @@ GameObject:
   - 111: {fileID: 661987175}
   - 82: {fileID: 661987174}
   - 114: {fileID: 661987173}
+  - 65: {fileID: 661987176}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -19634,6 +19668,18 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 1
+--- !u!65 &661987176
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 661987171}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .300000012, y: 1.79999995, z: .300000012}
+  m_Center: {x: 0, y: .800000012, z: 0}
 --- !u!1 &664472916
 GameObject:
   m_ObjectHideFlags: 0
@@ -20068,6 +20114,11 @@ MonoBehaviour:
   - 101
   - 34
   - 101
+  addRpgForce: 0
+  boxColliderCenter: {x: 0, y: 0, z: 0}
+  boxColliderSize: {x: .400000006, y: .400000006, z: .400000006}
+  rpgForceX: 250
+  rpgForceY: 50
   runDist: 1.39999998
   attackDist: .400000006
   speed: .699999988
@@ -25051,7 +25102,7 @@ MonoBehaviour:
   attackClip: {fileID: 7400000, guid: acf27d831a879614e9ec89d925e86f34, type: 3}
   deadClip: {fileID: 7400000, guid: a5d9bb6195ad40c4796f073b316067ae, type: 3}
   dead2Clip: {fileID: 7400000, guid: c66dd26fe94719e4b9e86b9d32ad2977, type: 3}
-  deadRPGClip: {fileID: 7400000, guid: 19c1a68310f38a147ba0ba931ea1305a, type: 3}
+  deadRPGClip: {fileID: 7400000, guid: 79727f17bee6e4b4d86a312bee4f46d3, type: 3}
   attackSound: {fileID: 8300000, guid: fb16b45a6ff00ff4d8627a1220f0a6e1, type: 3}
   charAttackSound: {fileID: 8300000, guid: b507ac2f7143ebc4f8c1bd4068fc735c, type: 3}
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
@@ -25070,6 +25121,11 @@ MonoBehaviour:
   - 101
   - 34
   - 101
+  addRpgForce: 1
+  boxColliderCenter: {x: 0, y: .150000006, z: 0}
+  boxColliderSize: {x: .400000006, y: .300000012, z: 1.79999995}
+  rpgForceX: 200
+  rpgForceY: 50
   runDist: 2
   attackDist: .5
   speed: .600000024
@@ -25147,8 +25203,8 @@ Animation:
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: 3f625611b6c98524896294db1f090c2c, type: 3}
   m_Animations:
-  - {fileID: 7400000, guid: e6992dd8408afe1439b3b19b4eff76b1, type: 3}
-  - {fileID: 7400000, guid: 19c1a68310f38a147ba0ba931ea1305a, type: 3}
+  - {fileID: 7400000, guid: 79727f17bee6e4b4d86a312bee4f46d3, type: 3}
+  - {fileID: 7400000, guid: 79727f17bee6e4b4d86a312bee4f46d3, type: 3}
   - {fileID: 7400000, guid: a5d9bb6195ad40c4796f073b316067ae, type: 3}
   - {fileID: 7400000, guid: c66dd26fe94719e4b9e86b9d32ad2977, type: 3}
   - {fileID: 7400000, guid: acf27d831a879614e9ec89d925e86f34, type: 3}
@@ -26982,17 +27038,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: .791208804
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: 359.60437
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0
@@ -28631,7 +28687,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400040, guid: 6dcfe7739066f884a8073f7057be5d75, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -.707106829
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400040, guid: 6dcfe7739066f884a8073f7057be5d75, type: 2}
       propertyPath: m_LocalRotation.z
@@ -28639,7 +28695,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400040, guid: 6dcfe7739066f884a8073f7057be5d75, type: 2}
       propertyPath: m_LocalRotation.w
-      value: .707106829
+      value: -4.37113883e-08
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: 6dcfe7739066f884a8073f7057be5d75, type: 2}
       propertyPath: character
@@ -28673,6 +28729,14 @@ Prefab:
       propertyPath: runDist
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11100000, guid: 6dcfe7739066f884a8073f7057be5d75, type: 2}
+      propertyPath: m_Animations.Array.data[0]
+      value: 
+      objectReference: {fileID: 7400000, guid: 79727f17bee6e4b4d86a312bee4f46d3, type: 3}
+    - target: {fileID: 11400002, guid: 6dcfe7739066f884a8073f7057be5d75, type: 2}
+      propertyPath: deadRPGClip
+      value: 
+      objectReference: {fileID: 7400000, guid: 79727f17bee6e4b4d86a312bee4f46d3, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6dcfe7739066f884a8073f7057be5d75, type: 2}
   m_RootGameObject: {fileID: 348280454}
@@ -32721,6 +32785,7 @@ GameObject:
   - 111: {fileID: 1103119054}
   - 82: {fileID: 1103119056}
   - 114: {fileID: 1103119055}
+  - 65: {fileID: 1103119057}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -32876,6 +32941,19 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!65 &1103119057
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6500000, guid: d7a0a30180a85114b82733c0dd9ae89d,
+    type: 2}
+  m_PrefabInternal: {fileID: 866539148}
+  m_GameObject: {fileID: 1103119052}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .300000012, y: 1.79999995, z: .300000012}
+  m_Center: {x: 0, y: .800000012, z: 0}
 --- !u!1001 &1103519699
 Prefab:
   m_ObjectHideFlags: 0
@@ -36802,6 +36880,11 @@ MonoBehaviour:
   - 101
   - 34
   - 101
+  addRpgForce: 0
+  boxColliderCenter: {x: 0, y: 0, z: 0}
+  boxColliderSize: {x: .400000006, y: .400000006, z: .400000006}
+  rpgForceX: 250
+  rpgForceY: 50
   runDist: 2
   attackDist: .400000006
   speed: .699999988
@@ -37055,7 +37138,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 33bd1597ada70a44fbe9bccac2c437d0, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11100000, guid: 33bd1597ada70a44fbe9bccac2c437d0, type: 2}
       propertyPath: m_Animation
@@ -41887,6 +41970,11 @@ MonoBehaviour:
   - 101
   - 34
   - 101
+  addRpgForce: 0
+  boxColliderCenter: {x: 0, y: 0, z: 0}
+  boxColliderSize: {x: .400000006, y: .400000006, z: .400000006}
+  rpgForceX: 250
+  rpgForceY: 50
   runDist: 2
   attackDist: .400000006
   speed: .699999988
@@ -43843,17 +43931,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: .00125000009
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: -.00124999997
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0
@@ -46803,7 +46891,7 @@ Transform:
   m_GameObject: {fileID: 1594113642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .00277777785, y: .00277777785, z: .00277777785}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 353684337}
   m_Father: {fileID: 0}
@@ -47245,17 +47333,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: 492.923065
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: -.395604402
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0
@@ -51995,7 +52083,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1741027137
 Transform:
   m_ObjectHideFlags: 0
@@ -56240,15 +56328,15 @@ Prefab:
       objectReference: {fileID: 946583955}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.x
-      value: .00277777785
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.y
-      value: .00277777785
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.z
-      value: .00277777785
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100290, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_IsActive
@@ -56375,6 +56463,7 @@ GameObject:
   - 111: {fileID: 1874941495}
   - 82: {fileID: 1874941494}
   - 114: {fileID: 1874941493}
+  - 65: {fileID: 1874941496}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -56389,7 +56478,7 @@ Transform:
   m_PrefabInternal: {fileID: 544243988}
   m_GameObject: {fileID: 1874941491}
   m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: 9.57471085, y: .00999999978, z: 5.55560462e-07}
+  m_LocalPosition: {x: 9.34220695, y: .00999999978, z: 5.27843838e-07}
   m_LocalScale: {x: .230000004, y: .230000004, z: .230000004}
   m_Children:
   - {fileID: 1696616399}
@@ -56530,6 +56619,19 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 1
+--- !u!65 &1874941496
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6500000, guid: d7a0a30180a85114b82733c0dd9ae89d,
+    type: 2}
+  m_PrefabInternal: {fileID: 544243988}
+  m_GameObject: {fileID: 1874941491}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .300000012, y: 1.79999995, z: .300000012}
+  m_Center: {x: 0, y: .800000012, z: 0}
 --- !u!1 &1875145630
 GameObject:
   m_ObjectHideFlags: 0
@@ -56814,7 +56916,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400040, guid: bb7d1fce7eafc824ebe789079d7cb005, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -.707106829
+      value: .939692616
       objectReference: {fileID: 0}
     - target: {fileID: 400040, guid: bb7d1fce7eafc824ebe789079d7cb005, type: 2}
       propertyPath: m_LocalRotation.z
@@ -56822,7 +56924,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400040, guid: bb7d1fce7eafc824ebe789079d7cb005, type: 2}
       propertyPath: m_LocalRotation.w
-      value: .707106829
+      value: -.342020124
       objectReference: {fileID: 0}
     - target: {fileID: 100040, guid: bb7d1fce7eafc824ebe789079d7cb005, type: 2}
       propertyPath: m_IsActive
@@ -56836,6 +56938,14 @@ Prefab:
       propertyPath: character
       value: 
       objectReference: {fileID: 1404807472}
+    - target: {fileID: 11100000, guid: bb7d1fce7eafc824ebe789079d7cb005, type: 2}
+      propertyPath: m_Animations.Array.data[0]
+      value: 
+      objectReference: {fileID: 7400000, guid: 79727f17bee6e4b4d86a312bee4f46d3, type: 3}
+    - target: {fileID: 11400002, guid: bb7d1fce7eafc824ebe789079d7cb005, type: 2}
+      propertyPath: deadRPGClip
+      value: 
+      objectReference: {fileID: 7400000, guid: 79727f17bee6e4b4d86a312bee4f46d3, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb7d1fce7eafc824ebe789079d7cb005, type: 2}
   m_RootGameObject: {fileID: 2002215316}
@@ -59799,7 +59909,8 @@ Prefab:
       propertyPath: attackAnimSpeed
       value: .600000024
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6500000, guid: d7a0a30180a85114b82733c0dd9ae89d, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d7a0a30180a85114b82733c0dd9ae89d, type: 2}
   m_RootGameObject: {fileID: 661987171}
   m_IsPrefabParent: 0
@@ -59855,7 +59966,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400040, guid: bb7d1fce7eafc824ebe789079d7cb005, type: 2}
   m_PrefabInternal: {fileID: 1881734172}
   m_GameObject: {fileID: 2002215316}
-  m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106829}
+  m_LocalRotation: {x: 0, y: .939692616, z: 0, w: -.342020124}
   m_LocalPosition: {x: 21.1759453, y: .0299999993, z: -1.8782508e-07}
   m_LocalScale: {x: .230000004, y: .230000004, z: .230000004}
   m_Children:
@@ -59884,7 +59995,7 @@ MonoBehaviour:
   attackClip: {fileID: 7400000, guid: ec23cc938621a5b42bdf38d7b64a0525, type: 3}
   deadClip: {fileID: 7400000, guid: a5d9bb6195ad40c4796f073b316067ae, type: 3}
   dead2Clip: {fileID: 7400000, guid: c66dd26fe94719e4b9e86b9d32ad2977, type: 3}
-  deadRPGClip: {fileID: 7400000, guid: 19c1a68310f38a147ba0ba931ea1305a, type: 3}
+  deadRPGClip: {fileID: 7400000, guid: 79727f17bee6e4b4d86a312bee4f46d3, type: 3}
   attackSound: {fileID: 8300000, guid: ab03266c0105a284f9bbde6d4a93474c, type: 3}
   charAttackSound: {fileID: 8300000, guid: b507ac2f7143ebc4f8c1bd4068fc735c, type: 3}
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
@@ -59903,6 +60014,11 @@ MonoBehaviour:
   - 101
   - 34
   - 101
+  addRpgForce: 1
+  boxColliderCenter: {x: 0, y: .150000006, z: 0}
+  boxColliderSize: {x: .400000006, y: .300000012, z: 1.79999995}
+  rpgForceX: 200
+  rpgForceY: 50
   runDist: 2
   attackDist: .5
   speed: .600000024
@@ -59980,8 +60096,8 @@ Animation:
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: 3f625611b6c98524896294db1f090c2c, type: 3}
   m_Animations:
-  - {fileID: 7400000, guid: e6992dd8408afe1439b3b19b4eff76b1, type: 3}
-  - {fileID: 7400000, guid: 19c1a68310f38a147ba0ba931ea1305a, type: 3}
+  - {fileID: 7400000, guid: 79727f17bee6e4b4d86a312bee4f46d3, type: 3}
+  - {fileID: 7400000, guid: 79727f17bee6e4b4d86a312bee4f46d3, type: 3}
   - {fileID: 7400000, guid: a5d9bb6195ad40c4796f073b316067ae, type: 3}
   - {fileID: 7400000, guid: c66dd26fe94719e4b9e86b9d32ad2977, type: 3}
   - {fileID: 7400000, guid: acf27d831a879614e9ec89d925e86f34, type: 3}
@@ -60337,6 +60453,11 @@ MonoBehaviour:
   - 101
   - 34
   - 101
+  addRpgForce: 0
+  boxColliderCenter: {x: 0, y: 0, z: 0}
+  boxColliderSize: {x: .400000006, y: .400000006, z: .400000006}
+  rpgForceX: 250
+  rpgForceY: 50
   runDist: 1.39999998
   attackDist: .400000006
   speed: .699999988
@@ -64127,6 +64248,11 @@ MonoBehaviour:
   - 101
   - 34
   - 101
+  addRpgForce: 0
+  boxColliderCenter: {x: 0, y: 0, z: 0}
+  boxColliderSize: {x: .400000006, y: .400000006, z: .400000006}
+  rpgForceX: 250
+  rpgForceY: 50
   runDist: 2
   attackDist: .400000006
   speed: .699999988

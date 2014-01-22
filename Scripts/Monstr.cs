@@ -34,15 +34,16 @@ public class Monstr : MonoBehaviour
   [SerializeField] private float height = 0;//Rat - 0, Bat - 0.3f
   [SerializeField] private float leftZona = 1;
   [SerializeField] private float rightZona = 1;
-  private float minX = 0;
-  private float maxX = 0;
   [SerializeField] private float rotSpeed = 300;
   [SerializeField] private float nearDist = 0.6f;//attack down
   [SerializeField] private bool winEnabled = false;
+  private float minX = 0;
+  private float maxX = 0;
   private float zPos = 0;
   private bool isNear = false;
   private Transform t = null;
   private Transform characterT = null;
+  private BoxCollider trigger = null;
   private bool run = false;
   private bool att = false;
   private bool dead = false;
@@ -81,6 +82,7 @@ public class Monstr : MonoBehaviour
     becameInVisible.ExtiRender += ExtiRender;
     minX = t.position.x - leftZona;
     maxX = t.position.x + rightZona;
+    trigger = GetComponent<BoxCollider>();
   }
 
   private void OnDestroy()
@@ -306,7 +308,7 @@ public class Monstr : MonoBehaviour
           StartCoroutine(EndDown(1));
           moveDown = true;
         }
-        //Destroy(GetComponent<BoxCollider>(), 0.2f);
+        Destroy(trigger, 0.2f);//????
         if (armo == 4)
           Instantiate(blastPrefab, t.position, t.rotation);
         if (fire)
