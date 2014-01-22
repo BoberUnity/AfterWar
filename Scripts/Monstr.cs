@@ -303,14 +303,14 @@ public class Monstr : MonoBehaviour
           isNear = false;
         }
         StopAllCoroutines();
-        //if (height > 0)//Падение после смерти
-        //{
-        //  StartCoroutine(EndDown(1));
-        //  moveDown = true;
-        //}
+        
         Destroy(trigger, 0.2f);//????
         if (armo == 4)
-          Instantiate(blastPrefab, t.position, t.rotation);
+        {
+          /*GameObject blastObj = */Instantiate(blastPrefab, t.position, t.rotation)/* as GameObject*/;
+          //if (blastObj)
+          //  blastObj.transform.parent = t;
+        }
         if (fire)
           fire.emit = false;
       }

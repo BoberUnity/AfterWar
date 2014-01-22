@@ -5,10 +5,16 @@ public class RigObject : MonoBehaviour
   [SerializeField] private Character character = null;
   [SerializeField] private GameObject blastPrefab = null;
   [SerializeField] private float rpgFofce = 2000;
+  [SerializeField] private bool destroyed = false;
 
   private void Start()
   {
     character.CharacterAttack += CharacterAttack;
+  }
+
+  private void OnDestroy()
+  {
+    character.CharacterAttack -= CharacterAttack;
   }
 
   private void CharacterAttack(int armo)
@@ -52,6 +58,8 @@ public class RigObject : MonoBehaviour
         if (GameObject.Find("BlastRPG(Clone)") == null)
           Instantiate(blastPrefab, t.position, t.rotation);
       }
+      if (destroyed)
+        Destroy(gameObject);
     }
   }
 }
