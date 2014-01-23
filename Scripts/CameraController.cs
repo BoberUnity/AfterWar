@@ -22,6 +22,7 @@ public class CameraController : MonoBehaviour
   [SerializeField] private float maxX = 100;
   [SerializeField] private float minY = -100;
   [SerializeField] private float maxY = 100;
+  [SerializeField] private float backX = 0;
   [SerializeField] private bool follow = true;
 
   public Transform CamTrans
@@ -97,7 +98,7 @@ public class CameraController : MonoBehaviour
 	    distanceStart = 0;
 	  }
 
-    plrPos = new Vector3(transform.position.x, transform.position.y + camHeight, -camDist);
+    plrPos = new Vector3(transform.position.x - backX, transform.position.y + camHeight, -camDist);
     if (follow)
       cam.forward = Vector3.Lerp(cam.forward, transform.position - cam.position, Time.deltaTime * camSpeed);
     cam.position = Vector3.Lerp(cam.position, plrPos, Time.deltaTime * camSpeed);
