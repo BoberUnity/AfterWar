@@ -20,7 +20,7 @@ public class MonstrSoldat : MonoBehaviour
   [SerializeField] private AudioClip deadSound = null;
   [SerializeField] private GameObject blastPrefab = null;
   [SerializeField] private ParticleEmitter fire = null;
-  [SerializeField] private Transform gitara = null;
+  [SerializeField] private GameObject gitara = null;
   [SerializeField] private float uron = 5;
   [SerializeField] private float[] uronDist = new float[5];
   [SerializeField] private float[] uronMonstr = new float[5];
@@ -362,7 +362,13 @@ public class MonstrSoldat : MonoBehaviour
     yield return new WaitForSeconds(time);
     if (gitara != null) //Бросить гитару
     {
-      //gitara.parent = null;
+      gitara.transform.parent = null;
+      gitara.AddComponent("Rigidbody");
+      if (characterT.position.x < t.position.x)
+        gitara.rigidbody.AddForce(-70, 0, 0);
+      else
+        gitara.rigidbody.AddForce(70, 0, 0);
+
       fire.transform.parent.gameObject.SetActive(true);
     }
   }
