@@ -553,6 +553,15 @@ public class Character : MonoBehaviour
     {
       isSwiming = true;
     }
+
+    if (other.gameObject.name == "Vrata")
+    {
+      Helth -= 301;
+      GameObject vagonetka = t.parent.gameObject;
+      t.parent = null;
+      Destroy(vagonetka);
+      Instantiate(BlastPrefab, t.position, Quaternion.identity);
+    }
   }
   //==================================================================================================================
   public void Action()

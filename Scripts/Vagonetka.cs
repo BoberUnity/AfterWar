@@ -10,6 +10,12 @@ public class Vagonetka : MonoBehaviour
   {
     if (other.gameObject.name == "Stalker")
       run = true;
+    if (other.gameObject.name == "Vrata")
+    {
+      run = false;
+      currSpeed = 0;
+      speed = 0;
+    }
   }
 
   private void Update () 

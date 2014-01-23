@@ -4,6 +4,8 @@ public class DestroyedObject : MonoBehaviour
 {
   [SerializeField] private Character character = null;
   [SerializeField] private GameObject blastPrefab = null;
+  [SerializeField] private float delHeight = 0.4f;
+  [SerializeField] private float delDist = 2.5f;
 
   private void Start()
   {
@@ -43,7 +45,7 @@ public class DestroyedObject : MonoBehaviour
       bool charPovernutLeft = characterT.eulerAngles.y > 230 && characterT.eulerAngles.y < 310 && characterT.position.x - t.position.x > 0;
         //ГГ повернут влево и монстр слева
 
-      if (distToChar < 2.5f && charPovernutRight && heigToChar < 0.45f && notWall)
+      if (distToChar < delDist && charPovernutRight && heigToChar < delHeight && notWall)
       {
         if (GameObject.Find("BlastRPG(Clone)") == null)
         {
@@ -53,7 +55,7 @@ public class DestroyedObject : MonoBehaviour
 
       }
 
-      if (distToChar < 2.5f && charPovernutLeft && heigToChar < 0.35f && notWall)
+      if (distToChar < delDist && charPovernutLeft && heigToChar < delHeight && notWall)
       {
         if (GameObject.Find("BlastRPG(Clone)") == null)
         {
