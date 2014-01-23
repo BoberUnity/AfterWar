@@ -282,12 +282,12 @@ public class MonstrSoldat : MonoBehaviour
         {
           if (armo == 2 || armo == 4)
           {
-            BoxCollider boxCollider = gameObject.AddComponent("BoxCollider") as BoxCollider;
-            if (boxCollider != null)
-            {
-              boxCollider.center = boxColliderCenter;//new Vector3(0, 0.15f, -0.8f);
-              boxCollider.size = boxColliderSize;//new Vector3(0.3f, 0.3f, 1.8f);
-            }
+            //BoxCollider boxCollider = gameObject.AddComponent("BoxCollider") as BoxCollider;
+            //if (boxCollider != null)
+            //{
+            //  boxCollider.center = boxColliderCenter;//new Vector3(0, 0.15f, -0.8f);
+            //  boxCollider.size = boxColliderSize;//new Vector3(0.3f, 0.3f, 1.8f);
+            //}
             gameObject.AddComponent("Rigidbody");
             if (rigidbody != null)
             {
@@ -335,27 +335,27 @@ public class MonstrSoldat : MonoBehaviour
   //  yield return new WaitForSeconds(time);
   //  moveDown = false;
   //}
-  private IEnumerator FailDown(float time)
-  {
-    yield return new WaitForSeconds(time);
+  //private IEnumerator FailDown(float time)
+  //{
+  //  yield return new WaitForSeconds(time);
     
-    RaycastHit[] hitsD;
-    if (characterT.position.x < t.position.x)
-      hitsD = Physics.RaycastAll(t.position + Vector3.right * 1.5f, -Vector3.up, 10);
-    else
-      hitsD = Physics.RaycastAll(t.position - Vector3.right * 1.5f, -Vector3.up, 10);
-    int j = 0;
-    float downDist = 100;
-    while (j < hitsD.Length)
-    {
-      RaycastHit hit = hitsD[j];
-      downDist = Mathf.Min(hit.distance, downDist);
-      j++;
-    }
-    Debug.LogWarning("downD"+downDist);
-    //if (downDist > 0.35f)
-    //  gameObject.AddComponent("Rigidbody");
-  }
+  //  RaycastHit[] hitsD;
+  //  if (characterT.position.x < t.position.x)
+  //    hitsD = Physics.RaycastAll(t.position + Vector3.right * 1.5f, -Vector3.up, 10);
+  //  else
+  //    hitsD = Physics.RaycastAll(t.position - Vector3.right * 1.5f, -Vector3.up, 10);
+  //  int j = 0;
+  //  float downDist = 100;
+  //  while (j < hitsD.Length)
+  //  {
+  //    RaycastHit hit = hitsD[j];
+  //    downDist = Mathf.Min(hit.distance, downDist);
+  //    j++;
+  //  }
+  //  Debug.LogWarning("downD"+downDist);
+  //  //if (downDist > 0.35f)
+  //  //  gameObject.AddComponent("Rigidbody");
+  //}
 
   private IEnumerator ReleaseGitara(float time)
   {

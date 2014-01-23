@@ -269,21 +269,22 @@ public class Monstr : MonoBehaviour
       helth -= uronMonstr[armo];
       if (helth < 0)
       {
+        
         if (addRpgForce)
         {
-          if (armo == 2 || armo == 4)
+          BoxCollider boxCollider = gameObject.AddComponent("BoxCollider") as BoxCollider;
+          if (boxCollider != null)
           {
-            BoxCollider boxCollider = gameObject.AddComponent("BoxCollider") as BoxCollider;
-            if (boxCollider != null)
+            boxCollider.center = boxColliderCenter;//new Vector3(0, 0.15f, -0.8f);
+            boxCollider.size = boxColliderSize;//new Vector3(0.3f, 0.3f, 1.8f);
+          }
+          gameObject.AddComponent("Rigidbody");
+          if (rigidbody != null)
+          {
+            rigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
+            rigidbody.freezeRotation = true;
+            if (armo == 2 || armo == 4)
             {
-              boxCollider.center = boxColliderCenter;//new Vector3(0, 0.15f, -0.8f);
-              boxCollider.size = boxColliderSize;//new Vector3(0.3f, 0.3f, 1.8f);
-            }
-            gameObject.AddComponent("Rigidbody");
-            if (rigidbody != null)
-            {
-              rigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
-              rigidbody.freezeRotation = true;
               if (characterT.position.x < t.position.x)
                 rigidbody.AddForce(rpgForceX, rpgForceY, 0);
               else

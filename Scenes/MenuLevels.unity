@@ -97,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 297011057}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 50, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 1424451974}
@@ -165,7 +165,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 336756653}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.517985642, y: 1.03597116, z: 0}
+  m_LocalPosition: {x: -.450000018, y: .449999988, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1424451974}
@@ -303,6 +303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 7
   loadingText: {fileID: 297011059}
+  loadingProgress: {fileID: 1447036308}
 --- !u!114 &418350370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,6 +446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5
   loadingText: {fileID: 297011059}
+  loadingProgress: {fileID: 1447036308}
 --- !u!114 &714119129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -873,6 +875,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 9
   loadingText: {fileID: 297011059}
+  loadingProgress: {fileID: 1447036308}
 --- !u!114 &1303128246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1091,11 +1094,11 @@ MonoBehaviour:
     e00: 360
     e01: 0
     e02: 0
-    e03: .517985642
+    e03: .450000018
     e10: 0
     e11: 360
     e12: 0
-    e13: -1.03597116
+    e13: -.449999988
     e20: 0
     e21: 0
     e22: 360
@@ -1127,7 +1130,76 @@ Transform:
   - {fileID: 1303128244}
   - {fileID: 297011058}
   - {fileID: 1193719771}
+  - {fileID: 1447036307}
   m_Father: {fileID: 336756654}
+--- !u!1 &1447036306
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1447036307}
+  - 114: {fileID: 1447036308}
+  m_Layer: 9
+  m_Name: LoadingProgress
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1447036307
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1447036306}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -30, z: 0}
+  m_LocalScale: {x: 2.00015998, y: 2.00015998, z: 1.00007999}
+  m_Children: []
+  m_Father: {fileID: 1424451974}
+--- !u!114 &1447036308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1447036306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mColor: {r: 0, g: .00456401566, b: .661764741, a: 1}
+  mPivot: 4
+  mWidth: 90
+  mHeight: 30
+  mDepth: 5
+  autoResizeBoxCollider: 0
+  keepCrispWhenShrunk: 1
+  mTrueTypeFont: {fileID: 0}
+  mFont: {fileID: 11400000, guid: d3391e6b46814b8459e1ee7fd3cd2c43, type: 2}
+  mText: 0%
+  mFontSize: 56
+  mFontStyle: 0
+  mEncoding: 1
+  mMaxLineCount: 0
+  mGradientBottom: {r: 0, g: .00887421146, b: .183823526, a: 1}
+  mEffectStyle: 1
+  mEffectColor: {r: 1, g: 1, b: 1, a: 1}
+  mSymbols: 1
+  mEffectDistance: {x: 1, y: 1}
+  mOverflow: 0
+  mMaterial: {fileID: 0}
+  mApplyGradient: 1
+  mGradientTop: {r: 1, g: 1, b: 1, a: 1}
+  mSpacingX: 0
+  mSpacingY: 0
+  mShrinkToFit: 0
+  mMaxLineWidth: 0
+  mMaxLineHeight: 0
+  mLineWidth: 0
+  mMultiline: 1
 --- !u!1 &1485673965
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,6 +1284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 6
   loadingText: {fileID: 297011059}
+  loadingProgress: {fileID: 1447036308}
 --- !u!114 &1632494489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1384,6 +1457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 8
   loadingText: {fileID: 297011059}
+  loadingProgress: {fileID: 1447036308}
 --- !u!114 &1727776793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1715,7 +1789,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  loadingText: {fileID: 297011059}
+  loadingText: {fileID: 0}
+  loadingProgress: {fileID: 0}
 --- !u!114 &2066639664
 MonoBehaviour:
   m_ObjectHideFlags: 0
