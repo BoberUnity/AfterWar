@@ -6,6 +6,6 @@ public class GazScreen : MonoBehaviour
 	
 	private void Update()
   {
-    transform.position = camObj.transform.position + Vector3.forward;
+    transform.position = camObj.transform.position + Vector3.forward*0.25f;
   }
 }
