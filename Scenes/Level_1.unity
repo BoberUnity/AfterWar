@@ -4088,6 +4088,7 @@ MonoBehaviour:
   attackDist: .349999994
   speed: .300000012
   height: .300000012
+  blastHeight: 0
   leftZona: 2.74000001
   rightZona: 1.45000005
   rotSpeed: 300
@@ -6537,13 +6538,14 @@ MonoBehaviour:
   - 101
   addRpgForce: 1
   boxColliderCenter: {x: 0, y: .0199999996, z: 0}
-  boxColliderSize: {x: .150000006, y: .0799999982, z: .150000006}
+  boxColliderSize: {x: .200000003, y: .100000001, z: .200000003}
   rpgForceX: 150
   rpgForceY: 50
   runDist: 2
   attackDist: .349999994
   speed: .300000012
   height: .300000012
+  blastHeight: 0
   leftZona: .879999995
   rightZona: 1.60000002
   rotSpeed: 300
@@ -16223,6 +16225,7 @@ MonoBehaviour:
   attackDist: .300000012
   speed: .600000024
   height: 0
+  blastHeight: 0
   leftZona: 1
   rightZona: 2.29999995
   rotSpeed: 300
@@ -19434,15 +19437,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.x
-      value: .00277777785
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.y
-      value: .00277777785
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.z
-      value: .00277777785
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400352, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: light
@@ -21992,6 +21995,7 @@ MonoBehaviour:
   attackDist: .209999993
   speed: .5
   height: 0
+  blastHeight: 0
   leftZona: 1
   rightZona: 1
   rotSpeed: 300
@@ -27123,6 +27127,7 @@ MonoBehaviour:
   attackDist: .300000012
   speed: .600000024
   height: 0
+  blastHeight: 0
   leftZona: 1
   rightZona: 1.39999998
   rotSpeed: 300
@@ -27638,6 +27643,7 @@ MonoBehaviour:
   attackDist: .349999994
   speed: .300000012
   height: .300000012
+  blastHeight: 0
   leftZona: 1.79999995
   rightZona: .200000003
   rotSpeed: 300
@@ -31049,6 +31055,7 @@ MonoBehaviour:
   attackDist: .239999995
   speed: .400000006
   height: 0
+  blastHeight: 0
   leftZona: 1
   rightZona: 1
   rotSpeed: 300
@@ -33604,11 +33611,31 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
       propertyPath: boxColliderSize.y
-      value: .0799999982
+      value: .100000001
       objectReference: {fileID: 0}
     - target: {fileID: 6500000, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
       propertyPath: m_Size.x
       value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
+      propertyPath: boxColliderSize.x
+      value: .200000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
+      propertyPath: boxColliderSize.z
+      value: .200000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500000, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500000, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
+      propertyPath: m_Size.y
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500000, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
+      propertyPath: m_Size.z
+      value: .5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
@@ -35425,7 +35452,7 @@ Transform:
   m_GameObject: {fileID: 1978581601}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .00277777785, y: .00277777785, z: .00277777785}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 125284557}
   m_Father: {fileID: 0}

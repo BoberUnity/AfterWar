@@ -314,7 +314,7 @@ public class MonstrSoldat : MonoBehaviour
         }
         
         //Destroy(GetComponent<BoxCollider>(), 0.2f);
-        if (armo == 4)
+        if (armo == 4 && GameObject.Find("BlastRPG(Clone)") == null)//Лишняя проверка
           Instantiate(blastPrefab, t.position + Vector3.up*0.25f, t.rotation);
         if (fire)
           fire.emit = false;

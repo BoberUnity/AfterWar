@@ -32,6 +32,7 @@ public class Monstr : MonoBehaviour
   [SerializeField] private float attackDist = 0.2f;
   [SerializeField] private float speed = 0.6f;
   [SerializeField] private float height = 0;//Rat - 0, Bat - 0.3f
+  [SerializeField] private float blastHeight = 0;
   [SerializeField] private float leftZona = 1;
   [SerializeField] private float rightZona = 1;
   [SerializeField] private float rotSpeed = 300;
@@ -232,8 +233,8 @@ public class Monstr : MonoBehaviour
       SetAnim(run ? runClip : idleClip, 1);
     }
 
-    //if (moveDown)
-    //  t.position -= Vector3.up * height * Time.deltaTime;
+    if (moveDown)
+      t.position -= Vector3.up * height * Time.deltaTime;
   }
   //--------------------------------------------------------------------------------------------------
   private void CharacterAttack(int armo)
@@ -269,22 +270,22 @@ public class Monstr : MonoBehaviour
       helth -= uronMonstr[armo];
       if (helth < 0)
       {
-        
         if (addRpgForce)
         {
-          BoxCollider boxCollider = gameObject.AddComponent("BoxCollider") as BoxCollider;
-          if (boxCollider != null)
+          if (armo == 2 || armo == 4)
           {
-            boxCollider.center = boxColliderCenter;//new Vector3(0, 0.15f, -0.8f);
-            boxCollider.size = boxColliderSize;//new Vector3(0.3f, 0.3f, 1.8f);
-          }
-          gameObject.AddComponent("Rigidbody");
-          if (rigidbody != null)
-          {
-            rigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
-            rigidbody.freezeRotation = true;
-            if (armo == 2 || armo == 4)
+            BoxCollider boxCollider = gameObject.AddComponent("BoxCollider") as BoxCollider;
+            if (boxCollider != null)
             {
+              boxCollider.center = boxColliderCenter;//new Vector3(0, 0.15f, -0.8f);
+              boxCollider.size = boxColliderSize;//new Vector3(0.3f, 0.3f, 1.8f);
+            }
+            gameObject.AddComponent("Rigidbody");
+            if (rigidbody != null)
+            {
+              rigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
+              rigidbody.freezeRotation = true;
+            
               if (characterT.position.x < t.position.x)
                 rigidbody.AddForce(rpgForceX, rpgForceY, 0);
               else
@@ -306,14 +307,21 @@ public class Monstr : MonoBehaviour
         StopAllCoroutines();
         
         Destroy(trigger, 0.2f);//????
-        if (armo == 4)
+        if (armo == 4 && GameObject.Find("BlastRPG(Clone)") == null)//лишняя проверка
         {
-          /*GameObject blastObj = */Instantiate(blastPrefab, t.position, t.rotation)/* as GameObject*/;
+          /*GameObject blastObj = */
+          Instantiate(blastPrefab, t.position + Vector3.up * blastHeight, t.rotation)/* as GameObject*/;
           //if (blastObj)
           //  blastObj.transform.parent = t;
         }
         if (fire)
           fire.emit = false;
+
+        if (height > 0)
+        {
+          moveDown = true;
+          StartCoroutine(EndDown(1));
+        }
       }
       else
       {
@@ -326,11 +334,11 @@ public class Monstr : MonoBehaviour
     }
   }
 
-  //private IEnumerator EndDown(float time)
-  //{
-  //  yield return new WaitForSeconds(time);
-  //  moveDown = false;
-  //}
+  private IEnumerator EndDown(float time)
+  {
+    yield return new WaitForSeconds(time);
+    moveDown = false;
+  }
 
   //--------------------------------------------------------------------------------------------------
   private IEnumerator EndAttack(float time)
