@@ -20,6 +20,7 @@ public class MonstrSoldat : MonoBehaviour
   [SerializeField] private AudioClip deadSound = null;
   [SerializeField] private GameObject blastPrefab = null;
   [SerializeField] private ParticleEmitter fire = null;
+  [SerializeField] private Transform gitara = null;
   [SerializeField] private float uron = 5;
   [SerializeField] private float[] uronDist = new float[5];
   [SerializeField] private float[] uronMonstr = new float[5];
@@ -73,7 +74,12 @@ public class MonstrSoldat : MonoBehaviour
 
   private void Start()
   {
-    SetAnim(upClip, 0);
+    
+    if (gitara != null)
+      SetAnim(idleClip, 1);
+    else
+      SetAnim(upClip, 0);
+    
     t = transform;
     zPos = t.position.z;
     characterT = character.transform;
@@ -100,6 +106,7 @@ public class MonstrSoldat : MonoBehaviour
       {
         isActive = 1;
         StartCoroutine(EndUpAnim(upClip.length*0.33f));
+        StartCoroutine(ReleaseGitara(0.3f));
         SetAnim(upClip,3);
       }
     }
@@ -348,6 +355,16 @@ public class MonstrSoldat : MonoBehaviour
     Debug.LogWarning("downD"+downDist);
     //if (downDist > 0.35f)
     //  gameObject.AddComponent("Rigidbody");
+  }
+
+  private IEnumerator ReleaseGitara(float time)
+  {
+    yield return new WaitForSeconds(time);
+    if (gitara != null) //Бросить гитару
+    {
+      //gitara.parent = null;
+      fire.transform.parent.gameObject.SetActive(true);
+    }
   }
 
   //--------------------------------------------------------------------------------------------------
