@@ -282,7 +282,6 @@ GameObject:
   - 111: {fileID: 11100000}
   - 82: {fileID: 8200000}
   - 114: {fileID: 11400000}
-  - 65: {fileID: 6500000}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -390,6 +389,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400050}
+  - 65: {fileID: 6500002}
   m_Layer: 0
   m_Name: zombie 1
   m_TagString: Untagged
@@ -978,18 +978,18 @@ Transform:
   m_Children:
   - {fileID: 400046}
   m_Father: {fileID: 400064}
---- !u!65 &6500000
+--- !u!65 &6500002
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100036}
+  m_GameObject: {fileID: 100050}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .5, y: 1.79999995, z: .300000012}
-  m_Center: {x: 0, y: .800000012, z: 0}
+  m_Size: {x: .400000006, y: .400000006, z: 1.5}
+  m_Center: {x: 0, y: 0, z: .100000001}
 --- !u!82 &8200000
 AudioSource:
   m_ObjectHideFlags: 1
@@ -1064,6 +1064,9 @@ Animation:
   - {fileID: 7400000, guid: f65215b02dd313144aa90eec2e671309, type: 3}
   - {fileID: 7400000, guid: 136170e0a906cfe468437bb46bf37d3e, type: 3}
   - {fileID: 7400004, guid: f65215b02dd313144aa90eec2e671309, type: 3}
+  - {fileID: 7400000, guid: 49bcefcc108bbee408ff4998a91471e7, type: 3}
+  - {fileID: 7400000, guid: 95002b57d9c0b204585799375aa1a095, type: 3}
+  - {fileID: 7400000, guid: 85a43f546732d5e40aee7b79c4d7189b, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -1084,12 +1087,14 @@ MonoBehaviour:
   becameInVisible: {fileID: 11400002}
   anim: {fileID: 11100000}
   idleClip: {fileID: 7400004, guid: f65215b02dd313144aa90eec2e671309, type: 3}
-  runClip: {fileID: 7400000, guid: 136170e0a906cfe468437bb46bf37d3e, type: 3}
-  attackClip: {fileID: 7400000, guid: 0bd2408437f3b644ebda3a8c7e9bb62f, type: 3}
-  attackAnimSpeed: 1
+  runClip: {fileID: 7400000, guid: f65215b02dd313144aa90eec2e671309, type: 3}
+  attackClip: {fileID: 7400000, guid: 49bcefcc108bbee408ff4998a91471e7, type: 3}
+  attackAnimSpeed: 1.5
   eatClip: {fileID: 7400000, guid: 80784c9e31952c9428bac8d5f339a59d, type: 3}
   eatEnabled: 1
   deadClip: {fileID: 7400000, guid: 5b9c33a1fbda5eb42a0c4404959fd01b, type: 3}
+  dead2Clip: {fileID: 7400000, guid: 95002b57d9c0b204585799375aa1a095, type: 3}
+  deadRPGClip: {fileID: 7400000, guid: 85a43f546732d5e40aee7b79c4d7189b, type: 3}
   attackSound: {fileID: 8300000, guid: 577d6a80811f56946ad39accab092241, type: 3}
   charAttackSound: {fileID: 8300000, guid: b507ac2f7143ebc4f8c1bd4068fc735c, type: 3}
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
@@ -1108,16 +1113,16 @@ MonoBehaviour:
   - 51
   - 21
   - 101
-  addRpgForce: 0
+  addRpgForce: 1
   boxColliderCenter: {x: 0, y: 0, z: 0}
   boxColliderSize: {x: .400000006, y: .400000006, z: .400000006}
-  rpgForceX: 350
+  rpgForceX: 100
   rpgForceY: 50
   runDist: 1.5
   attackDist: .25
-  speed: .200000003
+  speed: .100000001
   height: 0
-  blastHeight: .300000012
+  blastHeight: 0
   leftZona: 1.5
   rightZona: 1
   rotSpeed: 300

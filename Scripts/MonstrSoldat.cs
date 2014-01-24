@@ -25,8 +25,8 @@ public class MonstrSoldat : MonoBehaviour
   [SerializeField] private float[] uronDist = new float[5];
   [SerializeField] private float[] uronMonstr = new float[5];
   [SerializeField] private bool addRpgForce = false;
-  [SerializeField] private Vector3 boxColliderCenter = Vector3.zero;
-  [SerializeField] private Vector3 boxColliderSize = Vector3.one * 0.4f;
+  //[SerializeField] private Vector3 boxColliderCenter = Vector3.zero;
+  //[SerializeField] private Vector3 boxColliderSize = Vector3.one * 0.4f;
   [SerializeField] private float rpgForceX = 250;
   [SerializeField] private float rpgForceY = 50;
   [SerializeField] private float runDist = 1;
@@ -52,6 +52,9 @@ public class MonstrSoldat : MonoBehaviour
   private float distToChar = 10;
   //private bool moveDown = false;
   private bool win = false;
+  [SerializeField] private float currWeight = 0.0f;
+  [SerializeField] private AnimationClip oldClip = null;
+  [SerializeField] private float oldWeight = 0.0f;
 	
 	private void Attack()
 	{
@@ -74,11 +77,20 @@ public class MonstrSoldat : MonoBehaviour
 
   private void Start()
   {
-    
-    if (gitara != null)
+    //animation[runClip.name].weight = 0.5f;
+    //animation[idleClip.name].weight = 0.5f;
+    //animation[idleClip.name].enabled = true;
+    //animation[runClip.name].enabled = true;
+    //oldClip = anim.clip;
+    //anim[oldClip.name].enabled = true;
+    //anim[idleClip.name].enabled = true;
+    if (gitara != null /*-|| upClip == null-*/)
       SetAnim(idleClip, 1);
     else
       SetAnim(upClip, 0);
+    
+    //if (upClip == null)//Зомби не встает
+    //  isActive = 2;
     
     t = transform;
     zPos = t.position.z;
@@ -97,6 +109,9 @@ public class MonstrSoldat : MonoBehaviour
 
   private void Update()
   {
+    //animation[runClip.name].weight = runWeight;
+    //animation[idleClip.name].weight = 1 - runWeight;
+
     float heigToChar = Mathf.Abs(t.position.y - characterT.position.y);//разница по высоте с персонажем
 
     if (heigToChar < 0.3f && characterT.position.x > minX && characterT.position.x < maxX && !dead && isActive == 0)
@@ -234,7 +249,21 @@ public class MonstrSoldat : MonoBehaviour
 
     if (!att && !dead && isActive == 2)
       SetAnim(run ? runClip : attackClip, run ? 1:0.1f);
-    
+
+    //if (currWeight < 1)
+    //{
+    //  currWeight += Time.deltaTime * 0.9f;
+    //  anim[anim.clip.name].weight = currWeight;
+    //  anim[oldClip.name].weight = 1 - currWeight;
+    //}
+    //else
+    //{
+    //  //anim[oldClip.name].weight = 0;
+    //  anim[oldClip.name].enabled = false;
+    //  //anim[anim.clip.name].weight = 1;
+    //}
+
+    //oldWeight = anim[idleClip.name].weight;
 
     //if (moveDown)
     //  t.position -= Vector3.up * height * Time.deltaTime;
@@ -330,33 +359,6 @@ public class MonstrSoldat : MonoBehaviour
     }
   }
 
-  //private IEnumerator EndDown(float time)
-  //{
-  //  yield return new WaitForSeconds(time);
-  //  moveDown = false;
-  //}
-  //private IEnumerator FailDown(float time)
-  //{
-  //  yield return new WaitForSeconds(time);
-    
-  //  RaycastHit[] hitsD;
-  //  if (characterT.position.x < t.position.x)
-  //    hitsD = Physics.RaycastAll(t.position + Vector3.right * 1.5f, -Vector3.up, 10);
-  //  else
-  //    hitsD = Physics.RaycastAll(t.position - Vector3.right * 1.5f, -Vector3.up, 10);
-  //  int j = 0;
-  //  float downDist = 100;
-  //  while (j < hitsD.Length)
-  //  {
-  //    RaycastHit hit = hitsD[j];
-  //    downDist = Mathf.Min(hit.distance, downDist);
-  //    j++;
-  //  }
-  //  Debug.LogWarning("downD"+downDist);
-  //  //if (downDist > 0.35f)
-  //  //  gameObject.AddComponent("Rigidbody");
-  //}
-
   private IEnumerator ReleaseGitara(float time)
   {
     yield return new WaitForSeconds(time);
@@ -387,11 +389,18 @@ public class MonstrSoldat : MonoBehaviour
 
   private void SetAnim(AnimationClip cl, float sp)
   {
-    anim.clip = cl;
-    anim[cl.name].speed = sp;
-    anim.Play(cl.name);
+    //if (anim.clip != cl)
+    //{
+      //currWeight = 0;
+      //oldClip = anim.clip;
+      anim.clip = cl;
+      anim[cl.name].speed = sp;
+      anim.Play(cl.name);
+      //anim[anim.clip.name].enabled = true;
+    //}
   }
 
+ 
   private void ExtiRender()
   {
     if (dead)

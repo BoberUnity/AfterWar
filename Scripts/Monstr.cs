@@ -15,6 +15,8 @@ public class Monstr : MonoBehaviour
   [SerializeField] private AnimationClip eatClip = null;
   [SerializeField] private bool eatEnabled = false;
   [SerializeField] private AnimationClip deadClip = null;
+  [SerializeField] private AnimationClip dead2Clip = null;
+  [SerializeField] private AnimationClip deadRPGClip = null;
   [SerializeField] private AudioClip attackSound = null;
   [SerializeField] private AudioClip charAttackSound = null;
   [SerializeField] private AudioClip deadSound = null;
@@ -67,7 +69,7 @@ public class Monstr : MonoBehaviour
       //Debug.Log("Uron" + gameObject.name);
       SetAnim(attackClip, attackAnimSpeed);
 	    att = true;
-      StartCoroutine(EndAttack(attackClip.length));
+      StartCoroutine(EndAttack(attackClip.length / attackAnimSpeed));
       if (fire)
         fire.emit = true;
     }
@@ -270,6 +272,11 @@ public class Monstr : MonoBehaviour
       helth -= uronMonstr[armo];
       if (helth < 0)
       {
+        if (Random.value > 0.5f)
+          SetAnim(deadClip, 1);
+        else
+          SetAnim(dead2Clip, 1);
+
         if (addRpgForce)
         {
           if (armo == 2 || armo == 4)
@@ -291,9 +298,10 @@ public class Monstr : MonoBehaviour
               else
                 rigidbody.AddForce(-rpgForceX, rpgForceY, 0);
             }
+            SetAnim(deadRPGClip, 1);
           }
         }
-        SetAnim(deadClip, 0.5f);
+        //SetAnim(deadClip, 0.5f);
         dead = true;
         if (character.Controller != null)
           audio.volume = character.Controller.EffectsVolume;
