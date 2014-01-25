@@ -77,20 +77,12 @@ public class MonstrSoldat : MonoBehaviour
 
   private void Start()
   {
-    //animation[runClip.name].weight = 0.5f;
-    //animation[idleClip.name].weight = 0.5f;
-    //animation[idleClip.name].enabled = true;
-    //animation[runClip.name].enabled = true;
-    //oldClip = anim.clip;
-    //anim[oldClip.name].enabled = true;
-    //anim[idleClip.name].enabled = true;
-    if (gitara != null /*-|| upClip == null-*/)
+    oldClip = anim.clip;
+    anim[oldClip.name].enabled = true;
+    if (gitara != null)
       SetAnim(idleClip, 1);
     else
       SetAnim(upClip, 0);
-    
-    //if (upClip == null)//Зомби не встает
-    //  isActive = 2;
     
     t = transform;
     zPos = t.position.z;
@@ -122,7 +114,11 @@ public class MonstrSoldat : MonoBehaviour
         isActive = 1;
         StartCoroutine(EndUpAnim(upClip.length*0.33f));
         StartCoroutine(ReleaseGitara(0.3f));
-        SetAnim(upClip,3);
+        //SetAnim(upClip,3);
+        currWeight = 1;
+        anim.clip = upClip;
+        anim[upClip.name].speed = 3;
+        anim[upClip.name].enabled = true;
       }
     }
 
@@ -250,20 +246,17 @@ public class MonstrSoldat : MonoBehaviour
     if (!att && !dead && isActive == 2)
       SetAnim(run ? runClip : attackClip, run ? 1:0.1f);
 
-    //if (currWeight < 1)
-    //{
-    //  currWeight += Time.deltaTime * 0.9f;
-    //  anim[anim.clip.name].weight = currWeight;
-    //  anim[oldClip.name].weight = 1 - currWeight;
-    //}
-    //else
-    //{
-    //  //anim[oldClip.name].weight = 0;
-    //  anim[oldClip.name].enabled = false;
-    //  //anim[anim.clip.name].weight = 1;
-    //}
-
-    //oldWeight = anim[idleClip.name].weight;
+    if (currWeight < 1)
+    {
+      currWeight += Time.deltaTime * 4.0f;
+      if (currWeight > 1)
+      {
+        currWeight = 1;
+        anim[oldClip.name].enabled = false;
+      }
+      anim[anim.clip.name].weight = currWeight;
+      anim[oldClip.name].weight = 1 - currWeight;
+    }
 
     //if (moveDown)
     //  t.position -= Vector3.up * height * Time.deltaTime;
@@ -389,15 +382,17 @@ public class MonstrSoldat : MonoBehaviour
 
   private void SetAnim(AnimationClip cl, float sp)
   {
-    //if (anim.clip != cl)
-    //{
-      //currWeight = 0;
-      //oldClip = anim.clip;
+    if (anim.clip != cl)
+    {
+      //Debug.LogWarning("ChangeAnim " + anim.clip.name + " to " + cl.name);
+      if (currWeight < 1)
+        anim[oldClip.name].enabled = false;
+      oldClip = anim.clip;
+      currWeight = 0;
       anim.clip = cl;
       anim[cl.name].speed = sp;
-      anim.Play(cl.name);
-      //anim[anim.clip.name].enabled = true;
-    //}
+      anim[anim.clip.name].enabled = true;
+    }
   }
 
  
