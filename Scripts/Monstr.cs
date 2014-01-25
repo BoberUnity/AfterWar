@@ -54,9 +54,8 @@ public class Monstr : MonoBehaviour
   private float distToChar = 10;
   private bool moveDown = false;
   private bool win = false;
-  //private float distToWall;
-  [SerializeField] private float currWeight = 1.0f;
-  [SerializeField] private AnimationClip oldClip = null;
+  private float currWeight = 1.0f;
+  private AnimationClip oldClip = null;
 	
 	private void Attack()
 	{
@@ -68,7 +67,6 @@ public class Monstr : MonoBehaviour
       else Debug.LogWarning("character.Controller != null");
 	    audio.Play();
 	    character.Helth -= uron;
-      //Debug.Log("Uron" + gameObject.name);
       SetAnim(attackClip, attackAnimSpeed);
 	    att = true;
       StartCoroutine(EndAttack(attackClip.length / attackAnimSpeed));
@@ -217,7 +215,7 @@ public class Monstr : MonoBehaviour
         att = true;
         Attack();
       }
-
+      Debug.LogWarning("Bat...");
       if (distToChar < attackDist-0.05f && !winEnabled)//для людей отключим движение назад
         t.Translate(-Vector3.forward * Time.deltaTime * speed);
 
@@ -281,8 +279,7 @@ public class Monstr : MonoBehaviour
     
     if (characterT.eulerAngles.y > 230 && characterT.eulerAngles.y < 310 && characterT.position.x - t.position.x > 0)//ГГ повернут влево и монстр слева
       charPovernut = true;
-    //if (distToChar < attackDist && character.NearMonstr < 2)
-    //  charPovernut = true;
+
 
     if (distToChar < uronDist[armo] && !dead && charPovernut && heigToChar < 0.35f && notWall)
     {
@@ -318,7 +315,7 @@ public class Monstr : MonoBehaviour
             SetAnim(deadRPGClip, 1);
           }
         }
-        //SetAnim(deadClip, 0.5f);
+        
         dead = true;
         if (character.Controller != null)
           audio.volume = character.Controller.EffectsVolume;
@@ -397,7 +394,6 @@ public class Monstr : MonoBehaviour
 
   void OnDrawGizmos()
   {
-    //Gizmos.DrawRay(transform.position + Vector3.up * 0.2f, Vector3.right * Mathf.Sign(character.transform.position.x - transform.position.x) * 3);
     Gizmos.color = editorColor;
     Gizmos.DrawRay(new Vector3(transform.position.x - leftZona, transform.position.y, 0), Vector3.right * (rightZona + leftZona));
     Gizmos.DrawRay(new Vector3(transform.position.x - leftZona, transform.position.y + 0.1f, 0), Vector3.right * (rightZona + leftZona));

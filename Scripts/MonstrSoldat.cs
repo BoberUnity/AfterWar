@@ -52,9 +52,9 @@ public class MonstrSoldat : MonoBehaviour
   private float distToChar = 10;
   //private bool moveDown = false;
   private bool win = false;
-  [SerializeField] private float currWeight = 1.0f;
-  [SerializeField] private AnimationClip oldClip = null;
-  //[SerializeField] private float oldWeight = 0.0f;
+  private float currWeight = 1.0f;
+  private AnimationClip oldClip = null;
+
 	
 	private void Attack()
 	{
@@ -66,7 +66,6 @@ public class MonstrSoldat : MonoBehaviour
       else Debug.LogWarning("character.Controller != null");
 	    audio.Play();
 	    character.Helth -= uron;
-      //Debug.Log("Uron" + gameObject.name);
       SetAnim(attackClip, 1);
 	    att = true;
       StartCoroutine(EndAttack(attackClip.length));
@@ -101,8 +100,6 @@ public class MonstrSoldat : MonoBehaviour
 
   private void Update()
   {
-    //animation[runClip.name].weight = runWeight;
-    //animation[idleClip.name].weight = 1 - runWeight;
 
     float heigToChar = Mathf.Abs(t.position.y - characterT.position.y);//разница по высоте с персонажем
 
@@ -115,8 +112,7 @@ public class MonstrSoldat : MonoBehaviour
         StartCoroutine(EndUpAnim(upClip.length*0.33f));
         StartCoroutine(ReleaseGitara(0.3f));
         //SetAnim(upClip,3);
-        //
-        //anim[anim.clip.name].enabled = false;
+
         if (gitara != null)
         {
           oldClip = anim.clip;//??
@@ -238,9 +234,6 @@ public class MonstrSoldat : MonoBehaviour
         Attack();
       }
 
-      //if (distToChar < attackDist-0.05f && !winEnabled)//для людей отключим движение назад/отталкивание
-      //  t.Translate(-Vector3.forward * Time.deltaTime * speed);
-
       t.position = new Vector3(t.position.x, t.position.y, zPos);
     }
     else
@@ -263,9 +256,6 @@ public class MonstrSoldat : MonoBehaviour
       anim[anim.clip.name].weight = currWeight;
       anim[oldClip.name].weight = 1 - currWeight;
     }
-
-    //if (moveDown)
-    //  t.position -= Vector3.up * height * Time.deltaTime;
   }
   //--------------------------------------------------------------------------------------------------
   private void CharacterAttack(int armo)
