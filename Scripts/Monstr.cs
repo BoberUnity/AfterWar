@@ -55,6 +55,8 @@ public class Monstr : MonoBehaviour
   private bool moveDown = false;
   private bool win = false;
   //private float distToWall;
+  [SerializeField] private float currWeight = 1.0f;
+  [SerializeField] private AnimationClip oldClip = null;
 	
 	private void Attack()
 	{
@@ -77,6 +79,8 @@ public class Monstr : MonoBehaviour
 
   private void Start()
   {
+    oldClip = anim.clip;
+    anim[oldClip.name].enabled = true;
     SetAnim(idleClip, 1);
     t = transform;
     zPos = t.position.z;
@@ -235,6 +239,19 @@ public class Monstr : MonoBehaviour
       SetAnim(run ? runClip : idleClip, 1);
     }
 
+    //Сглаживание анимаций
+    if (currWeight < 1)
+    {
+      currWeight += Time.deltaTime * 4.0f;
+      if (currWeight > 1)
+      {
+        currWeight = 1;
+        anim[oldClip.name].enabled = false;
+      }
+      anim[anim.clip.name].weight = currWeight;
+      anim[oldClip.name].weight = 1 - currWeight;
+    }
+
     if (moveDown)
       t.position -= Vector3.up * height * Time.deltaTime;
   }
@@ -360,9 +377,16 @@ public class Monstr : MonoBehaviour
 
   private void SetAnim(AnimationClip cl, float sp)
   {
-    anim.clip = cl;
-    anim[cl.name].speed = sp;
-    anim.Play(cl.name);
+    if (anim.clip != cl)
+    {
+      if (currWeight < 1)
+        anim[oldClip.name].enabled = false;
+      oldClip = anim.clip;
+      currWeight = 0;
+      anim.clip = cl;
+      anim[cl.name].speed = sp;
+      anim[anim.clip.name].enabled = true;
+    }
   }
 
   private void ExtiRender()

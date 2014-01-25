@@ -2751,17 +2751,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: .791208804
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: 359.60437
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0
@@ -7956,12 +7956,14 @@ MonoBehaviour:
   becameInVisible: {fileID: 603236941}
   anim: {fileID: 1819031629}
   idleClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
-  runClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
+  runClip: {fileID: 7400002, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
   attackClip: {fileID: 7400000, guid: ba44e37a7dead3e48916b72954c58d2f, type: 3}
   attackAnimSpeed: 1
   eatClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
   eatEnabled: 0
   deadClip: {fileID: 7400000, guid: 4abfb32bc8538f34e9d2563fdadedc71, type: 3}
+  dead2Clip: {fileID: 7400000, guid: 4abfb32bc8538f34e9d2563fdadedc71, type: 3}
+  deadRPGClip: {fileID: 7400000, guid: 4abfb32bc8538f34e9d2563fdadedc71, type: 3}
   attackSound: {fileID: 8300000, guid: 577d6a80811f56946ad39accab092241, type: 3}
   charAttackSound: {fileID: 8300000, guid: 4f1139101e35e974cae8a27ee71790df, type: 3}
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
@@ -7995,6 +7997,8 @@ MonoBehaviour:
   rotSpeed: 500
   nearDist: .600000024
   winEnabled: 0
+  currWeight: 1
+  oldClip: {fileID: 0}
 --- !u!82 &525337252
 AudioSource:
   m_ObjectHideFlags: 0
@@ -17506,6 +17510,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1102035271}
+  - 65: {fileID: 1102035272}
   m_Layer: 0
   m_Name: zombie 1
   m_TagString: Untagged
@@ -17526,6 +17531,19 @@ Transform:
   - {fileID: 1917983046}
   - {fileID: 2122610333}
   m_Father: {fileID: 1676511835}
+--- !u!65 &1102035272
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6500002, guid: d7a0a30180a85114b82733c0dd9ae89d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1462723445}
+  m_GameObject: {fileID: 1102035270}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .400000006, y: .400000006, z: 1.5}
+  m_Center: {x: 0, y: 0, z: .100000001}
 --- !u!1 &1109179778
 GameObject:
   m_ObjectHideFlags: 0
@@ -17627,15 +17645,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.x
-      value: .00277777785
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.y
-      value: .00277777785
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.z
-      value: .00277777785
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400548, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: fpsLabel
@@ -18072,17 +18090,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: 492.923065
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: -.395604402
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0
@@ -20436,6 +20454,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1809024022}
   - {fileID: 1915911471}
   - {fileID: 1309035228}
   - {fileID: 1759952945}
@@ -20852,17 +20871,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: .791208804
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: -360.395599
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0
@@ -21365,12 +21384,14 @@ MonoBehaviour:
   becameInVisible: {fileID: 1464001867}
   anim: {fileID: 1571208210}
   idleClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
-  runClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
+  runClip: {fileID: 7400002, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
   attackClip: {fileID: 7400000, guid: ba44e37a7dead3e48916b72954c58d2f, type: 3}
   attackAnimSpeed: 1
   eatClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
   eatEnabled: 0
   deadClip: {fileID: 7400000, guid: 4abfb32bc8538f34e9d2563fdadedc71, type: 3}
+  dead2Clip: {fileID: 7400000, guid: 4abfb32bc8538f34e9d2563fdadedc71, type: 3}
+  deadRPGClip: {fileID: 7400000, guid: 4abfb32bc8538f34e9d2563fdadedc71, type: 3}
   attackSound: {fileID: 8300000, guid: 577d6a80811f56946ad39accab092241, type: 3}
   charAttackSound: {fileID: 8300000, guid: 4f1139101e35e974cae8a27ee71790df, type: 3}
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
@@ -21404,6 +21425,8 @@ MonoBehaviour:
   rotSpeed: 500
   nearDist: .600000024
   winEnabled: 0
+  currWeight: 1
+  oldClip: {fileID: 0}
 --- !u!82 &1337398959
 AudioSource:
   m_ObjectHideFlags: 0
@@ -25517,13 +25540,14 @@ Animation:
   m_GameObject: {fileID: 1571208208}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
+  m_Animation: {fileID: 7400000, guid: 74bd288f13cda3845a175025db35deb2, type: 3}
   m_Animations:
   - {fileID: 7400000, guid: ba44e37a7dead3e48916b72954c58d2f, type: 3}
   - {fileID: 7400000, guid: 7c4cf3ff6ebb84d47b7e5589d651597c, type: 3}
   - {fileID: 7400000, guid: 4abfb32bc8538f34e9d2563fdadedc71, type: 3}
   - {fileID: 7400000, guid: 74bd288f13cda3845a175025db35deb2, type: 3}
   - {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
+  - {fileID: 7400002, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -26673,8 +26697,6 @@ MonoBehaviour:
   - 34
   - 101
   addRpgForce: 1
-  boxColliderCenter: {x: 0, y: 0, z: 0}
-  boxColliderSize: {x: .400000006, y: .300000012, z: 1.79999995}
   rpgForceX: 150
   rpgForceY: 50
   runDist: 2
@@ -26682,11 +26704,10 @@ MonoBehaviour:
   speed: .600000024
   leftZona: 1
   rightZona: 1
-  rotSpeed: 300
+  rotSpeed: 200
   nearDist: 0
   currWeight: 0
   oldClip: {fileID: 0}
-  oldWeight: 0
 --- !u!82 &1651890539
 AudioSource:
   m_ObjectHideFlags: 0
@@ -27303,10 +27324,12 @@ MonoBehaviour:
   idleClip: {fileID: 7400004, guid: b5f4c3240f787bd4a802012a7d7d2b67, type: 3}
   runClip: {fileID: 7400004, guid: b5f4c3240f787bd4a802012a7d7d2b67, type: 3}
   attackClip: {fileID: 7400000, guid: b5f4c3240f787bd4a802012a7d7d2b67, type: 3}
-  attackAnimSpeed: 1
+  attackAnimSpeed: 1.5
   eatClip: {fileID: 7400000, guid: b40a320d5aaa75145aab662fd1306478, type: 3}
   eatEnabled: 1
   deadClip: {fileID: 7400000, guid: a43c6025f5cf1a945987c4ac093082c5, type: 3}
+  dead2Clip: {fileID: 7400000, guid: a43c6025f5cf1a945987c4ac093082c5, type: 3}
+  deadRPGClip: {fileID: 7400000, guid: a43c6025f5cf1a945987c4ac093082c5, type: 3}
   attackSound: {fileID: 8300000, guid: 577d6a80811f56946ad39accab092241, type: 3}
   charAttackSound: {fileID: 8300000, guid: b507ac2f7143ebc4f8c1bd4068fc735c, type: 3}
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
@@ -27340,6 +27363,8 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: .5
   winEnabled: 0
+  currWeight: 1
+  oldClip: {fileID: 0}
 --- !u!82 &1670878661
 AudioSource:
   m_ObjectHideFlags: 0
@@ -27572,17 +27597,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: .00125000009
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: -.00124999997
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0
@@ -27809,7 +27834,6 @@ GameObject:
   - 111: {fileID: 1676511838}
   - 82: {fileID: 1676511837}
   - 114: {fileID: 1676511836}
-  - 65: {fileID: 1676511839}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -27847,12 +27871,14 @@ MonoBehaviour:
   becameInVisible: {fileID: 1405362461}
   anim: {fileID: 1676511838}
   idleClip: {fileID: 7400004, guid: f65215b02dd313144aa90eec2e671309, type: 3}
-  runClip: {fileID: 7400000, guid: 136170e0a906cfe468437bb46bf37d3e, type: 3}
-  attackClip: {fileID: 7400000, guid: 0bd2408437f3b644ebda3a8c7e9bb62f, type: 3}
-  attackAnimSpeed: 1
+  runClip: {fileID: 7400000, guid: f65215b02dd313144aa90eec2e671309, type: 3}
+  attackClip: {fileID: 7400000, guid: 49bcefcc108bbee408ff4998a91471e7, type: 3}
+  attackAnimSpeed: 1.5
   eatClip: {fileID: 7400000, guid: 80784c9e31952c9428bac8d5f339a59d, type: 3}
   eatEnabled: 1
   deadClip: {fileID: 7400000, guid: 5b9c33a1fbda5eb42a0c4404959fd01b, type: 3}
+  dead2Clip: {fileID: 7400000, guid: 95002b57d9c0b204585799375aa1a095, type: 3}
+  deadRPGClip: {fileID: 7400000, guid: 85a43f546732d5e40aee7b79c4d7189b, type: 3}
   attackSound: {fileID: 8300000, guid: 577d6a80811f56946ad39accab092241, type: 3}
   charAttackSound: {fileID: 8300000, guid: b507ac2f7143ebc4f8c1bd4068fc735c, type: 3}
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
@@ -27878,14 +27904,16 @@ MonoBehaviour:
   rpgForceY: 80
   runDist: 1.5
   attackDist: .25
-  speed: .200000003
+  speed: .100000001
   height: 0
-  blastHeight: .300000012
+  blastHeight: 0
   leftZona: 1.5
   rightZona: 2.29999995
   rotSpeed: 300
   nearDist: 0
   winEnabled: 0
+  currWeight: 1
+  oldClip: {fileID: 0}
 --- !u!82 &1676511837
 AudioSource:
   m_ObjectHideFlags: 0
@@ -27962,23 +27990,13 @@ Animation:
   - {fileID: 7400000, guid: f65215b02dd313144aa90eec2e671309, type: 3}
   - {fileID: 7400000, guid: 136170e0a906cfe468437bb46bf37d3e, type: 3}
   - {fileID: 7400004, guid: f65215b02dd313144aa90eec2e671309, type: 3}
+  - {fileID: 7400000, guid: 49bcefcc108bbee408ff4998a91471e7, type: 3}
+  - {fileID: 7400000, guid: 95002b57d9c0b204585799375aa1a095, type: 3}
+  - {fileID: 7400000, guid: 85a43f546732d5e40aee7b79c4d7189b, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 1
---- !u!65 &1676511839
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500000, guid: d7a0a30180a85114b82733c0dd9ae89d,
-    type: 2}
-  m_PrefabInternal: {fileID: 1462723445}
-  m_GameObject: {fileID: 1676511834}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: .5, y: 1.79999995, z: .300000012}
-  m_Center: {x: 0, y: .800000012, z: 0}
 --- !u!1 &1676735698
 GameObject:
   m_ObjectHideFlags: 0
@@ -29488,7 +29506,7 @@ Transform:
   m_LocalPosition: {x: -.591064453, y: .830065012, z: .269287109}
   m_LocalScale: {x: .0199999996, y: .670000017, z: .300000012}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1293667978}
 --- !u!1 &1816266704
 GameObject:
   m_ObjectHideFlags: 0
@@ -29634,13 +29652,14 @@ Animation:
   m_GameObject: {fileID: 1819031627}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
+  m_Animation: {fileID: 7400000, guid: 74bd288f13cda3845a175025db35deb2, type: 3}
   m_Animations:
   - {fileID: 7400000, guid: ba44e37a7dead3e48916b72954c58d2f, type: 3}
   - {fileID: 7400000, guid: 7c4cf3ff6ebb84d47b7e5589d651597c, type: 3}
   - {fileID: 7400000, guid: 4abfb32bc8538f34e9d2563fdadedc71, type: 3}
   - {fileID: 7400000, guid: 74bd288f13cda3845a175025db35deb2, type: 3}
   - {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
+  - {fileID: 7400002, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -30994,6 +31013,8 @@ MonoBehaviour:
   eatClip: {fileID: 7400000, guid: 9859b41aa3c7c4044812a3ab0546cb46, type: 3}
   eatEnabled: 1
   deadClip: {fileID: 7400000, guid: 34b0cfdbf97aa4b4aa976ce1677c2cf3, type: 3}
+  dead2Clip: {fileID: 7400000, guid: 34b0cfdbf97aa4b4aa976ce1677c2cf3, type: 3}
+  deadRPGClip: {fileID: 7400000, guid: 34b0cfdbf97aa4b4aa976ce1677c2cf3, type: 3}
   attackSound: {fileID: 8300000, guid: 577d6a80811f56946ad39accab092241, type: 3}
   charAttackSound: {fileID: 8300000, guid: 4f1139101e35e974cae8a27ee71790df, type: 3}
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
@@ -31027,6 +31048,8 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: .600000024
   winEnabled: 0
+  currWeight: 1
+  oldClip: {fileID: 0}
 --- !u!82 &1892031864
 AudioSource:
   m_ObjectHideFlags: 0
@@ -32653,7 +32676,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1977714325}
   m_LocalRotation: {x: .288363427, y: -.957521081, z: 1.26047661e-08, w: -4.18545767e-08}
-  m_LocalPosition: {x: .774369001, y: .0944119915, z: -.0377777107}
+  m_LocalPosition: {x: .777226627, y: .096304819, z: -.0377777107}
   m_LocalScale: {x: .0111111095, y: .171111107, z: .11111109}
   m_Children: []
   m_Father: {fileID: 1309035228}
@@ -32709,7 +32732,7 @@ Transform:
   m_GameObject: {fileID: 1978581601}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .00277777785, y: .00277777785, z: .00277777785}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 125284557}
   m_Father: {fileID: 0}

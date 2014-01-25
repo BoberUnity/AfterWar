@@ -1082,7 +1082,7 @@ MonoBehaviour:
   idleClip: {fileID: 7400004, guid: b5f4c3240f787bd4a802012a7d7d2b67, type: 3}
   runClip: {fileID: 7400004, guid: b5f4c3240f787bd4a802012a7d7d2b67, type: 3}
   attackClip: {fileID: 7400000, guid: b5f4c3240f787bd4a802012a7d7d2b67, type: 3}
-  attackAnimSpeed: 1
+  attackAnimSpeed: 1.5
   eatClip: {fileID: 7400000, guid: b40a320d5aaa75145aab662fd1306478, type: 3}
   eatEnabled: 1
   deadClip: {fileID: 7400000, guid: a43c6025f5cf1a945987c4ac093082c5, type: 3}
@@ -1121,6 +1121,8 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: .5
   winEnabled: 0
+  currWeight: 1
+  oldClip: {fileID: 0}
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1

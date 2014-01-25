@@ -947,13 +947,14 @@ Animation:
   m_GameObject: {fileID: 100062}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
+  m_Animation: {fileID: 7400000, guid: 74bd288f13cda3845a175025db35deb2, type: 3}
   m_Animations:
   - {fileID: 7400000, guid: ba44e37a7dead3e48916b72954c58d2f, type: 3}
   - {fileID: 7400000, guid: 7c4cf3ff6ebb84d47b7e5589d651597c, type: 3}
   - {fileID: 7400000, guid: 4abfb32bc8538f34e9d2563fdadedc71, type: 3}
   - {fileID: 7400000, guid: 74bd288f13cda3845a175025db35deb2, type: 3}
   - {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
+  - {fileID: 7400002, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -985,7 +986,7 @@ MonoBehaviour:
   becameInVisible: {fileID: 11400000}
   anim: {fileID: 11100000}
   idleClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
-  runClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
+  runClip: {fileID: 7400002, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
   attackClip: {fileID: 7400000, guid: ba44e37a7dead3e48916b72954c58d2f, type: 3}
   attackAnimSpeed: 1
   eatClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
@@ -1026,6 +1027,8 @@ MonoBehaviour:
   rotSpeed: 500
   nearDist: .600000024
   winEnabled: 0
+  currWeight: 1
+  oldClip: {fileID: 0}
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
