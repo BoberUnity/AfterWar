@@ -52,9 +52,9 @@ public class MonstrSoldat : MonoBehaviour
   private float distToChar = 10;
   //private bool moveDown = false;
   private bool win = false;
-  [SerializeField] private float currWeight = 0.0f;
+  [SerializeField] private float currWeight = 1.0f;
   [SerializeField] private AnimationClip oldClip = null;
-  [SerializeField] private float oldWeight = 0.0f;
+  //[SerializeField] private float oldWeight = 0.0f;
 	
 	private void Attack()
 	{
@@ -115,7 +115,13 @@ public class MonstrSoldat : MonoBehaviour
         StartCoroutine(EndUpAnim(upClip.length*0.33f));
         StartCoroutine(ReleaseGitara(0.3f));
         //SetAnim(upClip,3);
-        currWeight = 1;
+        //
+        //anim[anim.clip.name].enabled = false;
+        if (gitara != null)
+        {
+          oldClip = anim.clip;//??
+          currWeight = 0;
+        }
         anim.clip = upClip;
         anim[upClip.name].speed = 3;
         anim[upClip.name].enabled = true;
@@ -245,7 +251,7 @@ public class MonstrSoldat : MonoBehaviour
 
     if (!att && !dead && isActive == 2)
       SetAnim(run ? runClip : attackClip, run ? 1:0.1f);
-
+    //Сглаживание анимаций
     if (currWeight < 1)
     {
       currWeight += Time.deltaTime * 4.0f;
@@ -384,11 +390,14 @@ public class MonstrSoldat : MonoBehaviour
   {
     if (anim.clip != cl)
     {
-      //Debug.LogWarning("ChangeAnim " + anim.clip.name + " to " + cl.name);
       if (currWeight < 1)
         anim[oldClip.name].enabled = false;
       oldClip = anim.clip;
       currWeight = 0;
+      if (oldClip.name == "gitara" && isActive == 2)
+      {
+        currWeight = 0.99f;
+      }
       anim.clip = cl;
       anim[cl.name].speed = sp;
       anim[anim.clip.name].enabled = true;

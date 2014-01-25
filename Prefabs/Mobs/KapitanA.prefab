@@ -1334,8 +1334,6 @@ MonoBehaviour:
   - 34
   - 101
   addRpgForce: 1
-  boxColliderCenter: {x: 0, y: 0, z: 0}
-  boxColliderSize: {x: .400000006, y: .300000012, z: 1.79999995}
   rpgForceX: 150
   rpgForceY: 50
   runDist: 2
@@ -1343,8 +1341,10 @@ MonoBehaviour:
   speed: .600000024
   leftZona: .349999994
   rightZona: .349999994
-  rotSpeed: 300
+  rotSpeed: 200
   nearDist: 0
+  currWeight: 0
+  oldClip: {fileID: 0}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

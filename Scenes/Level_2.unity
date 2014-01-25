@@ -4144,7 +4144,6 @@ MonoBehaviour:
   nearDist: 0
   currWeight: 0
   oldClip: {fileID: 0}
-  oldWeight: 0
 --- !u!82 &178534171
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4791,6 +4790,10 @@ Prefab:
     - target: {fileID: 11400002, guid: 26ab62520934fd44694bf8a0db0bf175, type: 2}
       propertyPath: rightZona
       value: .610000014
+      objectReference: {fileID: 0}
+    - target: {fileID: 100034, guid: 26ab62520934fd44694bf8a0db0bf175, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 26ab62520934fd44694bf8a0db0bf175, type: 2}
@@ -8326,7 +8329,6 @@ MonoBehaviour:
   nearDist: 0
   currWeight: 0
   oldClip: {fileID: 0}
-  oldWeight: 0
 --- !u!82 &314220670
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9026,11 +9028,10 @@ MonoBehaviour:
   speed: .5
   leftZona: 1
   rightZona: 1.5
-  rotSpeed: 300
+  rotSpeed: 200
   nearDist: 0
   currWeight: 0
   oldClip: {fileID: 0}
-  oldWeight: 0
 --- !u!82 &348280457
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9615,7 +9616,6 @@ MonoBehaviour:
   nearDist: 0
   currWeight: 0
   oldClip: {fileID: 0}
-  oldWeight: 0
 --- !u!82 &359490200
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10735,7 +10735,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &390813159
 Transform:
   m_ObjectHideFlags: 0
@@ -10803,7 +10803,6 @@ MonoBehaviour:
   nearDist: 0
   currWeight: 0
   oldClip: {fileID: 0}
-  oldWeight: 0
 --- !u!82 &390813161
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10872,7 +10871,7 @@ Animation:
   m_GameObject: {fileID: 390813158}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 32142b967e78cc94d9991b3d809f7b7a, type: 3}
+  m_Animation: {fileID: 7400000, guid: 5223cf818275be54cbbac13747b45819, type: 3}
   m_Animations:
   - {fileID: 7400000, guid: 1db9ee6fae96ca94bbcb270ce2d44e91, type: 3}
   - {fileID: 7400000, guid: 3ef73433be55d234d9dc859457e46463, type: 3}
@@ -16994,7 +16993,6 @@ MonoBehaviour:
   nearDist: 0
   currWeight: 0
   oldClip: {fileID: 0}
-  oldWeight: 0
 --- !u!82 &602246518
 AudioSource:
   m_ObjectHideFlags: 0
@@ -19856,7 +19854,6 @@ MonoBehaviour:
   nearDist: 0
   currWeight: 0
   oldClip: {fileID: 0}
-  oldWeight: 0
 --- !u!82 &676210600
 AudioSource:
   m_ObjectHideFlags: 0
@@ -24621,11 +24618,10 @@ MonoBehaviour:
   speed: .600000024
   leftZona: .349999994
   rightZona: .349999994
-  rotSpeed: 300
+  rotSpeed: 200
   nearDist: 0
   currWeight: 0
   oldClip: {fileID: 0}
-  oldWeight: 0
 --- !u!82 &851575822
 AudioSource:
   m_ObjectHideFlags: 0
@@ -35996,7 +35992,6 @@ MonoBehaviour:
   nearDist: 0
   currWeight: 0
   oldClip: {fileID: 0}
-  oldWeight: 0
 --- !u!82 &1243041776
 AudioSource:
   m_ObjectHideFlags: 0
@@ -36203,7 +36198,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 33bd1597ada70a44fbe9bccac2c437d0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 27.686058
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 33bd1597ada70a44fbe9bccac2c437d0, type: 2}
       propertyPath: m_LocalPosition.y
@@ -36248,7 +36243,7 @@ Prefab:
     - target: {fileID: 11100000, guid: 33bd1597ada70a44fbe9bccac2c437d0, type: 2}
       propertyPath: m_Animation
       value: 
-      objectReference: {fileID: 7400002, guid: e259e18840b38cc4fbc262c4592fa56e, type: 3}
+      objectReference: {fileID: 7400000, guid: c3eb09addfa4a71479b9d764521ca0ba, type: 3}
     - target: {fileID: 100000, guid: 33bd1597ada70a44fbe9bccac2c437d0, type: 2}
       propertyPath: m_Name
       value: Soldat2Gitara
@@ -40843,7 +40838,6 @@ MonoBehaviour:
   nearDist: 0
   currWeight: 0
   oldClip: {fileID: 0}
-  oldWeight: 0
 --- !u!82 &1421748704
 AudioSource:
   m_ObjectHideFlags: 0
@@ -41167,7 +41161,6 @@ MonoBehaviour:
   nearDist: 0
   currWeight: 0
   oldClip: {fileID: 0}
-  oldWeight: 0
 --- !u!82 &1424427250
 AudioSource:
   m_ObjectHideFlags: 0
@@ -50369,7 +50362,7 @@ Transform:
   m_PrefabInternal: {fileID: 1250109598}
   m_GameObject: {fileID: 1741027136}
   m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: 27.686058, y: .0266983435, z: -3.74248508e-08}
+  m_LocalPosition: {x: 2, y: .0266983435, z: -3.74248508e-08}
   m_LocalScale: {x: .230000004, y: .230000004, z: .231000006}
   m_Children:
   - {fileID: 1870658522}
@@ -50384,7 +50377,7 @@ Animation:
   m_GameObject: {fileID: 1741027136}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400002, guid: e259e18840b38cc4fbc262c4592fa56e, type: 3}
+  m_Animation: {fileID: 7400000, guid: c3eb09addfa4a71479b9d764521ca0ba, type: 3}
   m_Animations:
   - {fileID: 7400002, guid: e259e18840b38cc4fbc262c4592fa56e, type: 3}
   - {fileID: 7400000, guid: 18dba8339535fe74985d0ff5cea50e47, type: 3}
@@ -50452,13 +50445,12 @@ MonoBehaviour:
   runDist: 1.20000005
   attackDist: .400000006
   speed: .5
-  leftZona: 2.5
+  leftZona: 1.36000001
   rightZona: .100000001
   rotSpeed: 300
   nearDist: 0
-  currWeight: 0
-  oldClip: {fileID: 7400000, guid: bc31e0b51b9868c40989743a6bcbaed1, type: 3}
-  oldWeight: 0
+  currWeight: 1
+  oldClip: {fileID: 7400000, guid: c3eb09addfa4a71479b9d764521ca0ba, type: 3}
 --- !u!82 &1741027140
 AudioSource:
   m_ObjectHideFlags: 0
@@ -58015,11 +58007,10 @@ MonoBehaviour:
   speed: .600000024
   leftZona: .680000007
   rightZona: 1
-  rotSpeed: 300
+  rotSpeed: 200
   nearDist: 0
   currWeight: 0
   oldClip: {fileID: 0}
-  oldWeight: 0
 --- !u!82 &2002215319
 AudioSource:
   m_ObjectHideFlags: 0
