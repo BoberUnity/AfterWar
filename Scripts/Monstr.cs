@@ -215,7 +215,7 @@ public class Monstr : MonoBehaviour
         att = true;
         Attack();
       }
-      Debug.LogWarning("Bat...");
+
       if (distToChar < attackDist-0.05f && !winEnabled)//для людей отключим движение назад
         t.Translate(-Vector3.forward * Time.deltaTime * speed);
 

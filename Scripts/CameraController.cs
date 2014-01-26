@@ -24,6 +24,11 @@ public class CameraController : MonoBehaviour
   [SerializeField] private float maxY = 100;
   [SerializeField] private float backX = 0;
   [SerializeField] private bool follow = true;
+  [SerializeField]
+  private float distL = 10;
+  [SerializeField]
+  private float distR = 10;
+
 
   public Transform CamTrans
   {
@@ -97,6 +102,27 @@ public class CameraController : MonoBehaviour
 	  {
 	    distanceStart = 0;
 	  }
+
+    RaycastHit[] hits;
+    hits = Physics.RaycastAll(transform.position + Vector3.right * 0.1f, -Vector3.right, 0.2f);
+    int i = 0;
+    distL = 100;
+    while (i < hits.Length)
+    {
+      RaycastHit hit = hits[i];
+      distL = Mathf.Min(hit.distance, distL);
+      i++;
+    }
+
+    hits = Physics.RaycastAll(transform.position - Vector3.right * 0.1f, Vector3.right, 0.2f);
+    i = 0;
+    distR = 100;
+    while (i < hits.Length)
+    {
+      RaycastHit hit = hits[i];
+      distR = Mathf.Min(hit.distance, distR);
+      i++;
+    }
 
     plrPos = new Vector3(transform.position.x - backX, transform.position.y + camHeight, -camDist);
     if (follow)
