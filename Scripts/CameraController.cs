@@ -29,6 +29,8 @@ public class CameraController : MonoBehaviour
   [SerializeField]
   private float distR = 10;
 
+  private bool stop = false;
+  private bool stopR = false;
 
   public Transform CamTrans
   {
@@ -104,7 +106,7 @@ public class CameraController : MonoBehaviour
 	  }
 
     RaycastHit[] hits;
-    hits = Physics.RaycastAll(cam.position - Vector3.right*0.3f, Vector3.right, 0.3f);
+    hits = Physics.RaycastAll(cam.position - Vector3.right*0.2f, Vector3.right, 0.2f);
     int i = 0;
     distL = 100;
     while (i < hits.Length)
@@ -113,9 +115,9 @@ public class CameraController : MonoBehaviour
       distL = Mathf.Min(hit.distance, distL);
       i++;
     }
-    distL = 0.3f - distL;
+    distL = 0.2f - distL;
 
-    hits = Physics.RaycastAll(cam.position + Vector3.right * 0.3f, -Vector3.right, 0.3f);
+    hits = Physics.RaycastAll(cam.position + Vector3.right * 0.2f, -Vector3.right, 0.2f);
     i = 0;
     distR = 100;
     while (i < hits.Length)
@@ -124,23 +126,51 @@ public class CameraController : MonoBehaviour
       distR = Mathf.Min(hit.distance, distR);
       i++;
     }
-	  distR = 0.3f - distR;
-    /*if (distL > 0)
-      backX = distL-0.3f;
-    else 
-      backX = 0;
-    if (backX < -0.28f)
-      backX += 0.56f;*/
+	  distR = 0.2f - distR;
+    
+    if (distL > 0)
+    {
+      stop = true;
+    }
+	  float raznicaX = cam.position.x - transform.position.x;
+    if (raznicaX < 0)
+    {
+      stop = false;
+    }
+    if (raznicaX > 0.4f)
+    {
+      cam.position -= Vector3.right*0.4f;
+      stop = false;
+    }
+    if (distR > 0)
+    {
+      stopR = true;
+    }
+
+    if (raznicaX > 0)
+    {
+      stopR = false;
+    }
+    if (raznicaX < -0.4f)
+    {
+      cam.position += Vector3.right * 0.4f;
+      stopR = false;
+    }
+
+
     //if (distR < 0.3f)
     //  backX = -(0.3f - distR);
     //if (distL > 0.3f && distR > 0.3f)
     //  backX = 0;
-    plrPos = new Vector3(transform.position.x - backX, transform.position.y + camHeight, -camDist);
-    if (follow)
-      cam.forward = Vector3.Lerp(cam.forward, transform.position - cam.position, Time.deltaTime * camSpeed);
-    cam.position = Vector3.Lerp(cam.position, plrPos, Time.deltaTime * camSpeed);
-    cam.position = new Vector3(Mathf.Clamp(cam.position.x, minX, maxX), Mathf.Clamp(cam.position.y, minY, maxY), cam.position.z);
-    fonar.position = new Vector3(transform.position.x, transform.position.y + fonarHeight, -fonarDist);
+    if (!stop && !stopR)
+    {
+      plrPos = new Vector3(transform.position.x - backX, transform.position.y + camHeight, -camDist);
+      if (follow)
+        cam.forward = Vector3.Lerp(cam.forward, transform.position - cam.position, Time.deltaTime * camSpeed);
+      cam.position = Vector3.Lerp(cam.position, plrPos, Time.deltaTime * camSpeed);
+      cam.position = new Vector3(Mathf.Clamp(cam.position.x, minX, maxX), Mathf.Clamp(cam.position.y, minY, maxY), cam.position.z);
+      fonar.position = new Vector3(transform.position.x, transform.position.y + fonarHeight, -fonarDist);
+    }
 	}
 
   //void OnDrawGizmos()
