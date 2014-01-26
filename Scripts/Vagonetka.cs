@@ -30,7 +30,7 @@ public class Vagonetka : MonoBehaviour
 	  if (run)
 	  {
 	    if (currSpeed < speed)
-        currSpeed += Time.deltaTime*0.8f;
+        currSpeed += Time.deltaTime*0.99f;
       transform.Translate(currSpeed*Time.deltaTime,0,0);
 	  }
 	}

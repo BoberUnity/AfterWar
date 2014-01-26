@@ -104,7 +104,7 @@ public class CameraController : MonoBehaviour
 	  }
 
     RaycastHit[] hits;
-    hits = Physics.RaycastAll(transform.position, -Vector3.right, 0.5f);
+    hits = Physics.RaycastAll(cam.position - Vector3.right*0.3f, Vector3.right, 0.3f);
     int i = 0;
     distL = 100;
     while (i < hits.Length)
@@ -113,8 +113,9 @@ public class CameraController : MonoBehaviour
       distL = Mathf.Min(hit.distance, distL);
       i++;
     }
+    distL = 0.3f - distL;
 
-    hits = Physics.RaycastAll(transform.position, Vector3.right, 0.5f);
+    hits = Physics.RaycastAll(cam.position + Vector3.right * 0.3f, -Vector3.right, 0.3f);
     i = 0;
     distR = 100;
     while (i < hits.Length)
@@ -123,7 +124,17 @@ public class CameraController : MonoBehaviour
       distR = Mathf.Min(hit.distance, distR);
       i++;
     }
-
+	  distR = 0.3f - distR;
+    /*if (distL > 0)
+      backX = distL-0.3f;
+    else 
+      backX = 0;
+    if (backX < -0.28f)
+      backX += 0.56f;*/
+    //if (distR < 0.3f)
+    //  backX = -(0.3f - distR);
+    //if (distL > 0.3f && distR > 0.3f)
+    //  backX = 0;
     plrPos = new Vector3(transform.position.x - backX, transform.position.y + camHeight, -camDist);
     if (follow)
       cam.forward = Vector3.Lerp(cam.forward, transform.position - cam.position, Time.deltaTime * camSpeed);
@@ -131,4 +142,12 @@ public class CameraController : MonoBehaviour
     cam.position = new Vector3(Mathf.Clamp(cam.position.x, minX, maxX), Mathf.Clamp(cam.position.y, minY, maxY), cam.position.z);
     fonar.position = new Vector3(transform.position.x, transform.position.y + fonarHeight, -fonarDist);
 	}
+
+  //void OnDrawGizmos()
+  //{
+  //  Gizmos.color = Color.yellow;
+  //  Gizmos.DrawRay(transform.position + Vector3.right * 0.5f, -Vector3.right * distL);
+  //  Gizmos.color = Color.green;
+  //  Gizmos.DrawRay(transform.position + Vector3.right * 0.5f, -Vector3.right * distL);
+  //}
 }

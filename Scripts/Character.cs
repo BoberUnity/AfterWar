@@ -554,14 +554,14 @@ public class Character : MonoBehaviour
       isSwiming = true;
     }
 
-    if (other.gameObject.name == "Vrata")
-    {
-      Helth -= 301;
-      GameObject vagonetka = t.parent.gameObject;
-      t.parent = null;
-      Destroy(vagonetka);
-      Instantiate(BlastPrefab, t.position, Quaternion.identity);
-    }
+    //if (other.gameObject.name == "Vrata")
+    //{
+    //  Helth -= 301;
+    //  GameObject vagonetka = t.parent.gameObject;
+    //  t.parent = null;
+    //  Destroy(vagonetka);
+    //  Instantiate(BlastPrefab, t.position, Quaternion.identity);
+    //}
   }
   //==================================================================================================================
   public void Action()
@@ -574,7 +574,10 @@ public class Character : MonoBehaviour
   private void OnTriggerExit(Collider other)
   {
     if (other.gameObject.layer == 10)
+    {
       t.parent = null;
+      //t.eulerAngles = new Vector3(0, t.eulerAngles.y, 0);
+    }
     if (other.gameObject.layer == 11)
     {
       stairZone = false;
