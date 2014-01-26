@@ -104,7 +104,7 @@ public class CameraController : MonoBehaviour
 	  }
 
     RaycastHit[] hits;
-    hits = Physics.RaycastAll(transform.position + Vector3.right * 0.1f, -Vector3.right, 0.2f);
+    hits = Physics.RaycastAll(transform.position, -Vector3.right, 0.5f);
     int i = 0;
     distL = 100;
     while (i < hits.Length)
@@ -114,7 +114,7 @@ public class CameraController : MonoBehaviour
       i++;
     }
 
-    hits = Physics.RaycastAll(transform.position - Vector3.right * 0.1f, Vector3.right, 0.2f);
+    hits = Physics.RaycastAll(transform.position, Vector3.right, 0.5f);
     i = 0;
     distR = 100;
     while (i < hits.Length)
