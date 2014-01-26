@@ -128,7 +128,7 @@ public class CameraController : MonoBehaviour
     }
 	  distR = 0.2f - distR;
     
-    if (distL > 0)
+    /*if (distL > 0)
     {
       stop = true;
     }
@@ -155,7 +155,7 @@ public class CameraController : MonoBehaviour
     {
       cam.position += Vector3.right * 0.4f;
       stopR = false;
-    }
+    }*/
 
 
     //if (distR < 0.3f)
