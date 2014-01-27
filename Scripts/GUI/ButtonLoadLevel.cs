@@ -6,8 +6,10 @@ public class ButtonLoadLevel : MonoBehaviour
   [SerializeField] private int id = 0;
   [SerializeField] private UILabel loadingText = null;
   [SerializeField] private UILabel loadingProgress = null;
+  [SerializeField] private GameObject startButton = null;
   private AsyncOperation async;
   private bool loading = false;
+  private bool startButtonActive = false;
 
   protected virtual void OnPress(bool isPressed)
   {
@@ -33,6 +35,14 @@ public class ButtonLoadLevel : MonoBehaviour
     if (loadingProgress != null && async != null)
     {
       loadingProgress.text = (async.progress * 100).ToString("f0") + " %";
+      if (async.progress > 0.99999f && startButton != null)
+      {
+        if (loadingText != null)
+          loadingText.gameObject.SetActive(false);
+        if (loadingProgress != null)
+          loadingProgress.gameObject.SetActive(false);
+        startButton.SetActive(true);
+      }
       //loadAnim[loadAnim.clip.name].time = async.progress;
     }
   }

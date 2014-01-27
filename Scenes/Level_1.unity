@@ -3865,7 +3865,6 @@ MonoBehaviour:
   - 101
   - 34
   - 101
-  addRpgForce: 1
   boxColliderCenter: {x: 0, y: .0199999996, z: 0}
   boxColliderSize: {x: .150000006, y: .0799999982, z: .150000006}
   rpgForceX: 150
@@ -3880,8 +3879,6 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: .5
   winEnabled: 0
-  currWeight: 1
-  oldClip: {fileID: 0}
 --- !u!82 &254021999
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6247,7 +6244,6 @@ MonoBehaviour:
   - 101
   - 34
   - 101
-  addRpgForce: 1
   boxColliderCenter: {x: 0, y: .0199999996, z: 0}
   boxColliderSize: {x: .200000003, y: .100000001, z: .200000003}
   rpgForceX: 150
@@ -6262,8 +6258,6 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: .5
   winEnabled: 0
-  currWeight: 1
-  oldClip: {fileID: 0}
 --- !u!82 &400654259
 AudioSource:
   m_ObjectHideFlags: 0
@@ -15029,7 +15023,6 @@ MonoBehaviour:
   - 101
   - 34
   - 101
-  addRpgForce: 1
   boxColliderCenter: {x: 0, y: .150000006, z: .300000012}
   boxColliderSize: {x: .300000012, y: .300000012, z: 1.20000005}
   rpgForceX: 50
@@ -15044,8 +15037,6 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: .600000024
   winEnabled: 0
-  currWeight: 1
-  oldClip: {fileID: 0}
 --- !u!82 &914593510
 AudioSource:
   m_ObjectHideFlags: 0
@@ -25261,7 +25252,6 @@ MonoBehaviour:
   - 101
   - 34
   - 101
-  addRpgForce: 1
   boxColliderCenter: {x: 0, y: .150000006, z: .300000012}
   boxColliderSize: {x: .300000012, y: .300000012, z: 1.20000005}
   rpgForceX: 50
@@ -25276,8 +25266,6 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: .600000024
   winEnabled: 0
-  currWeight: 1
-  oldClip: {fileID: 0}
 --- !u!82 &1518397869
 AudioSource:
   m_ObjectHideFlags: 0
@@ -25675,7 +25663,6 @@ MonoBehaviour:
   - 101
   - 34
   - 101
-  addRpgForce: 1
   boxColliderCenter: {x: 0, y: .0199999996, z: 0}
   boxColliderSize: {x: .150000006, y: .0799999982, z: .150000006}
   rpgForceX: 150
@@ -25690,8 +25677,6 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: .5
   winEnabled: 0
-  currWeight: 1
-  oldClip: {fileID: 0}
 --- !u!82 &1534189278
 AudioSource:
   m_ObjectHideFlags: 0
@@ -27930,6 +27915,8 @@ MonoBehaviour:
   maxY: 1.75
   backX: 0
   follow: 1
+  distL: 10
+  distR: 10
 --- !u!143 &1666401514
 CharacterController:
   m_ObjectHideFlags: 0
@@ -28010,7 +27997,6 @@ MonoBehaviour:
   swimClip: {fileID: 7400034, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
   swimDeadClip: {fileID: 7400036, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
   failSound: {fileID: 8300000, guid: c80b078010c94b145b88371250c678fe, type: 3}
-  controller: {fileID: 0}
   hand: {fileID: 509094867}
   BlastPrefab: {fileID: 100006, guid: 3b6ca14f93f65b34fbe601051c201b58, type: 2}
   MolnyPrefab: {fileID: 100000, guid: 86b31faa5da649442af978439207d79d, type: 2}
@@ -28038,6 +28024,7 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  inverseXY: 0
   visotaDown: 1
   velocity: 0
 --- !u!82 &1666401516
