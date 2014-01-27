@@ -3,7 +3,7 @@
 public class Vagonetka : MonoBehaviour
 {
   [SerializeField] private float speed = 1;
-  [SerializeField] private Transform hero = null;
+  //[SerializeField] private Transform hero = null;
   private float currSpeed = 0;
   [SerializeField]
   private bool run = false;

@@ -922,7 +922,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100062}
   m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: 11.3731422, y: .197862267, z: 1.24849555e-06}
+  m_LocalPosition: {x: 1.45000005, y: .00999999978, z: 1.24849555e-06}
   m_LocalScale: {x: .230000004, y: .230000004, z: .230000004}
   m_Children:
   - {fileID: 400008}
@@ -1043,12 +1043,13 @@ Animation:
   m_GameObject: {fileID: 100062}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: b5f4c3240f787bd4a802012a7d7d2b67, type: 3}
+  m_Animation: {fileID: 7400000, guid: eb57bdccea98f7c4d832eb6856742bb1, type: 3}
   m_Animations:
   - {fileID: 7400004, guid: b5f4c3240f787bd4a802012a7d7d2b67, type: 3}
   - {fileID: 7400000, guid: a43c6025f5cf1a945987c4ac093082c5, type: 3}
   - {fileID: 7400000, guid: b40a320d5aaa75145aab662fd1306478, type: 3}
   - {fileID: 7400000, guid: b5f4c3240f787bd4a802012a7d7d2b67, type: 3}
+  - {fileID: 7400000, guid: eb57bdccea98f7c4d832eb6856742bb1, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -1087,7 +1088,7 @@ MonoBehaviour:
   eatEnabled: 1
   deadClip: {fileID: 7400000, guid: a43c6025f5cf1a945987c4ac093082c5, type: 3}
   dead2Clip: {fileID: 7400000, guid: a43c6025f5cf1a945987c4ac093082c5, type: 3}
-  deadRPGClip: {fileID: 7400000, guid: a43c6025f5cf1a945987c4ac093082c5, type: 3}
+  deadRPGClip: {fileID: 7400000, guid: eb57bdccea98f7c4d832eb6856742bb1, type: 3}
   attackSound: {fileID: 8300000, guid: 577d6a80811f56946ad39accab092241, type: 3}
   charAttackSound: {fileID: 8300000, guid: b507ac2f7143ebc4f8c1bd4068fc735c, type: 3}
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
@@ -1103,14 +1104,13 @@ MonoBehaviour:
   uronMonstr:
   - 51
   - 34
-  - 51
+  - 101
   - 21
-  - 51
-  addRpgForce: 0
+  - 101
   boxColliderCenter: {x: 0, y: 0, z: 0}
   boxColliderSize: {x: .400000006, y: .400000006, z: .400000006}
-  rpgForceX: 350
-  rpgForceY: 50
+  rpgForceX: 150
+  rpgForceY: 10
   runDist: 1
   attackDist: .280000001
   speed: 0
@@ -1121,8 +1121,6 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: .5
   winEnabled: 0
-  currWeight: 1
-  oldClip: {fileID: 0}
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1

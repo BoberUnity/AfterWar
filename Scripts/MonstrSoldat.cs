@@ -24,7 +24,7 @@ public class MonstrSoldat : MonoBehaviour
   [SerializeField] private float uron = 5;
   [SerializeField] private float[] uronDist = new float[5];
   [SerializeField] private float[] uronMonstr = new float[5];
-  [SerializeField] private bool addRpgForce = false;
+  //[SerializeField] private bool addRpgForce = false;
   //[SerializeField] private Vector3 boxColliderCenter = Vector3.zero;
   //[SerializeField] private Vector3 boxColliderSize = Vector3.one * 0.4f;
   [SerializeField] private float rpgForceX = 250;
@@ -291,35 +291,27 @@ public class MonstrSoldat : MonoBehaviour
       
       if (helth < 0)
       {
-        if (Random.value > 0.5f)
-          SetAnim(deadClip, 1);
-        else
-          SetAnim(dead2Clip, 1);
-        
-        if (addRpgForce)
+        if (armo == 2 || armo == 4)
         {
-          if (armo == 2 || armo == 4)
+          gameObject.AddComponent("Rigidbody");
+          if (rigidbody != null)
           {
-            //BoxCollider boxCollider = gameObject.AddComponent("BoxCollider") as BoxCollider;
-            //if (boxCollider != null)
-            //{
-            //  boxCollider.center = boxColliderCenter;//new Vector3(0, 0.15f, -0.8f);
-            //  boxCollider.size = boxColliderSize;//new Vector3(0.3f, 0.3f, 1.8f);
-            //}
-            gameObject.AddComponent("Rigidbody");
-            if (rigidbody != null)
-            {
-              rigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
-              rigidbody.freezeRotation = true;
-              if (characterT.position.x < t.position.x)
-                rigidbody.AddForce(rpgForceX, rpgForceY, 0);
-              else
-                rigidbody.AddForce(-rpgForceX, rpgForceY, 0);
-            }
-            SetAnim(deadRPGClip, 1);
+            rigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
+            rigidbody.freezeRotation = true;
+            if (characterT.position.x < t.position.x)
+              rigidbody.AddForce(rpgForceX, rpgForceY, 0);
+            else
+              rigidbody.AddForce(-rpgForceX, rpgForceY, 0);
           }
+          SetAnim(deadRPGClip, 1);
         }
-        
+        else
+        {
+          if (Random.value > 0.5f)
+            SetAnim(deadClip, 1);
+          else
+            SetAnim(dead2Clip, 1);
+        }
         dead = true;
         if (character.Controller != null)
           audio.volume = character.Controller.EffectsVolume;
