@@ -5,7 +5,9 @@ public class Vagonetka : MonoBehaviour
   [SerializeField] private float speed = 1;
   [SerializeField] private Transform hero = null;
   private float currSpeed = 0;
+  [SerializeField]
   private bool run = false;
+  private bool dead = false;
 
   private void OnTriggerEnter(Collider other)
   {
@@ -22,12 +24,13 @@ public class Vagonetka : MonoBehaviour
     {
       //hero.parent = null;
       //rigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
+      dead = true;
     }
   }
 
   private void Update () 
   {
-	  if (run)
+	  if (run && !dead)
 	  {
 	    if (currSpeed < speed)
         currSpeed += Time.deltaTime*0.99f;

@@ -234,9 +234,10 @@ public class UIProgressBar : UIWidgetContainer
 
 	protected void OnDragBackground (GameObject go, Vector2 delta)
 	{
-        joysticValue += delta;
-	      joysticValue.x = Mathf.Clamp(joysticValue.x, -100, 100);
-        joysticValue.y = Mathf.Clamp(joysticValue.y, -100, 100);
+    joysticValue += delta;
+	  joysticValue.x = Mathf.Clamp(joysticValue.x, -100, 100);
+    joysticValue.y = Mathf.Clamp(joysticValue.y, -100, 100);
+    
         mCam = UICamera.currentCamera;
 		Reposition(UICamera.lastTouchPosition);
 	}

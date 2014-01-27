@@ -41,7 +41,7 @@ public class UISlider : UIProgressBar
 	[System.Obsolete("Use 'fillDirection' instead")]
 	public bool inverted { get { return isInverted; } set { } }
 
-	/// <summary>
+  /// <summary>
 	/// Upgrade from legacy functionality.
 	/// </summary>
 

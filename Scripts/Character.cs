@@ -74,7 +74,7 @@ public class Character : MonoBehaviour
   /*[SerializeField]*/ private UISprite deadSprite = null;
   /*[SerializeField]*/ private Indicator helthIndicator = null;
   [SerializeField] private AudioClip failSound = null;
-  [SerializeField] private Controller controller = null;
+  private Controller controller = null;
   [SerializeField] private Transform hand = null;
   [SerializeField] private GameObject BlastPrefab = null;
   [SerializeField] private GameObject MolnyPrefab = null;
@@ -91,6 +91,7 @@ public class Character : MonoBehaviour
   [SerializeField] private ArmoGUI[] armosGUI = new ArmoGUI[5];
   [SerializeField] private GameObject[] armoObjs = new GameObject[4];
   [SerializeField] private float[] things = new float[3];//Aptek, GazMask, Bron
+  [SerializeField] private bool inverseXY = false;
   [SerializeField] private float visotaDown = 1;
   private float visotaUp = 1;
   [SerializeField] private float velocity = 0;
@@ -122,6 +123,7 @@ public class Character : MonoBehaviour
   private bool isSwiming = false;
   private bool useGazMask = false;
   private bool inGazZone = false;
+  
   
   public ThingGUI BronButton
   {
@@ -353,9 +355,21 @@ public class Character : MonoBehaviour
 
     if (!dead && !inStair && !act && jumpToStair == 0)
     {
-      if (Mathf.Abs(progressBar.joysticValue.x) > 30)
+      bool move = false;
+      float step = 0;
+      if (!inverseXY)
       {
-        float step = progressBar.joysticValue.x*0.01f*curSpeed;
+        move = Mathf.Abs(progressBar.joysticValue.x) > 30;
+        step = progressBar.joysticValue.x * 0.01f * curSpeed;
+      }
+      else
+      {
+        move = Mathf.Abs(progressBar.joysticValue.y) > 30;
+        step = progressBar.joysticValue.y * 0.01f * curSpeed;
+      }
+      if (move)
+      {
+        //float step = progressBar.joysticValue.x*0.01f*curSpeed;
         if (polzet || moveBoxAnim || isSwiming)
           step *= 0.25f;
         
@@ -376,7 +390,12 @@ public class Character : MonoBehaviour
         if (isSwiming)
           SetAnimCross(swimClip, Mathf.Abs(step * 4));
 
-        if (progressBar.joysticValue.x > 0 && !moveBoxAnim)
+        bool movef = false;
+        if (inverseXY)
+          movef = progressBar.joysticValue.y > 0;
+        else 
+          movef = progressBar.joysticValue.x > 0;
+        if (movef && !moveBoxAnim)
         {
           if (t.eulerAngles.y > 90)
             t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Max(90, t.eulerAngles.y - rotSpeed*Time.deltaTime), t.eulerAngles.z);
@@ -384,14 +403,14 @@ public class Character : MonoBehaviour
             t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Min(90, t.eulerAngles.y + rotSpeed * Time.deltaTime), t.eulerAngles.z);
         }
 
-        if (progressBar.joysticValue.x < 0 && !moveBoxAnim)
+        if (!movef && !moveBoxAnim)
         {
           if (t.eulerAngles.y < 270 && t.eulerAngles.y > 70)
             t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Min(270,t.eulerAngles.y + rotSpeed*Time.deltaTime), t.eulerAngles.z);
           else
             t.localRotation = Quaternion.Euler(t.eulerAngles.x, Mathf.Max(270,t.eulerAngles.y - rotSpeed * Time.deltaTime), t.eulerAngles.z);
         }
-      }
+      }//Idle
       else
       {
         if (!kulak && !jump && !shooting && !polzet)
@@ -638,7 +657,8 @@ public class Character : MonoBehaviour
   public void EndJump()
   {
     jump = false;
-    progressBar.joysticValue.y = 0;
+    if(!inverseXY)
+      progressBar.joysticValue.y = 0;
   }
   //==================================================================================================================
   public void Attack()
