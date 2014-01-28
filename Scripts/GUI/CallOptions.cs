@@ -11,11 +11,13 @@ public class CallOptions : MonoBehaviour
     {
       foreach (var aObjs in activeObjs)
       {
-        aObjs.SetActive(true);
+        if (aObjs != null)
+          aObjs.SetActive(true);
       }
       foreach (var aObjs in deactiveObjs)
       {
-        aObjs.SetActive(false);
+        if (aObjs != null) 
+          aObjs.SetActive(false);
       }
     }
 	}
