@@ -21,25 +21,21 @@ public class MonstrSoldat : MonoBehaviour
   [SerializeField] private GameObject blastPrefab = null;
   [SerializeField] private ParticleEmitter fire = null;
   [SerializeField] private GameObject gitara = null;
+  [SerializeField] private GameObject armoTrg = null;
   [SerializeField] private float uron = 5;
   [SerializeField] private float[] uronDist = new float[5];
   [SerializeField] private float[] uronMonstr = new float[5];
-  //[SerializeField] private bool addRpgForce = false;
-  //[SerializeField] private Vector3 boxColliderCenter = Vector3.zero;
-  //[SerializeField] private Vector3 boxColliderSize = Vector3.one * 0.4f;
   [SerializeField] private float rpgForceX = 250;
   [SerializeField] private float rpgForceY = 50;
   [SerializeField] private float runDist = 1;
   [SerializeField] private float attackDist = 0.2f;
   [SerializeField] private float speed = 0.6f;
-  //[SerializeField] private float height = 0;//Rat - 0, Bat - 0.3f
   private float minX = 0;
   private float maxX = 0;
   [SerializeField] private float leftZona = 1;
   [SerializeField] private float rightZona = 1;
   [SerializeField] private float rotSpeed = 300;
   [SerializeField] private float nearDist = 0.6f;//attack down
-  //[SerializeField] private bool winEnabled = false;
   private int isActive = 0;//1-vstaet
   private float zPos = 0;
   private bool isNear = false;
@@ -50,7 +46,6 @@ public class MonstrSoldat : MonoBehaviour
   private bool dead = false;
   private float helth = 100;
   private float distToChar = 10;
-  //private bool moveDown = false;
   private bool win = false;
   private float currWeight = 1.0f;
   private AnimationClip oldClip = null;
@@ -90,6 +85,14 @@ public class MonstrSoldat : MonoBehaviour
     becameInVisible.ExtiRender += ExtiRender;
     minX = t.position.x - leftZona;
     maxX = t.position.x + rightZona;
+    StartCoroutine(DisableTrg(0.1f));
+  }
+
+  private IEnumerator DisableTrg(float time)
+  {
+    yield return new WaitForSeconds(time);
+    if (armoTrg != null)
+      armoTrg.SetActive(false);
   }
 
   private void OnDestroy()
@@ -328,6 +331,14 @@ public class MonstrSoldat : MonoBehaviour
           Instantiate(blastPrefab, t.position + Vector3.up*0.25f, t.rotation);
         if (fire)
           fire.emit = false;
+        //Роняет оружие
+        if (armoTrg != null)
+        {
+          armoTrg.SetActive(true);
+          armoTrg.transform.parent = null;
+        }
+        if (fire != null)
+          fire.transform.parent.gameObject.SetActive(false);
       }
       else
       {
