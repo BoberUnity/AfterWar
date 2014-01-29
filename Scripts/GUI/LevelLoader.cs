@@ -10,7 +10,7 @@ public class LevelLoader : MonoBehaviour
   private int id = 0;
   private AsyncOperation async;
   private bool loading = false;
-  private bool startButtonActive = false;
+  //private bool startButtonActive = false;
 
   private void Start()
   {

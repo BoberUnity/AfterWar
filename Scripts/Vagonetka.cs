@@ -52,6 +52,7 @@ public class Vagonetka : MonoBehaviour
     currSpeed = 0;
     speed = 0;
     stalker.parent = null;
+    stalker.rigidbody.AddForce(20000,10000,0);
     transform.position = new Vector3(transform.position.x, 0.17f, transform.position.z);
     kolesoR1.AddComponent("BoxCollider");
     kolesoR1.AddComponent("Rigidbody");

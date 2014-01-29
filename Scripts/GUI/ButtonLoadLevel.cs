@@ -9,7 +9,7 @@ public class ButtonLoadLevel : MonoBehaviour
   //[SerializeField] private GameObject startButton = null;
   private AsyncOperation async;
   private bool loading = false;
-  private bool startButtonActive = false;
+  //private bool startButtonActive = false;
   
   public event Action<int> StartLoadLevel;
 
