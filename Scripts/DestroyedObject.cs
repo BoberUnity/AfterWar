@@ -65,4 +65,10 @@ public class DestroyedObject : MonoBehaviour
       }
     }
   }
+
+  public void Crash()
+  {
+    Instantiate(blastPrefab, transform.position, transform.rotation);
+    Destroy(gameObject);
+  }
 }

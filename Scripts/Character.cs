@@ -92,6 +92,7 @@ public class Character : MonoBehaviour
   [SerializeField] private GameObject[] armoObjs = new GameObject[4];
   [SerializeField] private float[] things = new float[3];//Aptek, GazMask, Bron
   [SerializeField] private bool inverseXY = false;
+  private float vagSpeed = 3;
   [SerializeField] private float visotaDown = 1;
   private float visotaUp = 1;
   [SerializeField] private float velocity = 0;
@@ -123,6 +124,7 @@ public class Character : MonoBehaviour
   private bool isSwiming = false;
   private bool useGazMask = false;
   private bool inGazZone = false;
+  private bool inerc = false;
   
   
   public ThingGUI BronButton
@@ -266,6 +268,15 @@ public class Character : MonoBehaviour
         Helth -= 301;
     }
   }
+
+  public float VagSpeed
+  {
+    set 
+    { 
+      vagSpeed = value;
+      inerc = true;
+    }
+  }
   //==================================================================================================================
 	void Start ()
 	{
@@ -284,7 +295,7 @@ public class Character : MonoBehaviour
     //isG = characterController.isGrounded;
     // ЛУЧИ -------------------------------
     RaycastHit[] hits;
-    hits = Physics.RaycastAll(t.position + Vector3.up * 0.3f, -Vector3.up, 100);
+    hits = Physics.RaycastAll(t.position + Vector3.up * 0.3f, -Vector3.up, 10);
     int i = 0;
     visotaDown = 100;
     while (i < hits.Length)
@@ -294,7 +305,7 @@ public class Character : MonoBehaviour
       i++;
     }
     //луч вверх (придавило лифтом)
-    hits = Physics.RaycastAll(t.position + Vector3.up * 0.3f, Vector3.up, 100);
+    hits = Physics.RaycastAll(t.position + Vector3.up * 0.3f, Vector3.up, 10);
     i = 0;
     visotaUp = 100;
     while (i < hits.Length)
@@ -423,6 +434,15 @@ public class Character : MonoBehaviour
           SetAnimCross(swimClip, 0.5f);
       }
     }
+    //Inerc
+    if (inerc)
+    {
+      characterController.Move(Vector3.right * Time.deltaTime * vagSpeed);
+      vagSpeed -= Time.deltaTime*5;
+      if (vagSpeed < 0)
+        inerc = false;
+    }
+
     //НА ЛЕСТНИЦЕ----------------------
     if (inStair)
     {
@@ -571,6 +591,14 @@ public class Character : MonoBehaviour
     if (other.gameObject.name == "Swim")
     {
       isSwiming = true;
+    }
+
+    if (other.gameObject.name == "Truba" && t.parent != null)
+    {
+      Helth -= 10;
+      other.animation.Play();
+      audio.clip = failSound;
+      audio.Play();
     }
 
     //if (other.gameObject.name == "Vrata")

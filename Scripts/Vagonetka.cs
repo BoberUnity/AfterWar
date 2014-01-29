@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
 public class Vagonetka : MonoBehaviour
 {
   [SerializeField] private float speed = 1;
-  [SerializeField] private Transform stalker = null;
-  //[SerializeField] private BoxCollider boxCollider = null;
+  [SerializeField] private float dynamic = 0.5f;
+  [SerializeField] private Character stalker = null;
   [SerializeField] private AudioClip crash = null;
   [SerializeField] private GameObject kolesoR1 = null;
   [SerializeField] private GameObject kolesoR2 = null;
@@ -20,19 +21,27 @@ public class Vagonetka : MonoBehaviour
   private void OnTriggerEnter(Collider other)
   {
     if (other.gameObject.name == "Stalker")
+    {
       run = true;
+      audio.Play();
+    }
     if (other.gameObject.name == "Vrata" || other.gameObject.name == "BochkaBenz")
     {
-      Crash();
+      //Crash();
+      currSpeed = 0;// Mathf.Max(1, currSpeed - 2);
+      stalker.Helth -= 10;
+      DestroyedObject destObj = other.gameObject.GetComponent<DestroyedObject>();
+      if (destObj != null)
+        destObj.Crash();
+      audio.clip = crash;
+      audio.loop = false;
+      audio.Play();
     }
 
     if (other.gameObject.name == "Dyra" && !dead)
     {
-      //hero.parent = null;
-      //rigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
       dead = true;
-      audio.clip = crash;
-      audio.Play();
+      Crash();
     }
   }
 
@@ -41,7 +50,7 @@ public class Vagonetka : MonoBehaviour
 	  if (run && !dead)
 	  {
 	    if (currSpeed < speed)
-        currSpeed += Time.deltaTime*0.99f;
+        currSpeed += Time.deltaTime * dynamic;
       transform.Translate(currSpeed*Time.deltaTime,0,0);
 	  }
 	}
@@ -49,11 +58,12 @@ public class Vagonetka : MonoBehaviour
   private void Crash()
   {
     run = false;
-    currSpeed = 0;
-    speed = 0;
-    stalker.parent = null;
-    stalker.rigidbody.AddForce(20000,10000,0);
-    transform.position = new Vector3(transform.position.x, 0.17f, transform.position.z);
+    //currSpeed = 0;
+    //speed = 0;
+    stalker.transform.parent = null;
+    stalker.VagSpeed = currSpeed;
+
+    transform.position = new Vector3(transform.position.x, 0.18f, transform.position.z);
     kolesoR1.AddComponent("BoxCollider");
     kolesoR1.AddComponent("Rigidbody");
     kolesoR1.rigidbody.AddForce(50, 50, -50);
@@ -67,6 +77,7 @@ public class Vagonetka : MonoBehaviour
     kolesoL2.AddComponent("Rigidbody");
     kolesoL2.rigidbody.AddForce(50, 50, 30);
     audio.clip = crash;
+    audio.loop = false;
     audio.Play();
   }
 }
