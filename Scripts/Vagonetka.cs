@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
 public class Vagonetka : MonoBehaviour
@@ -20,7 +19,7 @@ public class Vagonetka : MonoBehaviour
 
   private void OnTriggerEnter(Collider other)
   {
-    if (other.gameObject.name == "Stalker")
+    if (other.gameObject.name == "Stalker" && !run)
     {
       run = true;
       audio.Play();
