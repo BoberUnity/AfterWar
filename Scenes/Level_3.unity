@@ -2811,17 +2811,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: .791208804
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: 359.60437
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0
@@ -8054,6 +8054,7 @@ MonoBehaviour:
   rotSpeed: 500
   nearDist: .600000024
   winEnabled: 0
+  run: 0
 --- !u!82 &525337252
 AudioSource:
   m_ObjectHideFlags: 0
@@ -16896,7 +16897,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.14999998, y: 1.14999998, z: 1.14999998}
+  m_Size: {x: 1.04999995, y: 1.04999995, z: 1.04999995}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1076298749
 MeshFilter:
@@ -16913,8 +16914,8 @@ Transform:
   m_PrefabInternal: {fileID: 1519246141}
   m_GameObject: {fileID: 1076298743}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.05679941, y: 1.39815259, z: 0}
-  m_LocalScale: {x: .280000001, y: .280000001, z: .280000001}
+  m_LocalPosition: {x: -.914823294, y: 1.39815259, z: 0}
+  m_LocalScale: {x: .300000012, y: .300000012, z: .300000012}
   m_Children:
   - {fileID: 1820778319}
   m_Father: {fileID: 1293667978}
@@ -17694,15 +17695,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.x
-      value: .00277777785
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.y
-      value: .00277777785
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.z
-      value: .00277777785
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400548, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: fpsLabel
@@ -18139,17 +18140,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: 492.923065
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: -.395604402
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0
@@ -20945,17 +20946,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: .791208804
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: -360.395599
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0
@@ -21498,6 +21499,7 @@ MonoBehaviour:
   rotSpeed: 500
   nearDist: .600000024
   winEnabled: 0
+  run: 0
 --- !u!82 &1337398959
 AudioSource:
   m_ObjectHideFlags: 0
@@ -23293,6 +23295,7 @@ GameObject:
   - 23: {fileID: 1445656515}
   - 65: {fileID: 1445656514}
   - 114: {fileID: 1445656513}
+  - 111: {fileID: 1445656517}
   m_Layer: 8
   m_Name: DrobTrg
   m_TagString: Entity
@@ -23367,6 +23370,22 @@ MeshFilter:
   m_PrefabInternal: {fileID: 791476134}
   m_GameObject: {fileID: 1445656511}
   m_Mesh: {fileID: 4300000, guid: 694affbe544a02948b83c407746eecd5, type: 3}
+--- !u!111 &1445656517
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11100004, guid: bb7d1fce7eafc824ebe789079d7cb005,
+    type: 2}
+  m_PrefabInternal: {fileID: 791476134}
+  m_GameObject: {fileID: 1445656511}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: ed5351fe00450414f9a8aed617bf0bf2, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: ed5351fe00450414f9a8aed617bf0bf2, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1452137843
 GameObject:
   m_ObjectHideFlags: 0
@@ -24750,7 +24769,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400002, guid: d5025598da26f094fad0c079e22ffde9, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.05679941
+      value: -.914823294
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: d5025598da26f094fad0c079e22ffde9, type: 2}
       propertyPath: m_LocalPosition.y
@@ -24791,6 +24810,30 @@ Prefab:
     - target: {fileID: 100002, guid: d5025598da26f094fad0c079e22ffde9, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500002, guid: d5025598da26f094fad0c079e22ffde9, type: 2}
+      propertyPath: m_Size.x
+      value: 1.04999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500002, guid: d5025598da26f094fad0c079e22ffde9, type: 2}
+      propertyPath: m_Size.y
+      value: 1.04999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500002, guid: d5025598da26f094fad0c079e22ffde9, type: 2}
+      propertyPath: m_Size.z
+      value: 1.04999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: d5025598da26f094fad0c079e22ffde9, type: 2}
+      propertyPath: m_LocalScale.x
+      value: .300000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: d5025598da26f094fad0c079e22ffde9, type: 2}
+      propertyPath: m_LocalScale.y
+      value: .300000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: d5025598da26f094fad0c079e22ffde9, type: 2}
+      propertyPath: m_LocalScale.z
+      value: .300000012
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d5025598da26f094fad0c079e22ffde9, type: 2}
@@ -25311,11 +25354,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400176, guid: 9397f4a1aca4742438b2e4f0eaaec618, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -9.93558025
+      value: -9.96000004
       objectReference: {fileID: 0}
     - target: {fileID: 400176, guid: 9397f4a1aca4742438b2e4f0eaaec618, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.1381557
+      value: 1.14999998
       objectReference: {fileID: 0}
     - target: {fileID: 400176, guid: 9397f4a1aca4742438b2e4f0eaaec618, type: 2}
       propertyPath: m_LocalPosition.z
@@ -25352,6 +25395,10 @@ Prefab:
     - target: {fileID: 11400000, guid: 9397f4a1aca4742438b2e4f0eaaec618, type: 2}
       propertyPath: sensity
       value: .00999999978
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 9397f4a1aca4742438b2e4f0eaaec618, type: 2}
+      propertyPath: jumpHeight
+      value: 1.29999995
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9397f4a1aca4742438b2e4f0eaaec618, type: 2}
@@ -27236,7 +27283,7 @@ Transform:
   m_PrefabInternal: {fileID: 1560295707}
   m_GameObject: {fileID: 1666401510}
   m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: -9.93558025, y: 1.1381557, z: -2.353691e-07}
+  m_LocalPosition: {x: -9.96000004, y: 1.14999998, z: -2.353691e-07}
   m_LocalScale: {x: .230000004, y: .230000004, z: .230000004}
   m_Children:
   - {fileID: 402941921}
@@ -27361,7 +27408,7 @@ MonoBehaviour:
   rotSpeed: 580
   stairSpeed: .699999988
   gravSpeed: 4
-  jumpHeight: 1.5
+  jumpHeight: 1.29999995
   failHeight: 1.5
   patrons: 0000000000000000000000000000000000000000
   armosGUI:
@@ -27556,6 +27603,7 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: .5
   winEnabled: 0
+  run: 0
 --- !u!82 &1670878661
 AudioSource:
   m_ObjectHideFlags: 0
@@ -27789,17 +27837,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: .00125000009
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: -.00124999997
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0
@@ -28103,6 +28151,7 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: 0
   winEnabled: 0
+  run: 0
 --- !u!82 &1676511837
 AudioSource:
   m_ObjectHideFlags: 0
@@ -29073,7 +29122,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1759952945
 Transform:
   m_ObjectHideFlags: 0
@@ -31236,6 +31285,7 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: .600000024
   winEnabled: 0
+  run: 0
 --- !u!82 &1892031864
 AudioSource:
   m_ObjectHideFlags: 0
@@ -32961,7 +33011,7 @@ Transform:
   m_GameObject: {fileID: 1978581601}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .00277777785, y: .00277777785, z: .00277777785}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 125284557}
   m_Father: {fileID: 0}

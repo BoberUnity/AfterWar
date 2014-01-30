@@ -57,7 +57,7 @@ Transform:
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.05679941, y: 1.39815259, z: 0}
-  m_LocalScale: {x: .280000001, y: .280000001, z: .280000001}
+  m_LocalScale: {x: .300000012, y: .300000012, z: .300000012}
   m_Children:
   - {fileID: 400000}
   m_Father: {fileID: 0}
@@ -126,7 +126,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.14999998, y: 1.14999998, z: 1.14999998}
+  m_Size: {x: 1.04999995, y: 1.04999995, z: 1.04999995}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &8200000
 AudioSource:
@@ -198,7 +198,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 0}
-  dist: .400000006
   fixDist: .370000005
 --- !u!114 &11400002
 MonoBehaviour:
@@ -214,6 +213,7 @@ MonoBehaviour:
   character: {fileID: 0}
   blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
   rpgFofce: 2000
+  destroyed: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

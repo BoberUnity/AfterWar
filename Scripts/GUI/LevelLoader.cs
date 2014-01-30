@@ -6,6 +6,7 @@ public class LevelLoader : MonoBehaviour
   [SerializeField] private UILabel loadingText = null;
   [SerializeField] private UILabel loadingProgress = null;
   [SerializeField] private GameObject startButton = null;
+  [SerializeField] private GameObject animLoad = null;
   [SerializeField] private ButtonLoadLevel[] buttonLoadLevels = null;
   private int id = 0;
   private AsyncOperation async;
@@ -56,6 +57,8 @@ public class LevelLoader : MonoBehaviour
           loadingProgress.gameObject.SetActive(false);
         if (startButton != null)
           startButton.SetActive(true);
+        if (animLoad != null)
+          animLoad.SetActive(false);
         Destroy(gameObject);
       }
       //loadAnim[loadAnim.clip.name].time = async.progress;
