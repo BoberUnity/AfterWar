@@ -25,7 +25,6 @@ public class Monstr : MonoBehaviour
   [SerializeField] private float uron = 5;
   [SerializeField] private float[] uronDist = new float[5];
   [SerializeField] private float[] uronMonstr = new float[5];
-  //[SerializeField] private bool addRpgForce = false;
   [SerializeField] private Vector3 boxColliderCenter = Vector3.zero;
   [SerializeField] private Vector3 boxColliderSize = Vector3.one*0.4f;
   [SerializeField] private float rpgForceX = 350;
@@ -47,6 +46,7 @@ public class Monstr : MonoBehaviour
   private Transform t = null;
   private Transform characterT = null;
   private BoxCollider trigger = null;
+  [SerializeField]
   private bool run = false;
   private bool att = false;
   private bool dead = false;

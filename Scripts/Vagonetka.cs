@@ -16,6 +16,7 @@ public class Vagonetka : MonoBehaviour
   private float currSpeed = 0;
   private bool run = false;
   private bool dead = false;
+  //private bool fullVolume = false;
 
   private void OnTriggerEnter(Collider other)
   {
@@ -24,10 +25,11 @@ public class Vagonetka : MonoBehaviour
       run = true;
       audioSourceLoop.Play();
     }
+
     if (other.gameObject.name == "Vrata" || other.gameObject.name == "BochkaBenz")
     {
-      //Crash();
-      currSpeed = currSpeed/2;// Mathf.Max(1, currSpeed - 2);
+      currSpeed = currSpeed/2;
+      //fullVolume = false;
       stalker.Helth -= 10;
       DestroyedObject destObj = other.gameObject.GetComponent<DestroyedObject>();
       if (destObj != null)
@@ -51,6 +53,10 @@ public class Vagonetka : MonoBehaviour
 	    if (currSpeed < speed)
         currSpeed += Time.deltaTime * dynamic;
       transform.Translate(currSpeed*Time.deltaTime,0,0);
+      if (currSpeed < speed)
+      {
+        audioSourceLoop.volume = currSpeed/speed;
+      }
 	  }
 	}
 
