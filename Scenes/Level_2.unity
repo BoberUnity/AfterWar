@@ -1434,8 +1434,6 @@ MonoBehaviour:
   minY: -100
   maxY: 100
   camDist: 1.39999998
-  minDist: .699999988
-  maxDist: 2
   camHeight: .5
   follow: 0
   charRotY: 240
@@ -4417,8 +4415,6 @@ MonoBehaviour:
   minY: -.150000006
   maxY: 100
   camDist: 2
-  minDist: .699999988
-  maxDist: 3
   camHeight: .5
   follow: 1
   charRotY: 190
@@ -9993,17 +9989,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: .791208804
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: -360.395599
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0
@@ -17306,8 +17302,6 @@ MonoBehaviour:
   minY: -100
   maxY: 100
   camDist: 1.39999998
-  minDist: .699999988
-  maxDist: 2
   camHeight: .5
   follow: 0
   charRotY: 270
@@ -26840,17 +26834,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: .791208804
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: 359.60437
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0
@@ -32502,6 +32496,10 @@ Prefab:
       propertyPath: maxY
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9397f4a1aca4742438b2e4f0eaaec618, type: 2}
+      propertyPath: camDist
+      value: 2.4000001
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9397f4a1aca4742438b2e4f0eaaec618, type: 2}
   m_RootGameObject: {fileID: 1404807471}
@@ -32873,8 +32871,6 @@ MonoBehaviour:
   minY: -.150000006
   maxY: 100
   camDist: 2
-  minDist: .699999988
-  maxDist: 3
   camHeight: .5
   follow: 1
   charRotY: 190
@@ -34731,8 +34727,6 @@ MonoBehaviour:
   minY: -100
   maxY: 100
   camDist: 1.39999998
-  minDist: .699999988
-  maxDist: 1.79999995
   camHeight: .5
   follow: 0
   charRotY: 230
@@ -40991,13 +40985,11 @@ MonoBehaviour:
   character: {fileID: 1404807472}
   cam: {fileID: 311619483}
   fonar: {fileID: 541636030}
-  minDist: .699999988
-  maxDist: 3
   sensity: .000500000024
   camSpeed: 3
   fonarHeight: .5
   fonarDist: .5
-  camDist: 2
+  camDist: 2.4000001
   camHeight: .5
   minX: .100000001
   maxX: 33.4000015
@@ -41005,8 +40997,8 @@ MonoBehaviour:
   maxY: 100
   backX: 0
   follow: 1
-  distL: 10
-  distR: 10
+  minView: 30
+  maxView: 80
 --- !u!143 &1404807475
 CharacterController:
   m_ObjectHideFlags: 0
@@ -43533,17 +43525,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: .00125000009
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: -.00124999997
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0
@@ -44254,8 +44246,6 @@ MonoBehaviour:
   minY: -.150000006
   maxY: 100
   camDist: 2
-  minDist: .699999988
-  maxDist: 3
   camHeight: .5
   follow: 1
   charRotY: 190
@@ -47116,17 +47106,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: 492.923065
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: -.395604402
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0

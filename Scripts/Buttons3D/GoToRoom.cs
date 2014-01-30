@@ -12,8 +12,8 @@ namespace Assets.Scripts.Buttons3D
     [SerializeField] private float minY = -100;
     [SerializeField] private float maxY = 100;
     [SerializeField] private float camDist = 1.4f;
-    [SerializeField] private float minDist = 0.7f;
-    [SerializeField] private float maxDist = 2;
+    //[SerializeField] private float minDist = 0.7f;
+    //[SerializeField] private float maxDist = 2;
     [SerializeField] private float camHeight = 0.5f;
     [SerializeField] private bool follow = false;
     [SerializeField] private float charRotY = 270;
@@ -44,8 +44,8 @@ namespace Assets.Scripts.Buttons3D
       cameraController.MinY = minY;
       cameraController.MaxY = maxY;
       cameraController.CamDist = camDist;
-      cameraController.MinDist = minDist;
-      cameraController.MaxDist = maxDist;
+      //cameraController.MinDist = minDist;
+      //cameraController.MaxDist = maxDist;
       cameraController.CamHeight = camHeight;
       cameraController.Follow = follow;
       cameraController.CamTrans.position = new Vector3(Mathf.Clamp(cameraController.CamTrans.position.x, minX, maxX), Mathf.Clamp(y + camHeight, minY, maxY), -camDist);

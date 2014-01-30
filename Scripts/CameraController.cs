@@ -5,8 +5,8 @@ public class CameraController : MonoBehaviour
   [SerializeField] private Character character = null;
   [SerializeField] private Transform cam = null;
   [SerializeField] private Transform fonar = null;
-  [SerializeField] private float minDist = 0.6f;
-  [SerializeField] private float maxDist = 3.5f;
+  //[SerializeField] private float minDist = 0.6f;
+  //[SerializeField] private float maxDist = 3.5f;
   [SerializeField] private float sensity = 0.002f;//чувств
   [SerializeField] private float camSpeed = 0;
   [SerializeField] private float fonarHeight = 0.5f;
@@ -24,11 +24,9 @@ public class CameraController : MonoBehaviour
   [SerializeField] private float maxY = 100;
   [SerializeField] private float backX = 0;
   [SerializeField] private bool follow = true;
-  [SerializeField]
-  private float distL = 10;
-  [SerializeField]
-  private float distR = 10;
-
+  [SerializeField] private float minView = 30;
+  [SerializeField] private float maxView = 80;
+  private float view = 60;
   private bool stop = false;
   private bool stopR = false;
 
@@ -57,15 +55,15 @@ public class CameraController : MonoBehaviour
     set { camDist = value; }
   }
 
-  public float MinDist
-  {
-    set { minDist = value; }
-  }
+  //public float MinDist
+  //{
+  //  set { minDist = value; }
+  //}
 
-  public float MaxDist
-  {
-    set { maxDist = value; }
-  }
+  //public float MaxDist
+  //{
+  //  set { maxDist = value; }
+  //}
 
   public float MaxY
   {
@@ -97,79 +95,25 @@ public class CameraController : MonoBehaviour
       distance = Vector2.Distance(myTouch.position, myTouch2.position);
       if (distanceStart < 1)
         distanceStart = distance;
-      camDist += (distanceStart - distance) * sensity;
-      camDist = Mathf.Clamp(camDist, minDist, maxDist);
+      //camDist += (distanceStart - distance) * sensity;
+      //camDist = Mathf.Clamp(camDist, minDist, maxDist);
+      view += (distanceStart - distance) * sensity;
+      view = Mathf.Clamp(view, minView, maxView);
 	  }
 	  else
 	  {
 	    distanceStart = 0;
 	  }
 
-    RaycastHit[] hits;
-    hits = Physics.RaycastAll(cam.position - Vector3.right*0.2f, Vector3.right, 0.2f);
-    int i = 0;
-    distL = 100;
-    while (i < hits.Length)
-    {
-      RaycastHit hit = hits[i];
-      distL = Mathf.Min(hit.distance, distL);
-      i++;
-    }
-    distL = 0.2f - distL;
-
-    hits = Physics.RaycastAll(cam.position + Vector3.right * 0.2f, -Vector3.right, 0.2f);
-    i = 0;
-    distR = 100;
-    while (i < hits.Length)
-    {
-      RaycastHit hit = hits[i];
-      distR = Mathf.Min(hit.distance, distR);
-      i++;
-    }
-	  distR = 0.2f - distR;
-    
-    /*if (distL > 0)
-    {
-      stop = true;
-    }
-	  float raznicaX = cam.position.x - transform.position.x;
-    if (raznicaX < 0)
-    {
-      stop = false;
-    }
-    if (raznicaX > 0.4f)
-    {
-      cam.position -= Vector3.right*0.4f;
-      stop = false;
-    }
-    if (distR > 0)
-    {
-      stopR = true;
-    }
-
-    if (raznicaX > 0)
-    {
-      stopR = false;
-    }
-    if (raznicaX < -0.4f)
-    {
-      cam.position += Vector3.right * 0.4f;
-      stopR = false;
-    }*/
-
-
-    //if (distR < 0.3f)
-    //  backX = -(0.3f - distR);
-    //if (distL > 0.3f && distR > 0.3f)
-    //  backX = 0;
     if (!stop && !stopR)
     {
       plrPos = new Vector3(transform.position.x - backX, transform.position.y + camHeight, -camDist);
       if (follow)
-        cam.forward = Vector3.Lerp(cam.forward, transform.position - cam.position, Time.deltaTime * camSpeed);
+        cam.forward = Vector3.Lerp(cam.forward, transform.position+Vector3.up*0.35f - cam.position, Time.deltaTime * camSpeed);
       cam.position = Vector3.Lerp(cam.position, plrPos, Time.deltaTime * camSpeed);
       cam.position = new Vector3(Mathf.Clamp(cam.position.x, minX, maxX), Mathf.Clamp(cam.position.y, minY, maxY), cam.position.z);
       fonar.position = new Vector3(transform.position.x, transform.position.y + fonarHeight, -fonarDist);
+      cam.camera.fieldOfView = view;
     }
 	}
 

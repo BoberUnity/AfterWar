@@ -6257,8 +6257,6 @@ MonoBehaviour:
   minY: -100
   maxY: 100
   camDist: 1.39999998
-  minDist: .699999988
-  maxDist: 2
   camHeight: .5
   follow: 0
   charRotY: 270
@@ -8620,8 +8618,6 @@ MonoBehaviour:
   minY: -100
   maxY: 100
   camDist: 1.39999998
-  minDist: .699999988
-  maxDist: 2
   camHeight: .5
   follow: 0
   charRotY: 270
@@ -9914,8 +9910,6 @@ MonoBehaviour:
   minY: -100
   maxY: 100
   camDist: 1.39999998
-  minDist: .699999988
-  maxDist: 2
   camHeight: .5
   follow: 0
   charRotY: 270
@@ -15236,8 +15230,6 @@ MonoBehaviour:
   minY: -100
   maxY: 100
   camDist: 1.39999998
-  minDist: .699999988
-  maxDist: 2
   camHeight: .5
   follow: 0
   charRotY: 270
@@ -25355,7 +25347,7 @@ Prefab:
       objectReference: {fileID: 718023789}
     - target: {fileID: 11400000, guid: 9397f4a1aca4742438b2e4f0eaaec618, type: 2}
       propertyPath: camDist
-      value: 1.60000002
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9397f4a1aca4742438b2e4f0eaaec618, type: 2}
@@ -27262,13 +27254,11 @@ MonoBehaviour:
   character: {fileID: 1666401515}
   cam: {fileID: 1965746810}
   fonar: {fileID: 718023789}
-  minDist: .699999988
-  maxDist: 3
   sensity: .000500000024
   camSpeed: 3
   fonarHeight: .5
   fonarDist: .5
-  camDist: 1.60000002
+  camDist: 2
   camHeight: .5
   minX: -20.7000008
   maxX: 32
@@ -27276,8 +27266,8 @@ MonoBehaviour:
   maxY: 3.75
   backX: 0
   follow: 1
-  distL: 10
-  distR: 10
+  minView: 30
+  maxView: 80
 --- !u!143 &1666401514
 CharacterController:
   m_ObjectHideFlags: 0

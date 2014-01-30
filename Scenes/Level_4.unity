@@ -1135,11 +1135,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 9397f4a1aca4742438b2e4f0eaaec618, type: 2}
       propertyPath: camDist
-      value: 1.20000005
+      value: 1.79999995
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 9397f4a1aca4742438b2e4f0eaaec618, type: 2}
       propertyPath: maxDist
       value: 1.79999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9397f4a1aca4742438b2e4f0eaaec618, type: 2}
+      propertyPath: fonarHeight
+      value: .400000006
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9397f4a1aca4742438b2e4f0eaaec618, type: 2}
@@ -17706,13 +17710,11 @@ MonoBehaviour:
   character: {fileID: 1666401515}
   cam: {fileID: 1965746810}
   fonar: {fileID: 718023789}
-  minDist: .699999988
-  maxDist: 1.79999995
   sensity: .000500000024
   camSpeed: 3
-  fonarHeight: .5
+  fonarHeight: .400000006
   fonarDist: .5
-  camDist: 1.20000005
+  camDist: 1.79999995
   camHeight: .5
   minX: -110.699997
   maxX: 110
@@ -17720,8 +17722,8 @@ MonoBehaviour:
   maxY: 10.75
   backX: 0
   follow: 1
-  distL: 10
-  distR: 10
+  minView: 30
+  maxView: 80
 --- !u!143 &1666401514
 CharacterController:
   m_ObjectHideFlags: 0
@@ -17788,7 +17790,7 @@ MonoBehaviour:
     armoRun: {fileID: 7400008, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
     armoIdle: {fileID: 7400018, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
     shootParticle: {fileID: 2044768147}
-    armoClip: {fileID: 8300000, guid: fdf7f2f21d998f648841d6cafb045db4, type: 3}
+    armoClip: {fileID: 8300000, guid: c80b078010c94b145b88371250c678fe, type: 3}
     animSpeed: .5
   jumpClip: {fileID: 7400010, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
   deadClip: {fileID: 7400030, guid: dba1132e874a2ea469b0cc727b580375, type: 3}
