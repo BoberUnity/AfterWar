@@ -6,6 +6,8 @@ public class Vagonetka : MonoBehaviour
   [SerializeField] private float speed = 1;
   [SerializeField] private float dynamic = 0.5f;
   [SerializeField] private Character stalker = null;
+  [SerializeField] private AudioSource audioSourceOnce = null;
+  [SerializeField] private AudioSource audioSourceLoop = null;
   [SerializeField] private AudioClip crash = null;
   [SerializeField] private GameObject kolesoR1 = null;
   [SerializeField] private GameObject kolesoR2 = null;
@@ -15,26 +17,24 @@ public class Vagonetka : MonoBehaviour
   private bool run = false;
   private bool dead = false;
 
-  
-
   private void OnTriggerEnter(Collider other)
   {
-    if (other.gameObject.name == "Stalker" && !run)
+    if (other.gameObject.name == "Stalker" && !run && !dead)
     {
       run = true;
-      audio.Play();
+      audioSourceLoop.Play();
     }
     if (other.gameObject.name == "Vrata" || other.gameObject.name == "BochkaBenz")
     {
       //Crash();
-      currSpeed = 0;// Mathf.Max(1, currSpeed - 2);
+      currSpeed = currSpeed/2;// Mathf.Max(1, currSpeed - 2);
       stalker.Helth -= 10;
       DestroyedObject destObj = other.gameObject.GetComponent<DestroyedObject>();
       if (destObj != null)
         destObj.Crash();
-      audio.clip = crash;
-      audio.loop = false;
-      audio.Play();
+      audioSourceOnce.clip = crash;
+      audioSourceOnce.loop = false;
+      audioSourceOnce.Play();
     }
 
     if (other.gameObject.name == "Dyra" && !dead)
@@ -75,8 +75,9 @@ public class Vagonetka : MonoBehaviour
     kolesoL2.AddComponent("BoxCollider");
     kolesoL2.AddComponent("Rigidbody");
     kolesoL2.rigidbody.AddForce(50, 50, 30);
-    audio.clip = crash;
-    audio.loop = false;
-    audio.Play();
+    audioSourceLoop.Stop();
+    audioSourceOnce.clip = crash;
+    audioSourceOnce.loop = false;
+    audioSourceOnce.Play();
   }
 }
