@@ -2111,6 +2111,10 @@ Prefab:
       propertyPath: armo.Array.data[4].armoClip
       value: 
       objectReference: {fileID: 8300000, guid: c80b078010c94b145b88371250c678fe, type: 3}
+    - target: {fileID: 11400000, guid: 9397f4a1aca4742438b2e4f0eaaec618, type: 2}
+      propertyPath: sensity
+      value: .00999999978
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9397f4a1aca4742438b2e4f0eaaec618, type: 2}
   m_RootGameObject: {fileID: 1666401510}
@@ -27057,9 +27061,7 @@ MonoBehaviour:
   character: {fileID: 1666401515}
   cam: {fileID: 1965746810}
   fonar: {fileID: 718023789}
-  minDist: .699999988
-  maxDist: 1.79999995
-  sensity: .000500000024
+  sensity: .00999999978
   camSpeed: 3
   fonarHeight: .5
   fonarDist: .5
@@ -27071,8 +27073,8 @@ MonoBehaviour:
   maxY: 10.75
   backX: 1.27999997
   follow: 1
-  distL: 10
-  distR: 10
+  minView: 30
+  maxView: 80
 --- !u!143 &1666401514
 CharacterController:
   m_ObjectHideFlags: 0

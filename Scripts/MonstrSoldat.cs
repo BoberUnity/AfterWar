@@ -49,6 +49,8 @@ public class MonstrSoldat : MonoBehaviour
   private bool win = false;
   private float currWeight = 1.0f;
   private AnimationClip oldClip = null;
+  private bool armoShowing = false;
+  private float a = 0;
 
 	
 	private void Attack()
@@ -259,6 +261,17 @@ public class MonstrSoldat : MonoBehaviour
       anim[anim.clip.name].weight = currWeight;
       anim[oldClip.name].weight = 1 - currWeight;
     }
+    //Появление отобранного оружия
+    if (armoShowing)
+    {
+      a += Time.deltaTime;
+      if (a > 1)
+      {
+        a = 1;
+        armoShowing = false;
+      }
+      armoTrg.renderer.material.color = new Color(1,1,1,a);
+    }
   }
   //--------------------------------------------------------------------------------------------------
   private void CharacterAttack(int armo)
@@ -336,6 +349,8 @@ public class MonstrSoldat : MonoBehaviour
         {
           armoTrg.SetActive(true);
           armoTrg.transform.parent = null;
+          armoTrg.animation.Play();
+          armoShowing = true;
         }
         if (fire != null)
           fire.transform.parent.gameObject.SetActive(false);
@@ -349,6 +364,7 @@ public class MonstrSoldat : MonoBehaviour
         audio.Play();
       }
     }
+    
   }
 
   private IEnumerator ReleaseGitara(float time)
