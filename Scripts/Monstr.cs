@@ -30,6 +30,7 @@ public class Monstr : MonoBehaviour
   [SerializeField] private float rpgForceX = 350;
   [SerializeField] private float rpgForceY = 50;
   [SerializeField] private float runDist = 1;
+  [SerializeField] private float jumpDist = 1;
   [SerializeField] private float attackDist = 0.2f;
   [SerializeField] private float speed = 0.6f;
   [SerializeField] private float height = 0;//Rat - 0, Bat - 0.3f
@@ -39,6 +40,8 @@ public class Monstr : MonoBehaviour
   [SerializeField] private float rotSpeed = 300;
   [SerializeField] private float nearDist = 0.6f;//attack down
   [SerializeField] private bool winEnabled = false;
+  [SerializeField] private bool railway = false;
+  [SerializeField] private Vector3 jumpForce = new Vector3(250,100,0);
   private float minX = 0;
   private float maxX = 0;
   private float zPos = 0;
@@ -46,7 +49,6 @@ public class Monstr : MonoBehaviour
   private Transform t = null;
   private Transform characterT = null;
   private BoxCollider trigger = null;
-  [SerializeField]
   private bool run = false;
   private bool att = false;
   private bool dead = false;
@@ -56,6 +58,9 @@ public class Monstr : MonoBehaviour
   private bool win = false;
   private float currWeight = 1.0f;
   private AnimationClip oldClip = null;
+  private bool follow = false;
+  private bool jump = false;
+	
 	
 	private void Attack()
 	{
@@ -74,6 +79,25 @@ public class Monstr : MonoBehaviour
         fire.emit = true;
     }
 	}
+
+  private void Jump()
+  {
+    if (gameObject.GetComponent<Rigidbody>() == null)
+    {
+      gameObject.AddComponent("Rigidbody");
+      rigidbody.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationZ;
+    }
+    rigidbody.AddForce(jumpForce.x, jumpForce.y, jumpForce.z);
+    jump = true;
+    //StartCoroutine(JumpEnable(0.7f));
+    Debug.LogWarning("Rig "+Time.time);
+  }
+
+  private IEnumerator JumpEnable(float time)
+  {
+    yield return new WaitForSeconds(time);
+    jump = false;
+  }
 
   private void Start()
   {
@@ -99,6 +123,15 @@ public class Monstr : MonoBehaviour
   private void Update()
   {
     float heigToChar = Mathf.Abs(t.position.y - characterT.position.y - height);//разница по высоте с персонажем
+    if (railway && !follow)
+    {
+      heigToChar = 1;
+      if (characterT.position.x > t.position.x + 1.5f)
+      {
+        heigToChar = 0;
+        follow = true;
+      }
+    }
 
     if (heigToChar < 0.3f && characterT.position.x > minX && characterT.position.x < maxX && !dead)
     {
@@ -209,6 +242,12 @@ public class Monstr : MonoBehaviour
           character.NearMonstr -= 1;
       }
 
+      if (distToChar < jumpDist && !jump)
+      {
+        if (railway)
+          Jump();
+      }
+
       if (distToChar < attackDist && !att)
       {
         run = false;
@@ -219,7 +258,10 @@ public class Monstr : MonoBehaviour
       if (distToChar < attackDist-0.05f && !winEnabled)//для людей отключим движение назад
         t.Translate(-Vector3.forward * Time.deltaTime * speed);
 
-      t.position = new Vector3(t.position.x, t.position.y, zPos);
+      if (railway) 
+        t.position = new Vector3(t.position.x, t.position.y, 0);
+      else
+        t.position = new Vector3(t.position.x, t.position.y, zPos);
     }
     else
     {
