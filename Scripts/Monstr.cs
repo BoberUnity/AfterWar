@@ -242,10 +242,14 @@ public class Monstr : MonoBehaviour
           character.NearMonstr -= 1;
       }
 
-      if (distToChar < jumpDist && !jump)
+      if (railway)
       {
-        if (railway)
-          Jump();
+        if (characterT.parent != null)
+        {
+          float distToVagonetka = Vector3.Distance(t.position, characterT.parent.position);
+          if (distToVagonetka < jumpDist && !jump)
+            Jump();
+        }
       }
 
       if (distToChar < attackDist && !att)
@@ -336,6 +340,7 @@ public class Monstr : MonoBehaviour
             boxCollider.center = boxColliderCenter;//new Vector3(0, 0.15f, -0.8f);
             boxCollider.size = boxColliderSize;//new Vector3(0.3f, 0.3f, 1.8f);
           }
+          if (rigidbody == null)
           gameObject.AddComponent("Rigidbody");
           if (rigidbody != null)
           {
