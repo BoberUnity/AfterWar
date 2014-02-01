@@ -126,7 +126,7 @@ public class Monstr : MonoBehaviour
     if (railway && !follow)
     {
       heigToChar = 1;
-      if (characterT.position.x > t.position.x + 1.5f)
+      if (characterT.position.x > t.position.x + 1.7f)
       {
         heigToChar = 0;
         follow = true;
