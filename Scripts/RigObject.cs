@@ -3,8 +3,6 @@
 public class RigObject : MonoBehaviour 
 {
   [SerializeField] private Character character = null;
-  [SerializeField] private PhysicMaterial ice = null;
-  [SerializeField] private PhysicMaterial noMove = null;
   [SerializeField] private GameObject blastPrefab = null;
   [SerializeField] private float rpgFofce = 2000;
   [SerializeField] private bool destroyed = false;

@@ -102,6 +102,8 @@ namespace Assets.Scripts.Buttons3D
       isFix = false;
       character.MoveBoxAnim = false;
       t.parent.GetComponent<BoxCollider>().material = noMove;
+      moveRight = false;
+      moveLeft = false;
     }
 
     private void CharacterAttack(int armo)
