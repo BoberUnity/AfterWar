@@ -3268,6 +3268,7 @@ MonoBehaviour:
   rpgForceX: 100
   rpgForceY: 50
   runDist: 1.5
+  jumpDist: 1
   attackDist: .25
   speed: .100000001
   height: 0
@@ -3277,7 +3278,8 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: 0
   winEnabled: 0
-  run: 0
+  railway: 0
+  jumpForce: {x: 250, y: 100, z: 0}
 --- !u!82 &124887131
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5051,8 +5053,8 @@ Transform:
 --- !u!1 &190304707
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 100000, guid: 949d26868d38d8344b308789f2b13f00, type: 2}
+  m_PrefabInternal: {fileID: 1222488959}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 190304712}
@@ -5070,8 +5072,9 @@ GameObject:
 --- !u!114 &190304708
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 11400000, guid: 949d26868d38d8344b308789f2b13f00,
+    type: 2}
+  m_PrefabInternal: {fileID: 1222488959}
   m_GameObject: {fileID: 190304707}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -5085,8 +5088,9 @@ MonoBehaviour:
 --- !u!23 &190304709
 Renderer:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 2300000, guid: 949d26868d38d8344b308789f2b13f00,
+    type: 2}
+  m_PrefabInternal: {fileID: 1222488959}
   m_GameObject: {fileID: 190304707}
   m_Enabled: 1
   m_CastShadows: 1
@@ -5106,8 +5110,9 @@ Renderer:
 --- !u!64 &190304710
 MeshCollider:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 6400000, guid: 949d26868d38d8344b308789f2b13f00,
+    type: 2}
+  m_PrefabInternal: {fileID: 1222488959}
   m_GameObject: {fileID: 190304707}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -5119,15 +5124,16 @@ MeshCollider:
 --- !u!33 &190304711
 MeshFilter:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 3300000, guid: 949d26868d38d8344b308789f2b13f00,
+    type: 2}
+  m_PrefabInternal: {fileID: 1222488959}
   m_GameObject: {fileID: 190304707}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &190304712
 Transform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 400000, guid: 949d26868d38d8344b308789f2b13f00, type: 2}
+  m_PrefabInternal: {fileID: 1222488959}
   m_GameObject: {fileID: 190304707}
   m_LocalRotation: {x: -.5, y: -.5, z: .5, w: .5}
   m_LocalPosition: {x: .419999987, y: .540000021, z: .395480633}
@@ -17776,6 +17782,7 @@ MonoBehaviour:
   rpgForceX: 100
   rpgForceY: 50
   runDist: 1.5
+  jumpDist: 1
   attackDist: .25
   speed: .100000001
   height: 0
@@ -17785,7 +17792,8 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: 0
   winEnabled: 0
-  run: 0
+  railway: 0
+  jumpForce: {x: 250, y: 100, z: 0}
 --- !u!82 &618081153
 AudioSource:
   m_ObjectHideFlags: 0
@@ -34160,6 +34168,7 @@ MonoBehaviour:
   rpgForceX: 100
   rpgForceY: 50
   runDist: 1.5
+  jumpDist: 1
   attackDist: .25
   speed: .100000001
   height: 0
@@ -34169,7 +34178,8 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: 0
   winEnabled: 0
-  run: 0
+  railway: 0
+  jumpForce: {x: 250, y: 100, z: 0}
 --- !u!82 &1152614796
 AudioSource:
   m_ObjectHideFlags: 0
@@ -36245,6 +36255,46 @@ Prefab:
   m_RootGameObject: {fileID: 1129865111}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1001 &1222488959
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 949d26868d38d8344b308789f2b13f00, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: .419999987
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 949d26868d38d8344b308789f2b13f00, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .540000021
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 949d26868d38d8344b308789f2b13f00, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: .395480633
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 949d26868d38d8344b308789f2b13f00, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 949d26868d38d8344b308789f2b13f00, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 949d26868d38d8344b308789f2b13f00, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 949d26868d38d8344b308789f2b13f00, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: .5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 949d26868d38d8344b308789f2b13f00, type: 2}
+  m_RootGameObject: {fileID: 190304707}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1001 &1223541593
 Prefab:
   m_ObjectHideFlags: 0
@@ -37466,6 +37516,7 @@ MonoBehaviour:
   rpgForceX: 50
   rpgForceY: 110
   runDist: 1.79999995
+  jumpDist: 1
   attackDist: .300000012
   speed: .600000024
   height: 0
@@ -37475,7 +37526,8 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: .600000024
   winEnabled: 0
-  run: 0
+  railway: 0
+  jumpForce: {x: 250, y: 100, z: 0}
 --- !u!82 &1270304156
 AudioSource:
   m_ObjectHideFlags: 0
@@ -46219,6 +46271,7 @@ MonoBehaviour:
   rpgForceX: 150
   rpgForceY: 50
   runDist: 2
+  jumpDist: 1
   attackDist: .349999994
   speed: .300000012
   height: .300000012
@@ -46228,7 +46281,8 @@ MonoBehaviour:
   rotSpeed: 500
   nearDist: .600000024
   winEnabled: 0
-  run: 0
+  railway: 0
+  jumpForce: {x: 250, y: 100, z: 0}
 --- !u!82 &1561828313
 AudioSource:
   m_ObjectHideFlags: 0
@@ -47211,7 +47265,7 @@ Transform:
   m_GameObject: {fileID: 1594113642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .00277777785, y: .00277777785, z: .00277777785}
   m_Children:
   - {fileID: 353684337}
   m_Father: {fileID: 0}
@@ -48540,6 +48594,7 @@ MonoBehaviour:
   rpgForceX: 150
   rpgForceY: 10
   runDist: 1
+  jumpDist: 1
   attackDist: .280000001
   speed: 0
   height: 0
@@ -48549,7 +48604,8 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: .5
   winEnabled: 0
-  run: 0
+  railway: 0
+  jumpForce: {x: 250, y: 100, z: 0}
 --- !u!82 &1623490912
 AudioSource:
   m_ObjectHideFlags: 0
@@ -56712,15 +56768,15 @@ Prefab:
       objectReference: {fileID: 946583955}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: .00277777785
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: .00277777785
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: .00277777785
       objectReference: {fileID: 0}
     - target: {fileID: 100290, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_IsActive

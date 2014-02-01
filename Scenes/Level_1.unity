@@ -3874,6 +3874,7 @@ MonoBehaviour:
   rpgForceX: 150
   rpgForceY: 50
   runDist: 2
+  jumpDist: 1
   attackDist: .349999994
   speed: .300000012
   height: .300000012
@@ -3883,7 +3884,8 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: .5
   winEnabled: 0
-  run: 0
+  railway: 0
+  jumpForce: {x: 250, y: 100, z: 0}
 --- !u!82 &254021999
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6054,6 +6056,46 @@ MonoBehaviour:
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
+--- !u!1001 &396219349
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 949d26868d38d8344b308789f2b13f00, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -.168414593
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 949d26868d38d8344b308789f2b13f00, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .383286476
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 949d26868d38d8344b308789f2b13f00, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: .315189004
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 949d26868d38d8344b308789f2b13f00, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 949d26868d38d8344b308789f2b13f00, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 949d26868d38d8344b308789f2b13f00, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 949d26868d38d8344b308789f2b13f00, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: .5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 949d26868d38d8344b308789f2b13f00, type: 2}
+  m_RootGameObject: {fileID: 2021941012}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &398831459
 GameObject:
   m_ObjectHideFlags: 0
@@ -6253,6 +6295,7 @@ MonoBehaviour:
   rpgForceX: 150
   rpgForceY: 50
   runDist: 2
+  jumpDist: 1
   attackDist: .349999994
   speed: .300000012
   height: .300000012
@@ -6262,7 +6305,8 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: .5
   winEnabled: 0
-  run: 0
+  railway: 0
+  jumpForce: {x: 250, y: 100, z: 0}
 --- !u!82 &400654259
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10643,7 +10687,7 @@ Light:
   serializedVersion: 3
   m_Type: 1
   m_Color: {r: .0294117928, g: .0294117928, b: .0294117928, a: 1}
-  m_Intensity: 1.39999998
+  m_Intensity: 8
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -15076,6 +15120,7 @@ MonoBehaviour:
   rpgForceX: 50
   rpgForceY: 110
   runDist: 1.79999995
+  jumpDist: 1
   attackDist: .300000012
   speed: .600000024
   height: 0
@@ -15085,7 +15130,8 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: .600000024
   winEnabled: 0
-  run: 0
+  railway: 0
+  jumpForce: {x: 250, y: 100, z: 0}
 --- !u!82 &914593510
 AudioSource:
   m_ObjectHideFlags: 0
@@ -18085,15 +18131,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: .00277777785
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: .00277777785
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: .00277777785
       objectReference: {fileID: 0}
     - target: {fileID: 11400352, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: light
@@ -25347,6 +25393,7 @@ MonoBehaviour:
   rpgForceX: 50
   rpgForceY: 110
   runDist: 1.79999995
+  jumpDist: 1
   attackDist: .300000012
   speed: .600000024
   height: 0
@@ -25356,7 +25403,8 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: .600000024
   winEnabled: 0
-  run: 0
+  railway: 0
+  jumpForce: {x: 250, y: 100, z: 0}
 --- !u!82 &1518397869
 AudioSource:
   m_ObjectHideFlags: 0
@@ -25759,6 +25807,7 @@ MonoBehaviour:
   rpgForceX: 150
   rpgForceY: 50
   runDist: 2
+  jumpDist: 1
   attackDist: .349999994
   speed: .300000012
   height: .300000012
@@ -25768,7 +25817,8 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: .5
   winEnabled: 0
-  run: 0
+  railway: 0
+  jumpForce: {x: 250, y: 100, z: 0}
 --- !u!82 &1534189278
 AudioSource:
   m_ObjectHideFlags: 0
@@ -28137,7 +28187,7 @@ MonoBehaviour:
   rotSpeed: 580
   stairSpeed: .699999988
   gravSpeed: 4
-  jumpHeight: 1.5
+  jumpHeight: 1.39999998
   failHeight: 1.5
   patrons: 0000000000000000000000000000000000000000
   armosGUI:
@@ -32942,7 +32992,7 @@ Transform:
   m_GameObject: {fileID: 1978581601}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .00277777785, y: .00277777785, z: .00277777785}
   m_Children:
   - {fileID: 125284557}
   m_Father: {fileID: 0}
@@ -33728,6 +33778,96 @@ Transform:
   m_Children:
   - {fileID: 1017602308}
   m_Father: {fileID: 788152783}
+--- !u!1 &2021941012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: 949d26868d38d8344b308789f2b13f00, type: 2}
+  m_PrefabInternal: {fileID: 396219349}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2021941017}
+  - 33: {fileID: 2021941016}
+  - 64: {fileID: 2021941015}
+  - 23: {fileID: 2021941014}
+  - 114: {fileID: 2021941013}
+  m_Layer: 0
+  m_Name: WallLight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2021941013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: 949d26868d38d8344b308789f2b13f00,
+    type: 2}
+  m_PrefabInternal: {fileID: 396219349}
+  m_GameObject: {fileID: 2021941012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34ba7ee9d314ee148b6a6ef2e4676e9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightMaterial: {fileID: 2100000, guid: dec8a2d94cde73648aca12c34131e112, type: 2}
+  speed: .150000006
+  maxA: .300000012
+  minA: .100000001
+--- !u!23 &2021941014
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2300000, guid: 949d26868d38d8344b308789f2b13f00,
+    type: 2}
+  m_PrefabInternal: {fileID: 396219349}
+  m_GameObject: {fileID: 2021941012}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: dec8a2d94cde73648aca12c34131e112, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
+--- !u!64 &2021941015
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6400000, guid: 949d26868d38d8344b308789f2b13f00,
+    type: 2}
+  m_PrefabInternal: {fileID: 396219349}
+  m_GameObject: {fileID: 2021941012}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!33 &2021941016
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 3300000, guid: 949d26868d38d8344b308789f2b13f00,
+    type: 2}
+  m_PrefabInternal: {fileID: 396219349}
+  m_GameObject: {fileID: 2021941012}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &2021941017
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: 949d26868d38d8344b308789f2b13f00, type: 2}
+  m_PrefabInternal: {fileID: 396219349}
+  m_GameObject: {fileID: 2021941012}
+  m_LocalRotation: {x: -.5, y: -.5, z: .5, w: .5}
+  m_LocalPosition: {x: -.168414593, y: .383286476, z: .315189004}
+  m_LocalScale: {x: .100000001, y: 1, z: .100000001}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1001 &2023796547
 Prefab:
   m_ObjectHideFlags: 0
