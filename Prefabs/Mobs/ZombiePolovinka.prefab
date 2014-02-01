@@ -1091,7 +1091,7 @@ MonoBehaviour:
   deadRPGClip: {fileID: 7400000, guid: eb57bdccea98f7c4d832eb6856742bb1, type: 3}
   attackSound: {fileID: 8300000, guid: 577d6a80811f56946ad39accab092241, type: 3}
   charAttackSound: {fileID: 8300000, guid: b507ac2f7143ebc4f8c1bd4068fc735c, type: 3}
-  deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
+  deadSound: {fileID: 8300000, guid: a57de66f01224534ca79ba8b5f45f2d2, type: 3}
   blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
   fire: {fileID: 0}
   uron: 5
@@ -1112,6 +1112,7 @@ MonoBehaviour:
   rpgForceX: 150
   rpgForceY: 10
   runDist: 1
+  jumpDist: 1
   attackDist: .280000001
   speed: 0
   height: 0
@@ -1121,6 +1122,8 @@ MonoBehaviour:
   rotSpeed: 300
   nearDist: .5
   winEnabled: 0
+  railway: 0
+  jumpForce: {x: 250, y: 100, z: 0}
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1

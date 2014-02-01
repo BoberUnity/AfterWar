@@ -994,7 +994,7 @@ MonoBehaviour:
   deadClip: {fileID: 7400000, guid: 4abfb32bc8538f34e9d2563fdadedc71, type: 3}
   dead2Clip: {fileID: 7400000, guid: 4abfb32bc8538f34e9d2563fdadedc71, type: 3}
   deadRPGClip: {fileID: 7400000, guid: 4abfb32bc8538f34e9d2563fdadedc71, type: 3}
-  attackSound: {fileID: 8300000, guid: 577d6a80811f56946ad39accab092241, type: 3}
+  attackSound: {fileID: 8300000, guid: b2012b23fd2d9f8498c2a5cd71be711e, type: 3}
   charAttackSound: {fileID: 8300000, guid: 4f1139101e35e974cae8a27ee71790df, type: 3}
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
   blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
@@ -1012,12 +1012,12 @@ MonoBehaviour:
   - 101
   - 34
   - 101
-  addRpgForce: 1
   boxColliderCenter: {x: 0, y: .0199999996, z: 0}
   boxColliderSize: {x: .150000006, y: .0799999982, z: .150000006}
   rpgForceX: 150
   rpgForceY: 50
   runDist: 2
+  jumpDist: 1
   attackDist: .349999994
   speed: .300000012
   height: .300000012
@@ -1027,6 +1027,8 @@ MonoBehaviour:
   rotSpeed: 500
   nearDist: .600000024
   winEnabled: 0
+  railway: 0
+  jumpForce: {x: 250, y: 100, z: 0}
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

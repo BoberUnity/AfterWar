@@ -7,6 +7,8 @@ namespace Assets.Scripts.Buttons3D
   {
     [SerializeField] private Character character = null;
     [SerializeField] private float fixDist = 0.36f;
+    [SerializeField] private PhysicMaterial ice = null;
+    [SerializeField] private PhysicMaterial noMove = null;
     //private float distToChar = 10;
     private bool isFix = false;
     private bool moveRight = false;
@@ -43,6 +45,7 @@ namespace Assets.Scripts.Buttons3D
             character.MoveBoxAnim = true;
             CorrectCharacterPosition();
             t.parent.parent = ct;
+            t.parent.GetComponent<BoxCollider>().material = ice;
             isFix = true;
           }
         }
@@ -98,6 +101,7 @@ namespace Assets.Scripts.Buttons3D
       transform.parent.parent = null;
       isFix = false;
       character.MoveBoxAnim = false;
+      t.parent.GetComponent<BoxCollider>().material = noMove;
     }
 
     private void CharacterAttack(int armo)
