@@ -9,7 +9,9 @@ namespace Assets.Scripts.Buttons3D
     [SerializeField] private float fixDist = 0.36f;
     [SerializeField] private PhysicMaterial ice = null;
     [SerializeField] private PhysicMaterial noMove = null;
+    [SerializeField] private Transform lift = null;
     //private float distToChar = 10;
+    [SerializeField]
     private bool isFix = false;
     private bool moveRight = false;
     private bool moveLeft = false;
@@ -40,6 +42,7 @@ namespace Assets.Scripts.Buttons3D
         }
         else
         {
+          Debug.LogWarning("BoxPress");
           if (Vector3.Distance(t.position, ct.position) < fixDist && ct.position.y < t.position.y + 0.1f)
           {
             character.MoveBoxAnim = true;
@@ -60,14 +63,13 @@ namespace Assets.Scripts.Buttons3D
         float distToChar = Vector3.Distance(transform.position, character.transform.position);
         if (distToChar > fixDist)
         {
-          transform.parent.parent = null;
+          transform.parent.parent = lift;
           isFix = false;
           character.MoveBoxAnim = false;
         }
         if (distToChar < fixDist - 0.015f)
         {
           ReleaseBox();
-          Debug.Log("Release");
         }
 
         if (moveRight) 
@@ -98,7 +100,7 @@ namespace Assets.Scripts.Buttons3D
 
     private void ReleaseBox()//Бросить ящик
     {
-      transform.parent.parent = null;
+      transform.parent.parent = lift;
       isFix = false;
       character.MoveBoxAnim = false;
       t.parent.GetComponent<BoxCollider>().material = noMove;
@@ -113,7 +115,8 @@ namespace Assets.Scripts.Buttons3D
 
     private void CharacterJump()
     {
-      ReleaseBox();
+      if (t.parent.parent == ct)
+        ReleaseBox();
     }
   }
 }

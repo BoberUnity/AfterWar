@@ -62,4 +62,16 @@ public class RigObject : MonoBehaviour
         Destroy(gameObject);
     }
   }
+
+  private void OnTriggerEnter(Collider other)
+  {
+    if (other.gameObject.layer == 10)
+      transform.parent = other.transform;
+  }
+
+  private void OnTriggerExit(Collider other)
+  {
+    if (other.gameObject.layer == 10)
+      transform.parent = null;
+  }
 }

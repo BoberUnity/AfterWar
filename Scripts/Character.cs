@@ -322,27 +322,27 @@ public class Character : MonoBehaviour
     //  //Time.timeScale = 0;
     //}
     //Контроллер падения
-    if (visotaDown > failHeight && !fail)
-      fail = true;
+    //if (visotaDown > failHeight && !fail)
+    //  fail = true;
     
     //ГРАВИТАЦИЯ -----------------------------------
     if (!inStair)
     {
       if (characterController.isGrounded)
       {
-        if (fail)//Падение
-        {
-          if (velocity > 2.4f)
-          {
-            Helth -= 10;
-            if (controller != null)
-              audio.volume = controller.EffectsVolume;
-            audio.clip = failSound;
-            audio.Play();
-            velocity = 0.0f;
-          }
-          fail = false;
-        }
+        //if (fail)//Падение DO NOT DESTROY
+        //{
+        //  if (velocity > 2.4f)
+        //  {
+        //    Helth -= 10;
+        //    if (controller != null)
+        //      audio.volume = controller.EffectsVolume;
+        //    audio.clip = failSound;
+        //    audio.Play();
+        //    velocity = 0.0f;
+        //  }
+        //  fail = false;
+        //}
         if (jump)
         {
           jump = false; 
