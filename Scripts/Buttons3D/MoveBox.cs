@@ -42,7 +42,7 @@ namespace Assets.Scripts.Buttons3D
         }
         else
         {
-          Debug.LogWarning("BoxPress");
+          
           if (Vector3.Distance(t.position, ct.position) < fixDist && ct.position.y < t.position.y + 0.1f)
           {
             character.MoveBoxAnim = true;
@@ -63,9 +63,7 @@ namespace Assets.Scripts.Buttons3D
         float distToChar = Vector3.Distance(transform.position, character.transform.position);
         if (distToChar > fixDist)
         {
-          transform.parent.parent = lift;
-          isFix = false;
-          character.MoveBoxAnim = false;
+          ReleaseBox();
         }
         if (distToChar < fixDist - 0.015f)
         {
