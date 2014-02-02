@@ -224,6 +224,7 @@ public class Character : MonoBehaviour
 
   public bool MoveBoxAnim
   {
+    get { return moveBoxAnim; }
     set { moveBoxAnim = value; }
   }
 
@@ -673,7 +674,7 @@ public class Character : MonoBehaviour
   //==================================================================================================================
   public void JumpToStair(bool right)
   {
-    if (!jump && !dead)
+    if (!jump && !dead && !moveBoxAnim)
     {
       if (right)
         jumpToStair = 1;

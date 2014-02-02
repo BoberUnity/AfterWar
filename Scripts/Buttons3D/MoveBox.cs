@@ -11,9 +11,11 @@ namespace Assets.Scripts.Buttons3D
     [SerializeField] private PhysicMaterial noMove = null;
     [SerializeField] private Transform lift = null;
     //private float distToChar = 10;
-    [SerializeField]
+    
     private bool isFix = false;
+    [SerializeField]
     private bool moveRight = false;
+    [SerializeField]
     private bool moveLeft = false;
     private Transform t = null;
     private Transform ct = null;
@@ -42,8 +44,8 @@ namespace Assets.Scripts.Buttons3D
         }
         else
         {
-          
-          if (Vector3.Distance(t.position, ct.position) < fixDist && ct.position.y < t.position.y + 0.1f)
+          bool charPovernut = (ct.position.x < t.position.x && ct.eulerAngles.y < 90.01f) || (ct.position.x > t.position.x && ct.eulerAngles.y > 269.99f);
+          if (Vector3.Distance(t.position, ct.position) < fixDist && ct.position.y < t.position.y + 0.1f && !character.MoveBoxAnim && charPovernut)
           {
             character.MoveBoxAnim = true;
             CorrectCharacterPosition();
