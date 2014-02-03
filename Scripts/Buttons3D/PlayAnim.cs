@@ -10,18 +10,22 @@ namespace Assets.Scripts.Buttons3D
     [SerializeField] private bool always = false;
     [SerializeField] private AudioClip sound = null; 
     [SerializeField] private bool loop = false;
+    [SerializeField] private ChangeState changeState = null;
     private bool isPlayed = false;
 
     protected override void MakeAction()
     {
-      if (!isPlayed)
+      if ((changeState != null && changeState.State == 1) || changeState == null)
       {
-        if (clip != null)
-          anim.clip = clip;
-        anim.Play();
-        PlayingSound();
-        if (!always)
-          isPlayed = true;
+        if (!isPlayed)
+        {
+          if (clip != null)
+            anim.clip = clip;
+          anim.Play();
+          PlayingSound();
+          if (!always)
+            isPlayed = true;
+        }
       }
     }
 
