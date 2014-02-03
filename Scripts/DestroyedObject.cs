@@ -49,8 +49,7 @@ public class DestroyedObject : MonoBehaviour
       {
         if (GameObject.Find("BlastRPG(Clone)") == null)
         {
-          Instantiate(blastPrefab, t.position, Quaternion.identity);
-          Destroy(gameObject);
+          Crash();
         }
 
       }
@@ -59,8 +58,7 @@ public class DestroyedObject : MonoBehaviour
       {
         if (GameObject.Find("BlastRPG(Clone)") == null)
         {
-          Instantiate(blastPrefab, t.position, Quaternion.identity);
-          Destroy(gameObject);
+          Crash();
         }
       }
     }
@@ -68,7 +66,7 @@ public class DestroyedObject : MonoBehaviour
 
   public void Crash()
   {
-    Instantiate(blastPrefab, transform.position, transform.rotation);
+    Instantiate(blastPrefab, transform.position, Quaternion.identity);
     Destroy(gameObject);
   }
 }

@@ -327,7 +327,7 @@ public class Monstr : MonoBehaviour
       charPovernut = true;
 
 
-    if (distToChar < uronDist[armo] && !dead && charPovernut && heigToChar < 0.35f && notWall)
+    if (distToChar < uronDist[armo] && !dead && charPovernut && heigToChar < 0.35f && notWall && Mathf.Abs(t.position.z) < 0.6f)
     {
       helth -= uronMonstr[armo];
       if (helth < 0)

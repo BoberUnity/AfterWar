@@ -124,7 +124,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: .419999987, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400006}
@@ -306,12 +306,12 @@ EllipsoidParticleEmitter:
   serializedVersion: 2
   m_Enabled: 1
   m_Emit: 1
-  minSize: .400000006
-  maxSize: .400000006
+  minSize: .5
+  maxSize: 1
   minEnergy: .600000024
   maxEnergy: 1.5
-  minEmission: 20
-  maxEmission: 20
+  minEmission: 8
+  maxEmission: 8
   worldVelocity: {x: 0, y: 0, z: 0}
   localVelocity: {x: 0, y: .5, z: 0}
   rndVelocity: {x: 2, y: .5, z: .5}
@@ -337,11 +337,11 @@ EllipsoidParticleEmitter:
   maxSize: .600000024
   minEnergy: .300000012
   maxEnergy: .5
-  minEmission: 20
-  maxEmission: 20
+  minEmission: 8
+  maxEmission: 8
   worldVelocity: {x: 0, y: 1, z: 0}
   localVelocity: {x: 0, y: 0, z: 0}
-  rndVelocity: {x: 2, y: 2, z: 0}
+  rndVelocity: {x: .5, y: 1.5, z: 1}
   emitterVelocityScale: .0500000007
   tangentVelocity: {x: 0, y: 0, z: 0}
   angularVelocity: 0
@@ -391,11 +391,11 @@ EllipsoidParticleEmitter:
   maxSize: .5
   minEnergy: .600000024
   maxEnergy: 1
-  minEmission: 20
-  maxEmission: 20
+  minEmission: 10
+  maxEmission: 10
   worldVelocity: {x: 0, y: 0, z: 0}
   localVelocity: {x: 0, y: 3, z: 0}
-  rndVelocity: {x: 3, y: 1.25, z: 3}
+  rndVelocity: {x: 4, y: 1.5, z: 4}
   emitterVelocityScale: .0500000007
   tangentVelocity: {x: 0, y: 0, z: 0}
   angularVelocity: 0
