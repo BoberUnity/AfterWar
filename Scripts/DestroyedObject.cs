@@ -49,7 +49,7 @@ public class DestroyedObject : MonoBehaviour
       {
         if (GameObject.Find("BlastRPG(Clone)") == null)
         {
-          Instantiate(blastPrefab, t.position, t.rotation);
+          Instantiate(blastPrefab, t.position, Quaternion.identity);
           Destroy(gameObject);
         }
 
@@ -59,7 +59,7 @@ public class DestroyedObject : MonoBehaviour
       {
         if (GameObject.Find("BlastRPG(Clone)") == null)
         {
-          Instantiate(blastPrefab, t.position, t.rotation);
+          Instantiate(blastPrefab, t.position, Quaternion.identity);
           Destroy(gameObject);
         }
       }

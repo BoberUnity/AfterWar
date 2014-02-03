@@ -71,7 +71,7 @@ public class Monstr : MonoBehaviour
         audio.volume = character.Controller.EffectsVolume;
       else Debug.LogWarning("character.Controller != null");
 	    audio.Play();
-	    character.Helth -= uron;
+	    character.BronHelth -= uron;
       SetAnim(attackClip, attackAnimSpeed);
 	    att = true;
       StartCoroutine(EndAttack(attackClip.length / attackAnimSpeed));

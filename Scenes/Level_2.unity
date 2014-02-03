@@ -2951,6 +2951,9 @@ MonoBehaviour:
   fixDist: .370000005
   ice: {fileID: 13400000, guid: 177f055288689ab4aa9101d16ef6bfc8, type: 2}
   noMove: {fileID: 13400000, guid: a31e78328cb42bd4d837914215673db9, type: 2}
+  lift: {fileID: 0}
+  moveRight: 0
+  moveLeft: 0
 --- !u!82 &113344538
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8917,7 +8920,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 337363188}
   m_LocalRotation: {x: 0, y: -.461748868, z: 0, w: .887010753}
-  m_LocalPosition: {x: 10.116375, y: .0631679296, z: .47678867}
+  m_LocalPosition: {x: 10.116375, y: .0631679296, z: -.0299999993}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 904449711}
@@ -10061,17 +10064,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: .791208804
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: -360.395599
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0
@@ -21618,6 +21621,9 @@ MonoBehaviour:
   fixDist: .370000005
   ice: {fileID: 13400000, guid: 177f055288689ab4aa9101d16ef6bfc8, type: 2}
   noMove: {fileID: 13400000, guid: a31e78328cb42bd4d837914215673db9, type: 2}
+  lift: {fileID: 0}
+  moveRight: 0
+  moveLeft: 0
 --- !u!82 &714249147
 AudioSource:
   m_ObjectHideFlags: 0
@@ -27143,17 +27149,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: .791208804
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: 359.60437
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0
@@ -41496,8 +41502,6 @@ MonoBehaviour:
   - 0
   - 0
   inverseXY: 0
-  visotaDown: 1
-  velocity: 0
 --- !u!4 &1404807473
 Transform:
   m_ObjectHideFlags: 0
@@ -44069,17 +44073,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: .00125000009
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: -.00124999997
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0
@@ -46254,7 +46258,7 @@ MonoBehaviour:
   deadRPGClip: {fileID: 7400000, guid: 4abfb32bc8538f34e9d2563fdadedc71, type: 3}
   attackSound: {fileID: 8300000, guid: b2012b23fd2d9f8498c2a5cd71be711e, type: 3}
   charAttackSound: {fileID: 8300000, guid: 4f1139101e35e974cae8a27ee71790df, type: 3}
-  deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
+  deadSound: {fileID: 8300000, guid: 60ac9756ad39795488e5777145bfbe22, type: 3}
   blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
   fire: {fileID: 0}
   uron: 5
@@ -47269,7 +47273,7 @@ Transform:
   m_GameObject: {fileID: 1594113642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .00277777785, y: .00277777785, z: .00277777785}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 353684337}
   m_Father: {fileID: 0}
@@ -47518,6 +47522,9 @@ MonoBehaviour:
   fixDist: .370000005
   ice: {fileID: 13400000, guid: 177f055288689ab4aa9101d16ef6bfc8, type: 2}
   noMove: {fileID: 13400000, guid: a31e78328cb42bd4d837914215673db9, type: 2}
+  lift: {fileID: 0}
+  moveRight: 0
+  moveLeft: 0
 --- !u!82 &1607458567
 AudioSource:
   m_ObjectHideFlags: 0
@@ -47748,17 +47755,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: 492.923065
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: -.395604402
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0
@@ -56774,15 +56781,15 @@ Prefab:
       objectReference: {fileID: 946583955}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.x
-      value: .00277777785
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.y
-      value: .00277777785
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.z
-      value: .00277777785
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100290, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_IsActive

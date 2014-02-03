@@ -93,9 +93,9 @@ public class Character : MonoBehaviour
   [SerializeField] private float[] things = new float[3];//Aptek, GazMask, Bron
   [SerializeField] private bool inverseXY = false;
   private float vagSpeed = 3;
-  [SerializeField] private float visotaDown = 1;
+  private float visotaDown = 1;
   private float visotaUp = 1;
-  [SerializeField] private float velocity = 0;
+  private float velocity = 0;
   private CharacterController characterController = null;
   private Transform t = null;
   private bool jump = false;
@@ -125,7 +125,7 @@ public class Character : MonoBehaviour
   private bool useGazMask = false;
   private bool inGazZone = false;
   private bool inerc = false;
-  
+  private float bronHelth = 0;
   
   public ThingGUI BronButton
   {
@@ -138,6 +138,30 @@ public class Character : MonoBehaviour
     set { nearMonstr = value; }
   }
 
+  public float BronHelth
+  {
+    get { return bronHelth; }
+    set 
+    { 
+      if (bronButton.State != 2)
+        Helth -= BronHelth - value;
+      else
+      {
+        bronButton.Indicator.Val -= (bronHelth - value) * 2;//Bron live
+        if (bronButton.Indicator.Val < 1)
+        {
+          StartCoroutine(bronButton.OffButton(0));
+          bronButton.Indicator.Val = 100;
+        }
+      }
+      if (value < -101)
+      {
+        helth = 0;
+        SetHelth();
+      }
+    }
+  }
+
   public float Helth
   {
     get { return helth; }
@@ -145,28 +169,28 @@ public class Character : MonoBehaviour
     {
       if (helth > 0)
       {
-        if (bronButton.State != 2 || value > helth)
-        {
+        //if (bronButton.State != 2 || value > helth)
+        //{
           if (value < helth && enableDead)
           deadSprite.animation.Play();
 
           helth = Mathf.Clamp(value, 0, 100);
           SetHelth();
-        }
-        else
-        {
-          bronButton.Indicator.Val -= (helth - value)*2;//Bron live
-          if (bronButton.Indicator.Val < 1)
-          {
-            StartCoroutine(bronButton.OffButton(0));
-            bronButton.Indicator.Val = 100;
-          }
-          if (value < -101)
-          {
-            helth = 0;
-            SetHelth();
-          }
-        }
+        //}
+        //else
+        //{
+          //bronButton.Indicator.Val -= (helth - value) * 2;//Bron live
+          //if (bronButton.Indicator.Val < 1)
+          //{
+          //  StartCoroutine(bronButton.OffButton(0));
+          //  bronButton.Indicator.Val = 100;
+          //}
+          //if (value < -101)
+          //{
+          //  helth = 0;
+          //  SetHelth();
+          //}
+        //}
       }
     }
   }
@@ -585,8 +609,9 @@ public class Character : MonoBehaviour
     if (other.gameObject.name == "GazZona")
     {
       inGazZone = true;
+      StartCoroutine(InGazZone(1));
       if (!useGazMask)
-        Helth -= 301;
+        Helth -= 10;
     }
 
     if (other.gameObject.name == "Swim")
@@ -640,6 +665,16 @@ public class Character : MonoBehaviour
     if (other.gameObject.name == "GazZona")
     {
       inGazZone = false;
+    }
+  }
+
+  private IEnumerator InGazZone(float time)
+  {
+    yield return new WaitForSeconds(time);
+    if (!useGazMask && inGazZone)
+    {
+      Helth -= 10;
+      StartCoroutine(InGazZone(1));
     }
   }
 
