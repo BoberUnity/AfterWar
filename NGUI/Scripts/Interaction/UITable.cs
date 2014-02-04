@@ -49,6 +49,11 @@ public class UITable : UIWidgetContainer
 
 	static public int SortByName (Transform a, Transform b) { return string.Compare(a.name, b.name); }
 
+  private void OnEnable()//bober
+  {
+    Reposition();
+  }
+
 	/// <summary>
 	/// Returns the list of table's children, sorted alphabetically if necessary.
 	/// </summary>
@@ -196,7 +201,7 @@ public class UITable : UIWidgetContainer
 	{
 		Init();
 		Reposition();
-		enabled = false;
+    //enabled = false;//bober
 	}
 
 	/// <summary>
@@ -221,6 +226,6 @@ public class UITable : UIWidgetContainer
 	void LateUpdate ()
 	{
 		if (mReposition) Reposition();
-		enabled = false;
+    //enabled = false;//bober
 	}
 }
