@@ -80,6 +80,7 @@ public class Character : MonoBehaviour
   [SerializeField] private GameObject MolnyPrefab = null;
   [SerializeField] private Transform endPistol = null;
   [SerializeField] private GameObject PistolPartPrefab = null;
+  [SerializeField] private ButtonPause buttonPause = null;
   [SerializeField] private float curSpeed = 1;
   [SerializeField] private float rotSpeed = 580;
   [SerializeField] private float stairSpeed = 1;
@@ -796,8 +797,15 @@ public class Character : MonoBehaviour
           SetAnimOnce(deadBackClip, 0.5f);
       }
       dead = true;
+      StartCoroutine(ShowMenu(2));//Через 2 сек показать меню
       //deadSprite.enabled = true;
     }
+  }
+  //==================================================================================================================
+  private IEnumerator ShowMenu(float time)
+  {
+    yield return new WaitForSeconds(time);
+    buttonPause.Dead();
   }
   //==================================================================================================================
   void OnDrawGizmos()
