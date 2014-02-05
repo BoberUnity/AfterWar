@@ -49,12 +49,10 @@ public class Monstr : MonoBehaviour
   private Transform t = null;
   private Transform characterT = null;
   private BoxCollider trigger = null;
-  [SerializeField]
   private bool run = false;
   private bool att = false;
   private bool dead = false;
   private float helth = 100;
-  [SerializeField]
   private float distToChar = 10;
   private bool moveDown = false;
   private bool win = false;
@@ -125,7 +123,6 @@ public class Monstr : MonoBehaviour
   private void Update()
   {
     float heigToChar = Mathf.Abs(t.position.y - characterT.position.y - height);//разница по высоте с персонажем
-    Debug.LogWarning("Heig = " + heigToChar);
     if (railway && !follow)
     {
       heigToChar = 1;
@@ -260,7 +257,6 @@ public class Monstr : MonoBehaviour
         run = false;
         att = true;
         Attack();
-        Debug.LogWarning("Attack");
       }
 
       if (distToChar < attackDist-0.05f && !winEnabled)//для людей отключим движение назад
@@ -338,12 +334,12 @@ public class Monstr : MonoBehaviour
       {
         if (armo == 2 || armo == 4)
         {
-          BoxCollider boxCollider = gameObject.AddComponent("BoxCollider") as BoxCollider;
-          if (boxCollider != null)
-          {
-            boxCollider.center = boxColliderCenter;//new Vector3(0, 0.15f, -0.8f);
-            boxCollider.size = boxColliderSize;//new Vector3(0.3f, 0.3f, 1.8f);
-          }
+          //BoxCollider boxCollider = gameObject.AddComponent("BoxCollider") as BoxCollider;
+          //if (boxCollider != null)
+          //{
+          //  boxCollider.center = boxColliderCenter;//new Vector3(0, 0.15f, -0.8f);
+          //  boxCollider.size = boxColliderSize;//new Vector3(0.3f, 0.3f, 1.8f);
+          //}
           if (rigidbody == null)
           gameObject.AddComponent("Rigidbody");
           if (rigidbody != null)

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.GUI
 {
@@ -11,17 +10,9 @@ namespace Assets.Scripts.GUI
       if (!isPressed)
       {
         animation.clip = backClip;
-        //animation[animation.clip.name].speed = -1;
         animation.Play();
-        //StartCoroutine(StopAnim(2));
+        Time.timeScale = 1;
       }
     }
-
-    //private IEnumerator StopAnim(float time)
-    //{
-    //  yield return new WaitForSeconds(time);
-    //  animation.Stop();
-    //  //animation[animation.clip.name].speed = 1;
-    //}
   }
 }

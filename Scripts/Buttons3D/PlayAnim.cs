@@ -11,6 +11,7 @@ namespace Assets.Scripts.Buttons3D
     [SerializeField] private AudioClip sound = null; 
     [SerializeField] private bool loop = false;
     [SerializeField] private ChangeState changeState = null;
+    [SerializeField] private bool paused = false;//для записок
     private bool isPlayed = false;
 
     protected override void MakeAction()
@@ -23,6 +24,7 @@ namespace Assets.Scripts.Buttons3D
             anim.clip = clip;
           anim.Play();
           PlayingSound();
+          StartCoroutine(EndAnim(anim[anim.clip.name].length));
           if (!always)
             isPlayed = true;
         }
@@ -32,7 +34,10 @@ namespace Assets.Scripts.Buttons3D
     private IEnumerator EndAnim(float time)
     {
       yield return new WaitForSeconds(time);
-      audio.Stop();
+      if (sound != null)
+        audio.Stop();
+      if (paused)
+        Time.timeScale = 0;
     }
 
     private void PlayingSound()
@@ -44,7 +49,7 @@ namespace Assets.Scripts.Buttons3D
           audio.volume = character.Controller.EffectsVolume;
         audio.loop = loop;
         audio.Play();
-        StartCoroutine(EndAnim(anim[anim.clip.name].length));
+        
       }
     }
   }

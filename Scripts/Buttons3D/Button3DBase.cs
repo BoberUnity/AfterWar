@@ -9,7 +9,7 @@ public class Button3DBase : MonoBehaviour
   
   protected virtual void OnPress(bool isPressed)
   {
-    if (Vector3.Distance(transform.position, character.transform.position) < dist)
+    if (Vector3.Distance(transform.position, character.transform.position) < dist && isPressed)
     {
       character.Action();
       StartCoroutine(StartAction(0.5f));
