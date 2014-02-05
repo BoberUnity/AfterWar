@@ -2,13 +2,14 @@
 
 public class DestroyedObject : MonoBehaviour 
 {
-  [SerializeField] private Character character = null;
+  /*[SerializeField] */private Character character = null;
   [SerializeField] private GameObject blastPrefab = null;
   [SerializeField] private float delHeight = 0.4f;
   [SerializeField] private float delDist = 2.5f;
 
   private void Start()
   {
+    character = GameObject.Find("Stalker").GetComponent<Character>();
     character.CharacterAttack += CharacterAttack;
   }
 

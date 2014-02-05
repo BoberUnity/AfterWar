@@ -607,7 +607,7 @@ public class Character : MonoBehaviour
         molny.transform.parent = transform;
     }
 
-    if (other.gameObject.name == "GazZona")
+    if (other.gameObject.name == "GazZona" || other.gameObject.name == "GazZona(Clone)")
     {
       inGazZone = true;
       StartCoroutine(InGazZone(1));
@@ -663,7 +663,7 @@ public class Character : MonoBehaviour
       isSwiming = false;
     }
 
-    if (other.gameObject.name == "GazZona")
+    if (other.gameObject.name == "GazZona" || other.gameObject.name == "GazZona(Clone)")
     {
       inGazZone = false;
     }
