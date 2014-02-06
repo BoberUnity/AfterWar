@@ -620,13 +620,13 @@ public class Character : MonoBehaviour
       isSwiming = true;
     }
 
-    if (other.gameObject.name == "Truba" && t.parent != null)
-    {
-      Helth -= 10;
-      other.animation.Play();
-      audio.clip = failSound;
-      audio.Play();
-    }
+    //if (other.gameObject.name == "Truba" && t.parent != null)
+    //{
+    //  Helth -= 10;
+    //  other.animation.Play();
+    //  audio.clip = failSound;
+    //  audio.Play();
+    //}
 
     //if (other.gameObject.name == "Vrata")
     //{
