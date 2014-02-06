@@ -6,7 +6,7 @@ public class AnyObstacle : MonoBehaviour
 
   private void Start () 
   {
-    GameObject go = Instantiate(obstacles[Mathf.RoundToInt(Random.value*obstacles.Length - 0.5f)], transform.position, Quaternion.identity) as GameObject;
+    GameObject go = Instantiate(obstacles[Mathf.RoundToInt(Random.value * obstacles.Length - 0.5f)], transform.position, Quaternion.identity) as GameObject;
     if (go != null)
       go.transform.parent = transform;
   }
