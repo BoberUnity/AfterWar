@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
 
@@ -9,6 +10,7 @@ public class Truba : MonoBehaviour
   [SerializeField] private float delDist = 2.5f;
   [SerializeField] private Vector3 blastPos = Vector3.zero;
   private Character character = null;
+  private bool isCrashed = false;
   
   private void Start()
   {
@@ -25,15 +27,15 @@ public class Truba : MonoBehaviour
   {
     if (other.gameObject.name == "Stalker")
     {
-      animation.Play();
-      audio.Play();
       other.GetComponent<Character>().Helth -= 10;
+      audio.Play();//Крик героя
+      Crash();
     }
   }
 
   private void CharacterAttack(int armo)
   {
-    if (armo == 4)
+    if (armo == 4 && !isCrashed)
     {
       Transform characterT = character.transform;
       Transform t = transform;
@@ -61,31 +63,40 @@ public class Truba : MonoBehaviour
 
       if (distToChar < delDist && charPovernutRight && heigToChar < delHeight && notWall)
       {
-        //if (GameObject.Find(blastPrefab.name + "(Clone)") == null)
-        //{
+        if (GameObject.Find(blastPrefab.name + "(Clone)") == null)
+        {
+          Instantiate(blastPrefab, transform.position + blastPos, transform.rotation);
           Crash();
-        //}
+        }
 
       }
 
       if (distToChar < delDist && charPovernutLeft && heigToChar < delHeight && notWall)
       {
-        //if (GameObject.Find(blastPrefab.name + "(Clone)") == null)
-        //{
+        if (GameObject.Find(blastPrefab.name + "(Clone)") == null)
+        {
+          Instantiate(blastPrefab, transform.position + blastPos, transform.rotation);
           Crash();
-        //}
+        }
       }
     }
   }
 
-  public void Crash()
+  private void Crash()
   {
-    Instantiate(blastPrefab, transform.position + blastPos, transform.rotation);
+    Debug.Log("CrashTruba");
     animation.Play();
     BoxCollider boxCollider = GetComponent<BoxCollider>();
     if (boxCollider != null)
       Destroy(boxCollider);
-    boxCollider = GetComponent<BoxCollider>();
+    StartCoroutine(DelCollider(0.01f));
+    isCrashed = true;
+  }
+
+  private IEnumerator DelCollider(float time)
+  {
+    yield return new WaitForSeconds(time);
+    BoxCollider boxCollider = GetComponent<BoxCollider>();
     if (boxCollider != null)
       Destroy(boxCollider);
   }

@@ -49,19 +49,19 @@ public class DestroyedObject : MonoBehaviour
 
       if (distToChar < delDist && charPovernutRight && heigToChar < delHeight && notWall)
       {
-        if (GameObject.Find(blastPrefab.name + "(Clone)") == null)
-        {
+        //if (GameObject.Find(blastPrefab.name + "(Clone)") == null)
+        //{
           Crash();
-        }
+        //}
 
       }
 
       if (distToChar < delDist && charPovernutLeft && heigToChar < delHeight && notWall)
       {
-        if (GameObject.Find(blastPrefab.name + "(Clone)") == null)
-        {
+        //if (GameObject.Find(blastPrefab.name + "(Clone)") == null)
+        //{
           Crash();
-        }
+        //}
       }
     }
   }
