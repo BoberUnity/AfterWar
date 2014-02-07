@@ -12,6 +12,7 @@ GameObject:
   - 23: {fileID: 2300000}
   - 114: {fileID: 11400000}
   - 65: {fileID: 6500000}
+  - 65: {fileID: 6500002}
   m_Layer: 0
   m_Name: Dyra
   m_TagString: Untagged
@@ -97,6 +98,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .224270076, y: .224269748, z: .891451061}
   m_Center: {x: 1.78009268e-21, y: -1.52736916e-07, z: 2.98023188e-08}
+--- !u!65 &6500002
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .224270016, y: 1, z: 1.5}
+  m_Center: {x: 0, y: -1.52736902e-07, z: 2.98023224e-08}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -111,6 +124,7 @@ MonoBehaviour:
   blastPrefab: {fileID: 100006, guid: b222afe18ceaca44d926c27dda0b8b17, type: 2}
   delHeight: 1
   delDist: 16
+  blastPos: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -42,7 +42,7 @@ public class Truba : MonoBehaviour
       float heigToChar = Mathf.Abs(t.position.y - characterT.position.y); //разница по высоте с персонажем
       float distToChar = Vector3.Distance(t.position, characterT.position);
       RaycastHit[] hits;
-      hits = Physics.RaycastAll(t.position + Vector3.up * 0.1f, characterT.position - t.position, 5);
+      hits = Physics.RaycastAll(t.position + Vector3.up * 0.1f + blastPos, -Vector3.right, 25);
       int i = 0;
       float rayToChar = 100;
       while (i < hits.Length)
@@ -99,5 +99,11 @@ public class Truba : MonoBehaviour
     BoxCollider boxCollider = GetComponent<BoxCollider>();
     if (boxCollider != null)
       Destroy(boxCollider);
+  }
+
+  void OnDrawGizmos()
+  {
+    Gizmos.color = Color.green;
+    Gizmos.DrawRay(transform.position + Vector3.up * 0.1f + blastPos, -Vector3.right*3);
   }
 }
