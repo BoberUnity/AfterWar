@@ -4,7 +4,7 @@
 public class Vagonetka : MonoBehaviour
 {
   [SerializeField] private float speed = 1;
-  [SerializeField] private float dynamic = 0.5f;
+  [SerializeField] private float dynamica = 0.5f;
   [SerializeField] private Character stalker = null;
   [SerializeField] private AudioSource audioSourceOnce = null;
   [SerializeField] private AudioSource audioSourceLoop = null;
@@ -20,10 +20,12 @@ public class Vagonetka : MonoBehaviour
 
   private void OnTriggerEnter(Collider other)
   {
-    if (other.gameObject.name == "Stalker" && !run && !dead)
+    if (other.gameObject.name == "Stalker" /*&& !run*/ && !dead)
     {
       run = true;
       audioSourceLoop.Play();
+      if (dynamica < 0)
+        dynamica = -dynamica/2;
     }
 
     if (other.gameObject.name == "Vrata" || other.gameObject.name == "BochkaBenz")
@@ -46,17 +48,31 @@ public class Vagonetka : MonoBehaviour
     }
   }
 
+  private void OnTriggerExit(Collider other)
+  {
+    if (other.gameObject.name == "Stalker" && run && !dead && dynamica > 0)
+    {
+      //run = false;
+      dynamica = -dynamica*2;
+      //audioSourceLoop.Play();
+    }
+  }
+
   private void Update () 
   {
 	  if (run && !dead)
 	  {
-	    if (currSpeed < speed)
-        currSpeed += Time.deltaTime * dynamic;
+	    if (currSpeed < speed || dynamica < 0)
+	    {
+	      currSpeed += Time.deltaTime * dynamica;
+        if (currSpeed < 0)
+        {
+          run = false;
+          currSpeed = 0;
+        }
+        audioSourceLoop.volume = currSpeed / speed;
+	    }
       transform.Translate(currSpeed*Time.deltaTime,0,0);
-      if (currSpeed < speed)
-      {
-        audioSourceLoop.volume = currSpeed/speed;
-      }
 	  }
 	}
 

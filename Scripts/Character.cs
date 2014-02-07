@@ -797,7 +797,7 @@ public class Character : MonoBehaviour
           SetAnimOnce(deadBackClip, 0.5f);
       }
       dead = true;
-      StartCoroutine(ShowMenu(2));//Через 2 сек показать меню
+      StartCoroutine(ShowMenu(5));//Через 5 сек показать меню
       //deadSprite.enabled = true;
     }
   }
@@ -828,7 +828,12 @@ public class Character : MonoBehaviour
 
 
     //Анимация атаки на бегу
-    if (Mathf.Abs(progressBar.joysticValue.x) > 30)
+    bool runWithArmo = false;
+    if (!inverseXY)
+      runWithArmo = Mathf.Abs(progressBar.joysticValue.x) > 30;
+    else 
+      runWithArmo = Mathf.Abs(progressBar.joysticValue.y) > 30;
+    if (runWithArmo)
     {
       SetAnimOnce(armo[currentArmo].AttackRun, 1);
       StartCoroutine(RestartArmo(armo[currentArmo].ArmoAnim.length / armo[currentArmo].AnimSpeed));
