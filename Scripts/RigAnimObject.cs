@@ -3,15 +3,21 @@
 public class RigAnimObject : MonoBehaviour 
 {
   [SerializeField] private Character character = null;
+  private bool isPlayed = false;
 
   private void Start()
   {
     character.CharacterAttack += CharacterAttack;
   }
 
+  private void OnDestroy()
+  {
+    character.CharacterAttack -= CharacterAttack;
+  }
+
   private void CharacterAttack(int armo)
   {
-    if (armo == 4)
+    if (armo == 4 && !isPlayed)
     {
       Transform characterT = character.transform;
       Transform t = transform;
@@ -40,11 +46,13 @@ public class RigAnimObject : MonoBehaviour
       if (distToChar < 2.5f && charPovernutRight && heigToChar < 0.35f && notWall)
       {
         animation.Play();
+        isPlayed = true;
       }
 
       if (distToChar < 2.5f && charPovernutLeft && heigToChar < 0.35f && notWall)
       {
         animation.Play();
+        isPlayed = true;
       }
     }
   }
