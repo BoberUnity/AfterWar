@@ -270,7 +270,8 @@ public class MonstrSoldat : MonoBehaviour
         a = 1;
         armoShowing = false;
       }
-      armoTrg.renderer.material.color = new Color(0.5f,0.5f,0.5f,a);
+      if (armoTrg != null)
+        armoTrg.renderer.material.color = new Color(0.5f,0.5f,0.5f,a);
     }
   }
   //--------------------------------------------------------------------------------------------------

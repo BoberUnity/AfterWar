@@ -101,9 +101,9 @@ public class Truba : MonoBehaviour
       Destroy(boxCollider);
   }
 
-  void OnDrawGizmos()
-  {
-    Gizmos.color = Color.green;
-    Gizmos.DrawRay(transform.position + Vector3.up * 0.1f + blastPos, -Vector3.right*3);
-  }
+  //void OnDrawGizmos()
+  //{
+  //  Gizmos.color = Color.green;
+  //  Gizmos.DrawRay(transform.position + Vector3.up * 0.1f + blastPos, -Vector3.right*3);
+  //}
 }
