@@ -10,6 +10,8 @@ public class LiftStarter : Button3DBase
   [SerializeField] private AnimationClip down = null;
   [SerializeField] private AudioClip sound = null;
   [SerializeField] private Lamp lamp = null;
+  [SerializeField] private Animation motorAnim = null;
+  [SerializeField] private Remen remen = null;
   private BoxCollider coll = null;
   private bool isUp = false;
   private bool move = false;
@@ -43,6 +45,10 @@ public class LiftStarter : Button3DBase
           audio.volume = character.Controller.EffectsVolume;
         audio.Play();
         StartCoroutine(StopLift(anim.clip.length));
+        if (motorAnim != null)
+          motorAnim.Play();
+        if (remen != null)
+          remen.On = true;
      }
   }
 
@@ -52,6 +58,10 @@ public class LiftStarter : Button3DBase
     coll.enabled = true;
     move = false;
     audio.Stop();
+    if (motorAnim != null)
+      motorAnim.Stop();
+    if (remen != null)
+      remen.On = false;
     isUp = !isUp;
   }
   //Активация лифта снизу
