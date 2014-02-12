@@ -126,7 +126,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.04999995, y: 1.04999995, z: 1.04999995}
+  m_Size: {x: 1.07000005, y: 1.07000005, z: 1.07000005}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &8200000
 AudioSource:
@@ -201,6 +201,9 @@ MonoBehaviour:
   fixDist: .370000005
   ice: {fileID: 13400000, guid: 177f055288689ab4aa9101d16ef6bfc8, type: 2}
   noMove: {fileID: 13400000, guid: a31e78328cb42bd4d837914215673db9, type: 2}
+  lift: {fileID: 0}
+  moveRight: 0
+  moveLeft: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -213,8 +216,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 0}
-  ice: {fileID: 0}
-  noMove: {fileID: 0}
   blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
   rpgFofce: 4000
   destroyed: 0

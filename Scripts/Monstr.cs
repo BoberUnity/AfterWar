@@ -5,7 +5,7 @@ using UnityEngine;
 public class Monstr : MonoBehaviour
 {
   [SerializeField] private Color editorColor = Color.red;
-  [SerializeField] private Character character = null;
+  /*[SerializeField]*/ private Character character = null;
   [SerializeField] private BecameInvisible becameInVisible = null;
   [SerializeField] private Animation anim = null;
   [SerializeField] private AnimationClip idleClip = null;
@@ -185,7 +185,7 @@ public class Monstr : MonoBehaviour
 
       //ДВИЖЕНИЕ
       RaycastHit[] hits;
-      hits = Physics.RaycastAll(t.position + Vector3.up * (0.2f - height), Vector3.right * Mathf.Sign(characterT.position.x - t.position.x), 5);
+      hits = Physics.RaycastAll(t.position + Vector3.up * Mathf.Min(0.2f,height), Vector3.right * Mathf.Sign(characterT.position.x - t.position.x), 5);
       //hits = Physics.RaycastAll(t.position + Vector3.up * (0.2f - height), characterT.position - t.position, 5);
       int i = 0;
       float distToWall = 100;
