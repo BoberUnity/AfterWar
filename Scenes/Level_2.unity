@@ -1126,11 +1126,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400002, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 25.93367
+      value: 25.986948
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: .705137372
+      value: .699999988
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1175,6 +1175,10 @@ Prefab:
     - target: {fileID: 6500000, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: m_Size.z
       value: .00999999978
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500002, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
+      propertyPath: m_Size.y
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
@@ -1423,11 +1427,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400002, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 16.4309902
+      value: 16.4065952
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: .705137372
+      value: .699999988
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1472,6 +1476,10 @@ Prefab:
     - target: {fileID: 6500000, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: m_Size.z
       value: .00999999978
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500002, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
+      propertyPath: m_Size.y
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
@@ -3578,7 +3586,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   editorColor: {r: 1, g: 0, b: 0, a: 1}
-  character: {fileID: 1404807472}
   becameInVisible: {fileID: 630771193}
   anim: {fileID: 124887132}
   idleClip: {fileID: 7400004, guid: f65215b02dd313144aa90eec2e671309, type: 3}
@@ -11416,17 +11423,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: .791208804
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: -360.395599
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0
@@ -14610,7 +14617,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: .319999993, y: 1.5, z: .00999999978}
-  m_Center: {x: 0, y: 1, z: -.00999999978}
+  m_Center: {x: 0, y: 0, z: -.00999999978}
 --- !u!4 &457492628
 Transform:
   m_ObjectHideFlags: 0
@@ -14618,7 +14625,7 @@ Transform:
   m_PrefabInternal: {fileID: 43149311}
   m_GameObject: {fileID: 457492625}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1381936027}
@@ -16689,7 +16696,7 @@ Transform:
   m_PrefabInternal: {fileID: 52024808}
   m_GameObject: {fileID: 530940588}
   m_LocalRotation: {x: -2.18556941e-08, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.4309902, y: .705137372, z: 0}
+  m_LocalPosition: {x: 16.4065952, y: .699999988, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1130529177}
@@ -16705,8 +16712,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .0500000007, y: 1.25, z: .0500000007}
-  m_Center: {x: 0, y: -.0500000007, z: -.0500000007}
+  m_Size: {x: .0500000007, y: 1.5, z: .0500000007}
+  m_Center: {x: 0, y: 0, z: -.0500000007}
 --- !u!1 &532417331
 GameObject:
   m_ObjectHideFlags: 0
@@ -17315,7 +17322,7 @@ Transform:
   m_PrefabInternal: {fileID: 764622355}
   m_GameObject: {fileID: 546109384}
   m_LocalRotation: {x: -2.18556941e-08, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.2888737, y: .705137372, z: 0}
+  m_LocalPosition: {x: 10.3047905, y: .699999988, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1488883740}
@@ -17331,8 +17338,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .0500000007, y: 1.25, z: .0500000007}
-  m_Center: {x: 0, y: -.0500000007, z: -.0500000007}
+  m_Size: {x: .0500000007, y: 1.5, z: .0500000007}
+  m_Center: {x: 0, y: 0, z: -.0500000007}
 --- !u!1 &546633652
 GameObject:
   m_ObjectHideFlags: 0
@@ -19487,7 +19494,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   editorColor: {r: 1, g: 0, b: 0, a: 1}
-  character: {fileID: 1404807472}
   becameInVisible: {fileID: 1810906473}
   anim: {fileID: 618081154}
   idleClip: {fileID: 7400004, guid: f65215b02dd313144aa90eec2e671309, type: 3}
@@ -20925,7 +20931,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.04999995, y: 1.04999995, z: 1.04999995}
+  m_Size: {x: 1.07000005, y: 1.07000005, z: 1.07000005}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &651338056
 MeshFilter:
@@ -25244,11 +25250,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400002, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 10.2888737
+      value: 10.3047905
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: .705137372
+      value: .699999988
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -25293,6 +25299,10 @@ Prefab:
     - target: {fileID: 6500000, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: m_Size.z
       value: .00999999978
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500002, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
+      propertyPath: m_Size.y
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
@@ -29685,17 +29695,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: .791208804
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: 359.60437
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0
@@ -37076,7 +37086,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: .319999993, y: 1.5, z: .00999999978}
-  m_Center: {x: 0, y: 1, z: -.00999999978}
+  m_Center: {x: 0, y: 0, z: -.00999999978}
 --- !u!4 &1130529177
 Transform:
   m_ObjectHideFlags: 0
@@ -37084,7 +37094,7 @@ Transform:
   m_PrefabInternal: {fileID: 52024808}
   m_GameObject: {fileID: 1130529174}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 530940589}
@@ -37900,7 +37910,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   editorColor: {r: 1, g: 0, b: 0, a: 1}
-  character: {fileID: 1404807472}
   becameInVisible: {fileID: 126245212}
   anim: {fileID: 1152614797}
   idleClip: {fileID: 7400004, guid: f65215b02dd313144aa90eec2e671309, type: 3}
@@ -41467,7 +41476,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   editorColor: {r: 1, g: 0, b: 0, a: 1}
-  character: {fileID: 1404807472}
   becameInVisible: {fileID: 723838743}
   anim: {fileID: 1702898817}
   idleClip: {fileID: 7400000, guid: 367988217ce9ac442846bcc74d4a230a, type: 3}
@@ -41501,7 +41509,7 @@ MonoBehaviour:
   rpgForceY: 110
   runDist: 5
   jumpDist: 1
-  attackDist: .300000012
+  attackDist: .349999994
   speed: 1.29999995
   height: 0
   blastHeight: 0
@@ -44776,7 +44784,7 @@ Transform:
   m_PrefabInternal: {fileID: 43149311}
   m_GameObject: {fileID: 1381936026}
   m_LocalRotation: {x: -2.18556941e-08, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.93367, y: .705137372, z: 0}
+  m_LocalPosition: {x: 25.986948, y: .699999988, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 457492628}
@@ -44792,8 +44800,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .0500000007, y: 1.25, z: .0500000007}
-  m_Center: {x: 0, y: -.0500000007, z: -.0500000007}
+  m_Size: {x: .0500000007, y: 1.5, z: .0500000007}
+  m_Center: {x: 0, y: 0, z: -.0500000007}
 --- !u!1 &1383877697
 GameObject:
   m_ObjectHideFlags: 0
@@ -48715,7 +48723,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: .319999993, y: 1.5, z: .00999999978}
-  m_Center: {x: 0, y: 1, z: -.00999999978}
+  m_Center: {x: 0, y: 0, z: -.00999999978}
 --- !u!4 &1488883740
 Transform:
   m_ObjectHideFlags: 0
@@ -48723,7 +48731,7 @@ Transform:
   m_PrefabInternal: {fileID: 764622355}
   m_GameObject: {fileID: 1488883737}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 546109385}
@@ -48799,17 +48807,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: .00125000009
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: -.00124999997
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0
@@ -51173,7 +51181,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   editorColor: {r: 1, g: 0, b: 0, a: 1}
-  character: {fileID: 1404807472}
   becameInVisible: {fileID: 1820789903}
   anim: {fileID: 1701027336}
   idleClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
@@ -52306,7 +52313,7 @@ Transform:
   m_GameObject: {fileID: 1594113642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .00277777785, y: .00277777785, z: .00277777785}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 353684337}
   m_Father: {fileID: 0}
@@ -52840,17 +52847,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: 492.923065
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: -.395604402
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0
@@ -53684,7 +53691,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   editorColor: {r: 1, g: 0, b: 0, a: 1}
-  character: {fileID: 1404807472}
   becameInVisible: {fileID: 170404743}
   anim: {fileID: 1623490910}
   idleClip: {fileID: 7400004, guid: b5f4c3240f787bd4a802012a7d7d2b67, type: 3}
@@ -54280,7 +54286,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.04999995, y: 1.04999995, z: 1.04999995}
+  m_Size: {x: 1.07000005, y: 1.07000005, z: 1.07000005}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1630033868
 MeshFilter:
@@ -62405,15 +62411,15 @@ Prefab:
       objectReference: {fileID: 946583955}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.x
-      value: .00277777785
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.y
-      value: .00277777785
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.z
-      value: .00277777785
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100290, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_IsActive
@@ -68351,7 +68357,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.04999995, y: 1.04999995, z: 1.04999995}
+  m_Size: {x: 1.07000005, y: 1.07000005, z: 1.07000005}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &2098831586
 MeshFilter:

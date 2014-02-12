@@ -982,7 +982,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   editorColor: {r: 1, g: 0, b: 0, a: 1}
-  character: {fileID: 0}
   becameInVisible: {fileID: 11400000}
   anim: {fileID: 11100000}
   idleClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
@@ -1012,13 +1011,11 @@ MonoBehaviour:
   - 101
   - 34
   - 101
-  boxColliderCenter: {x: 0, y: .0199999996, z: 0}
-  boxColliderSize: {x: .150000006, y: .0799999982, z: .150000006}
   rpgForceX: 150
   rpgForceY: 50
   runDist: 2
   jumpDist: 1
-  attackDist: .370000005
+  attackDist: .150000006
   speed: .300000012
   height: .300000012
   blastHeight: 0
@@ -1029,8 +1026,6 @@ MonoBehaviour:
   winEnabled: 0
   railway: 0
   jumpForce: {x: 250, y: 100, z: 0}
-  run: 0
-  distToChar: 10
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

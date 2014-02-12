@@ -134,7 +134,7 @@ public class Monstr : MonoBehaviour
       }
     }
 
-    if (heigToChar < 0.3f && characterT.position.x > minX && characterT.position.x < maxX && !dead)
+    if (heigToChar < 0.2f && characterT.position.x > minX && characterT.position.x < maxX && !dead)
     {
       //ПОВОРОТЫ
       if (!win)
@@ -198,7 +198,7 @@ public class Monstr : MonoBehaviour
         i++;
       }
 
-      distToChar = Vector3.Distance(t.position, characterT.position);
+      distToChar = Mathf.Abs(t.position.x - characterT.position.x);//Vector3.Distance(t.position, characterT.position);
 
       if (distToChar > runDist || distToWall < 0.2f)
       {

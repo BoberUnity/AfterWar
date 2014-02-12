@@ -2126,8 +2126,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .319999993, y: 2.5999999, z: .00999999978}
-  m_Center: {x: 0, y: 1.29999995, z: -.00999999978}
+  m_Size: {x: .319999993, y: 2.70000005, z: .00999999978}
+  m_Center: {x: 0, y: 0, z: -.00999999978}
 --- !u!4 &130521743
 Transform:
   m_ObjectHideFlags: 0
@@ -2135,7 +2135,7 @@ Transform:
   m_PrefabInternal: {fileID: 915397879}
   m_GameObject: {fileID: 130521740}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0105514526, y: -.866345406, z: 0}
+  m_LocalPosition: {x: .0105514526, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 809846047}
@@ -2260,7 +2260,7 @@ Transform:
   m_PrefabInternal: {fileID: 1777870100}
   m_GameObject: {fileID: 144566046}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0105514526, y: -.866345406, z: 0}
+  m_LocalPosition: {x: .0105514526, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1481854026}
@@ -2289,8 +2289,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .319999993, y: 2.5999999, z: .00999999978}
-  m_Center: {x: 0, y: 1.29999995, z: -.00999999978}
+  m_Size: {x: .319999993, y: 2.0999999, z: .00999999978}
+  m_Center: {x: 0, y: 0, z: -.00999999978}
 --- !u!1 &146841605
 GameObject:
   m_ObjectHideFlags: 0
@@ -3409,17 +3409,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 1
+    e00: 360
     e01: 0
     e02: 0
     e03: .791208804
     e10: 0
-    e11: 1
+    e11: 360
     e12: 0
     e13: 359.60437
     e20: 0
     e21: 0
-    e22: 1
+    e22: 360
     e23: 0
     e30: 0
     e31: 0
@@ -9628,7 +9628,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   editorColor: {r: 1, g: 0, b: 0, a: 1}
-  character: {fileID: 1666401515}
   becameInVisible: {fileID: 603236941}
   anim: {fileID: 1819031629}
   idleClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
@@ -9662,7 +9661,7 @@ MonoBehaviour:
   rpgForceY: 50
   runDist: 2
   jumpDist: 1
-  attackDist: .370000005
+  attackDist: .150000006
   speed: .300000012
   height: .300000012
   blastHeight: 0
@@ -12142,7 +12141,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 3
   m_Type: 1
-  m_Color: {r: .521568656, g: .501960814, b: .717647076, a: 1}
+  m_Color: {r: .501960814, g: .501960814, b: .501960814, a: 1}
   m_Intensity: 1.10000002
   m_Range: 10
   m_SpotAngle: 30
@@ -15146,7 +15145,7 @@ Transform:
   m_PrefabInternal: {fileID: 915397879}
   m_GameObject: {fileID: 809846046}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -4.37113883e-08}
-  m_LocalPosition: {x: -8.55476761, y: 1.27313495, z: 0}
+  m_LocalPosition: {x: -8.55476761, y: 1.73475671, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 130521743}
@@ -15162,8 +15161,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .0500000007, y: 2.0999999, z: .0500000007}
-  m_Center: {x: 0, y: .460000008, z: -.0500000007}
+  m_Size: {x: .0500000007, y: 2.70000005, z: .0500000007}
+  m_Center: {x: 0, y: 0, z: -.0500000007}
 --- !u!1 &816565036
 GameObject:
   m_ObjectHideFlags: 0
@@ -17150,7 +17149,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.27313495
+      value: 1.73475671
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -17178,11 +17177,11 @@ Prefab:
       objectReference: {fileID: 1666401515}
     - target: {fileID: 6500002, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: m_Size.y
-      value: 2.0999999
+      value: 2.70000005
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -.866345406
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: m_LocalPosition.x
@@ -17190,15 +17189,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6500000, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: m_Size.y
-      value: 2.5999999
+      value: 2.70000005
       objectReference: {fileID: 0}
     - target: {fileID: 6500000, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: m_Center.y
-      value: 1.29999995
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6500002, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: m_Center.y
-      value: .460000008
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
@@ -21364,15 +21363,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: .00277777785
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: .00277777785
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: .00277777785
       objectReference: {fileID: 0}
     - target: {fileID: 11400548, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: fpsLabel
@@ -21949,17 +21948,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 1
+    e00: 360
     e01: 0
     e02: 0
     e03: 492.923065
     e10: 0
-    e11: 1
+    e11: 360
     e12: 0
     e13: -.395604402
     e20: 0
     e21: 0
-    e22: 1
+    e22: 360
     e23: 0
     e30: 0
     e31: 0
@@ -24780,7 +24779,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6500002, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: m_Size.y
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: character
@@ -24792,15 +24791,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -.714892864
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6500000, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: m_Center.y
-      value: .699999988
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6500002, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: m_Center.y
-      value: -.0500000007
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
@@ -25666,17 +25665,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 1
+    e00: 360
     e01: 0
     e02: 0
     e03: .791208804
     e10: 0
-    e11: 1
+    e11: 360
     e12: 0
     e13: -360.395599
     e20: 0
     e21: 0
-    e22: 1
+    e22: 360
     e23: 0
     e30: 0
     e31: 0
@@ -26175,7 +26174,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   editorColor: {r: 1, g: 0, b: 0, a: 1}
-  character: {fileID: 1666401515}
   becameInVisible: {fileID: 1464001867}
   anim: {fileID: 1571208210}
   idleClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
@@ -26209,7 +26207,7 @@ MonoBehaviour:
   rpgForceY: 50
   runDist: 2
   jumpDist: 1
-  attackDist: .370000005
+  attackDist: .150000006
   speed: .300000012
   height: .300000012
   blastHeight: 0
@@ -29312,7 +29310,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: .0500000007, y: 2.0999999, z: .0500000007}
-  m_Center: {x: 0, y: .460000008, z: -.0500000007}
+  m_Center: {x: 0, y: 0, z: -.0500000007}
 --- !u!4 &1481854026
 Transform:
   m_ObjectHideFlags: 0
@@ -29320,7 +29318,7 @@ Transform:
   m_PrefabInternal: {fileID: 1777870100}
   m_GameObject: {fileID: 1481854024}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -4.37113883e-08}
-  m_LocalPosition: {x: 6.46475458, y: 1.27313495, z: 0}
+  m_LocalPosition: {x: 6.46475458, y: 2.20000005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 144566047}
@@ -32979,7 +32977,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   editorColor: {r: 1, g: 0, b: 0, a: 1}
-  character: {fileID: 1666401515}
   becameInVisible: {fileID: 202042532}
   anim: {fileID: 1670878662}
   idleClip: {fileID: 7400004, guid: b5f4c3240f787bd4a802012a7d7d2b67, type: 3}
@@ -33260,17 +33257,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 1
+    e00: 360
     e01: 0
     e02: 0
     e03: .00125000009
     e10: 0
-    e11: 1
+    e11: 360
     e12: 0
     e13: -.00124999997
     e20: 0
     e21: 0
-    e22: 1
+    e22: 360
     e23: 0
     e30: 0
     e31: 0
@@ -33530,7 +33527,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   editorColor: {r: 1, g: 0, b: 0, a: 1}
-  character: {fileID: 1666401515}
   becameInVisible: {fileID: 1405362461}
   anim: {fileID: 1676511838}
   idleClip: {fileID: 7400004, guid: f65215b02dd313144aa90eec2e671309, type: 3}
@@ -34885,8 +34881,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .0500000007, y: 1, z: .0500000007}
-  m_Center: {x: 0, y: -.0500000007, z: -.0500000007}
+  m_Size: {x: .0500000007, y: 1.5, z: .0500000007}
+  m_Center: {x: 0, y: 0, z: -.0500000007}
 --- !u!4 &1754990523
 Transform:
   m_ObjectHideFlags: 0
@@ -35162,7 +35158,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.27313495
+      value: 2.20000005
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -35194,7 +35190,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -.866345406
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: m_LocalPosition.x
@@ -35202,15 +35198,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6500000, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: m_Size.y
-      value: 2.5999999
+      value: 2.0999999
       objectReference: {fileID: 0}
     - target: {fileID: 6500000, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: m_Center.y
-      value: 1.29999995
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6500002, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
       propertyPath: m_Center.y
-      value: .460000008
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 46d8d9f2f96f41147968bc69da49497c, type: 2}
@@ -37355,7 +37351,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   editorColor: {r: 1, g: 0, b: 0, a: 1}
-  character: {fileID: 1666401515}
   becameInVisible: {fileID: 1339486072}
   anim: {fileID: 1848923937}
   idleClip: {fileID: 7400000, guid: 367988217ce9ac442846bcc74d4a230a, type: 3}
@@ -37389,7 +37384,7 @@ MonoBehaviour:
   rpgForceY: 80
   runDist: 5
   jumpDist: 1
-  attackDist: .300000012
+  attackDist: .349999994
   speed: 1.29999995
   height: 0
   blastHeight: 0
@@ -38455,7 +38450,7 @@ Transform:
   m_PrefabInternal: {fileID: 1272242018}
   m_GameObject: {fileID: 1934865915}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -.714892864, z: 1.24624284e-08}
+  m_LocalPosition: {x: 0, y: 0, z: 1.24624284e-08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1754990523}
@@ -38485,7 +38480,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: .319999993, y: 1.5, z: .00999999978}
-  m_Center: {x: 0, y: .699999988, z: -.00999999978}
+  m_Center: {x: 0, y: 0, z: -.00999999978}
 --- !u!1 &1939588507
 GameObject:
   m_ObjectHideFlags: 0
@@ -39430,7 +39425,7 @@ Transform:
   m_GameObject: {fileID: 1978581601}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .00277777785, y: .00277777785, z: .00277777785}
   m_Children:
   - {fileID: 125284557}
   m_Father: {fileID: 0}
