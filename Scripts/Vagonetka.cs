@@ -22,8 +22,9 @@ public class Vagonetka : MonoBehaviour
   {
     if (other.gameObject.name == "Stalker" /*&& !run*/ && !dead)
     {
+      if (!run)
+        audioSourceLoop.Play();
       run = true;
-      audioSourceLoop.Play();
       if (dynamica < 0)
         dynamica = -dynamica/2;
     }
