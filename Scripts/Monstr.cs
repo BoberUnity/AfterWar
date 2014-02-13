@@ -22,6 +22,7 @@ public class Monstr : MonoBehaviour
   [SerializeField] private AudioClip deadSound = null;
   [SerializeField] private GameObject blastPrefab = null;
   [SerializeField] private ParticleEmitter fire = null;
+  [SerializeField] private Transform[] rigBoxes = null;
   [SerializeField] private float uron = 5;
   [SerializeField] private float[] uronDist = new float[5];
   [SerializeField] private float[] uronMonstr = new float[5];
@@ -298,7 +299,18 @@ public class Monstr : MonoBehaviour
     }
 
     if (moveDown)
+    {
       t.position -= Vector3.up * height * Time.deltaTime;
+    }
+
+    if (dead || moveDown)//Удаление при столкновении с ящиком
+    {
+      foreach (var box in rigBoxes)
+      {
+        if (Vector3.Distance(t.position, box.position) < 0.16f)
+          Destroy(gameObject);
+      }
+    }
   }
   //--------------------------------------------------------------------------------------------------
   private void CharacterAttack(int armo)

@@ -915,6 +915,8 @@ MonoBehaviour:
   deadSound: {fileID: 8300000, guid: 60ac9756ad39795488e5777145bfbe22, type: 3}
   blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
   fire: {fileID: 0}
+  rigBoxes:
+  - {fileID: 1028581397}
   uron: 5
   uronDist:
   - .5
@@ -934,7 +936,7 @@ MonoBehaviour:
   jumpDist: 1
   attackDist: .150000006
   speed: .300000012
-  height: .349999994
+  height: .319999993
   blastHeight: 0
   leftZona: 1.75
   rightZona: .150000006
@@ -2308,6 +2310,10 @@ MonoBehaviour:
   deadSound: {fileID: 8300000, guid: 60ac9756ad39795488e5777145bfbe22, type: 3}
   blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
   fire: {fileID: 0}
+  rigBoxes:
+  - {fileID: 475013100}
+  - {fileID: 1076298750}
+  - {fileID: 1154458996}
   uron: 5
   uronDist:
   - .5
@@ -2327,7 +2333,7 @@ MonoBehaviour:
   jumpDist: 1
   attackDist: .150000006
   speed: .300000012
-  height: .349999994
+  height: .319999993
   blastHeight: 0
   leftZona: 3.36999989
   rightZona: .300000012
@@ -8740,6 +8746,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1449185472}
     m_Modifications:
+    - target: {fileID: 11400002, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
+      propertyPath: rigBoxes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
       propertyPath: m_LocalPosition.x
       value: 3.42415571
@@ -8778,7 +8788,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
       propertyPath: height
-      value: .349999994
+      value: .319999993
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
       propertyPath: uronDist.Array.data[0]
@@ -8788,6 +8798,18 @@ Prefab:
       propertyPath: rightZona
       value: .300000012
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
+      propertyPath: rigBoxes.Array.data[0]
+      value: 
+      objectReference: {fileID: 475013100}
+    - target: {fileID: 11400002, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
+      propertyPath: rigBoxes.Array.data[1]
+      value: 
+      objectReference: {fileID: 1076298750}
+    - target: {fileID: 11400002, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
+      propertyPath: rigBoxes.Array.data[2]
+      value: 
+      objectReference: {fileID: 1154458996}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
   m_RootGameObject: {fileID: 74298933}
@@ -15046,6 +15068,9 @@ MonoBehaviour:
   deadSound: {fileID: 8300000, guid: 60ac9756ad39795488e5777145bfbe22, type: 3}
   blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
   fire: {fileID: 0}
+  rigBoxes:
+  - {fileID: 475013100}
+  - {fileID: 1822008603}
   uron: 5
   uronDist:
   - .5
@@ -17681,6 +17706,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1449185472}
     m_Modifications:
+    - target: {fileID: 11400002, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
+      propertyPath: rigBoxes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
       propertyPath: m_LocalPosition.x
       value: 3.65487361
@@ -17719,7 +17748,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
       propertyPath: height
-      value: .349999994
+      value: .319999993
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
       propertyPath: uronDist.Array.data[0]
@@ -17729,6 +17758,14 @@ Prefab:
       propertyPath: rightZona
       value: .150000006
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
+      propertyPath: rigBox
+      value: 
+      objectReference: {fileID: 1028581397}
+    - target: {fileID: 11400002, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
+      propertyPath: rigBoxes.Array.data[0]
+      value: 
+      objectReference: {fileID: 1028581397}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
   m_RootGameObject: {fileID: 19415872}
@@ -31622,6 +31659,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1449185472}
     m_Modifications:
+    - target: {fileID: 11400002, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
+      propertyPath: rigBoxes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
       propertyPath: m_LocalPosition.x
       value: .0592470169
@@ -31670,6 +31711,14 @@ Prefab:
       propertyPath: rightZona
       value: 1.76999998
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
+      propertyPath: rigBoxes.Array.data[0]
+      value: 
+      objectReference: {fileID: 475013100}
+    - target: {fileID: 11400002, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
+      propertyPath: rigBoxes.Array.data[1]
+      value: 
+      objectReference: {fileID: 1822008603}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
   m_RootGameObject: {fileID: 538877852}
@@ -38410,6 +38459,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1449185472}
     m_Modifications:
+    - target: {fileID: 11400002, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
+      propertyPath: rigBoxes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
       propertyPath: m_LocalPosition.x
       value: 2.41757679
@@ -38458,6 +38511,18 @@ Prefab:
       propertyPath: rightZona
       value: 1.32000005
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
+      propertyPath: rigBoxes.Array.data[0]
+      value: 
+      objectReference: {fileID: 1028581397}
+    - target: {fileID: 11400002, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
+      propertyPath: rigBoxes.Array.data[1]
+      value: 
+      objectReference: {fileID: 1076298750}
+    - target: {fileID: 11400002, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
+      propertyPath: rigBoxes.Array.data[2]
+      value: 
+      objectReference: {fileID: 1154458996}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d3ea2be8cb48cea4d9d2a5f2cd6259d0, type: 2}
   m_RootGameObject: {fileID: 1780211867}
@@ -52681,6 +52746,10 @@ MonoBehaviour:
   deadSound: {fileID: 8300000, guid: 60ac9756ad39795488e5777145bfbe22, type: 3}
   blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
   fire: {fileID: 0}
+  rigBoxes:
+  - {fileID: 1028581397}
+  - {fileID: 1076298750}
+  - {fileID: 1154458996}
   uron: 5
   uronDist:
   - .5
