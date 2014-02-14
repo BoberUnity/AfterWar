@@ -7,12 +7,17 @@ namespace Assets.Scripts.Buttons3D
   {
     [SerializeField] private int id = 1;
     [SerializeField] private float waitTime = 0;
+    [SerializeField] private bool open = true;
+    public bool Open
+    {
+      set { open = value; }
+    }
 
     private bool isLoaded = false;
 
     protected override void MakeAction()
     {
-      if (!isLoaded)
+      if (!isLoaded && open)
       {
         StartCoroutine(LoadLevel(waitTime));
       }
