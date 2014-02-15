@@ -11,12 +11,13 @@ namespace Assets.Scripts.Buttons3D
     [SerializeField] private AudioClip sound = null; 
     [SerializeField] private bool loop = false;
     [SerializeField] private ChangeState changeState = null;
+    [SerializeField] private int necesarryState = 1;//до этого уже что-то нажато
     [SerializeField] private bool paused = false;//для записок
     private bool isPlayed = false;
 
     protected override void MakeAction()
     {
-      if ((changeState != null && changeState.State == 1) || changeState == null)
+      if ((changeState != null && changeState.State == necesarryState) || changeState == null)
       {
         if (!isPlayed)
         {
@@ -27,6 +28,8 @@ namespace Assets.Scripts.Buttons3D
           StartCoroutine(EndAnim(anim[anim.clip.name].length));
           if (!always)
             isPlayed = true;
+          if (changeState != null)
+            changeState.State += 1;
         }
       }
     }
