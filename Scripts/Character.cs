@@ -290,8 +290,8 @@ public class Character : MonoBehaviour
     set
     {
       useGazMask = value;
-      if (!useGazMask && inGazZone)
-        Helth -= 301;
+      //if (!useGazMask && inGazZone)
+      //  Helth -= 301;
     }
   }
 
