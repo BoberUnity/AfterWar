@@ -312,11 +312,11 @@ public class Monstr : MonoBehaviour
     {
       if (!att && !dead)
       {
-        //if (run)
-        //  SetAnim(runClip, 1);
-        //else 
-        //  SetAnim(idleClip, idleSpeed);
-        SetAnim(run ? runClip : idleClip, 1);
+        if (run)
+          SetAnim(runClip, 1);
+        else 
+          SetAnim(idleClip, idleSpeed);
+        //SetAnim(run ? runClip : idleClip, 1);
       }
     }
 
