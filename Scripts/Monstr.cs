@@ -35,6 +35,8 @@ public class Monstr : MonoBehaviour
   [SerializeField] private float attackDist = 0.2f;
   [SerializeField] private float speed = 0.6f;
   [SerializeField] private float height = 0;//Rat - 0, Bat - 0.3f
+  [SerializeField] private float paukHeight = 0;
+  [SerializeField] private Transform pautinaT = null;
   [SerializeField] private float blastHeight = 0;
   [SerializeField] private float leftZona = 1;
   [SerializeField] private float rightZona = 1;
@@ -61,6 +63,7 @@ public class Monstr : MonoBehaviour
   private AnimationClip oldClip = null;
   private bool follow = false;
   private bool jump = false;
+  //private Vector3 pautinaScale = Vector3.zero;
 	
 	
 	private void Attack()
@@ -114,6 +117,10 @@ public class Monstr : MonoBehaviour
     minX = t.position.x - leftZona;
     maxX = t.position.x + rightZona;
     trigger = GetComponent<BoxCollider>();
+    //if (pautinaT != null)
+    //{
+    //  pautinaScale = pautinaT.localScale;
+    //}
   }
 
   private void OnDestroy()
@@ -135,7 +142,7 @@ public class Monstr : MonoBehaviour
       }
     }
 
-    if (heigToChar < 0.2f && characterT.position.x > minX && characterT.position.x < maxX && !dead)
+    if (heigToChar < 0.2f && characterT.position.x > minX && characterT.position.x < maxX && !dead && paukHeight < 0.01f)
     {
       //ПОВОРОТЫ
       if (!win)
@@ -254,7 +261,7 @@ public class Monstr : MonoBehaviour
         }
       }
 
-      if (distToChar < attackDist && !att)
+      if (distToChar < attackDist && !att && paukHeight < 0.01f)
       {
         run = false;
         att = true;
@@ -274,6 +281,15 @@ public class Monstr : MonoBehaviour
       run = false;
       distToChar = 10000;
     }
+    //only pauk
+    if (heigToChar < 0.37f && paukHeight > 0 && (characterT.position.x > minX && characterT.position.x < maxX || dead))
+    {
+      t.position -= Vector3.up * 0.3f * Time.deltaTime;
+      paukHeight -= Time.deltaTime * 0.3f;
+      pautinaT.localScale += Vector3.forward * Time.deltaTime * 0.6f;
+      pautinaT.renderer.material.color -= new Color(0, 0, 0, Time.deltaTime);
+    }
+    //
 
     if (win && eatEnabled)
     {

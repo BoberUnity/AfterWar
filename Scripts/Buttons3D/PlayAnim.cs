@@ -14,9 +14,12 @@ namespace Assets.Scripts.Buttons3D
     [SerializeField] private int necesarryState = 1;//до этого уже что-то нажато
     [SerializeField] private bool paused = false;//для записок
     private bool isPlayed = false;
+    private AnimationClip mainClip = null;
 
     protected override void MakeAction()
     {
+      if (anim.playAutomatically)
+        mainClip = anim.clip;
       if ((changeState != null && changeState.State == necesarryState) || changeState == null)
       {
         if (!isPlayed)
@@ -41,6 +44,11 @@ namespace Assets.Scripts.Buttons3D
         audio.Stop();
       if (paused)
         Time.timeScale = 0;
+      if (anim.playAutomatically)
+      {
+        anim.clip = mainClip;
+        anim.Play();
+      }
     }
 
     private void PlayingSound()
