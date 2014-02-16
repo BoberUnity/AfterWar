@@ -9,6 +9,7 @@ public class Monstr : MonoBehaviour
   [SerializeField] private BecameInvisible becameInVisible = null;
   [SerializeField] private Animation anim = null;
   [SerializeField] private AnimationClip idleClip = null;
+  [SerializeField] private float idleSpeed = 1;
   [SerializeField] private AnimationClip runClip = null;
   [SerializeField] private AnimationClip attackClip = null;
   [SerializeField] private float attackAnimSpeed = 1;
@@ -37,6 +38,7 @@ public class Monstr : MonoBehaviour
   [SerializeField] private float height = 0;//Rat - 0, Bat - 0.3f
   [SerializeField] private float paukHeight = 0;
   [SerializeField] private Transform pautinaT = null;
+  [SerializeField] private Transform bodyT = null;
   [SerializeField] private float blastHeight = 0;
   [SerializeField] private float leftZona = 1;
   [SerializeField] private float rightZona = 1;
@@ -108,7 +110,7 @@ public class Monstr : MonoBehaviour
     character = GameObject.Find("Stalker").GetComponent<Character>();
     oldClip = anim.clip;
     anim[oldClip.name].enabled = true;
-    SetAnim(idleClip, 1);
+    SetAnim(idleClip, idleSpeed);
     t = transform;
     zPos = t.position.z;
     characterT = character.transform;
@@ -282,12 +284,23 @@ public class Monstr : MonoBehaviour
       distToChar = 10000;
     }
     //only pauk
-    if (heigToChar < 0.37f && paukHeight > 0 && (characterT.position.x > minX && characterT.position.x < maxX || dead))
+    if (heigToChar < 0.37f  && (characterT.position.x > minX && characterT.position.x < maxX || dead))
     {
-      t.position -= Vector3.up * 0.3f * Time.deltaTime;
-      paukHeight -= Time.deltaTime * 0.3f;
-      pautinaT.localScale += Vector3.forward * Time.deltaTime * 0.6f;
-      pautinaT.renderer.material.color -= new Color(0, 0, 0, Time.deltaTime);
+      run = true;
+      if (paukHeight > 0)
+      {
+        t.position -= Vector3.up * 0.3f * Time.deltaTime;
+        paukHeight -= Time.deltaTime * 0.3f;
+        pautinaT.localScale += Vector3.forward * Time.deltaTime * 0.6f;
+        
+        if (paukHeight < 0.05f)
+        {
+          bodyT.eulerAngles += Vector3.forward * Time.deltaTime * 540;
+          pautinaT.renderer.material.color -= new Color(0, 0, 0, Time.deltaTime*6);
+        }
+      }
+      if (paukHeight < 0)
+        bodyT.eulerAngles = new Vector3(bodyT.eulerAngles.x, bodyT.eulerAngles.y, 0);
     }
     //
 
@@ -298,7 +311,13 @@ public class Monstr : MonoBehaviour
     else
     {
       if (!att && !dead)
-      SetAnim(run ? runClip : idleClip, 1);
+      {
+        //if (run)
+        //  SetAnim(runClip, 1);
+        //else 
+        //  SetAnim(idleClip, idleSpeed);
+        SetAnim(run ? runClip : idleClip, 1);
+      }
     }
 
     //Сглаживание анимаций
@@ -449,16 +468,21 @@ public class Monstr : MonoBehaviour
 
   private void SetAnim(AnimationClip cl, float sp)
   {
+    if (currWeight < 1)
+      anim[oldClip.name].enabled = false;
+    
     if (anim.clip != cl)
     {
-      if (currWeight < 1)
-        anim[oldClip.name].enabled = false;
       oldClip = anim.clip;
       currWeight = 0;
-      anim.clip = cl;
-      anim[cl.name].speed = sp;
-      anim[anim.clip.name].enabled = true;
     }
+    else
+    {
+      currWeight = 0.99f;
+    }
+    anim.clip = cl;
+    anim[cl.name].speed = sp;
+    anim[anim.clip.name].enabled = true;
   }
 
   private void ExtiRender()
