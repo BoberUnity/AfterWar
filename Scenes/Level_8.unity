@@ -5836,7 +5836,7 @@ MonoBehaviour:
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mWidth: 700
-  mHeight: 500
+  mHeight: 80
   mDepth: -1
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
@@ -18173,6 +18173,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11100060, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
+      propertyPath: m_Animations.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 11400286, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: qualityEffects.Array.size
       value: 2
@@ -18397,6 +18401,30 @@ Prefab:
       propertyPath: mText
       value: "\u0414\u0432\u0435\u0440\u044C \u0437\u0430\u043F\u0435\u0440\u0442\u0430"
       objectReference: {fileID: 0}
+    - target: {fileID: 11100060, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
+      propertyPath: m_Animations.Array.data[2]
+      value: 
+      objectReference: {fileID: 7400000, guid: 015af270fe00cac4bbd16d0f8df0256c, type: 2}
+    - target: {fileID: 400556, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400556, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400702, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
+      propertyPath: mHeight
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 11100060, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
+      propertyPath: m_Animations.Array.data[3]
+      value: 
+      objectReference: {fileID: 7400000, guid: 3b486661370ea1e4c8b6a3368c9617f9, type: 2}
+    - target: {fileID: 11400808, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
+      propertyPath: backClip
+      value: 
+      objectReference: {fileID: 7400000, guid: 3b486661370ea1e4c8b6a3368c9617f9, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
   m_RootGameObject: {fileID: 1978581601}
@@ -26619,8 +26647,8 @@ Transform:
   m_PrefabInternal: {fileID: 1117269291}
   m_GameObject: {fileID: 1638435827}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 1, z: 1}
+  m_LocalPosition: {x: 1100, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 396198555}
   m_Father: {fileID: 1675142034}
@@ -26651,7 +26679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f099f99aa606240b6069c3f0d8ea13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backClip: {fileID: 7400000, guid: 6488b3124da48294eb6b876a4dc2d9d4, type: 2}
+  backClip: {fileID: 7400000, guid: 3b486661370ea1e4c8b6a3368c9617f9, type: 2}
 --- !u!111 &1638435831
 Animation:
   m_ObjectHideFlags: 0
@@ -26665,6 +26693,8 @@ Animation:
   m_Animations:
   - {fileID: 7400000, guid: 1c04a9b45999bb74e88434aa831f0295, type: 2}
   - {fileID: 7400000, guid: 6488b3124da48294eb6b876a4dc2d9d4, type: 2}
+  - {fileID: 7400000, guid: 015af270fe00cac4bbd16d0f8df0256c, type: 2}
+  - {fileID: 7400000, guid: 3b486661370ea1e4c8b6a3368c9617f9, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -28811,7 +28841,7 @@ MonoBehaviour:
   character: {fileID: 1666401515}
   dist: .899999976
   anim: {fileID: 1638435831}
-  clip: {fileID: 7400000, guid: 1c04a9b45999bb74e88434aa831f0295, type: 2}
+  clip: {fileID: 7400000, guid: 015af270fe00cac4bbd16d0f8df0256c, type: 2}
   always: 1
   sound: {fileID: 0}
   loop: 0
