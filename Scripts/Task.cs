@@ -2,7 +2,7 @@
 
 public class Task : MonoBehaviour
 {
-  private int etap = 0;
+  [SerializeField] private int etap = 0;
 
   public int Etap
   {
