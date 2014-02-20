@@ -20,12 +20,13 @@ public class DoorKey : MonoBehaviour
   [SerializeField] private GameObject greenFlare = null;
   [SerializeField] private Block[] blocks = null;
   private bool isOpen = false;
-
+  private bool right = true;
 	private void Start () 
   {
     foreach (var but in blocks)
     {
       but.playTwoAnimses.Press += CheckKey;
+      but.key = UnityEngine.Random.value > 0.5f;
     }
 	}
 
@@ -41,7 +42,7 @@ public class DoorKey : MonoBehaviour
 	{
 	  if (!isOpen)
     {
-      bool right = true;
+      right = true;
 
       foreach (var but in blocks)
 	    {
@@ -51,7 +52,6 @@ public class DoorKey : MonoBehaviour
       if (right)
       {
         isOpen = true;
-        doorAnim.Play();
         lampRenderer.material = greenMat;
         greenFlare.gameObject.SetActive(true);
       }
@@ -59,8 +59,8 @@ public class DoorKey : MonoBehaviour
       {
         lampRenderer.material = redMat;
         redFlare.gameObject.SetActive(true);
-        StartCoroutine(ReturnMat(0.7f));
       }
+      StartCoroutine(ReturnMat(0.7f));
     }
   }
 
@@ -69,5 +69,9 @@ public class DoorKey : MonoBehaviour
     yield return new WaitForSeconds(time);
     lampRenderer.material = grayMat;
     redFlare.gameObject.SetActive(false);
+    if (right)
+    {
+      doorAnim.Play();
+    }
   }
 }
