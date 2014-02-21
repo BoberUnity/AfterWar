@@ -7,6 +7,8 @@ namespace Assets.Scripts.Buttons3D
   {
     [SerializeField] private float waitTime = 0;
     [SerializeField] private float y = 1;
+    [SerializeField] private bool useX = false;
+    [SerializeField] private float x = 1;
     [SerializeField] private float minX = -100;
     [SerializeField] private float maxX = 100;
     [SerializeField] private float minY = -100;
@@ -49,7 +51,11 @@ namespace Assets.Scripts.Buttons3D
       cameraController.CamHeight = camHeight;
       cameraController.Follow = follow;
       cameraController.CamTrans.position = new Vector3(Mathf.Clamp(cameraController.CamTrans.position.x, minX, maxX), Mathf.Clamp(y + camHeight, minY, maxY), -camDist);
-      character.transform.position = new Vector3(transform.position.x, y, 0);
+      if (useX)
+        character.transform.position = new Vector3(x, y, 0);
+      else
+        character.transform.position = new Vector3(transform.position.x, y, 0);
+
       character.transform.eulerAngles = new Vector3(character.transform.eulerAngles.x, charRotY, character.transform.eulerAngles.z);
       
       foreach (var aObjs in activeObjs)
