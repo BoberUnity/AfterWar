@@ -108,8 +108,8 @@ public class Monstr : MonoBehaviour
   private void Start()
   {
     character = GameObject.Find("Stalker").GetComponent<Character>();
-    //oldClip = anim.clip;
-    //anim[oldClip.name].enabled = true;
+    oldClip = anim.clip;
+    anim[oldClip.name].enabled = true;
     SetAnim(idleClip, idleSpeed);
     t = transform;
     zPos = t.position.z;
