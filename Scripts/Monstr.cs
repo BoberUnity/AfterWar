@@ -108,8 +108,8 @@ public class Monstr : MonoBehaviour
   private void Start()
   {
     character = GameObject.Find("Stalker").GetComponent<Character>();
-    oldClip = anim.clip;
-    anim[oldClip.name].enabled = true;
+    //oldClip = anim.clip;
+    //anim[oldClip.name].enabled = true;
     SetAnim(idleClip, idleSpeed);
     t = transform;
     zPos = t.position.z;
@@ -284,7 +284,7 @@ public class Monstr : MonoBehaviour
       distToChar = 10000;
     }
     //only pauk
-    if (heigToChar < 0.37f  && (characterT.position.x > minX && characterT.position.x < maxX || dead))
+    if ((paukHeight > 0 || paukHeight < 0) && heigToChar < 0.37f  && (characterT.position.x > minX && characterT.position.x < maxX || dead))
     {
       run = true;
       if (paukHeight > 0)
