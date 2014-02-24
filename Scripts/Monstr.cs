@@ -396,6 +396,7 @@ public class Monstr : MonoBehaviour
             rigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
             rigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
             rigidbody.freezeRotation = true;
+            rigidbody.drag = 5;
 
             if (characterT.position.x < t.position.x)
               rigidbody.AddForce(armoForce[armo].x, armoForce[armo].y, 0);
