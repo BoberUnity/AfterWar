@@ -3003,6 +3003,7 @@ MonoBehaviour:
   becameInVisible: {fileID: 11400002}
   anim: {fileID: 11100000}
   idleClip: {fileID: 7400002, guid: 66e5f6caf27523841b1b65e4a687d305, type: 3}
+  idleSpeed: 1
   runClip: {fileID: 7400000, guid: defad4baa784bf041a70c6744eb436ca, type: 3}
   attackClip: {fileID: 7400000, guid: f6a09b52fdadad8488c901c15432aff8, type: 3}
   attackAnimSpeed: 1
@@ -3035,6 +3036,12 @@ MonoBehaviour:
   - 101
   - 34
   - 101
+  armoForce:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 250, y: 50}
+  - {x: 0, y: 0}
+  - {x: 250, y: 50}
   rpgForceX: 250
   rpgForceY: 50
   runDist: 1
@@ -3044,6 +3051,7 @@ MonoBehaviour:
   height: 0
   paukHeight: .300000012
   pautinaT: {fileID: 400032}
+  bodyT: {fileID: 0}
   blastHeight: 0
   leftZona: .800000012
   rightZona: .400000006

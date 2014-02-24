@@ -118,6 +118,8 @@ MonoBehaviour:
   dist: .5
   waitTime: .949999988
   y: 1.47500002
+  useX: 0
+  x: 1
   minX: -.699999988
   maxX: 11
   minY: .649999976
@@ -1533,6 +1535,7 @@ MonoBehaviour:
   sound: {fileID: 0}
   loop: 0
   changeState: {fileID: 0}
+  necesarryState: 1
   paused: 0
 --- !u!1 &83150093
 GameObject:
@@ -4160,17 +4163,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: .791208804
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: 359.60437
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0
@@ -4226,6 +4229,8 @@ MonoBehaviour:
   dist: .720000029
   waitTime: .949999988
   y: 9
+  useX: 0
+  x: 1
   minX: -2.70000005
   maxX: 100
   minY: -100
@@ -4258,6 +4263,7 @@ MonoBehaviour:
   sound: {fileID: 0}
   loop: 0
   changeState: {fileID: 0}
+  necesarryState: 1
   paused: 0
 --- !u!65 &225005107
 BoxCollider:
@@ -4833,6 +4839,7 @@ MonoBehaviour:
   becameInVisible: {fileID: 330804610}
   anim: {fileID: 1731323603}
   idleClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
+  idleSpeed: 1
   runClip: {fileID: 7400002, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
   attackClip: {fileID: 7400000, guid: ba44e37a7dead3e48916b72954c58d2f, type: 3}
   attackAnimSpeed: 1
@@ -4860,13 +4867,20 @@ MonoBehaviour:
   - 101
   - 34
   - 101
-  rpgForceX: 150
-  rpgForceY: 50
+  armoForce:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 150, y: 50}
+  - {x: 0, y: 0}
+  - {x: 150, y: 50}
   runDist: 2
   jumpDist: 1
   attackDist: .349999994
-  speed: .300000012
+  speed: .600000024
   height: .300000012
+  paukHeight: 0
+  pautinaT: {fileID: 0}
+  bodyT: {fileID: 0}
   blastHeight: 0
   leftZona: 2.74000001
   rightZona: 1.45000005
@@ -5315,6 +5329,8 @@ MonoBehaviour:
   dist: .720000029
   waitTime: .949999988
   y: 13
+  useX: 0
+  x: 1
   minX: -2.70000005
   maxX: 100
   minY: -100
@@ -5359,6 +5375,7 @@ MonoBehaviour:
   sound: {fileID: 0}
   loop: 0
   changeState: {fileID: 0}
+  necesarryState: 1
   paused: 0
 --- !u!1 &279855907
 GameObject:
@@ -7801,6 +7818,7 @@ MonoBehaviour:
   becameInVisible: {fileID: 591959137}
   anim: {fileID: 1119765344}
   idleClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
+  idleSpeed: 1
   runClip: {fileID: 7400002, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
   attackClip: {fileID: 7400000, guid: ba44e37a7dead3e48916b72954c58d2f, type: 3}
   attackAnimSpeed: 1
@@ -7828,13 +7846,20 @@ MonoBehaviour:
   - 101
   - 34
   - 101
-  rpgForceX: 150
-  rpgForceY: 50
+  armoForce:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 150, y: 50}
+  - {x: 0, y: 0}
+  - {x: 150, y: 50}
   runDist: 2
   jumpDist: 1
   attackDist: .150000006
-  speed: .300000012
+  speed: .600000024
   height: .300000012
+  paukHeight: 0
+  pautinaT: {fileID: 0}
+  bodyT: {fileID: 0}
   blastHeight: 0
   leftZona: .879999995
   rightZona: 1.60000002
@@ -10643,6 +10668,7 @@ MonoBehaviour:
   sound: {fileID: 8300000, guid: 071d7970fac19c04f8b7b9b01abb0901, type: 3}
   loop: 0
   changeState: {fileID: 0}
+  necesarryState: 1
   paused: 1
 --- !u!65 &516893441
 BoxCollider:
@@ -11211,6 +11237,10 @@ Prefab:
     - target: {fileID: 100000, guid: 0e76320dd81cbc84898ec6ba773317ad, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 0e76320dd81cbc84898ec6ba773317ad, type: 2}
+      propertyPath: speed
+      value: .600000024
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e76320dd81cbc84898ec6ba773317ad, type: 2}
@@ -14823,6 +14853,8 @@ MonoBehaviour:
   dist: .800000012
   waitTime: .949999988
   y: 5
+  useX: 0
+  x: 1
   minX: -2.70000005
   maxX: 100
   minY: -100
@@ -14855,6 +14887,7 @@ MonoBehaviour:
   sound: {fileID: 0}
   loop: 0
   changeState: {fileID: 0}
+  necesarryState: 1
   paused: 0
 --- !u!65 &730954825
 BoxCollider:
@@ -17128,6 +17161,7 @@ MonoBehaviour:
   sound: {fileID: 8300000, guid: 071d7970fac19c04f8b7b9b01abb0901, type: 3}
   loop: 0
   changeState: {fileID: 0}
+  necesarryState: 1
   paused: 1
 --- !u!65 &840438252
 BoxCollider:
@@ -18698,6 +18732,7 @@ MonoBehaviour:
   becameInVisible: {fileID: 1188388840}
   anim: {fileID: 859329759}
   idleClip: {fileID: 7400000, guid: 367988217ce9ac442846bcc74d4a230a, type: 3}
+  idleSpeed: 1
   runClip: {fileID: 7400000, guid: 69e047a6b23445145adade2f452c8562, type: 3}
   attackClip: {fileID: 7400000, guid: 5d6a4b56b64d33141bcfb523d225f199, type: 3}
   attackAnimSpeed: 1
@@ -18725,13 +18760,20 @@ MonoBehaviour:
   - 101
   - 34
   - 101
-  rpgForceX: 50
-  rpgForceY: 110
+  armoForce:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 50, y: 110}
+  - {x: 0, y: 0}
+  - {x: 50, y: 110}
   runDist: 5
   jumpDist: 1
   attackDist: .349999994
-  speed: 1.29999995
+  speed: .600000024
   height: 0
+  paukHeight: 0
+  pautinaT: {fileID: 0}
+  bodyT: {fileID: 0}
   blastHeight: 0
   leftZona: 1
   rightZona: 2.29999995
@@ -23282,17 +23324,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: 492.923065
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: -.395604402
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0
@@ -24142,6 +24184,8 @@ MonoBehaviour:
   dist: .5
   waitTime: .949999988
   y: .0500000007
+  useX: 0
+  x: 1
   minX: -.699999988
   maxX: 11
   minY: .649999976
@@ -24856,6 +24900,8 @@ MonoBehaviour:
   dist: .5
   waitTime: .949999988
   y: .779999971
+  useX: 0
+  x: 1
   minX: -.699999988
   maxX: 11
   minY: .649999976
@@ -26177,17 +26223,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: .791208804
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: -360.395599
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0
@@ -27751,6 +27797,10 @@ Prefab:
     - target: {fileID: 100000, guid: 0e76320dd81cbc84898ec6ba773317ad, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 0e76320dd81cbc84898ec6ba773317ad, type: 2}
+      propertyPath: speed
+      value: .600000024
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e76320dd81cbc84898ec6ba773317ad, type: 2}
@@ -29953,6 +30003,7 @@ MonoBehaviour:
   becameInVisible: {fileID: 118823084}
   anim: {fileID: 239809263}
   idleClip: {fileID: 7400000, guid: 367988217ce9ac442846bcc74d4a230a, type: 3}
+  idleSpeed: 1
   runClip: {fileID: 7400000, guid: 69e047a6b23445145adade2f452c8562, type: 3}
   attackClip: {fileID: 7400000, guid: 5d6a4b56b64d33141bcfb523d225f199, type: 3}
   attackAnimSpeed: 1
@@ -29980,13 +30031,20 @@ MonoBehaviour:
   - 101
   - 34
   - 101
-  rpgForceX: 50
-  rpgForceY: 110
+  armoForce:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 50, y: 110}
+  - {x: 0, y: 0}
+  - {x: 50, y: 110}
   runDist: 5
   jumpDist: 1
   attackDist: .349999994
-  speed: 1.29999995
+  speed: .600000024
   height: 0
+  paukHeight: 0
+  pautinaT: {fileID: 0}
+  bodyT: {fileID: 0}
   blastHeight: 0
   leftZona: 1
   rightZona: 1.39999998
@@ -30488,6 +30546,7 @@ MonoBehaviour:
   becameInVisible: {fileID: 1514361747}
   anim: {fileID: 351844078}
   idleClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
+  idleSpeed: 1
   runClip: {fileID: 7400002, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
   attackClip: {fileID: 7400000, guid: ba44e37a7dead3e48916b72954c58d2f, type: 3}
   attackAnimSpeed: 1
@@ -30515,13 +30574,20 @@ MonoBehaviour:
   - 101
   - 34
   - 101
-  rpgForceX: 150
-  rpgForceY: 50
+  armoForce:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 150, y: 50}
+  - {x: 0, y: 0}
+  - {x: 150, y: 50}
   runDist: 2
   jumpDist: 1
   attackDist: .150000006
-  speed: .300000012
+  speed: .600000024
   height: .300000012
+  paukHeight: 0
+  pautinaT: {fileID: 0}
+  bodyT: {fileID: 0}
   blastHeight: 0
   leftZona: 1.79999995
   rightZona: .200000003
@@ -32093,6 +32159,7 @@ MonoBehaviour:
   sound: {fileID: 8300000, guid: 071d7970fac19c04f8b7b9b01abb0901, type: 3}
   loop: 1
   changeState: {fileID: 0}
+  necesarryState: 1
   paused: 0
 --- !u!65 &1599380334
 BoxCollider:
@@ -33691,17 +33758,17 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   worldToLocal:
-    e00: 360
+    e00: 1
     e01: 0
     e02: 0
     e03: .00125000009
     e10: 0
-    e11: 360
+    e11: 1
     e12: 0
     e13: -.00124999997
     e20: 0
     e21: 0
-    e22: 360
+    e22: 1
     e23: 0
     e30: 0
     e31: 0
@@ -39534,7 +39601,7 @@ Transform:
   m_GameObject: {fileID: 1978581601}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .00277777785, y: .00277777785, z: .00277777785}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 125284557}
   m_Father: {fileID: 0}
@@ -42764,6 +42831,7 @@ MonoBehaviour:
   sound: {fileID: 8300000, guid: 071d7970fac19c04f8b7b9b01abb0901, type: 3}
   loop: 0
   changeState: {fileID: 0}
+  necesarryState: 1
   paused: 1
 --- !u!65 &2141478501
 BoxCollider:
@@ -42819,15 +42887,15 @@ Prefab:
       objectReference: {fileID: 666272594}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.x
-      value: .00277777785
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.y
-      value: .00277777785
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400118, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}
       propertyPath: m_LocalScale.z
-      value: .00277777785
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 908e5a35a41d45e4ebe5f5ad758f67c6, type: 2}

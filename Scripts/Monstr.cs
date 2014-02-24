@@ -29,8 +29,9 @@ public class Monstr : MonoBehaviour
   [SerializeField] private float[] uronMonstr = new float[5];
   //[SerializeField] private Vector3 boxColliderCenter = Vector3.zero;
   //[SerializeField] private Vector3 boxColliderSize = Vector3.one*0.4f;
-  [SerializeField] private float rpgForceX = 350;
-  [SerializeField] private float rpgForceY = 50;
+  [SerializeField] private Vector2[] armoForce = new Vector2[5];
+  //[SerializeField] private float rpgForceX = 350;
+  //[SerializeField] private float rpgForceY = 50;
   [SerializeField] private float runDist = 1;
   [SerializeField] private float jumpDist = 1;
   [SerializeField] private float attackDist = 0.2f;
@@ -380,7 +381,7 @@ public class Monstr : MonoBehaviour
       helth -= uronMonstr[armo];
       if (helth < 0)
       {
-        if (armo == 2 || armo == 4)
+        if (armoForce[armo].x > 0/*armo == 2 || armo == 4*/)
         {
           //BoxCollider boxCollider = gameObject.AddComponent("BoxCollider") as BoxCollider;
           //if (boxCollider != null)
@@ -393,12 +394,13 @@ public class Monstr : MonoBehaviour
           if (rigidbody != null)
           {
             rigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
+            rigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
             rigidbody.freezeRotation = true;
-            
+
             if (characterT.position.x < t.position.x)
-              rigidbody.AddForce(rpgForceX, rpgForceY, 0);
+              rigidbody.AddForce(armoForce[armo].x, armoForce[armo].y, 0);
             else
-              rigidbody.AddForce(-rpgForceX, rpgForceY, 0);
+              rigidbody.AddForce(-armoForce[armo].x, armoForce[armo].y, 0);
           }
           SetAnim(deadRPGClip, 1);
         }
