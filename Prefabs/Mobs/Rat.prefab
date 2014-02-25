@@ -12,6 +12,7 @@ GameObject:
   - 114: {fileID: 11400002}
   - 136: {fileID: 13600000}
   - 65: {fileID: 6500000}
+  - 65: {fileID: 6500002}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Untagged
@@ -1179,6 +1180,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.5, z: 1}
   m_Center: {x: 0, y: .800000012, z: .400000006}
+--- !u!65 &6500002
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: .5, z: 1}
+  m_Center: {x: 0, y: 0, z: .400000006}
 --- !u!82 &8200000
 AudioSource:
   m_ObjectHideFlags: 1
@@ -1289,6 +1302,7 @@ MonoBehaviour:
   idleClip: {fileID: 7400000, guid: 367988217ce9ac442846bcc74d4a230a, type: 3}
   idleSpeed: 1
   runClip: {fileID: 7400000, guid: 69e047a6b23445145adade2f452c8562, type: 3}
+  runSpeed: .800000012
   attackClip: {fileID: 7400000, guid: 5d6a4b56b64d33141bcfb523d225f199, type: 3}
   attackAnimSpeed: 1
   eatClip: {fileID: 7400000, guid: 9859b41aa3c7c4044812a3ab0546cb46, type: 3}
@@ -1321,8 +1335,6 @@ MonoBehaviour:
   - {x: 50, y: 110}
   - {x: 0, y: 0}
   - {x: 50, y: 110}
-  rpgForceX: 50
-  rpgForceY: 110
   runDist: 5
   jumpDist: 1
   attackDist: .349999994
@@ -1347,7 +1359,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 100000}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: .200000003
   m_Height: 1.35000002
   m_Direction: 2

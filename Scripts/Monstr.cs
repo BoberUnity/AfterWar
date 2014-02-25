@@ -11,6 +11,7 @@ public class Monstr : MonoBehaviour
   [SerializeField] private AnimationClip idleClip = null;
   [SerializeField] private float idleSpeed = 1;
   [SerializeField] private AnimationClip runClip = null;
+  [SerializeField] private float runSpeed = 1;
   [SerializeField] private AnimationClip attackClip = null;
   [SerializeField] private float attackAnimSpeed = 1;
   [SerializeField] private AnimationClip eatClip = null;
@@ -314,7 +315,7 @@ public class Monstr : MonoBehaviour
       if (!att && !dead)
       {
         if (run)
-          SetAnim(runClip, 1);
+          SetAnim(runClip, runSpeed);
         else 
           SetAnim(idleClip, idleSpeed);
         //SetAnim(run ? runClip : idleClip, 1);
