@@ -397,7 +397,7 @@ public class Monstr : MonoBehaviour
             rigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
             rigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
             rigidbody.freezeRotation = true;
-            rigidbody.drag = 5;
+            //rigidbody.drag = 5;
 
             if (characterT.position.x < t.position.x)
               rigidbody.AddForce(armoForce[armo].x, armoForce[armo].y, 0);
@@ -425,7 +425,7 @@ public class Monstr : MonoBehaviour
           isNear = false;
         }
         StopAllCoroutines();
-        
+        StartCoroutine(DestroyCollider(2));
         Destroy(trigger, 0.2f);//????
         if (armo == 4 && GameObject.Find("BlastRPG(Clone)") == null)//лишняя проверка
         {
@@ -468,6 +468,18 @@ public class Monstr : MonoBehaviour
     if (fire)
       fire.emit = false;
     win = character.Helth < 1;
+  }
+
+  private IEnumerator DestroyCollider(float time)
+  {
+    yield return new WaitForSeconds(time);
+    BoxCollider coll = GetComponent<BoxCollider>();
+    if (coll != null)
+    {
+      if (rigidbody != null)
+        rigidbody.useGravity = false;
+      Destroy(coll);
+    }
   }
 
   private void SetAnim(AnimationClip cl, float sp)

@@ -805,6 +805,7 @@ public class Character : MonoBehaviour
           SetAnimOnce(deadBackClip, 0.5f);
       }
       dead = true;
+      inStair = false;
       StartCoroutine(ShowMenu(5));//Через 5 сек показать меню
       //deadSprite.enabled = true;
     }
