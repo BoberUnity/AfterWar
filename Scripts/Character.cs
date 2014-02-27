@@ -408,6 +408,10 @@ public class Character : MonoBehaviour
         move = Mathf.Abs(progressBar.joysticValue.y) > 30;
         step = progressBar.joysticValue.y * 0.01f * curSpeed;
       }
+
+      if (bronButton.State == 2)
+        step /= 2;
+
       if (move)
       {
         //float step = progressBar.joysticValue.x*0.01f*curSpeed;
