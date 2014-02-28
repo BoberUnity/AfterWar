@@ -412,7 +412,7 @@ public class Character : MonoBehaviour
       }
 
       if (bronButton.State == 2)
-        step /= 2;
+        step *= 0.75f;
 
       if (move)
       {
