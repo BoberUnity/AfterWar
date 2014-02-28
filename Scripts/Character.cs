@@ -78,6 +78,7 @@ public class Character : MonoBehaviour
   [SerializeField] private Transform hand = null;
   [SerializeField] private GameObject BlastPrefab = null;
   [SerializeField] private GameObject MolnyPrefab = null;
+  [SerializeField] private GameObject PilPrefab = null;
   [SerializeField] private Transform endPistol = null;
   [SerializeField] private GameObject PistolPartPrefab = null;
   [SerializeField] private ButtonPause buttonPause = null;
@@ -362,7 +363,7 @@ public class Character : MonoBehaviour
       {
         if (fail)//Падение DO NOT DESTROY
         {
-          if (velocity > 2.4f && startFailY - t.position.y > failHeight)
+          if (velocity > 2.2f && startFailY - t.position.y > failHeight)
           {
             Helth -= 5;
             if (controller != null)
@@ -370,6 +371,7 @@ public class Character : MonoBehaviour
             audio.clip = failSound;
             audio.Play();
             velocity = 0.0f;
+            Instantiate(PilPrefab, transform.position, Quaternion.identity);
           }
           fail = false;
         }
