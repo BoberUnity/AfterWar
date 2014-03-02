@@ -371,9 +371,9 @@ public class Monstr : MonoBehaviour
     }
     bool notWall = distToChar < rayToChar;
     
-    var charPovernut = characterT.eulerAngles.y > 50 && characterT.eulerAngles.y < 120 && /*Mathf.Abs*/(characterT.position.x - t.position.x) < 0;//ГГ повернут вправо и монстр справа
+    var charPovernut = characterT.eulerAngles.y > 20 && characterT.eulerAngles.y < 160 && /*Mathf.Abs*/(characterT.position.x - t.position.x) < 0.2f;//ГГ повернут вправо и монстр справа
     
-    if (characterT.eulerAngles.y > 230 && characterT.eulerAngles.y < 310 && characterT.position.x - t.position.x > 0)//ГГ повернут влево и монстр слева
+    if (characterT.eulerAngles.y > 200 && characterT.eulerAngles.y < 340 && characterT.position.x - t.position.x > -0.2f)//ГГ повернут влево и монстр слева
       charPovernut = true;
 
 
