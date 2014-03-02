@@ -682,11 +682,13 @@ public class Character : MonoBehaviour
   private IEnumerator InGazZone(float time)
   {
     yield return new WaitForSeconds(time);
-    if (!useGazMask && inGazZone)
+    if (!useGazMask || inGazZone)
     {
-      Helth -= 10;
       StartCoroutine(InGazZone(1));
+      if (!useGazMask && inGazZone) 
+        Helth -= 10;
     }
+
   }
 
   private IEnumerator OffMoveBoxAnim(float time)
