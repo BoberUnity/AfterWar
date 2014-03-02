@@ -113,6 +113,7 @@ public class Character : MonoBehaviour
   private bool enableSoskok = false;
   private int currentArmo = 0;
   private int nearMonstr = 0;
+  [SerializeField]
   private bool fail = false;//падение
   private bool enableDead = false;
   private bool shooting = false;
@@ -365,7 +366,7 @@ public class Character : MonoBehaviour
         {
           if (velocity > 2.2f && startFailY - t.position.y > failHeight)
           {
-            Helth -= 5;
+            Helth -= (startFailY - t.position.y)/failHeight*5;
             if (controller != null)
               audio.volume = controller.EffectsVolume;
             audio.clip = failSound;
@@ -512,6 +513,9 @@ public class Character : MonoBehaviour
         inStair = false;
         enableSoskok = false;
       }
+
+      if (t.position.y > startFailY)
+        startFailY = t.position.y;
     }
     //ИДЁТ К ЛЕСТНИЦЕ --------------------------------------------
     if (jumpToStair > 0 && !inStair )
@@ -688,7 +692,6 @@ public class Character : MonoBehaviour
       if (!useGazMask && inGazZone) 
         Helth -= 10;
     }
-
   }
 
   private IEnumerator OffMoveBoxAnim(float time)
