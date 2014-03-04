@@ -1387,6 +1387,7 @@ MonoBehaviour:
   idleClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
   idleSpeed: 1
   runClip: {fileID: 7400002, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
+  runSpeed: 1
   attackClip: {fileID: 7400000, guid: ba44e37a7dead3e48916b72954c58d2f, type: 3}
   attackAnimSpeed: 1
   eatClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
@@ -1533,6 +1534,7 @@ GameObject:
   - 114: {fileID: 22579103}
   - 136: {fileID: 22579102}
   - 65: {fileID: 22579101}
+  - 65: {fileID: 22579105}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Untagged
@@ -1574,7 +1576,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 22579099}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: .200000003
   m_Height: 1.35000002
   m_Direction: 2
@@ -1597,6 +1599,7 @@ MonoBehaviour:
   idleClip: {fileID: 7400000, guid: 367988217ce9ac442846bcc74d4a230a, type: 3}
   idleSpeed: 1
   runClip: {fileID: 7400000, guid: 69e047a6b23445145adade2f452c8562, type: 3}
+  runSpeed: .800000012
   attackClip: {fileID: 7400000, guid: 5d6a4b56b64d33141bcfb523d225f199, type: 3}
   attackAnimSpeed: 1
   eatClip: {fileID: 7400000, guid: 9859b41aa3c7c4044812a3ab0546cb46, type: 3}
@@ -1704,6 +1707,19 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!65 &22579105
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6500002, guid: 0e76320dd81cbc84898ec6ba773317ad,
+    type: 2}
+  m_PrefabInternal: {fileID: 862567464}
+  m_GameObject: {fileID: 22579099}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: .5, z: 1}
+  m_Center: {x: 0, y: 0, z: .400000006}
 --- !u!1 &23165251
 GameObject:
   m_ObjectHideFlags: 0
@@ -3883,6 +3899,7 @@ MonoBehaviour:
   idleClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
   idleSpeed: 1
   runClip: {fileID: 7400002, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
+  runSpeed: 1
   attackClip: {fileID: 7400000, guid: ba44e37a7dead3e48916b72954c58d2f, type: 3}
   attackAnimSpeed: 1
   eatClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
@@ -5659,7 +5676,7 @@ MonoBehaviour:
   mDepth: 9
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 1
   mFillDirection: 4
@@ -7423,7 +7440,7 @@ MonoBehaviour:
   mDepth: 10
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -8720,6 +8737,7 @@ MonoBehaviour:
   idleClip: {fileID: 7400002, guid: 66e5f6caf27523841b1b65e4a687d305, type: 3}
   idleSpeed: 1
   runClip: {fileID: 7400000, guid: defad4baa784bf041a70c6744eb436ca, type: 3}
+  runSpeed: 1
   attackClip: {fileID: 7400000, guid: f6a09b52fdadad8488c901c15432aff8, type: 3}
   attackAnimSpeed: 1
   eatClip: {fileID: 0}
@@ -13003,12 +13021,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 700
+  mWidth: 750
   mHeight: 500
   mDepth: -1
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: DialogFon
+  mSpriteName: Bumaga
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -13277,7 +13295,7 @@ MonoBehaviour:
   mDepth: 9
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 1
   mFillDirection: 4
@@ -14523,7 +14541,7 @@ MonoBehaviour:
   mDepth: 9
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 1
   mFillDirection: 4
@@ -17293,7 +17311,7 @@ MonoBehaviour:
   mDepth: 10
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -17356,7 +17374,7 @@ MonoBehaviour:
   mDepth: 10
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -18660,6 +18678,7 @@ MonoBehaviour:
   idleClip: {fileID: 7400002, guid: 66e5f6caf27523841b1b65e4a687d305, type: 3}
   idleSpeed: 1
   runClip: {fileID: 7400000, guid: 66e5f6caf27523841b1b65e4a687d305, type: 3}
+  runSpeed: 1
   attackClip: {fileID: 7400000, guid: f6a09b52fdadad8488c901c15432aff8, type: 3}
   attackAnimSpeed: 1
   eatClip: {fileID: 0}
@@ -23269,12 +23288,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 700
+  mWidth: 750
   mHeight: 500
   mDepth: -1
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: DialogFon
+  mSpriteName: Bumaga
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -24291,7 +24310,7 @@ MonoBehaviour:
   mDepth: 9
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 1
   mFillDirection: 4
@@ -24740,6 +24759,7 @@ MonoBehaviour:
   idleClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
   idleSpeed: 1
   runClip: {fileID: 7400002, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
+  runSpeed: 1
   attackClip: {fileID: 7400000, guid: ba44e37a7dead3e48916b72954c58d2f, type: 3}
   attackAnimSpeed: 1
   eatClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
@@ -26343,7 +26363,7 @@ MonoBehaviour:
   mDepth: 10
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -30365,6 +30385,7 @@ MonoBehaviour:
   idleClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
   idleSpeed: 1
   runClip: {fileID: 7400002, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
+  runSpeed: 1
   attackClip: {fileID: 7400000, guid: ba44e37a7dead3e48916b72954c58d2f, type: 3}
   attackAnimSpeed: 1
   eatClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
@@ -30866,6 +30887,7 @@ MonoBehaviour:
   idleClip: {fileID: 7400000, guid: 66e5f6caf27523841b1b65e4a687d305, type: 3}
   idleSpeed: .119999997
   runClip: {fileID: 7400000, guid: defad4baa784bf041a70c6744eb436ca, type: 3}
+  runSpeed: 1
   attackClip: {fileID: 7400000, guid: f6a09b52fdadad8488c901c15432aff8, type: 3}
   attackAnimSpeed: 1
   eatClip: {fileID: 0}
@@ -31552,6 +31574,7 @@ MonoBehaviour:
   idleClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
   idleSpeed: 1
   runClip: {fileID: 7400002, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
+  runSpeed: 1
   attackClip: {fileID: 7400000, guid: ba44e37a7dead3e48916b72954c58d2f, type: 3}
   attackAnimSpeed: 1
   eatClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
@@ -32952,7 +32975,7 @@ MonoBehaviour:
   mDepth: 9
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 1
   mFillDirection: 4
@@ -34043,7 +34066,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 500, y: 300, z: 0}
+  m_Size: {x: 1200, y: 800, z: 0}
   m_Center: {x: 0, y: -1.90734863e-06, z: -1.25}
 --- !u!1 &735527674
 GameObject:
@@ -39146,7 +39169,7 @@ MonoBehaviour:
   mDepth: 10
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -40853,7 +40876,7 @@ MonoBehaviour:
   mDepth: 9
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 1
   mFillDirection: 4
@@ -40908,7 +40931,7 @@ MonoBehaviour:
   mDepth: 10
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -46130,6 +46153,7 @@ MonoBehaviour:
   idleClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
   idleSpeed: 1
   runClip: {fileID: 7400002, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
+  runSpeed: 1
   attackClip: {fileID: 7400000, guid: ba44e37a7dead3e48916b72954c58d2f, type: 3}
   attackAnimSpeed: 1
   eatClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
@@ -47327,7 +47351,7 @@ MonoBehaviour:
   mDepth: 10
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -48302,7 +48326,7 @@ MonoBehaviour:
   mDepth: 10
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -50530,6 +50554,7 @@ GameObject:
   - 114: {fileID: 1104771920}
   - 136: {fileID: 1104771919}
   - 65: {fileID: 1104771918}
+  - 65: {fileID: 1104771922}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Untagged
@@ -50571,7 +50596,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1104771916}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: .200000003
   m_Height: 1.35000002
   m_Direction: 2
@@ -50594,6 +50619,7 @@ MonoBehaviour:
   idleClip: {fileID: 7400000, guid: 367988217ce9ac442846bcc74d4a230a, type: 3}
   idleSpeed: 1
   runClip: {fileID: 7400000, guid: 69e047a6b23445145adade2f452c8562, type: 3}
+  runSpeed: .800000012
   attackClip: {fileID: 7400000, guid: 5d6a4b56b64d33141bcfb523d225f199, type: 3}
   attackAnimSpeed: 1
   eatClip: {fileID: 7400000, guid: 9859b41aa3c7c4044812a3ab0546cb46, type: 3}
@@ -50701,6 +50727,19 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!65 &1104771922
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6500002, guid: 0e76320dd81cbc84898ec6ba773317ad,
+    type: 2}
+  m_PrefabInternal: {fileID: 873018567}
+  m_GameObject: {fileID: 1104771916}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: .5, z: 1}
+  m_Center: {x: 0, y: 0, z: .400000006}
 --- !u!1 &1106514110
 GameObject:
   m_ObjectHideFlags: 0
@@ -54183,7 +54222,7 @@ MonoBehaviour:
   mDepth: 9
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 1
   mFillDirection: 4
@@ -57588,7 +57627,7 @@ MonoBehaviour:
   mDepth: 10
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -60917,6 +60956,7 @@ MonoBehaviour:
   idleClip: {fileID: 7400002, guid: 66e5f6caf27523841b1b65e4a687d305, type: 3}
   idleSpeed: 1
   runClip: {fileID: 7400000, guid: defad4baa784bf041a70c6744eb436ca, type: 3}
+  runSpeed: 1
   attackClip: {fileID: 7400000, guid: f6a09b52fdadad8488c901c15432aff8, type: 3}
   attackAnimSpeed: 1
   eatClip: {fileID: 0}
@@ -64188,6 +64228,7 @@ MonoBehaviour:
   idleClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
   idleSpeed: 1
   runClip: {fileID: 7400002, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
+  runSpeed: 1
   attackClip: {fileID: 7400000, guid: ba44e37a7dead3e48916b72954c58d2f, type: 3}
   attackAnimSpeed: 1
   eatClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
@@ -65954,7 +65995,7 @@ MonoBehaviour:
   mDepth: 9
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 1
   mFillDirection: 4
@@ -68357,6 +68398,7 @@ MonoBehaviour:
   idleClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
   idleSpeed: 1
   runClip: {fileID: 7400002, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
+  runSpeed: 1
   attackClip: {fileID: 7400000, guid: ba44e37a7dead3e48916b72954c58d2f, type: 3}
   attackAnimSpeed: 1
   eatClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
@@ -68725,7 +68767,7 @@ MonoBehaviour:
   mDepth: 10
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -75900,6 +75942,7 @@ MonoBehaviour:
   idleClip: {fileID: 7400002, guid: 66e5f6caf27523841b1b65e4a687d305, type: 3}
   idleSpeed: 1
   runClip: {fileID: 7400000, guid: defad4baa784bf041a70c6744eb436ca, type: 3}
+  runSpeed: 1
   attackClip: {fileID: 7400000, guid: f6a09b52fdadad8488c901c15432aff8, type: 3}
   attackAnimSpeed: 1
   eatClip: {fileID: 0}
@@ -76487,7 +76530,7 @@ MonoBehaviour:
   mDepth: 9
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 1
   mFillDirection: 4
@@ -78012,12 +78055,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 700
+  mWidth: 750
   mHeight: 500
   mDepth: -1
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: DialogFon
+  mSpriteName: Bumaga
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -78372,6 +78415,7 @@ MonoBehaviour:
   hand: {fileID: 509094867}
   BlastPrefab: {fileID: 100006, guid: 3b6ca14f93f65b34fbe601051c201b58, type: 2}
   MolnyPrefab: {fileID: 100000, guid: 86b31faa5da649442af978439207d79d, type: 2}
+  PilPrefab: {fileID: 100000, guid: f67e0c41e53554a43aa15ff0f0899116, type: 2}
   endPistol: {fileID: 506675647}
   PistolPartPrefab: {fileID: 100000, guid: 84d4ab06027e42c4daaf5d7c70d1fc16, type: 2}
   buttonPause: {fileID: 853564654}
@@ -78398,6 +78442,7 @@ MonoBehaviour:
   - 0
   - 0
   inverseXY: 0
+  fail: 0
 --- !u!82 &1666401516
 AudioSource:
   m_ObjectHideFlags: 0
@@ -78675,7 +78720,7 @@ MonoBehaviour:
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
   mClipSoftness: {x: 4, y: 4}
-  mDepth: -3
+  mDepth: 2
 --- !u!1 &1675212003
 GameObject:
   m_ObjectHideFlags: 0
@@ -80611,6 +80656,7 @@ MonoBehaviour:
   idleClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
   idleSpeed: 1
   runClip: {fileID: 7400002, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
+  runSpeed: 1
   attackClip: {fileID: 7400000, guid: ba44e37a7dead3e48916b72954c58d2f, type: 3}
   attackAnimSpeed: 1
   eatClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
@@ -83217,6 +83263,7 @@ MonoBehaviour:
   idleClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
   idleSpeed: 1
   runClip: {fileID: 7400002, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
+  runSpeed: 1
   attackClip: {fileID: 7400000, guid: ba44e37a7dead3e48916b72954c58d2f, type: 3}
   attackAnimSpeed: 1
   eatClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
@@ -85862,6 +85909,7 @@ GameObject:
   - 114: {fileID: 1839096786}
   - 136: {fileID: 1839096785}
   - 65: {fileID: 1839096784}
+  - 65: {fileID: 1839096788}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Untagged
@@ -85903,7 +85951,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1839096782}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: .200000003
   m_Height: 1.35000002
   m_Direction: 2
@@ -85926,6 +85974,7 @@ MonoBehaviour:
   idleClip: {fileID: 7400000, guid: 367988217ce9ac442846bcc74d4a230a, type: 3}
   idleSpeed: 1
   runClip: {fileID: 7400000, guid: 69e047a6b23445145adade2f452c8562, type: 3}
+  runSpeed: .800000012
   attackClip: {fileID: 7400000, guid: 5d6a4b56b64d33141bcfb523d225f199, type: 3}
   attackAnimSpeed: 1
   eatClip: {fileID: 7400000, guid: 9859b41aa3c7c4044812a3ab0546cb46, type: 3}
@@ -86033,6 +86082,19 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!65 &1839096788
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6500002, guid: 0e76320dd81cbc84898ec6ba773317ad,
+    type: 2}
+  m_PrefabInternal: {fileID: 1337682742}
+  m_GameObject: {fileID: 1839096782}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: .5, z: 1}
+  m_Center: {x: 0, y: 0, z: .400000006}
 --- !u!1 &1839419384
 GameObject:
   m_ObjectHideFlags: 0
@@ -86955,7 +87017,7 @@ MonoBehaviour:
   mDepth: 9
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 1
   mFillDirection: 4
@@ -87103,7 +87165,7 @@ MonoBehaviour:
   mDepth: 9
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 1
   mFillDirection: 4
@@ -88326,7 +88388,7 @@ MonoBehaviour:
   mDepth: 10
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -88474,6 +88536,7 @@ MonoBehaviour:
   idleClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
   idleSpeed: 1
   runClip: {fileID: 7400002, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
+  runSpeed: 1
   attackClip: {fileID: 7400000, guid: ba44e37a7dead3e48916b72954c58d2f, type: 3}
   attackAnimSpeed: 1
   eatClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
@@ -89128,7 +89191,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 500, y: 300, z: 0}
+  m_Size: {x: 1200, y: 800, z: 0}
   m_Center: {x: 0, y: -1.90734863e-06, z: -1.25}
 --- !u!1 &1909237227
 GameObject:
@@ -90174,6 +90237,7 @@ MonoBehaviour:
   idleClip: {fileID: 7400002, guid: 66e5f6caf27523841b1b65e4a687d305, type: 3}
   idleSpeed: 1
   runClip: {fileID: 7400000, guid: defad4baa784bf041a70c6744eb436ca, type: 3}
+  runSpeed: 1
   attackClip: {fileID: 7400000, guid: f6a09b52fdadad8488c901c15432aff8, type: 3}
   attackAnimSpeed: 1
   eatClip: {fileID: 0}
@@ -94393,6 +94457,7 @@ MonoBehaviour:
   idleClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
   idleSpeed: 1
   runClip: {fileID: 7400002, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
+  runSpeed: 1
   attackClip: {fileID: 7400000, guid: ba44e37a7dead3e48916b72954c58d2f, type: 3}
   attackAnimSpeed: 1
   eatClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
@@ -95975,6 +96040,7 @@ MonoBehaviour:
   idleClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
   idleSpeed: 1
   runClip: {fileID: 7400002, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
+  runSpeed: 1
   attackClip: {fileID: 7400000, guid: ba44e37a7dead3e48916b72954c58d2f, type: 3}
   attackAnimSpeed: 1
   eatClip: {fileID: 7400000, guid: 753dd22e20dd32243aa18760a588fd05, type: 3}
@@ -98083,7 +98149,7 @@ MonoBehaviour:
   mDepth: 10
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -98274,7 +98340,7 @@ MonoBehaviour:
   mDepth: 9
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 1
   mFillDirection: 4
@@ -99439,7 +99505,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 500, y: 300, z: 0}
+  m_Size: {x: 1200, y: 800, z: 0}
   m_Center: {x: 0, y: -1.90734863e-06, z: -1.25}
 --- !u!65 &2103906855
 BoxCollider:
