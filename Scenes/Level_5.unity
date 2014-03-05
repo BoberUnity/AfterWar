@@ -1298,6 +1298,7 @@ GameObject:
   - 114: {fileID: 86659714}
   - 136: {fileID: 86659713}
   - 65: {fileID: 86659712}
+  - 65: {fileID: 86659716}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Untagged
@@ -1339,7 +1340,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 86659710}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: .200000003
   m_Height: 1.35000002
   m_Direction: 2
@@ -1357,11 +1358,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   editorColor: {r: 1, g: 0, b: 0, a: 1}
-  character: {fileID: 1666401515}
   becameInVisible: {fileID: 508649946}
   anim: {fileID: 1155297366}
   idleClip: {fileID: 7400000, guid: 367988217ce9ac442846bcc74d4a230a, type: 3}
+  idleSpeed: 1
   runClip: {fileID: 7400000, guid: 69e047a6b23445145adade2f452c8562, type: 3}
+  runSpeed: .800000012
   attackClip: {fileID: 7400000, guid: 5d6a4b56b64d33141bcfb523d225f199, type: 3}
   attackAnimSpeed: 1
   eatClip: {fileID: 7400000, guid: 9859b41aa3c7c4044812a3ab0546cb46, type: 3}
@@ -1374,6 +1376,7 @@ MonoBehaviour:
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
   blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
   fire: {fileID: 0}
+  rigBoxes: []
   uron: 5
   uronDist:
   - .400000006
@@ -1387,15 +1390,20 @@ MonoBehaviour:
   - 101
   - 34
   - 101
-  boxColliderCenter: {x: 0, y: .150000006, z: .300000012}
-  boxColliderSize: {x: .300000012, y: .300000012, z: 1.20000005}
-  rpgForceX: 50
-  rpgForceY: 110
-  runDist: 1.79999995
+  armoForce:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 50, y: 110}
+  - {x: 0, y: 0}
+  - {x: 50, y: 110}
+  runDist: 5
   jumpDist: 1
-  attackDist: .300000012
-  speed: .600000024
+  attackDist: .349999994
+  speed: 1.29999995
   height: 0
+  paukHeight: 0
+  pautinaT: {fileID: 0}
+  bodyT: {fileID: 0}
   blastHeight: 0
   leftZona: 3
   rightZona: 3
@@ -1463,6 +1471,19 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!65 &86659716
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6500002, guid: 0e76320dd81cbc84898ec6ba773317ad,
+    type: 2}
+  m_PrefabInternal: {fileID: 1972364468}
+  m_GameObject: {fileID: 86659710}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: .5, z: 1}
+  m_Center: {x: 0, y: 0, z: .400000006}
 --- !u!1 &89458241
 GameObject:
   m_ObjectHideFlags: 0
@@ -1496,6 +1517,8 @@ MonoBehaviour:
   dist: .5
   waitTime: 0
   y: 4.01999998
+  useX: 0
+  x: 1
   minX: -100
   maxX: 100
   minY: -100
@@ -1799,7 +1822,7 @@ MonoBehaviour:
   mDepth: 9
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 1
   mFillDirection: 4
@@ -2399,7 +2422,7 @@ MonoBehaviour:
   mDepth: 10
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -2510,7 +2533,7 @@ MonoBehaviour:
   mDepth: 10
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -4499,7 +4522,7 @@ MonoBehaviour:
   mDepth: 9
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 1
   mFillDirection: 4
@@ -4958,7 +4981,7 @@ MonoBehaviour:
   mDepth: 9
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 1
   mFillDirection: 4
@@ -6127,7 +6150,7 @@ MonoBehaviour:
   mDepth: 10
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -6190,7 +6213,7 @@ MonoBehaviour:
   mDepth: 10
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -8561,6 +8584,7 @@ GameObject:
   - 114: {fileID: 514893507}
   - 136: {fileID: 514893506}
   - 65: {fileID: 514893505}
+  - 65: {fileID: 514893509}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Untagged
@@ -8602,7 +8626,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 514893503}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: .200000003
   m_Height: 1.35000002
   m_Direction: 2
@@ -8620,11 +8644,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   editorColor: {r: 1, g: 0, b: 0, a: 1}
-  character: {fileID: 1666401515}
   becameInVisible: {fileID: 952592487}
   anim: {fileID: 437516813}
   idleClip: {fileID: 7400000, guid: 367988217ce9ac442846bcc74d4a230a, type: 3}
+  idleSpeed: 1
   runClip: {fileID: 7400000, guid: 69e047a6b23445145adade2f452c8562, type: 3}
+  runSpeed: .800000012
   attackClip: {fileID: 7400000, guid: 5d6a4b56b64d33141bcfb523d225f199, type: 3}
   attackAnimSpeed: 1
   eatClip: {fileID: 7400000, guid: 9859b41aa3c7c4044812a3ab0546cb46, type: 3}
@@ -8637,6 +8662,7 @@ MonoBehaviour:
   deadSound: {fileID: 8300000, guid: ec9da07faa5f95c47a5fa83deffde3b2, type: 3}
   blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
   fire: {fileID: 0}
+  rigBoxes: []
   uron: 5
   uronDist:
   - .400000006
@@ -8650,15 +8676,20 @@ MonoBehaviour:
   - 101
   - 34
   - 101
-  boxColliderCenter: {x: 0, y: .150000006, z: .300000012}
-  boxColliderSize: {x: .300000012, y: .300000012, z: 1.20000005}
-  rpgForceX: 50
-  rpgForceY: 110
-  runDist: 1.79999995
+  armoForce:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 50, y: 110}
+  - {x: 0, y: 0}
+  - {x: 50, y: 110}
+  runDist: 5
   jumpDist: 1
-  attackDist: .300000012
-  speed: .600000024
+  attackDist: .349999994
+  speed: 1.29999995
   height: 0
+  paukHeight: 0
+  pautinaT: {fileID: 0}
+  bodyT: {fileID: 0}
   blastHeight: 0
   leftZona: 3
   rightZona: 3
@@ -8726,6 +8757,19 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!65 &514893509
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6500002, guid: 0e76320dd81cbc84898ec6ba773317ad,
+    type: 2}
+  m_PrefabInternal: {fileID: 416726081}
+  m_GameObject: {fileID: 514893503}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: .5, z: 1}
+  m_Center: {x: 0, y: 0, z: .400000006}
 --- !u!1 &516302681
 GameObject:
   m_ObjectHideFlags: 0
@@ -9133,7 +9177,7 @@ MonoBehaviour:
   mDepth: 9
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 1
   mFillDirection: 4
@@ -10072,7 +10116,7 @@ MonoBehaviour:
   mDepth: 10
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -12235,7 +12279,7 @@ MonoBehaviour:
   mDepth: 9
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 1
   mFillDirection: 4
@@ -14104,7 +14148,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 500, y: 300, z: 0}
+  m_Size: {x: 1200, y: 800, z: 0}
   m_Center: {x: 0, y: -1.90734863e-06, z: -1.25}
 --- !u!1 &800352491
 GameObject:
@@ -14486,12 +14530,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 700
+  mWidth: 750
   mHeight: 500
   mDepth: -1
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: DialogFon
+  mSpriteName: Bumaga
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -14811,7 +14855,7 @@ MonoBehaviour:
   mDepth: 10
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -15343,7 +15387,7 @@ MonoBehaviour:
   mDepth: 9
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 1
   mFillDirection: 4
@@ -15396,7 +15440,7 @@ MonoBehaviour:
   mDepth: 10
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -16221,7 +16265,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 500, y: 300, z: 0}
+  m_Size: {x: 1200, y: 800, z: 0}
   m_Center: {x: 0, y: -1.90734863e-06, z: -1.25}
 --- !u!1 &927353162
 GameObject:
@@ -17829,7 +17873,7 @@ MonoBehaviour:
   mDepth: 10
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -18455,7 +18499,7 @@ MonoBehaviour:
   mDepth: 10
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -19845,12 +19889,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 700
+  mWidth: 750
   mHeight: 500
   mDepth: -1
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: DialogFon
+  mSpriteName: Bumaga
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -20579,7 +20623,7 @@ MonoBehaviour:
   mDepth: 9
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 1
   mFillDirection: 4
@@ -21651,7 +21695,7 @@ MonoBehaviour:
   mDepth: 10
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -21921,7 +21965,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1248989614
 Transform:
   m_ObjectHideFlags: 0
@@ -23904,6 +23948,7 @@ MonoBehaviour:
   sound: {fileID: 0}
   loop: 0
   changeState: {fileID: 1406658566}
+  necesarryState: 1
   paused: 0
 --- !u!82 &1380301120
 AudioSource:
@@ -23983,6 +24028,7 @@ MonoBehaviour:
   sound: {fileID: 8300000, guid: fe1826f40a842ba48adddec5f264a9f3, type: 3}
   loop: 0
   changeState: {fileID: 0}
+  necesarryState: 1
   paused: 0
 --- !u!65 &1380301122
 BoxCollider:
@@ -24207,7 +24253,7 @@ MonoBehaviour:
   mDepth: 9
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 1
   mFillDirection: 4
@@ -24428,6 +24474,7 @@ MonoBehaviour:
   sound: {fileID: 8300000, guid: fe1826f40a842ba48adddec5f264a9f3, type: 3}
   loop: 0
   changeState: {fileID: 0}
+  necesarryState: 1
   paused: 0
 --- !u!65 &1406658564
 BoxCollider:
@@ -25045,7 +25092,7 @@ MonoBehaviour:
   mDepth: 10
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -27248,7 +27295,7 @@ MonoBehaviour:
   mDepth: 9
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 1
   mFillDirection: 4
@@ -27405,7 +27452,7 @@ MonoBehaviour:
   mDepth: 9
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 1
   mFillDirection: 4
@@ -27958,6 +28005,7 @@ MonoBehaviour:
   hand: {fileID: 509094867}
   BlastPrefab: {fileID: 100006, guid: 3b6ca14f93f65b34fbe601051c201b58, type: 2}
   MolnyPrefab: {fileID: 100000, guid: 86b31faa5da649442af978439207d79d, type: 2}
+  PilPrefab: {fileID: 100000, guid: f67e0c41e53554a43aa15ff0f0899116, type: 2}
   endPistol: {fileID: 506675647}
   PistolPartPrefab: {fileID: 100000, guid: 84d4ab06027e42c4daaf5d7c70d1fc16, type: 2}
   buttonPause: {fileID: 853564654}
@@ -27984,6 +28032,7 @@ MonoBehaviour:
   - 0
   - 0
   inverseXY: 0
+  fail: 0
 --- !u!82 &1666401516
 AudioSource:
   m_ObjectHideFlags: 0
@@ -28193,7 +28242,7 @@ MonoBehaviour:
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
   mClipSoftness: {x: 4, y: 4}
-  mDepth: -3
+  mDepth: 2
 --- !u!1 &1675212003
 GameObject:
   m_ObjectHideFlags: 0
@@ -28346,6 +28395,8 @@ MonoBehaviour:
   dist: .5
   waitTime: 0
   y: .200000003
+  useX: 0
+  x: 1
   minX: -100
   maxX: 100
   minY: -100
@@ -30425,7 +30476,7 @@ MonoBehaviour:
   mDepth: 9
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 1
   mFillDirection: 4
@@ -30532,7 +30583,7 @@ MonoBehaviour:
   mDepth: 9
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 1
   mFillDirection: 4
@@ -32926,12 +32977,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 700
+  mWidth: 750
   mHeight: 500
   mDepth: -1
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: DialogFon
+  mSpriteName: Bumaga
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -34207,7 +34258,7 @@ MonoBehaviour:
   mDepth: 10
   autoResizeBoxCollider: 0
   mAtlas: {fileID: 11400000, guid: 9f39708167775ea48847ff2dd86ffecc, type: 2}
-  mSpriteName: ButtonBack
+  mSpriteName: Button2
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -34735,7 +34786,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 500, y: 300, z: 0}
+  m_Size: {x: 1200, y: 800, z: 0}
   m_Center: {x: 0, y: -1.90734863e-06, z: -1.25}
 --- !u!65 &2103906855
 BoxCollider:
