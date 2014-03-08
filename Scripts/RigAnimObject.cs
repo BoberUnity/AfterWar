@@ -17,6 +17,7 @@ public class RigAnimObject : MonoBehaviour
 
   private void CharacterAttack(int armo)
   {
+    
     if (armo == 4 && !isPlayed)
     {
       Transform characterT = character.transform;
@@ -43,13 +44,13 @@ public class RigAnimObject : MonoBehaviour
       bool charPovernutLeft = characterT.eulerAngles.y > 230 && characterT.eulerAngles.y < 310 && characterT.position.x - t.position.x > 0;
         //ГГ повернут влево и монстр слева
 
-      if (distToChar < 2.5f && charPovernutRight && heigToChar < 0.35f && notWall)
+      if (distToChar < 2.5f && charPovernutRight && heigToChar < 0.5f && notWall)
       {
         animation.Play();
         isPlayed = true;
       }
 
-      if (distToChar < 2.5f && charPovernutLeft && heigToChar < 0.35f && notWall)
+      if (distToChar < 2.5f && charPovernutLeft && heigToChar < 0.5f && notWall)
       {
         animation.Play();
         isPlayed = true;
