@@ -1083,11 +1083,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   editorColor: {r: 1, g: 0, b: 0, a: 1}
-  character: {fileID: 0}
   becameInVisible: {fileID: 11400002}
   anim: {fileID: 11100000}
   idleClip: {fileID: 7400004, guid: f65215b02dd313144aa90eec2e671309, type: 3}
+  idleSpeed: 1
   runClip: {fileID: 7400000, guid: f65215b02dd313144aa90eec2e671309, type: 3}
+  runSpeed: 1
   attackClip: {fileID: 7400000, guid: 49bcefcc108bbee408ff4998a91471e7, type: 3}
   attackAnimSpeed: 1.5
   eatClip: {fileID: 7400000, guid: 80784c9e31952c9428bac8d5f339a59d, type: 3}
@@ -1100,6 +1101,7 @@ MonoBehaviour:
   deadSound: {fileID: 8300000, guid: a57de66f01224534ca79ba8b5f45f2d2, type: 3}
   blastPrefab: {fileID: 100008, guid: 261a9d15249711141a3ec3fac11ab29e, type: 2}
   fire: {fileID: 0}
+  rigBoxes: []
   uron: 5
   uronDist:
   - .300000012
@@ -1113,15 +1115,20 @@ MonoBehaviour:
   - 51
   - 21
   - 101
-  boxColliderCenter: {x: 0, y: 0, z: 0}
-  boxColliderSize: {x: .400000006, y: .400000006, z: .400000006}
-  rpgForceX: 100
-  rpgForceY: 50
+  armoForce:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 50, y: 50}
+  - {x: 0, y: 0}
+  - {x: 200, y: 70}
   runDist: 1.5
   jumpDist: 1
   attackDist: .25
   speed: .100000001
   height: 0
+  paukHeight: 0
+  pautinaT: {fileID: 0}
+  bodyT: {fileID: 0}
   blastHeight: .300000012
   leftZona: 1.5
   rightZona: 1
