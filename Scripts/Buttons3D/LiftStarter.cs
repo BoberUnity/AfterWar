@@ -39,11 +39,11 @@ public class LiftStarter : Button3DBase
         anim.Play();
         move = true;
         coll.enabled = false;
-        audio.clip = sound;
-        audio.loop = true;
+        GetComponent<AudioSource>().clip = sound;
+        GetComponent<AudioSource>().loop = true;
         if (character.Controller != null)
-          audio.volume = character.Controller.EffectsVolume;
-        audio.Play();
+          GetComponent<AudioSource>().volume = character.Controller.EffectsVolume;
+        GetComponent<AudioSource>().Play();
         StartCoroutine(StopLift(anim.clip.length));
         //if (motorAnim != null)
         //  motorAnim.Play();
@@ -57,7 +57,7 @@ public class LiftStarter : Button3DBase
     yield return new WaitForSeconds(time);
     coll.enabled = true;
     move = false;
-    audio.Stop();
+    GetComponent<AudioSource>().Stop();
     //if (motorAnim != null)
     //  motorAnim.Stop();
     //if (remen != null)

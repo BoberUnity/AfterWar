@@ -176,7 +176,7 @@ public class Character : MonoBehaviour
         //if (bronButton.State != 2 || value > helth)
         //{
           if (value < helth && enableDead)
-          deadSprite.animation.Play();
+          deadSprite.GetComponent<Animation>().Play();
 
           helth = Mathf.Clamp(value, 0, 100);
           SetHelth();
@@ -368,9 +368,9 @@ public class Character : MonoBehaviour
           {
             Helth -= (startFailY - t.position.y)/failHeight*5;
             if (controller != null)
-              audio.volume = controller.EffectsVolume;
-            audio.clip = failSound;
-            audio.Play();
+              GetComponent<AudioSource>().volume = controller.EffectsVolume;
+            GetComponent<AudioSource>().clip = failSound;
+            GetComponent<AudioSource>().Play();
             velocity = 0.0f;
             Instantiate(PilPrefab, transform.position, Quaternion.identity);
           }
@@ -561,16 +561,16 @@ public class Character : MonoBehaviour
   //==================================================================================================================
   private void SetAnimCross(AnimationClip cl, float sp)
   {
-    animation.clip = cl;
-    animation[cl.name].speed = sp;
-    animation.CrossFade(cl.name);
+    GetComponent<Animation>().clip = cl;
+    GetComponent<Animation>()[cl.name].speed = sp;
+    GetComponent<Animation>().CrossFade(cl.name);
   }
   //==================================================================================================================
   private void SetAnimOnce(AnimationClip cl, float sp)
   {
-    animation.clip = cl;
-    animation[cl.name].speed = sp;
-    animation.Play(cl.name);
+    GetComponent<Animation>().clip = cl;
+    GetComponent<Animation>()[cl.name].speed = sp;
+    GetComponent<Animation>().Play(cl.name);
   }
   
   //==================================================================================================================
@@ -714,7 +714,7 @@ public class Character : MonoBehaviour
         handler();
       velocity = -jumpHeight;
       jump = true;
-      animation[jumpClip.name].time = 0;
+      GetComponent<Animation>()[jumpClip.name].time = 0;
       SetAnimOnce(jumpClip, 0.3f);
     }
     //Заскок на лестницу (раб)
@@ -873,10 +873,10 @@ public class Character : MonoBehaviour
     }
 
     StartCoroutine(ShootParticleOn(0.01f));
-    audio.clip = armo[currentArmo].ArmoClip;
+    GetComponent<AudioSource>().clip = armo[currentArmo].ArmoClip;
     if (controller != null)
-      audio.volume = controller.EffectsVolume;
-    audio.Play();
+      GetComponent<AudioSource>().volume = controller.EffectsVolume;
+    GetComponent<AudioSource>().Play();
 
     var handler = CharacterAttack;
     if (handler != null)

@@ -1,6 +1,6 @@
 //----------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2013 Tasharen Entertainment
+// Copyright В© 2011-2013 Tasharen Entertainment
 //----------------------------------------------
 
 using UnityEngine;
@@ -471,7 +471,7 @@ public class UIWidget : MonoBehaviour
 	{
 		get
 		{
-			BoxCollider box = collider as BoxCollider;
+			BoxCollider box = GetComponent<Collider>() as BoxCollider;
 			return (box != null);
 		}
 	}
@@ -484,7 +484,7 @@ public class UIWidget : MonoBehaviour
 	{
 		if (NGUITools.IsActive(this))
 		{
-			BoxCollider box = collider as BoxCollider;
+			BoxCollider box = GetComponent<Collider>() as BoxCollider;
 			if (box != null) NGUITools.UpdateWidgetCollider(box, true);
 		}
 	}

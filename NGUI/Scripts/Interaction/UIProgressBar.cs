@@ -1,6 +1,6 @@
 //----------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2013 Tasharen Entertainment
+// Copyright В© 2011-2013 Tasharen Entertainment
 //----------------------------------------------
 
 using System;
@@ -160,13 +160,13 @@ public class UIProgressBar : UIWidgetContainer
 			if (mFG != null)
 			{
 				mFG.alpha = value;
-				if (mFG.collider != null) mFG.collider.enabled = mFG.alpha > 0.001f;
+				if (mFG.GetComponent<Collider>() != null) mFG.GetComponent<Collider>().enabled = mFG.alpha > 0.001f;
 			}
 
 			if (mBG != null)
 			{
 				mBG.alpha = value;
-				if (mBG.collider != null) mBG.collider.enabled = mBG.alpha > 0.001f;
+				if (mBG.GetComponent<Collider>() != null) mBG.GetComponent<Collider>().enabled = mBG.alpha > 0.001f;
 			}
 		}
 	}
@@ -324,7 +324,7 @@ public class UIProgressBar : UIWidgetContainer
 			return;
 		}
 
-		GameObject bg = (mBG != null && mBG.collider != null) ? mBG.gameObject : gameObject;
+		GameObject bg = (mBG != null && mBG.GetComponent<Collider>() != null) ? mBG.gameObject : gameObject;
 		UIEventListener bgl = UIEventListener.Get(bg);
 		bgl.onPress += OnPressBackground;
 		bgl.onDrag += OnDragBackground;

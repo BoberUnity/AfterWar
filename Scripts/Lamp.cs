@@ -16,7 +16,7 @@ public class Lamp : MonoBehaviour
       if (value == 2 && state == 1)
       {
         //Green
-        renderer.material = greenMat;
+        GetComponent<Renderer>().material = greenMat;
         greenFlare.SetActive(true);
         redFlare.SetActive(false);
         state = value;
@@ -25,7 +25,7 @@ public class Lamp : MonoBehaviour
       if (value == 1 && state == 0)
       {
         //Red
-        renderer.material = redMat;
+        GetComponent<Renderer>().material = redMat;
         greenFlare.SetActive(false);
         redFlare.SetActive(true);
         state = value;

@@ -26,6 +26,11 @@ public class ArmoGUI : MonoBehaviour
     }
   }
 
+  public int Id
+  {
+    get { return id;}
+  }
+
   public GameObject[] ActiveObjs
   {
     get { return activeObjs; }
@@ -80,6 +85,11 @@ public class ArmoGUI : MonoBehaviour
     if (character.Patrons[id] > 0 && id > 0)
       counter.text = character.Patrons[id].ToString("f0");
 	}
+  //Для подбора оружия у мобов созданных во время игры
+  public void ThingTriggerWritter(ThingTrigger tt)
+  {
+    tt.GetThing += GetThing;
+  }
 
   private void Destroy()
   {

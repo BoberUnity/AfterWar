@@ -6,6 +6,7 @@ namespace Assets.Scripts.Buttons3D
   public class OtherLevel : Button3DBase
   {
     [SerializeField] private int id = 1;
+    [SerializeField] private int num = 1;
     [SerializeField] private float waitTime = 0;
     [SerializeField] private bool open = true;
     public bool Open
@@ -20,6 +21,7 @@ namespace Assets.Scripts.Buttons3D
       if (!isLoaded && open)
       {
         StartCoroutine(LoadLevel(waitTime));
+        PlayerPrefs.SetInt("Level", num);
       }
     }
 

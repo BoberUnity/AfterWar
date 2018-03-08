@@ -3,13 +3,19 @@ using UnityEngine;
 
 public class ButtonLoadLevel : MonoBehaviour
 {
-  [SerializeField] private int id = 0;
-  //[SerializeField] private UILabel loadingText = null;
-  //[SerializeField] private UILabel loadingProgress = null;
-  //[SerializeField] private GameObject startButton = null;
-  private AsyncOperation async;
+  [SerializeField] private int id = 0;//Scene
+  [SerializeField] private int num = 0;//Poradok
+  [SerializeField] private UIButton uIButton = null;
+  [SerializeField] private UISprite sprite = null;
+  [SerializeField] private UILabel label = null;
   private bool loading = false;
-  //private bool startButtonActive = false;
+
+  private void OnEnable()
+  {
+      uIButton.isEnabled = PlayerPrefs.GetInt("Level") >= num;
+      sprite.color = PlayerPrefs.GetInt("Level") >= num ? Color.white : new Color(0.10f, 0.15f, 0.25f, 1);
+      label.color = PlayerPrefs.GetInt("Level") >= num ? Color.white : new Color(0.15f, 0.25f, 0.35f, 1);
+  }
   
   public event Action<int> StartLoadLevel;
 
@@ -17,46 +23,12 @@ public class ButtonLoadLevel : MonoBehaviour
   {
     if (!isPressed && !loading)
     {
-      //if (loadingText != null)
-      //  loadingText.gameObject.SetActive(true);
-      //if (loadingProgress != null)
-      //  loadingProgress.gameObject.SetActive(true);
-      //StartCoroutine(Load());
       var handler = StartLoadLevel;
       if (handler != null)
         handler(id);
       loading = true;
     }
-  }
-
-  ////private IEnumerator Load(float time)
-  ////{
-  ////  yield return new WaitForSeconds(time);
-  ////  Application.LoadLevel(id);
-  ////}
-
-  //private void Update()
-  //{
-  //  if (loadingProgress != null && async != null)
-  //  {
-  //    loadingProgress.text = (async.progress * 100).ToString("f0") + " %";
-  //    if (async.progress > 0.99999f && startButton != null)
-  //    {
-  //      if (loadingText != null)
-  //        loadingText.gameObject.SetActive(false);
-  //      if (loadingProgress != null)
-  //        loadingProgress.gameObject.SetActive(false);
-  //      startButton.SetActive(true);
-  //    }
-  //    //loadAnim[loadAnim.clip.name].time = async.progress;
-  //  }
-  //}
-
-  //private IEnumerator Load()
-  //{
-  //  async = Application.LoadLevelAsync(id);
-  //  yield return async;
-  //}
+  }  
 }
 
 

@@ -28,7 +28,7 @@ public class Truba : MonoBehaviour
     if (other.gameObject.name == "Stalker")
     {
       other.GetComponent<Character>().Helth -= 10;
-      audio.Play();//Крик героя
+      GetComponent<AudioSource>().Play();//Крик героя
       Crash();
     }
   }
@@ -85,7 +85,7 @@ public class Truba : MonoBehaviour
   private void Crash()
   {
     Debug.Log("CrashTruba");
-    animation.Play();
+    GetComponent<Animation>().Play();
     BoxCollider boxCollider = GetComponent<BoxCollider>();
     if (boxCollider != null)
       Destroy(boxCollider);

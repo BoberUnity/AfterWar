@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 Shader "Hidden/Bright Effect" {
 Properties
         {
@@ -22,7 +24,7 @@ Properties
  
          float4 vert(float4 vertexPos : POSITION) : SV_POSITION
          {
-            return mul(UNITY_MATRIX_MVP, vertexPos);
+            return UnityObjectToClipPos(vertexPos);
          }
  
          float4 frag(void) : COLOR

@@ -47,14 +47,14 @@ public class RigObject : MonoBehaviour
 
       if (distToChar < 2.5f && charPovernutRight && heigToChar < 0.35f && notWall)
       {
-        rigidbody.AddForce(rpgFofce, 0, 0);
+        GetComponent<Rigidbody>().AddForce(rpgFofce, 0, 0);
         if (GameObject.Find("BlastRPG(Clone)") == null)
           Instantiate(blastPrefab, t.position, t.rotation);
       }
 
       if (distToChar < 2.5f && charPovernutLeft && heigToChar < 0.35f && notWall)
       {
-        rigidbody.AddForce(-rpgFofce, 0, 0);
+        GetComponent<Rigidbody>().AddForce(-rpgFofce, 0, 0);
         if (GameObject.Find("BlastRPG(Clone)") == null)
           Instantiate(blastPrefab, t.position, t.rotation);
       }

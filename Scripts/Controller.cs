@@ -9,6 +9,8 @@ public class Controller : MonoBehaviour
   [SerializeField] private float[] things = null;//Aptek, GazMask, Bron
   [SerializeField] private bool showFPS = true;
   //private Character character = null;
+  [SerializeField] private AudioClip music1 = null;
+  [SerializeField] private AudioClip music2 = null;
   [SerializeField] private float effectsVolume = 0.7f;
   [SerializeField] private float musicVolume = 0.7f;
   [SerializeField] private float screenBright = 0.7f;
@@ -23,7 +25,11 @@ public class Controller : MonoBehaviour
   public float MusicVolume
   {
     get { return musicVolume; }
-    set { musicVolume = value; }
+    set 
+    { 
+        musicVolume = value;
+        GetComponent<AudioSource>().volume = value;
+    }
   }
 
   public int WaterHigh
@@ -90,6 +96,14 @@ public class Controller : MonoBehaviour
     {
       Reset();
     }
+      //music
+    if (level > 4 || level == 0)
+    {
+        GetComponent<AudioSource>().Stop();
+        GetComponent<AudioSource>().clip = level > 4 ? music2 : music1;
+        GetComponent<AudioSource>().Play();
+    }
+
 	}
 
   public void Reset()

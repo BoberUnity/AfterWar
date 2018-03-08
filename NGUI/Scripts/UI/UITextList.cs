@@ -1,6 +1,6 @@
 //----------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2013 Tasharen Entertainment
+// Copyright В© 2011-2013 Tasharen Entertainment
 //----------------------------------------------
 
 #if !UNITY_3_5 && !UNITY_FLASH
@@ -109,7 +109,7 @@ public class UITextList : MonoBehaviour
 	{
 		if (textLabel == null) textLabel = GetComponentInChildren<UILabel>();
 
-		Collider col = collider;
+		Collider col = GetComponent<Collider>();
 
 		if (col != null)
 		{

@@ -46,13 +46,13 @@ public class RigAnimObject : MonoBehaviour
 
       if (distToChar < 2.5f && charPovernutRight && heigToChar < 0.5f && notWall)
       {
-        animation.Play();
+        GetComponent<Animation>().Play();
         isPlayed = true;
       }
 
       if (distToChar < 2.5f && charPovernutLeft && heigToChar < 0.5f && notWall)
       {
-        animation.Play();
+        GetComponent<Animation>().Play();
         isPlayed = true;
       }
     }

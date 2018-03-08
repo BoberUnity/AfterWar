@@ -264,7 +264,7 @@ public class UIInput : MonoBehaviour
 #if MOBILE
 	protected int cursorPosition { get { return value.Length; } }
 #else
-	protected int cursorPosition { get { return (isSelected && mEditor != null) ? mEditor.selectPos : value.Length; } }
+	protected int cursorPosition { get { return (isSelected && mEditor != null) ? mEditor.selectIndex : value.Length; } }
 #endif
 
 	/// <summary>
@@ -493,7 +493,7 @@ public class UIInput : MonoBehaviour
 	bool ProcessEvent (Event ev)
 	{
 		RuntimePlatform rp = Application.platform;
-		bool isMac = (rp == RuntimePlatform.OSXEditor || rp == RuntimePlatform.OSXPlayer || rp == RuntimePlatform.OSXWebPlayer);
+		bool isMac = (rp == RuntimePlatform.OSXEditor || rp == RuntimePlatform.OSXPlayer/* || rp == RuntimePlatform.OSXWebPlayer*/);
 		bool ctrl = isMac ? (ev.modifiers == EventModifiers.Command) : (ev.modifiers == EventModifiers.Control);
 
 		switch (ev.keyCode)
@@ -593,8 +593,8 @@ public class UIInput : MonoBehaviour
 				if (ctrl && label != null && label.overflowMethod != UILabel.Overflow.ClampContent)
 				{
 					char c = '\n';
-					if (onValidate != null) c = onValidate(mEditor.content.text, mEditor.selectPos, c);
-					else if (validation != Validation.None) c = Validate(mEditor.content.text, mEditor.selectPos, c);
+					if (onValidate != null) c = onValidate(mEditor.content.text, mEditor.selectIndex, c);
+					else if (validation != Validation.None) c = Validate(mEditor.content.text, mEditor.selectIndex, c);
 
 					// Append the character
 					if (c != 0)
@@ -655,8 +655,8 @@ public class UIInput : MonoBehaviour
 				if (characterLimit > 0 && mEditor.content.text.Length >= characterLimit) continue;
 
 				// If we have an input validator, validate the input first
-				if (onValidate != null) c = onValidate(mEditor.content.text, mEditor.selectPos, c);
-				else if (validation != Validation.None) c = Validate(mEditor.content.text, mEditor.selectPos, c);
+				if (onValidate != null) c = onValidate(mEditor.content.text, mEditor.selectIndex, c);
+				else if (validation != Validation.None) c = Validate(mEditor.content.text, mEditor.selectIndex, c);
 
 				// If the input is invalid, skip it
 				if (c == 0) continue;

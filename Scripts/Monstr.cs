@@ -74,11 +74,11 @@ public class Monstr : MonoBehaviour
 	{
     if (!dead && character.Helth>1)
     {
-      audio.clip = attackSound;
+      GetComponent<AudioSource>().clip = attackSound;
       if (character.Controller != null)
-        audio.volume = character.Controller.EffectsVolume;
+        GetComponent<AudioSource>().volume = character.Controller.EffectsVolume;
       else Debug.LogWarning("character.Controller != null");
-	    audio.Play();
+	    GetComponent<AudioSource>().Play();
 	    character.BronHelth -= uron;
       SetAnim(attackClip, attackAnimSpeed);
 	    att = true;
@@ -92,10 +92,10 @@ public class Monstr : MonoBehaviour
   {
     if (gameObject.GetComponent<Rigidbody>() == null)
     {
-      gameObject.AddComponent("Rigidbody");
-      rigidbody.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationZ;
+      gameObject.AddComponent<Rigidbody>();
+      GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationZ;
     }
-    rigidbody.AddForce(jumpForce.x, jumpForce.y, jumpForce.z);
+    GetComponent<Rigidbody>().AddForce(jumpForce.x, jumpForce.y, jumpForce.z);
     jump = true;
     //StartCoroutine(JumpEnable(0.7f));
     Debug.LogWarning("Rig "+Time.time);
@@ -298,7 +298,7 @@ public class Monstr : MonoBehaviour
         if (paukHeight < 0.05f)
         {
           bodyT.eulerAngles += Vector3.forward * Time.deltaTime * 540;
-          pautinaT.renderer.material.color -= new Color(0, 0, 0, Time.deltaTime*6);
+          pautinaT.GetComponent<Renderer>().material.color -= new Color(0, 0, 0, Time.deltaTime*6);
         }
       }
       if (paukHeight < 0)
@@ -390,19 +390,19 @@ public class Monstr : MonoBehaviour
           //  boxCollider.center = boxColliderCenter;//new Vector3(0, 0.15f, -0.8f);
           //  boxCollider.size = boxColliderSize;//new Vector3(0.3f, 0.3f, 1.8f);
           //}
-          if (rigidbody == null)
-          gameObject.AddComponent("Rigidbody");
-          if (rigidbody != null)
+          if (GetComponent<Rigidbody>() == null)
+          gameObject.AddComponent<Rigidbody>();
+          if (GetComponent<Rigidbody>() != null)
           {
-            rigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
-            rigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
-            rigidbody.freezeRotation = true;
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
+            GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
+            GetComponent<Rigidbody>().freezeRotation = true;
             //rigidbody.drag = 5;
 
             if (characterT.position.x < t.position.x)
-              rigidbody.AddForce(armoForce[armo].x, armoForce[armo].y, 0);
+              GetComponent<Rigidbody>().AddForce(armoForce[armo].x, armoForce[armo].y, 0);
             else
-              rigidbody.AddForce(-armoForce[armo].x, armoForce[armo].y, 0);
+              GetComponent<Rigidbody>().AddForce(-armoForce[armo].x, armoForce[armo].y, 0);
           }
           SetAnim(deadRPGClip, 1);
         }
@@ -416,9 +416,9 @@ public class Monstr : MonoBehaviour
 
         dead = true;
         if (character.Controller != null)
-          audio.volume = character.Controller.EffectsVolume;
-        audio.clip = deadSound;
-        audio.Play();
+          GetComponent<AudioSource>().volume = character.Controller.EffectsVolume;
+        GetComponent<AudioSource>().clip = deadSound;
+        GetComponent<AudioSource>().Play();
         if (isNear && height < 0.1f)
         { 
           character.NearMonstr -= 1;
@@ -446,10 +446,10 @@ public class Monstr : MonoBehaviour
       else
       {
         if (character.Controller != null)
-          audio.volume = character.Controller.EffectsVolume;
+          GetComponent<AudioSource>().volume = character.Controller.EffectsVolume;
         else Debug.LogWarning("character.Controller != null");
-        audio.clip = charAttackSound;
-        audio.Play();
+        GetComponent<AudioSource>().clip = charAttackSound;
+        GetComponent<AudioSource>().Play();
       }
     }
   }
@@ -476,8 +476,8 @@ public class Monstr : MonoBehaviour
     BoxCollider coll = GetComponent<BoxCollider>();
     if (coll != null)
     {
-      if (rigidbody != null)
-        rigidbody.useGravity = false;
+      if (GetComponent<Rigidbody>() != null)
+        GetComponent<Rigidbody>().useGravity = false;
       Destroy(coll);
     }
   }

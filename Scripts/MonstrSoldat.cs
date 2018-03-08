@@ -57,11 +57,11 @@ public class MonstrSoldat : MonoBehaviour
 	{
     if (!dead && character.Helth>1)
     {
-      audio.clip = attackSound;
+      GetComponent<AudioSource>().clip = attackSound;
       if (character.Controller != null)
-        audio.volume = character.Controller.EffectsVolume;
+        GetComponent<AudioSource>().volume = character.Controller.EffectsVolume;
       else Debug.LogWarning("character.Controller != null");
-	    audio.Play();
+	    GetComponent<AudioSource>().Play();
 	    character.BronHelth -= uron;
       SetAnim(attackClip, 1);
 	    att = true;
@@ -73,6 +73,7 @@ public class MonstrSoldat : MonoBehaviour
 
   private void Start()
   {
+    character = GameObject.Find("Stalker").GetComponent<Character>();
     oldClip = anim.clip;
     anim[oldClip.name].enabled = true;
     if (gitara != null)
@@ -271,7 +272,7 @@ public class MonstrSoldat : MonoBehaviour
         armoShowing = false;
       }
       if (armoTrg != null)
-        armoTrg.renderer.material.color = new Color(0.5f,0.5f,0.5f,a);
+        armoTrg.GetComponent<Renderer>().material.color = new Color(0.5f,0.5f,0.5f,a);
     }
   }
   //--------------------------------------------------------------------------------------------------
@@ -310,15 +311,15 @@ public class MonstrSoldat : MonoBehaviour
       {
         if (armo == 2 || armo == 4)
         {
-          gameObject.AddComponent("Rigidbody");
-          if (rigidbody != null)
+          gameObject.AddComponent<Rigidbody>();
+          if (GetComponent<Rigidbody>() != null)
           {
-            rigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
-            rigidbody.freezeRotation = true;
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
+            GetComponent<Rigidbody>().freezeRotation = true;
             if (characterT.position.x < t.position.x)
-              rigidbody.AddForce(rpgForceX, rpgForceY, 0);
+              GetComponent<Rigidbody>().AddForce(rpgForceX, rpgForceY, 0);
             else
-              rigidbody.AddForce(-rpgForceX, rpgForceY, 0);
+              GetComponent<Rigidbody>().AddForce(-rpgForceX, rpgForceY, 0);
           }
           SetAnim(deadRPGClip, 1);
         }
@@ -331,9 +332,9 @@ public class MonstrSoldat : MonoBehaviour
         }
         dead = true;
         if (character.Controller != null)
-          audio.volume = character.Controller.EffectsVolume;
-        audio.clip = deadSound;
-        audio.Play();
+          GetComponent<AudioSource>().volume = character.Controller.EffectsVolume;
+        GetComponent<AudioSource>().clip = deadSound;
+        GetComponent<AudioSource>().Play();
         if (isNear)
         { 
           character.NearMonstr -= 1;
@@ -350,7 +351,7 @@ public class MonstrSoldat : MonoBehaviour
         {
           armoTrg.SetActive(true);
           armoTrg.transform.parent = null;
-          armoTrg.animation.Play();
+          armoTrg.GetComponent<Animation>().Play();
           armoShowing = true;
         }
         if (fire != null)
@@ -359,10 +360,10 @@ public class MonstrSoldat : MonoBehaviour
       else
       {
         if (character.Controller != null)
-          audio.volume = character.Controller.EffectsVolume;
+          GetComponent<AudioSource>().volume = character.Controller.EffectsVolume;
         else Debug.LogWarning("character.Controller != null");
-        audio.clip = charAttackSound;
-        audio.Play();
+        GetComponent<AudioSource>().clip = charAttackSound;
+        GetComponent<AudioSource>().Play();
       }
     }
     
@@ -374,11 +375,11 @@ public class MonstrSoldat : MonoBehaviour
     if (gitara != null) //Бросить гитару
     {
       gitara.transform.parent = null;
-      gitara.AddComponent("Rigidbody");
+      gitara.AddComponent<Rigidbody>();
       if (characterT.position.x < t.position.x)
-        gitara.rigidbody.AddForce(-70, 0, 0);
+        gitara.GetComponent<Rigidbody>().AddForce(-70, 0, 0);
       else
-        gitara.rigidbody.AddForce(70, 0, 0);
+        gitara.GetComponent<Rigidbody>().AddForce(70, 0, 0);
 
       fire.transform.parent.gameObject.SetActive(true);
     }

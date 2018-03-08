@@ -1,6 +1,6 @@
 //----------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2013 Tasharen Entertainment
+// Copyright В© 2011-2013 Tasharen Entertainment
 //----------------------------------------------
 
 #if UNITY_FLASH || UNITY_WP8 || UNITY_METRO
@@ -524,7 +524,7 @@ public class UIPanel : MonoBehaviour
 	void OnEnable ()
 	{
 		// Apparently having a rigidbody helps
-		if (rigidbody == null)
+		if (GetComponent<Rigidbody>() == null)
 		{
 			Rigidbody rb = gameObject.AddComponent<Rigidbody>();
 			rb.isKinematic = true;
@@ -596,7 +596,7 @@ public class UIPanel : MonoBehaviour
 		RuntimePlatform platform = Application.platform;
 
 		if (platform == RuntimePlatform.WindowsPlayer ||
-			platform == RuntimePlatform.WindowsWebPlayer ||
+			platform == RuntimePlatform.WebGLPlayer ||
 			platform == RuntimePlatform.WindowsEditor)
 		{
 			range.x -= 0.5f;

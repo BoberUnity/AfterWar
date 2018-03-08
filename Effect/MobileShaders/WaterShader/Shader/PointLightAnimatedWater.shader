@@ -1,3 +1,7 @@
+// Upgrade NOTE: replaced '_LightMatrix0' with 'unity_WorldToLight'
+// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 Shader "Animated/Point Light Animated Water"
 {
 	Properties
@@ -47,7 +51,7 @@ Shader "Animated/Point Light Animated Water"
 		//uniform half _Alfa;
 
 		uniform sampler2D _LightTexture0;
-		uniform half4x4 _LightMatrix0;
+		uniform half4x4 unity_WorldToLight;
  
          struct vertexInput
 		 {
@@ -67,17 +71,17 @@ Shader "Animated/Point Light Animated Water"
          {
             vertexOutput output;
 
-			float4 vertWorldPos = mul(_Object2World, input.vertex);
+			float4 vertWorldPos = mul(unity_ObjectToWorld, input.vertex);
 
             half3 vertexToLightSource = half3(_WorldSpaceLightPos0 - vertWorldPos);
 			output.lightDir = normalize(vertexToLightSource);
 
 			output.dir = -(vertWorldPos.xyz - _WorldSpaceCameraPos.xyz);
 
-            output.pos = mul(UNITY_MATRIX_MVP, input.vertex);
+            output.pos = UnityObjectToClipPos(input.vertex);
 			output.tex = input.texcoord;
 
-			output._LightCoord = mul(_LightMatrix0, vertWorldPos).xyz;
+			output._LightCoord = mul(unity_WorldToLight, vertWorldPos).xyz;
 
             return output;
          }

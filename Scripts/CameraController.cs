@@ -113,7 +113,7 @@ public class CameraController : MonoBehaviour
       cam.position = Vector3.Lerp(cam.position, plrPos, Time.deltaTime * camSpeed);
       cam.position = new Vector3(Mathf.Clamp(cam.position.x, minX, maxX), Mathf.Clamp(cam.position.y, minY, maxY), cam.position.z);
       fonar.position = new Vector3(transform.position.x, transform.position.y + fonarHeight, -fonarDist);
-      cam.camera.fieldOfView = view;
+      cam.GetComponent<Camera>().fieldOfView = view;
     }
 	}
 

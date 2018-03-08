@@ -12,7 +12,7 @@ public class PlatformStop : MonoBehaviour
       characterTransform = other.transform;
       if (characterTransform.position.y > 0.6f)
       {
-        animation.Stop();
+        GetComponent<Animation>().Stop();
         StartCoroutine(AgainMove(4));
       }
     }
@@ -24,6 +24,6 @@ public class PlatformStop : MonoBehaviour
     if (characterTransform.position.y > 0.6f)
       StartCoroutine(AgainMove(4));
     else 
-      animation.Play();
+      GetComponent<Animation>().Play();
   }
 }

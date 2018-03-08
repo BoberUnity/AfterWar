@@ -6,6 +6,6 @@ public class AnimSpeed : MonoBehaviour
 	
 	void Start ()
 	{
-	  animation[animation.clip.name].speed = animSpeed;
+	  GetComponent<Animation>()[GetComponent<Animation>().clip.name].speed = animSpeed;
 	}
 }

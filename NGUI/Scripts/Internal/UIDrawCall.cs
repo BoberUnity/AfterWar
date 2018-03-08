@@ -754,7 +754,7 @@ public class UIDrawCall : MonoBehaviour
 		RuntimePlatform platform = Application.platform;
 
 		if (platform == RuntimePlatform.WindowsPlayer ||
-			platform == RuntimePlatform.WindowsWebPlayer ||
+			platform == RuntimePlatform.WebGLPlayer ||
 			platform == RuntimePlatform.WindowsEditor)
 		{
 			range.x -= 0.5f;

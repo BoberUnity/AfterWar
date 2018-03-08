@@ -9,8 +9,8 @@ namespace Assets.Scripts.GUI
     {
       if (!isPressed)
       {
-        animation.clip = backClip;
-        animation.Play();
+        GetComponent<Animation>().clip = backClip;
+        GetComponent<Animation>().Play();
         Time.timeScale = 1;
       }
     }

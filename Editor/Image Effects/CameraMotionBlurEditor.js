@@ -1,4 +1,4 @@
-
+/*
 #pragma strict
 
 @CustomEditor (CameraMotionBlur)
@@ -95,4 +95,4 @@ class CameraMotionBlurEditor extends Editor
         	
     serObj.ApplyModifiedProperties();
     }
-}
+}*/

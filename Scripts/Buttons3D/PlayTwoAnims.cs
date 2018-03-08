@@ -50,7 +50,7 @@ namespace Assets.Scripts.Buttons3D
     {
       yield return new WaitForSeconds(time);
       if (sound != null)
-        audio.Stop();
+        GetComponent<AudioSource>().Stop();
       isPlayed = false;
     }
 
@@ -58,11 +58,11 @@ namespace Assets.Scripts.Buttons3D
     {
       if (sound != null)
       {
-        audio.clip = sound;
+        GetComponent<AudioSource>().clip = sound;
         if (character.Controller != null)
-          audio.volume = character.Controller.EffectsVolume;
+          GetComponent<AudioSource>().volume = character.Controller.EffectsVolume;
         //audio.loop = loop;
-        audio.Play();
+        GetComponent<AudioSource>().Play();
         
       }
     }

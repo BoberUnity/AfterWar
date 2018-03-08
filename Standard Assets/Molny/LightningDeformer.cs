@@ -97,7 +97,7 @@ public class LightningDeformer : MonoBehaviour
 		
 		if (isEnabled)
 		{
-			audio.Play();
+			GetComponent<AudioSource>().Play();
 		}
 		
 	}
@@ -116,20 +116,20 @@ public class LightningDeformer : MonoBehaviour
 			
 			if (!isEnabled)
 			{
-				gameObject.renderer.enabled = false;
-				glow.renderer.enabled = false;
+				gameObject.GetComponent<Renderer>().enabled = false;
+				glow.GetComponent<Renderer>().enabled = false;
 				
 				timer = timer - timerEnd;
 				
 				timerEnd = Random.Range(invisibleTimeLowerLimit, invisibleTimeUpperLimit);
 				
 				if (stopSoundOnDisappear)
-					audio.Stop();
+					GetComponent<AudioSource>().Stop();
 			}
 			else
 			{
-				gameObject.renderer.enabled = true;
-				glow.renderer.enabled = true;
+				gameObject.GetComponent<Renderer>().enabled = true;
+				glow.GetComponent<Renderer>().enabled = true;
 				
 				RecalculateVertices();
 				sinusYOffset = Random.Range(0.0f, 6.5f);
@@ -140,8 +140,8 @@ public class LightningDeformer : MonoBehaviour
 				
 				timerEnd = Random.Range(lifetimeLowerLimit, lifetimeUpperLimit);
 				
-				audio.Stop();
-				audio.Play();
+				GetComponent<AudioSource>().Stop();
+				GetComponent<AudioSource>().Play();
 			}
 		}
 		
@@ -335,7 +335,7 @@ public class LightningDeformer : MonoBehaviour
 	
 	public float getCurrentLifetime ()
 	{
-		if (gameObject.renderer.enabled)
+		if (gameObject.GetComponent<Renderer>().enabled)
 			return timer;
 		return 0;
 	}

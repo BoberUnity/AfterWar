@@ -27,9 +27,9 @@ namespace Assets.Scripts.Buttons3D
 
     private void Update()
     {
-      audio.volume = (1 - Vector3.Distance(t.position, ct.position)/distanse + addVolume);
+      GetComponent<AudioSource>().volume = (1 - Vector3.Distance(t.position, ct.position)/distanse + addVolume);
       if (character.Controller != null)
-        audio.volume*=character.Controller.EffectsVolume;
+        GetComponent<AudioSource>().volume*=character.Controller.EffectsVolume;
       else
         Debug.LogWarning("Controller не найден, необходимо запустить сцену MenuMain");
     }
@@ -37,9 +37,9 @@ namespace Assets.Scripts.Buttons3D
     private IEnumerator SoundPlay(float time)
     {
       yield return new WaitForSeconds(time);
-      audio.clip = sound;
-      audio.loop = loop;
-      audio.Play();
+      GetComponent<AudioSource>().clip = sound;
+      GetComponent<AudioSource>().loop = loop;
+      GetComponent<AudioSource>().Play();
     }
   }
 }

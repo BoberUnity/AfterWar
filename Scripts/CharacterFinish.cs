@@ -403,16 +403,16 @@ public class CharacterFinish : MonoBehaviour
   //==================================================================================================================
   private void SetAnimCross(AnimationClip cl, float sp)
   {
-    animation.clip = cl;
-    animation[cl.name].speed = sp;
-    animation.CrossFade(cl.name);
+    GetComponent<Animation>().clip = cl;
+    GetComponent<Animation>()[cl.name].speed = sp;
+    GetComponent<Animation>().CrossFade(cl.name);
   }
   //==================================================================================================================
   private void SetAnimOnce(AnimationClip cl, float sp)
   {
-    animation.clip = cl;
-    animation[cl.name].speed = sp;
-    animation.Play(cl.name);
+    GetComponent<Animation>().clip = cl;
+    GetComponent<Animation>()[cl.name].speed = sp;
+    GetComponent<Animation>().Play(cl.name);
   }
   
   //==================================================================================================================

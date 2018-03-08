@@ -26,7 +26,8 @@ public class LevelLoader : MonoBehaviour
   {
     foreach (var butt in buttonLoadLevels)
     {
-      butt.StartLoadLevel -= StartLoadLevel;
+      if (butt != null)
+        butt.StartLoadLevel -= StartLoadLevel;
     }
   }
   

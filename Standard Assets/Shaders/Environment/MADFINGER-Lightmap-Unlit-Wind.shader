@@ -1,3 +1,11 @@
+// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+// Upgrade NOTE: commented out 'float4 unity_LightmapST', a built-in variable
+// Upgrade NOTE: commented out 'sampler2D unity_Lightmap', a built-in variable
+// Upgrade NOTE: replaced tex2D unity_Lightmap with UNITY_SAMPLE_TEX2D
+
 // - Unlit
 // - Per-vertex (virtual) camera space specular light
 // - SUPPORTS lightmap
@@ -26,8 +34,8 @@ SubShader {
 	samplerCUBE _ReflTex;
 	
 	#ifndef LIGHTMAP_OFF
-	float4 unity_LightmapST;
-	sampler2D unity_Lightmap;
+	// float4 unity_LightmapST;
+	// sampler2D unity_Lightmap;
 	#endif
 	
 	float _WindEdgeFlutter;
@@ -54,7 +62,7 @@ inline float4 AnimateVertex2(float4 pos, float3 normal, float4 animParams,float4
 	float fBranchAmp = 0.3f;
 	
 	// Phases (object, vertex, branch)
-	float fObjPhase = dot(_Object2World[3].xyz, 1);
+	float fObjPhase = dot(unity_ObjectToWorld[3].xyz, 1);
 	float fBranchPhase = fObjPhase + animParams.x;
 	
 	float fVtxPhase = dot(pos.xyz, animParams.y + fBranchPhase);
@@ -90,7 +98,7 @@ inline float4 AnimateVertex2(float4 pos, float3 normal, float4 animParams,float4
 		
 		float			bendingFact	= v.color.a;
 		
-		wind.xyz	= mul((float3x3)_World2Object,_Wind.xyz);
+		wind.xyz	= mul((float3x3)unity_WorldToObject,_Wind.xyz);
 		wind.w		= _Wind.w  * bendingFact;
 		
 		
@@ -98,7 +106,7 @@ inline float4 AnimateVertex2(float4 pos, float3 normal, float4 animParams,float4
 		float 		windTime 		= _Time.y * float2(_WindEdgeFlutterFreqScale,1);
 		float4	mdlPos			= AnimateVertex2(v.vertex,v.normal,windParams,wind,windTime);
 		
-		o.pos = mul(UNITY_MATRIX_MVP,mdlPos);
+		o.pos = UnityObjectToClipPos(mdlPos);
 		o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
 		
 		o.spec = v.color;
@@ -127,7 +135,7 @@ inline float4 AnimateVertex2(float4 pos, float3 normal, float4 animParams,float4
 			c.a = tex.a;
 			
 			#ifndef LIGHTMAP_OFF
-			fixed3 lm = DecodeLightmap (tex2D(unity_Lightmap, i.lmap));
+			fixed3 lm = DecodeLightmap (UNITY_SAMPLE_TEX2D(unity_Lightmap, i.lmap));
 			c.rgb *= lm;
 			#endif
 			

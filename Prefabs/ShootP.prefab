@@ -5,13 +5,13 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 400000}
-  - 15: {fileID: 1500000}
-  - 12: {fileID: 1200000}
-  - 26: {fileID: 2600000}
-  - 114: {fileID: 11400000}
+  - component: {fileID: 400000}
+  - component: {fileID: 1500000}
+  - component: {fileID: 1200000}
+  - component: {fileID: 2600000}
+  - component: {fileID: 11451760}
   m_Layer: 8
   m_Name: ShootP
   m_TagString: Untagged
@@ -25,11 +25,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: .0185095202, y: .706864119, z: .0185091775, w: .706864893}
-  m_LocalPosition: {x: .0462818705, y: .0550110638, z: -.22108753}
-  m_LocalScale: {x: 4.34782696, y: 4.34782314, z: 4.34782553}
+  m_LocalRotation: {x: 0.01850952, y: 0.7068641, z: 0.018509177, w: 0.7068649}
+  m_LocalPosition: {x: 0.04628187, y: 0.055011064, z: -0.22108753}
+  m_LocalScale: {x: 4.347827, y: 4.347823, z: 4.3478255}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!12 &1200000
 ParticleAnimator:
   m_ObjectHideFlags: 1
@@ -69,16 +71,16 @@ EllipsoidParticleEmitter:
   serializedVersion: 2
   m_Enabled: 1
   m_Emit: 1
-  minSize: .0399999991
-  maxSize: .0399999991
-  minEnergy: .100000001
-  maxEnergy: .100000001
+  minSize: 0.04
+  maxSize: 0.04
+  minEnergy: 0.1
+  maxEnergy: 0.1
   minEmission: 5
   maxEmission: 5
   worldVelocity: {x: 0, y: 0, z: 0}
-  localVelocity: {x: .600000024, y: 0, z: 0}
-  rndVelocity: {x: .200000003, y: 0, z: 0}
-  emitterVelocityScale: .0500000007
+  localVelocity: {x: 0.6, y: 0, z: 0}
+  rndVelocity: {x: 0.2, y: 0, z: 0}
+  emitterVelocityScale: 0.05
   tangentVelocity: {x: 0, y: 0, z: 0}
   angularVelocity: 0
   rndAngularVelocity: 0
@@ -96,29 +98,42 @@ ParticleRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_LightmapIndex: 255
-  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 0c9718e8c56b0804ab7e1b30e0d21db4, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_LightProbeAnchor: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_SortingLayerID: 0
   serializedVersion: 2
   m_CameraVelocityScale: 0
   m_StretchParticles: 0
   m_LengthScale: 1
   m_VelocityScale: 0
-  m_MaxParticleSize: .00999999978
+  m_MaxParticleSize: 0.01
   UV Animation:
     x Tile: 1
     y Tile: 1
     cycles: 1
---- !u!114 &11400000
+--- !u!114 &11451760
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -126,10 +141,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c13b0bcc59822c499ccbf91d0267196, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d35c4cad02a92546a2679751225a682, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  liveTime: .0900000036
+  liveTime: 0.099
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -141,4 +156,3 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabParent: 1
-  m_IsExploded: 1

@@ -1,6 +1,6 @@
 //----------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2013 Tasharen Entertainment
+// Copyright В© 2011-2013 Tasharen Entertainment
 //----------------------------------------------
 
 using UnityEngine;
@@ -75,7 +75,7 @@ public class UISlider : UIProgressBar
 
 	protected override void OnStart ()
 	{
-		if (thumb != null && thumb.collider != null)
+		if (thumb != null && thumb.GetComponent<Collider>() != null)
 		{
 			UIEventListener fgl = UIEventListener.Get(thumb.gameObject);
 			fgl.onPress += OnPressForeground;
